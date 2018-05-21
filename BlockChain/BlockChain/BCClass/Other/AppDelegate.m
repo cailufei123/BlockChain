@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "SATabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,14 +16,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    ViewController *view = [[ViewController alloc] init];
+   
+    self.window = [[UIWindow alloc] init];
+    self.window.frame = [UIScreen mainScreen].bounds;
+    self.window.backgroundColor = [UIColor whiteColor];
+    SATabBarController * tabBarvc = [[SATabBarController alloc] init];
+    self. window.rootViewController = tabBarvc;
+    [self.window makeKeyAndVisible];
     
-    //haasdfasdfasdfasdf
-    //sadfasdfasdfasdf
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:view];
-    self.window.rootViewController = nav;
-    
-    //
     
     return YES;
 }
