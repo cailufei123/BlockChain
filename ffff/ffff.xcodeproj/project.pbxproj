@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0652471C20B2D2D200F65C2A /* twoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652471B20B2D2D200F65C2A /* twoViewController.m */; };
 		ADE1235120B2C0FC00F6E172 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1235020B2C0FC00F6E172 /* AppDelegate.m */; };
 		ADE1235420B2C0FC00F6E172 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1235320B2C0FC00F6E172 /* ViewController.m */; };
 		ADE1235720B2C0FC00F6E172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1235520B2C0FC00F6E172 /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0652471A20B2D2D200F65C2A /* twoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = twoViewController.h; sourceTree = "<group>"; };
+		0652471B20B2D2D200F65C2A /* twoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = twoViewController.m; sourceTree = "<group>"; };
 		ADE1234C20B2C0FC00F6E172 /* ffff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ffff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE1234F20B2C0FC00F6E172 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ADE1235020B2C0FC00F6E172 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				ADE1235020B2C0FC00F6E172 /* AppDelegate.m */,
 				ADE1235220B2C0FC00F6E172 /* ViewController.h */,
 				ADE1235320B2C0FC00F6E172 /* ViewController.m */,
+				0652471A20B2D2D200F65C2A /* twoViewController.h */,
+				0652471B20B2D2D200F65C2A /* twoViewController.m */,
 				ADE1235520B2C0FC00F6E172 /* Main.storyboard */,
 				ADE1235820B2C0FD00F6E172 /* Assets.xcassets */,
 				ADE1235A20B2C0FD00F6E172 /* LaunchScreen.storyboard */,
@@ -271,6 +276,7 @@
 				ADE1235F20B2C0FD00F6E172 /* main.m in Sources */,
 				ADE1238320B2C44A00F6E172 /* ffCollectionViewController.m in Sources */,
 				ADE1235120B2C0FC00F6E172 /* AppDelegate.m in Sources */,
+				0652471C20B2D2D200F65C2A /* twoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
