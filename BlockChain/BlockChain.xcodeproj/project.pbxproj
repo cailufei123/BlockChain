@@ -145,6 +145,7 @@
 		ADE1272220B2F13600F6E172 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADE1272120B2F13600F6E172 /* Info.plist */; };
 		ADE1272D20B2F23200F6E172 /* BCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1272C20B2F23200F6E172 /* BCHomeViewController.m */; };
 		ADE1273020B2F25300F6E172 /* BCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1272F20B2F25300F6E172 /* BCMeViewController.m */; };
+		ADE1273320B2F64E00F6E172 /* BCHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1273220B2F64E00F6E172 /* BCHomeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -441,6 +442,8 @@
 		ADE1272C20B2F23200F6E172 /* BCHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeViewController.m; sourceTree = "<group>"; };
 		ADE1272E20B2F25300F6E172 /* BCMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeViewController.h; sourceTree = "<group>"; };
 		ADE1272F20B2F25300F6E172 /* BCMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeViewController.m; sourceTree = "<group>"; };
+		ADE1273120B2F64E00F6E172 /* BCHomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeView.h; sourceTree = "<group>"; };
+		ADE1273220B2F64E00F6E172 /* BCHomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1237,6 +1240,8 @@
 		ADE1272820B2F20600F6E172 /* BCMeView */ = {
 			isa = PBXGroup;
 			children = (
+				ADE1273120B2F64E00F6E172 /* BCHomeView.h */,
+				ADE1273220B2F64E00F6E172 /* BCHomeView.m */,
 			);
 			path = BCMeView;
 			sourceTree = "<group>";
@@ -1470,6 +1475,7 @@
 				ADE1265720B2E84F00F6E172 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				ADE126CE20B2EB4F00F6E172 /* NSDate+Category.m in Sources */,
 				ADE1265F20B2E84F00F6E172 /* IQUIViewController+Additions.m in Sources */,
+				ADE1273320B2F64E00F6E172 /* BCHomeView.m in Sources */,
 				ADE125B220B2E84F00F6E172 /* SDWebImageCoderHelper.m in Sources */,
 				ADE1266120B2E84F00F6E172 /* UIScrollView+EmptyDataSet.m in Sources */,
 				ADE126D920B2EB4F00F6E172 /* UIImage+WHImage.m in Sources */,
