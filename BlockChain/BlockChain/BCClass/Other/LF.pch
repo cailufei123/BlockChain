@@ -1,0 +1,95 @@
+//
+//  LF.pch
+//  品多多
+//
+//  Created by 蔡路飞 on 2017/12/6.
+//  Copyright © 2017年 cailufei. All rights reserved.
+//
+#ifdef __OBJC__
+#import "HeaderFile.h"
+#endif
+#ifndef LF_pch
+#define LF_pch
+
+#define login [LFAccountTool account]
+#define loginToken login.token
+#define loginUid login.userId
+#define huanchatId login.huanId
+#define loginTokenlength loginToken.length
+#define loginTokenlength loginToken.length
+#define loginOpenId login.sUid
+
+
+#define ATSKIPTOOl [ATSkipTool sharedInstance]
+
+
+#define LFNSNOTI [NSNotificationCenter defaultCenter]
+
+
+#define WeakSelf(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+
+#define diction  [NSMutableDictionary dictionary];
+
+
+#define LFscreenH [UIScreen mainScreen].bounds.size.height
+#define LFscreenW [UIScreen mainScreen].bounds.size.width
+
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+
+
+
+
+
+
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavBarHeight 44.0
+#define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
+#define kTopHeight (kStatusBarHeight + kNavBarHeight)
+#define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5s (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+
+
+#define  bagColor [SVGloble colorWithHexString:@"#f4f4f4"]
+#define  bagColor1 [SVGloble colorWithHexString:@"#f2f2f2"]
+#define  assistColor [SVGloble colorWithHexString:@"#F13274"]
+#define  orangebagColor [SVGloble colorWithHexString:@"#DBBB85"]
+#define  bkColor [SVGloble colorWithHexString:@"#2a2a2a"]
+#define  deepGrayColor [SVGloble colorWithHexString:@"#999999"]
+
+#define itemtitleColor [SVGloble colorWithHexString:@"#B27E3E"]
+#define  naverBagColor [SVGloble colorWithHexString:@"#404652"]
+#define  naverTextColor [SVGloble colorWithHexString:@"#ffffff"]
+#define textReadColor [SVGloble colorWithHexString:@"#FF3737"]
+#define noSelectColor [SVGloble colorWithHexString:@"#444444"]
+
+#define  grayBgColor [SVGloble colorWithHexString:@"#D8D8D8"]
+#define  blackTextColor [SVGloble colorWithHexString:@"#474747"]
+#define  grayProgressColor [SVGloble colorWithHexString:@"#E6E6E6"]
+
+#define publishTextColor [SVGloble colorWithHexString:@"#39404E"]
+#define yellowBoderColor [SVGloble colorWithHexString:@"#FF9F20"]
+#define groBoderColor [SVGloble colorWithHexString:@"#cccccc"]
+#define  blackBColor [SVGloble colorWithHexString:@"#222222"]
+#endif /* LF_pch */
+
+
+#ifdef DEBUG
+#define LFLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define LFLog(...)
+#endif
