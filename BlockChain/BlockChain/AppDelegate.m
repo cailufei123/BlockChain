@@ -18,7 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ViewController *view = [[ViewController alloc] init];
     
-    //haha
+    //haasdfasdfasdfasdf
+    //sadfasdfasdfasdf
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:view];
     self.window.rootViewController = nav;
     
