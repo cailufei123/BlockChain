@@ -15,6 +15,7 @@
 		ADE1235F20B2C0FD00F6E172 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1235E20B2C0FD00F6E172 /* main.m */; };
 		ADE1236920B2C0FD00F6E172 /* ffffTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1236820B2C0FD00F6E172 /* ffffTests.m */; };
 		ADE1237420B2C0FD00F6E172 /* ffffUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1237320B2C0FD00F6E172 /* ffffUITests.m */; };
+		ADE1238320B2C44A00F6E172 /* ffCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1238220B2C44A00F6E172 /* ffCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		ADE1236F20B2C0FD00F6E172 /* ffffUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ffffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE1237320B2C0FD00F6E172 /* ffffUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ffffUITests.m; sourceTree = "<group>"; };
 		ADE1237520B2C0FD00F6E172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADE1238120B2C44A00F6E172 /* ffCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ffCollectionViewController.h; sourceTree = "<group>"; };
+		ADE1238220B2C44A00F6E172 /* ffCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ffCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				ADE1235A20B2C0FD00F6E172 /* LaunchScreen.storyboard */,
 				ADE1235D20B2C0FD00F6E172 /* Info.plist */,
 				ADE1235E20B2C0FD00F6E172 /* main.m */,
+				ADE1238120B2C44A00F6E172 /* ffCollectionViewController.h */,
+				ADE1238220B2C44A00F6E172 /* ffCollectionViewController.m */,
 			);
 			path = ffff;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 			files = (
 				ADE1235420B2C0FC00F6E172 /* ViewController.m in Sources */,
 				ADE1235F20B2C0FD00F6E172 /* main.m in Sources */,
+				ADE1238320B2C44A00F6E172 /* ffCollectionViewController.m in Sources */,
 				ADE1235120B2C0FC00F6E172 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
