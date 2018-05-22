@@ -8,17 +8,31 @@
 
 #import "BCHomeViewController.h"
 #import "BCHomeTableViewCell.h"
+#import "BCHomeTopView.h"
 @interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
+@property(nonatomic,strong)BCHomeTopView * homeTopView;
 @end
 static NSString * const cellidenfder = @"BCHomeTableViewCell";
 @implementation BCHomeViewController
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+      self.navigationController.navigationBar.translucent = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTable];
+    [self createTopView];
 }
-
+-(void)createTopView{
+     self.homeTopView = [BCHomeTopView loadNameBCHomeTopViewXib];
+    self.tableView.tableHeaderView =  self.homeTopView;
+    
+}
 -(void)setTable{
     
     self.automaticallyAdjustsScrollViewInsets = NO;

@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		ADD0895220B3B41900B3C4A4 /* BCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895120B3B41900B3C4A4 /* BCHomeViewController.m */; };
 		ADD0895520B3B42500B3C4A4 /* BCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */; };
-		ADD0895820B3B59600B3C4A4 /* BCHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895720B3B59600B3C4A4 /* BCHomeView.m */; };
 		ADD0895C20B3B5F800B3C4A4 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895A20B3B5F800B3C4A4 /* BCHomeTableViewCell.m */; };
 		ADD0895D20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD0895B20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib */; };
 		ADD0896420B3B71900B3C4A4 /* BCLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0896220B3B71900B3C4A4 /* BCLoginController.m */; };
 		ADD0896520B3B71900B3C4A4 /* BCLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */; };
+		ADD0896C20B3BA8C00B3C4A4 /* BCHomeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0896B20B3BA8C00B3C4A4 /* BCHomeTopView.m */; };
+		ADD0896E20B3BAA000B3C4A4 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD0896D20B3BAA000B3C4A4 /* BCHomeTopView.xib */; };
 		ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239620B2D67D00F6E172 /* Main.storyboard */; };
 		ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239920B2D67E00F6E172 /* Assets.xcassets */; };
 		ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239B20B2D67E00F6E172 /* LaunchScreen.storyboard */; };
@@ -174,14 +175,15 @@
 		ADD0895120B3B41900B3C4A4 /* BCHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeViewController.m; sourceTree = "<group>"; };
 		ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMeViewController.m; sourceTree = "<group>"; };
 		ADD0895420B3B42400B3C4A4 /* BCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMeViewController.h; sourceTree = "<group>"; };
-		ADD0895620B3B59600B3C4A4 /* BCHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCHomeView.h; sourceTree = "<group>"; };
-		ADD0895720B3B59600B3C4A4 /* BCHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeView.m; sourceTree = "<group>"; };
 		ADD0895920B3B5F800B3C4A4 /* BCHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeTableViewCell.h; sourceTree = "<group>"; };
 		ADD0895A20B3B5F800B3C4A4 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
 		ADD0895B20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		ADD0896120B3B71900B3C4A4 /* BCLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCLoginController.h; sourceTree = "<group>"; };
 		ADD0896220B3B71900B3C4A4 /* BCLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCLoginController.m; sourceTree = "<group>"; };
 		ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCLoginController.xib; sourceTree = "<group>"; };
+		ADD0896A20B3BA8C00B3C4A4 /* BCHomeTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeTopView.h; sourceTree = "<group>"; };
+		ADD0896B20B3BA8C00B3C4A4 /* BCHomeTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeTopView.m; sourceTree = "<group>"; };
+		ADD0896D20B3BAA000B3C4A4 /* BCHomeTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		ADE1238D20B2D67D00F6E172 /* BlockChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE1239720B2D67D00F6E172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADE1239920B2D67E00F6E172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1211,11 +1213,12 @@
 		ADE1272420B2F1AB00F6E172 /* BCHomeView */ = {
 			isa = PBXGroup;
 			children = (
-				ADD0895620B3B59600B3C4A4 /* BCHomeView.h */,
-				ADD0895720B3B59600B3C4A4 /* BCHomeView.m */,
 				ADD0895920B3B5F800B3C4A4 /* BCHomeTableViewCell.h */,
 				ADD0895A20B3B5F800B3C4A4 /* BCHomeTableViewCell.m */,
 				ADD0895B20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib */,
+				ADD0896A20B3BA8C00B3C4A4 /* BCHomeTopView.h */,
+				ADD0896B20B3BA8C00B3C4A4 /* BCHomeTopView.m */,
+				ADD0896D20B3BAA000B3C4A4 /* BCHomeTopView.xib */,
 			);
 			path = BCHomeView;
 			sourceTree = "<group>";
@@ -1356,6 +1359,7 @@
 				ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */,
 				ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */,
 				ADE1264320B2E84F00F6E172 /* UMSocialSDKResources.bundle in Resources */,
+				ADD0896E20B3BAA000B3C4A4 /* BCHomeTopView.xib in Resources */,
 				ADD0895D20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib in Resources */,
 				ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */,
 				ADE1266220B2E84F00F6E172 /* Info.plist in Resources */,
@@ -1398,6 +1402,7 @@
 				ADE126D720B2EB4F00F6E172 /* UIImageView+WHImageView.m in Sources */,
 				ADE126DF20B2EB4F00F6E172 /* UINavigationController+WHNavigationController.m in Sources */,
 				ADE1265220B2E84F00F6E172 /* MJFoundation.m in Sources */,
+				ADD0896C20B3BA8C00B3C4A4 /* BCHomeTopView.m in Sources */,
 				ADE125A920B2E84F00F6E172 /* SDWebImageFrame.m in Sources */,
 				ADE125AD20B2E84F00F6E172 /* FLAnimatedImage.m in Sources */,
 				ADE126E520B2EB4F00F6E172 /* UIBarButtonItem+LFExtension.m in Sources */,
@@ -1463,7 +1468,6 @@
 				ADE1265720B2E84F00F6E172 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				ADE126CE20B2EB4F00F6E172 /* NSDate+Category.m in Sources */,
 				ADE1265F20B2E84F00F6E172 /* IQUIViewController+Additions.m in Sources */,
-				ADD0895820B3B59600B3C4A4 /* BCHomeView.m in Sources */,
 				ADE125B220B2E84F00F6E172 /* SDWebImageCoderHelper.m in Sources */,
 				ADE1266120B2E84F00F6E172 /* UIScrollView+EmptyDataSet.m in Sources */,
 				ADE126D920B2EB4F00F6E172 /* UIImage+WHImage.m in Sources */,
