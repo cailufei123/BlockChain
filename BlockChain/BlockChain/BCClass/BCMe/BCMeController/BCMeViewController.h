@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BCMeModel;
 
 @interface BCMeViewController : UIViewController
+
+@property(nonatomic,strong)BCMeModel*model;
 
 @end

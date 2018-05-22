@@ -86,6 +86,18 @@
 #define groBoderColor [SVGloble colorWithHexString:@"#cccccc"]
 #define  blackBColor [SVGloble colorWithHexString:@"#222222"]
 
+//wuboyi 新增
+#define  color484848 [SVGloble colorWithHexString:@"#484848"]
+#define  color101010 [SVGloble colorWithHexString:@"#101010"]
+#define  color002323 [SVGloble colorWithHexString:@"#002323"]
+#define  colorE5E7E9 [SVGloble colorWithHexString:@"#E5E7E9"]
+#define  colorB378D5 [SVGloble colorWithHexString:@"#B378D5"]
+#define  color7B7B7B [SVGloble colorWithHexString:@"#7B7B7B"]
+
+
+
+
+
 /****wuboyi****/
 /************************字符串格式化定义************************/
 #define ZZString(str)             [NSString stringWithFormat:@"%@",str]
@@ -108,6 +120,8 @@
 #define BOLDSYSTEMFONT(FONTSIZE)[UIFont boldSystemFontOfSize:FONTSIZE]
 #define SYSTEMFONT(FONTSIZE)    [UIFont systemFontOfSize:FONTSIZE]
 #define FONT(NAME, FONTSIZE)    [UIFont fontWithName:(NAME) size:(FONTSIZE)]
+
+
 // 微软雅黑
 #define HL_YAHEI_FONT(FONTSIZE) [UIFont fontWithName:@"MicrosoftYaHei" size:(FONTSIZE)]
 // 英文 和 数字
