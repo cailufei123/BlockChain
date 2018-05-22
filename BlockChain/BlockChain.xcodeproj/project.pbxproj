@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		ADD0895220B3B41900B3C4A4 /* BCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895120B3B41900B3C4A4 /* BCHomeViewController.m */; };
 		ADD0895520B3B42500B3C4A4 /* BCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */; };
+		ADD0895820B3B59600B3C4A4 /* BCHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895720B3B59600B3C4A4 /* BCHomeView.m */; };
+		ADD0895C20B3B5F800B3C4A4 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895A20B3B5F800B3C4A4 /* BCHomeTableViewCell.m */; };
+		ADD0895D20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD0895B20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib */; };
 		ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239620B2D67D00F6E172 /* Main.storyboard */; };
 		ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239920B2D67E00F6E172 /* Assets.xcassets */; };
 		ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239B20B2D67E00F6E172 /* LaunchScreen.storyboard */; };
@@ -145,7 +148,6 @@
 		ADE1271F20B2F04400F6E172 /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1271A20B2F04300F6E172 /* WRCustomNavigationBar.m */; };
 		ADE1272020B2F04400F6E172 /* WRImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1271C20B2F04300F6E172 /* WRImageHelper.m */; };
 		ADE1272220B2F13600F6E172 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADE1272120B2F13600F6E172 /* Info.plist */; };
-		ADE1273320B2F64E00F6E172 /* BCHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1273220B2F64E00F6E172 /* BCHomeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +172,11 @@
 		ADD0895120B3B41900B3C4A4 /* BCHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeViewController.m; sourceTree = "<group>"; };
 		ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMeViewController.m; sourceTree = "<group>"; };
 		ADD0895420B3B42400B3C4A4 /* BCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMeViewController.h; sourceTree = "<group>"; };
+		ADD0895620B3B59600B3C4A4 /* BCHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCHomeView.h; sourceTree = "<group>"; };
+		ADD0895720B3B59600B3C4A4 /* BCHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeView.m; sourceTree = "<group>"; };
+		ADD0895920B3B5F800B3C4A4 /* BCHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeTableViewCell.h; sourceTree = "<group>"; };
+		ADD0895A20B3B5F800B3C4A4 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
+		ADD0895B20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		ADE1238D20B2D67D00F6E172 /* BlockChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE1239720B2D67D00F6E172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADE1239920B2D67E00F6E172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -442,8 +449,6 @@
 		ADE1271C20B2F04300F6E172 /* WRImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRImageHelper.m; sourceTree = "<group>"; };
 		ADE1271D20B2F04300F6E172 /* WRImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRImageHelper.h; sourceTree = "<group>"; };
 		ADE1272120B2F13600F6E172 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADE1273120B2F64E00F6E172 /* BCHomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeView.h; sourceTree = "<group>"; };
-		ADE1273220B2F64E00F6E172 /* BCHomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1199,7 +1204,6 @@
 			children = (
 				ADE1272520B2F1AB00F6E172 /* BCHomeController */,
 				ADE1272420B2F1AB00F6E172 /* BCHomeView */,
-				ADE1272620B2F1AB00F6E172 /* BCHomeModel */,
 			);
 			path = BCHome;
 			sourceTree = "<group>";
@@ -1207,6 +1211,11 @@
 		ADE1272420B2F1AB00F6E172 /* BCHomeView */ = {
 			isa = PBXGroup;
 			children = (
+				ADD0895620B3B59600B3C4A4 /* BCHomeView.h */,
+				ADD0895720B3B59600B3C4A4 /* BCHomeView.m */,
+				ADD0895920B3B5F800B3C4A4 /* BCHomeTableViewCell.h */,
+				ADD0895A20B3B5F800B3C4A4 /* BCHomeTableViewCell.m */,
+				ADD0895B20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib */,
 			);
 			path = BCHomeView;
 			sourceTree = "<group>";
@@ -1220,30 +1229,12 @@
 			path = BCHomeController;
 			sourceTree = "<group>";
 		};
-		ADE1272620B2F1AB00F6E172 /* BCHomeModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BCHomeModel;
-			sourceTree = "<group>";
-		};
 		ADE1272720B2F20600F6E172 /* BCMe */ = {
 			isa = PBXGroup;
 			children = (
 				ADE1272920B2F20600F6E172 /* BCMeController */,
-				ADE1272820B2F20600F6E172 /* BCMeView */,
-				ADE1272A20B2F20600F6E172 /* BCMeModel */,
 			);
 			path = BCMe;
-			sourceTree = "<group>";
-		};
-		ADE1272820B2F20600F6E172 /* BCMeView */ = {
-			isa = PBXGroup;
-			children = (
-				ADE1273120B2F64E00F6E172 /* BCHomeView.h */,
-				ADE1273220B2F64E00F6E172 /* BCHomeView.m */,
-			);
-			path = BCMeView;
 			sourceTree = "<group>";
 		};
 		ADE1272920B2F20600F6E172 /* BCMeController */ = {
@@ -1253,13 +1244,6 @@
 				ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */,
 			);
 			path = BCMeController;
-			sourceTree = "<group>";
-		};
-		ADE1272A20B2F20600F6E172 /* BCMeModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BCMeModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1371,6 +1355,7 @@
 				ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */,
 				ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */,
 				ADE1264320B2E84F00F6E172 /* UMSocialSDKResources.bundle in Resources */,
+				ADD0895D20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib in Resources */,
 				ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */,
 				ADE1266220B2E84F00F6E172 /* Info.plist in Resources */,
 				ADE1265920B2E84F00F6E172 /* IQKeyboardManager.bundle in Resources */,
@@ -1406,6 +1391,7 @@
 				ADE1264920B2E84F00F6E172 /* MJPropertyType.m in Sources */,
 				ADE1270A20B2EDC200F6E172 /* LFAccountTool.m in Sources */,
 				ADE1270620B2ED4D00F6E172 /* AFNetworkReachabilityManager.m in Sources */,
+				ADD0895C20B3B5F800B3C4A4 /* BCHomeTableViewCell.m in Sources */,
 				ADE126D820B2EB4F00F6E172 /* UIBarButtonItem+WHBarButtonItem.m in Sources */,
 				ADE125A420B2E84F00F6E172 /* FMResultSet.m in Sources */,
 				ADE126D720B2EB4F00F6E172 /* UIImageView+WHImageView.m in Sources */,
@@ -1476,7 +1462,7 @@
 				ADE1265720B2E84F00F6E172 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				ADE126CE20B2EB4F00F6E172 /* NSDate+Category.m in Sources */,
 				ADE1265F20B2E84F00F6E172 /* IQUIViewController+Additions.m in Sources */,
-				ADE1273320B2F64E00F6E172 /* BCHomeView.m in Sources */,
+				ADD0895820B3B59600B3C4A4 /* BCHomeView.m in Sources */,
 				ADE125B220B2E84F00F6E172 /* SDWebImageCoderHelper.m in Sources */,
 				ADE1266120B2E84F00F6E172 /* UIScrollView+EmptyDataSet.m in Sources */,
 				ADE126D920B2EB4F00F6E172 /* UIImage+WHImage.m in Sources */,
