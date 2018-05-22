@@ -59,5 +59,5 @@
 
 #import "Masonry.h"
 #import "BCRefreshAutoGifFooter.h"
-#import "BCRefreshAutoGifFooter.h"
+#import "SARefreshGifHeader.h"
 #endif /* HeaderFile_h */
