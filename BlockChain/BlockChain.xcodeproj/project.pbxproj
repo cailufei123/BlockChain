@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ADD0895220B3B41900B3C4A4 /* BCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895120B3B41900B3C4A4 /* BCHomeViewController.m */; };
+		ADD0895520B3B42500B3C4A4 /* BCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */; };
 		ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239620B2D67D00F6E172 /* Main.storyboard */; };
 		ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239920B2D67E00F6E172 /* Assets.xcassets */; };
 		ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239B20B2D67E00F6E172 /* LaunchScreen.storyboard */; };
@@ -143,8 +145,6 @@
 		ADE1271F20B2F04400F6E172 /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1271A20B2F04300F6E172 /* WRCustomNavigationBar.m */; };
 		ADE1272020B2F04400F6E172 /* WRImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1271C20B2F04300F6E172 /* WRImageHelper.m */; };
 		ADE1272220B2F13600F6E172 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADE1272120B2F13600F6E172 /* Info.plist */; };
-		ADE1272D20B2F23200F6E172 /* BCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1272C20B2F23200F6E172 /* BCHomeViewController.m */; };
-		ADE1273020B2F25300F6E172 /* BCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1272F20B2F25300F6E172 /* BCMeViewController.m */; };
 		ADE1273320B2F64E00F6E172 /* BCHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1273220B2F64E00F6E172 /* BCHomeView.m */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +166,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ADD0895020B3B41900B3C4A4 /* BCHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCHomeViewController.h; sourceTree = "<group>"; };
+		ADD0895120B3B41900B3C4A4 /* BCHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeViewController.m; sourceTree = "<group>"; };
+		ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMeViewController.m; sourceTree = "<group>"; };
+		ADD0895420B3B42400B3C4A4 /* BCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMeViewController.h; sourceTree = "<group>"; };
 		ADE1238D20B2D67D00F6E172 /* BlockChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE1239720B2D67D00F6E172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADE1239920B2D67E00F6E172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -438,10 +442,6 @@
 		ADE1271C20B2F04300F6E172 /* WRImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRImageHelper.m; sourceTree = "<group>"; };
 		ADE1271D20B2F04300F6E172 /* WRImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRImageHelper.h; sourceTree = "<group>"; };
 		ADE1272120B2F13600F6E172 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADE1272B20B2F23200F6E172 /* BCHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeViewController.h; sourceTree = "<group>"; };
-		ADE1272C20B2F23200F6E172 /* BCHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeViewController.m; sourceTree = "<group>"; };
-		ADE1272E20B2F25300F6E172 /* BCMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeViewController.h; sourceTree = "<group>"; };
-		ADE1272F20B2F25300F6E172 /* BCMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeViewController.m; sourceTree = "<group>"; };
 		ADE1273120B2F64E00F6E172 /* BCHomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeView.h; sourceTree = "<group>"; };
 		ADE1273220B2F64E00F6E172 /* BCHomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1214,8 +1214,8 @@
 		ADE1272520B2F1AB00F6E172 /* BCHomeController */ = {
 			isa = PBXGroup;
 			children = (
-				ADE1272E20B2F25300F6E172 /* BCMeViewController.h */,
-				ADE1272F20B2F25300F6E172 /* BCMeViewController.m */,
+				ADD0895020B3B41900B3C4A4 /* BCHomeViewController.h */,
+				ADD0895120B3B41900B3C4A4 /* BCHomeViewController.m */,
 			);
 			path = BCHomeController;
 			sourceTree = "<group>";
@@ -1249,8 +1249,8 @@
 		ADE1272920B2F20600F6E172 /* BCMeController */ = {
 			isa = PBXGroup;
 			children = (
-				ADE1272B20B2F23200F6E172 /* BCHomeViewController.h */,
-				ADE1272C20B2F23200F6E172 /* BCHomeViewController.m */,
+				ADD0895420B3B42400B3C4A4 /* BCMeViewController.h */,
+				ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */,
 			);
 			path = BCMeController;
 			sourceTree = "<group>";
@@ -1433,6 +1433,7 @@
 				ADE1266020B2E84F00F6E172 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				ADE1265D20B2E84F00F6E172 /* IQUIScrollView+Additions.m in Sources */,
 				ADE126D120B2EB4F00F6E172 /* NSObject+WHObject.m in Sources */,
+				ADD0895520B3B42500B3C4A4 /* BCMeViewController.m in Sources */,
 				ADE125BB20B2E84F00F6E172 /* NSData+ImageContentType.m in Sources */,
 				ADE125B820B2E84F00F6E172 /* SDImageCache.m in Sources */,
 				ADE126E720B2EB4F00F6E172 /* NSTimer+WHTimer.m in Sources */,
@@ -1448,7 +1449,6 @@
 				ADE125A220B2E84F00F6E172 /* FMDatabase.m in Sources */,
 				ADE1270420B2ED4D00F6E172 /* AFURLSessionManager.m in Sources */,
 				ADE1265420B2E84F00F6E172 /* IQToolbar.m in Sources */,
-				ADE1272D20B2F23200F6E172 /* BCHomeViewController.m in Sources */,
 				ADE1268F20B2EABD00F6E172 /* LFConst.m in Sources */,
 				ADE125BA20B2E84F00F6E172 /* SDWebImageTransition.m in Sources */,
 				ADE125AF20B2E84F00F6E172 /* SDWebImageDownloader.m in Sources */,
@@ -1483,6 +1483,7 @@
 				ADE1269020B2EABD00F6E172 /* SVGloble.m in Sources */,
 				ADE1265620B2E84F00F6E172 /* IQBarButtonItem.m in Sources */,
 				ADE126D520B2EB4F00F6E172 /* WHMethods.m in Sources */,
+				ADD0895220B3B41900B3C4A4 /* BCHomeViewController.m in Sources */,
 				ADE126E320B2EB4F00F6E172 /* NSDateFormatter+Category.m in Sources */,
 				ADE126E420B2EB4F00F6E172 /* UIBarButtonItem+Item.m in Sources */,
 				ADE125A120B2E84F00F6E172 /* FMDatabaseAdditions.m in Sources */,
@@ -1502,7 +1503,6 @@
 				ADE125AE20B2E84F00F6E172 /* FLAnimatedImageView.m in Sources */,
 				ADE126EF20B2ECCC00F6E172 /* SALoginModel.m in Sources */,
 				ADE1265E20B2E84F00F6E172 /* IQUIView+Hierarchy.m in Sources */,
-				ADE1273020B2F25300F6E172 /* BCMeViewController.m in Sources */,
 				ADE1266B20B2E87D00F6E172 /* SATabBarController.m in Sources */,
 				ADE125B020B2E84F00F6E172 /* UIImage+GIF.m in Sources */,
 				ADE1266920B2E87D00F6E172 /* SALoginRegistNavController.m in Sources */,
