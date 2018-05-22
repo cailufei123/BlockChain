@@ -10,4 +10,7 @@
 
 @interface BCHomeTopView : UIView
 +(instancetype)loadNameBCHomeTopViewXib ;
+@property(nonatomic,copy)void (^hideSquare)(void);
+@property(nonatomic,copy)void (^calculation)(void);
+@property(nonatomic,copy)void (^more)(void);
 @end
