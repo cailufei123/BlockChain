@@ -48,4 +48,13 @@
 //#import "ATServiceAgreementController.h"
 #import "UIBarButtonItem+Item.h"
 //#import "ATSkipTool.h"
+
+//*****wuboyi*****/
+#import "UILabel+LWB.h"
+#import "UIImageView+WBY.h"
+#import "UIButton+Extensions.h"
+#import "UIButton+LWB.h"
+#import "Util.h"
+#import "UIView+WBY.h"
+
 #endif /* HeaderFile_h */
