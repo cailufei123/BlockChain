@@ -9,7 +9,12 @@
 #import "BCLoginController.h"
 
 @interface BCLoginController ()
+@property (weak, nonatomic) IBOutlet UIImageView *businessImg;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTf;
 
+@property (weak, nonatomic) IBOutlet UITextField *codeTf;
+@property (weak, nonatomic) IBOutlet UIButton *getCodeBt;
+@property (weak, nonatomic) IBOutlet UIButton *loginBt;
 @end
 
 @implementation BCLoginController
