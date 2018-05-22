@@ -126,8 +126,11 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    //return (SYRealValue(54));
+    //return (SYRealValue(54));
+
     return (SYRealValue(54));
-    
+
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
