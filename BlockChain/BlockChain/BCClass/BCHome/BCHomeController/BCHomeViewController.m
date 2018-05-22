@@ -9,8 +9,7 @@
 #import "BCHomeViewController.h"
 #import "BCHomeTableViewCell.h"
 #import "BCHomeTopView.h"
-#import "SARefreshGifHeader.h"
-#import "BCRefreshAutoGifFooter.h"
+
 @interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)BCHomeTopView * homeTopView;
