@@ -12,6 +12,8 @@
 		ADD0895820B3B59600B3C4A4 /* BCHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895720B3B59600B3C4A4 /* BCHomeView.m */; };
 		ADD0895C20B3B5F800B3C4A4 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0895A20B3B5F800B3C4A4 /* BCHomeTableViewCell.m */; };
 		ADD0895D20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD0895B20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib */; };
+		ADD0896420B3B71900B3C4A4 /* BCLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0896220B3B71900B3C4A4 /* BCLoginController.m */; };
+		ADD0896520B3B71900B3C4A4 /* BCLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */; };
 		ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239620B2D67D00F6E172 /* Main.storyboard */; };
 		ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239920B2D67E00F6E172 /* Assets.xcassets */; };
 		ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239B20B2D67E00F6E172 /* LaunchScreen.storyboard */; };
@@ -177,6 +179,9 @@
 		ADD0895920B3B5F800B3C4A4 /* BCHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeTableViewCell.h; sourceTree = "<group>"; };
 		ADD0895A20B3B5F800B3C4A4 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
 		ADD0895B20B3B5F800B3C4A4 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
+		ADD0896120B3B71900B3C4A4 /* BCLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCLoginController.h; sourceTree = "<group>"; };
+		ADD0896220B3B71900B3C4A4 /* BCLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCLoginController.m; sourceTree = "<group>"; };
+		ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCLoginController.xib; sourceTree = "<group>"; };
 		ADE1238D20B2D67D00F6E172 /* BlockChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE1239720B2D67D00F6E172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADE1239920B2D67E00F6E172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1110,7 +1115,6 @@
 			children = (
 				ADE126EA20B2ECBA00F6E172 /* BCLoginModel */,
 				ADE126EB20B2ECBA00F6E172 /* BCLoginController */,
-				ADE126EC20B2ECBA00F6E172 /* BCLoginView */,
 			);
 			path = BCLogin;
 			sourceTree = "<group>";
@@ -1127,15 +1131,11 @@
 		ADE126EB20B2ECBA00F6E172 /* BCLoginController */ = {
 			isa = PBXGroup;
 			children = (
+				ADD0896120B3B71900B3C4A4 /* BCLoginController.h */,
+				ADD0896220B3B71900B3C4A4 /* BCLoginController.m */,
+				ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */,
 			);
 			path = BCLoginController;
-			sourceTree = "<group>";
-		};
-		ADE126EC20B2ECBA00F6E172 /* BCLoginView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BCLoginView;
 			sourceTree = "<group>";
 		};
 		ADE126F320B2ED4C00F6E172 /* AFNetworking */ = {
@@ -1350,6 +1350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD0896520B3B71900B3C4A4 /* BCLoginController.xib in Resources */,
 				ADE1272220B2F13600F6E172 /* Info.plist in Resources */,
 				ADE1263D20B2E84F00F6E172 /* UMCommonLog.bundle in Resources */,
 				ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */,
@@ -1479,6 +1480,7 @@
 				ADE125C320B2E84F00F6E172 /* UIButton+WebCache.m in Sources */,
 				ADE1267720B2E91000F6E172 /* UIView+GKExtension.m in Sources */,
 				ADE126E120B2EB4F00F6E172 /* UIButton+WHButton.m in Sources */,
+				ADD0896420B3B71900B3C4A4 /* BCLoginController.m in Sources */,
 				ADE126E820B2EB4F00F6E172 /* UIViewController+WHVC.m in Sources */,
 				ADE1270220B2ED4D00F6E172 /* AFURLResponseSerialization.m in Sources */,
 				ADE125BE20B2E84F00F6E172 /* SDWebImageGIFCoder.m in Sources */,
