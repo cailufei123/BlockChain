@@ -759,8 +759,8 @@
 		AD6EA3C720B43B7100F61B33 /* BCHomeController */ = {
 			isa = PBXGroup;
 			children = (
-				AD6EA3C820B43B7100F61B33 /* BCHomeViewController.m */,
 				AD6EA3C920B43B7100F61B33 /* BCHomeViewController.h */,
+				AD6EA3C820B43B7100F61B33 /* BCHomeViewController.m */,
 			);
 			path = BCHomeController;
 			sourceTree = "<group>";

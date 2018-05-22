@@ -58,5 +58,6 @@
 #import "UIView+WBY.h"
 
 #import "Masonry.h"
-
+#import "BCRefreshAutoGifFooter.h"
+#import "BCRefreshAutoGifFooter.h"
 #endif /* HeaderFile_h */

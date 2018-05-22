@@ -6,7 +6,7 @@
 //  Copyright © 2018年 蔡路飞. All rights reserved.
 //
 
-#import "SARefreshGifHeader.h"
+#import "BCRefreshAutoGifFooter.h"
 
 @implementation SARefreshGifHeader
 //- (void)prepare
