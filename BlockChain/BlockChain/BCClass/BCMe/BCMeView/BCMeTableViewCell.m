@@ -119,11 +119,10 @@
         
     }else{
         //假数据
-        self.moneyImage.image =[UIImage imageNamed:@""];
+        self.moneyImage.image =[UIImage imageNamed:@"currency_iocn"];
         self.moneyName.text =@"TBC";
         self.upPrice.text=[NSString stringWithFormat:@"%.4f",0.145346];
-        self.downPrice.text = [NSString stringWithFormat:@"≈¥%.1f",0];
-        
+        self.downPrice.text = [NSString stringWithFormat:@"≈¥%.1f",0.12];
     }
 }
 

@@ -10,6 +10,7 @@
 #import "BCMeHeaderView.h"
 #import "BCMeTableViewCell.h"
 #import "BCMeModel.h"
+#import "BCMeTangGuoJiLuListController.h"
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -92,14 +93,18 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick{
     NSLog(@"糖果记录");
-    
+    BCMeTangGuoJiLuListController *me = [[BCMeTangGuoJiLuListController alloc] init];
+    [self.navigationController pushViewController:me animated:YES];
 }
+
 #pragma 糖果更多记录跳转
 -(void)moreTangGuoBtnClick{
     NSLog(@"更多糖果");
 }
-
-
+#pragma 二维码
+-(void)QRCodeBtnClick{
+    NSLog(@"二维码");
+}
 
 
 
@@ -125,14 +130,9 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    //return (SYRealValue(54));
-    //return (SYRealValue(54));
-
     return (SYRealValue(54));
-
-    
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //添加事件
     BCMeTableViewCell *cell = [BCMeTableViewCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
@@ -142,15 +142,6 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

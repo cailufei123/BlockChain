@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BlockChain/BCClass/BCMe/BCMeView/BCMeTableViewCell.m"
-            timestampString = "548677299.668435"
+            filePath = "BlockChain/BCClass/BCMe/BCMeView/BCMeHeaderView.m"
+            timestampString = "548686531.819855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "-setModel:"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
+            landmarkName = "-QRCodeBtnClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,12 +25,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BlockChain/BCClass/BCMe/BCMeView/BCMeTableViewCell.m"
-            timestampString = "548677299.6686161"
+            filePath = "BlockChain/BCClass/BCMe/BCMeView/BCMeHeaderView.m"
+            timestampString = "548686531.8199331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "-setModel:"
             landmarkType = "7">
          </BreakpointContent>

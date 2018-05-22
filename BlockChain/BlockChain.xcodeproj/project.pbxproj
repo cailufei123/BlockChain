@@ -28,6 +28,8 @@
 		06ED21A420B436EC008F44FE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219620B436EC008F44FE /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		06ED21A520B436EC008F44FE /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219820B436EC008F44FE /* View+MASAdditions.m */; };
 		06ED21A620B436EC008F44FE /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */; };
+		06ED21A920B44558008F44FE /* BCMeTangGuoJiLuListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED21A820B44558008F44FE /* BCMeTangGuoJiLuListController.m */; };
+		06ED21AC20B446C7008F44FE /* BCMeTangGuoListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED21AB20B446C7008F44FE /* BCMeTangGuoListHeaderView.m */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -261,6 +263,10 @@
 		06ED219920B436EC008F44FE /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		06ED219A20B436EC008F44FE /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		06ED21A720B44558008F44FE /* BCMeTangGuoJiLuListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoJiLuListController.h; sourceTree = "<group>"; };
+		06ED21A820B44558008F44FE /* BCMeTangGuoJiLuListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeTangGuoJiLuListController.m; sourceTree = "<group>"; };
+		06ED21AA20B446C7008F44FE /* BCMeTangGuoListHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoListHeaderView.h; sourceTree = "<group>"; };
+		06ED21AB20B446C7008F44FE /* BCMeTangGuoListHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeTangGuoListHeaderView.m; sourceTree = "<group>"; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -637,6 +643,8 @@
 				060A336420B3DF65004A1E20 /* BCMeHeaderView.m */,
 				060A336620B3DFA2004A1E20 /* BCMeTableViewCell.h */,
 				060A336720B3DFA2004A1E20 /* BCMeTableViewCell.m */,
+				06ED21AA20B446C7008F44FE /* BCMeTangGuoListHeaderView.h */,
+				06ED21AB20B446C7008F44FE /* BCMeTangGuoListHeaderView.m */,
 			);
 			path = BCMeView;
 			sourceTree = "<group>";
@@ -1593,6 +1601,8 @@
 			children = (
 				ADD0895420B3B42400B3C4A4 /* BCMeViewController.h */,
 				ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */,
+				06ED21A720B44558008F44FE /* BCMeTangGuoJiLuListController.h */,
+				06ED21A820B44558008F44FE /* BCMeTangGuoJiLuListController.m */,
 			);
 			path = BCMeController;
 			sourceTree = "<group>";
@@ -1829,8 +1839,10 @@
 				060A336520B3DF65004A1E20 /* BCMeHeaderView.m in Sources */,
 				ADE125C220B2E84F00F6E172 /* SDWebImageImageIOCoder.m in Sources */,
 				ADE1264E20B2E84F00F6E172 /* NSObject+MJProperty.m in Sources */,
+				06ED21AC20B446C7008F44FE /* BCMeTangGuoListHeaderView.m in Sources */,
 				ADE1265C20B2E84F00F6E172 /* IQUITextFieldView+Additions.m in Sources */,
 				ADE1265320B2E84F00F6E172 /* IQTextView.m in Sources */,
+				06ED21A920B44558008F44FE /* BCMeTangGuoJiLuListController.m in Sources */,
 				AD6EA45B20B43ED200F61B33 /* MJRefreshBackStateFooter.m in Sources */,
 				ADE1270720B2ED4D00F6E172 /* AFSecurityPolicy.m in Sources */,
 				ADE1270520B2ED4D00F6E172 /* AFURLRequestSerialization.m in Sources */,

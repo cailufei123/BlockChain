@@ -136,7 +136,7 @@
         [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_ziChanIcon];
         
     }
-    return _myIcon;
+    return _ziChanIcon;
 }
 -(UIButton *)tangGuoBtn{
     if (!_tangGuoBtn) {
@@ -249,7 +249,8 @@
         //中部
         [self.ziChanIcon mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.middleView.mas_left).with.offset(SXRealValue(21));
-            make.top.mas_equalTo(self.middleView.mas_top).with.offset((SYRealValue(16)));
+            make.centerY.equalTo(self.middleView.mas_centerY);
+            //make.top.mas_equalTo(self.middleView.mas_top).with.offset((SYRealValue(16)));
             make.width.mas_equalTo(SXRealValue(20));
             make.height.mas_equalTo(SXRealValue(20));
         }];
@@ -293,8 +294,10 @@
         
     }else{
         //假数据
+        self.myIcon.image = [UIImage imageNamed:@"usericon_placeholder"];
         self.myName.text = @"我的名字";
         self.myAddress.text= @"sadfasdfsdfasdfasdfasdf134124sdfasdfasdf2342342342342erqefasdfsadfasdfsdfasdfasdfasdf134124sdfasdfasdf2342342342342erqefasdf";
+        self.ziChanIcon.image =[UIImage imageNamed:@"wallet-iocn"];
         self.zongLable1.text =@"总资产≈";
         self.zongLable2.text = [NSString stringWithFormat:@"%@%.2f",@"¥",0.1223];
         [self.tangGuoBtn setTitle:@"糖果记录" forState:UIControlStateNormal];
