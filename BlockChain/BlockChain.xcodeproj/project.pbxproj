@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04B631B720B54ADE00D063B8 /* BCMePDCListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631B320B54ADD00D063B8 /* BCMePDCListController.m */; };
+		04B631B820B54ADE00D063B8 /* BCMeQRCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631B520B54ADD00D063B8 /* BCMeQRCodeController.m */; };
+		04B631C320B54AF800D063B8 /* BCMeTangGuoJiLuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631B920B54AF700D063B8 /* BCMeTangGuoJiLuCell.m */; };
+		04B631C420B54AF800D063B8 /* BCVewForHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631BC20B54AF800D063B8 /* BCVewForHeader.m */; };
+		04B631C520B54AF800D063B8 /* BCMePDCListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631BF20B54AF800D063B8 /* BCMePDCListHeaderView.m */; };
+		04B631C620B54AF800D063B8 /* BCMeQRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631C020B54AF800D063B8 /* BCMeQRCodeView.m */; };
+		04B631C720B54AF800D063B8 /* BCMeTangGuoJiLuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631C220B54AF800D063B8 /* BCMeTangGuoJiLuHeaderView.m */; };
+		04B631CE20B54B0900D063B8 /* BCQRCodeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631CB20B54B0800D063B8 /* BCQRCodeMode.m */; };
+		04B631CF20B54B0900D063B8 /* BCMeTangGuoJiLuMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631CC20B54B0800D063B8 /* BCMeTangGuoJiLuMode.m */; };
+		04B631D020B54B0900D063B8 /* BCMePDCListMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631CD20B54B0800D063B8 /* BCMePDCListMode.m */; };
+		04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */; };
 		060A336520B3DF65004A1E20 /* BCMeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060A336420B3DF65004A1E20 /* BCMeHeaderView.m */; };
 		060A336820B3DFA2004A1E20 /* BCMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060A336720B3DFA2004A1E20 /* BCMeTableViewCell.m */; };
 		062B59DD20B3F1E100488DDD /* BCMeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 062B59DC20B3F1E100488DDD /* BCMeModel.m */; };
@@ -29,7 +40,6 @@
 		06ED21A520B436EC008F44FE /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219820B436EC008F44FE /* View+MASAdditions.m */; };
 		06ED21A620B436EC008F44FE /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */; };
 		06ED21A920B44558008F44FE /* BCMeTangGuoJiLuListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED21A820B44558008F44FE /* BCMeTangGuoJiLuListController.m */; };
-		06ED21AC20B446C7008F44FE /* BCMeTangGuoListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED21AB20B446C7008F44FE /* BCMeTangGuoListHeaderView.m */; };
 		AD23F6CE20B5126B0057E662 /* ATSkipTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CD20B5126B0057E662 /* ATSkipTool.m */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
@@ -215,6 +225,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04B631B320B54ADD00D063B8 /* BCMePDCListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMePDCListController.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeController/BCMePDCListController.m"; sourceTree = "<group>"; };
+		04B631B420B54ADD00D063B8 /* BCMePDCListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMePDCListController.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeController/BCMePDCListController.h"; sourceTree = "<group>"; };
+		04B631B520B54ADD00D063B8 /* BCMeQRCodeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMeQRCodeController.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeController/BCMeQRCodeController.m"; sourceTree = "<group>"; };
+		04B631B620B54ADD00D063B8 /* BCMeQRCodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMeQRCodeController.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeController/BCMeQRCodeController.h"; sourceTree = "<group>"; };
+		04B631B920B54AF700D063B8 /* BCMeTangGuoJiLuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMeTangGuoJiLuCell.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCMeTangGuoJiLuCell.m"; sourceTree = "<group>"; };
+		04B631BA20B54AF700D063B8 /* BCMeTangGuoJiLuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMeTangGuoJiLuCell.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCMeTangGuoJiLuCell.h"; sourceTree = "<group>"; };
+		04B631BB20B54AF800D063B8 /* BCMeTangGuoJiLuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMeTangGuoJiLuHeaderView.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCMeTangGuoJiLuHeaderView.h"; sourceTree = "<group>"; };
+		04B631BC20B54AF800D063B8 /* BCVewForHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCVewForHeader.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCVewForHeader.m"; sourceTree = "<group>"; };
+		04B631BD20B54AF800D063B8 /* BCMeQRCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMeQRCodeView.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCMeQRCodeView.h"; sourceTree = "<group>"; };
+		04B631BE20B54AF800D063B8 /* BCMePDCListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMePDCListHeaderView.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCMePDCListHeaderView.h"; sourceTree = "<group>"; };
+		04B631BF20B54AF800D063B8 /* BCMePDCListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMePDCListHeaderView.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCMePDCListHeaderView.m"; sourceTree = "<group>"; };
+		04B631C020B54AF800D063B8 /* BCMeQRCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMeQRCodeView.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCMeQRCodeView.m"; sourceTree = "<group>"; };
+		04B631C120B54AF800D063B8 /* BCVewForHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCVewForHeader.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCVewForHeader.h"; sourceTree = "<group>"; };
+		04B631C220B54AF800D063B8 /* BCMeTangGuoJiLuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMeTangGuoJiLuHeaderView.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeView/BCMeTangGuoJiLuHeaderView.m"; sourceTree = "<group>"; };
+		04B631C820B54B0800D063B8 /* BCMePDCListMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMePDCListMode.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeModel/BCMePDCListMode.h"; sourceTree = "<group>"; };
+		04B631C920B54B0800D063B8 /* BCMeTangGuoJiLuMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCMeTangGuoJiLuMode.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeModel/BCMeTangGuoJiLuMode.h"; sourceTree = "<group>"; };
+		04B631CA20B54B0800D063B8 /* BCQRCodeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCQRCodeMode.h; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeModel/BCQRCodeMode.h"; sourceTree = "<group>"; };
+		04B631CB20B54B0800D063B8 /* BCQRCodeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCQRCodeMode.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeModel/BCQRCodeMode.m"; sourceTree = "<group>"; };
+		04B631CC20B54B0800D063B8 /* BCMeTangGuoJiLuMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMeTangGuoJiLuMode.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeModel/BCMeTangGuoJiLuMode.m"; sourceTree = "<group>"; };
+		04B631CD20B54B0800D063B8 /* BCMePDCListMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCMePDCListMode.m; path = "../../../../../../BlockChain 2/BlockChain/BlockChain/BCClass/BCMe/BCMeModel/BCMePDCListMode.m"; sourceTree = "<group>"; };
+		04B631D220B54B6500D063B8 /* UIBarButtonItem+ZZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZZExtension.h"; sourceTree = "<group>"; };
+		04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZZExtension.m"; sourceTree = "<group>"; };
 		060A336320B3DF65004A1E20 /* BCMeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeHeaderView.h; sourceTree = "<group>"; };
 		060A336420B3DF65004A1E20 /* BCMeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeHeaderView.m; sourceTree = "<group>"; };
 		060A336620B3DFA2004A1E20 /* BCMeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeTableViewCell.h; sourceTree = "<group>"; };
@@ -263,8 +295,6 @@
 		06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		06ED21A720B44558008F44FE /* BCMeTangGuoJiLuListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoJiLuListController.h; sourceTree = "<group>"; };
 		06ED21A820B44558008F44FE /* BCMeTangGuoJiLuListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeTangGuoJiLuListController.m; sourceTree = "<group>"; };
-		06ED21AA20B446C7008F44FE /* BCMeTangGuoListHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoListHeaderView.h; sourceTree = "<group>"; };
-		06ED21AB20B446C7008F44FE /* BCMeTangGuoListHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeTangGuoListHeaderView.m; sourceTree = "<group>"; };
 		AD23F6CC20B5126A0057E662 /* ATSkipTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSkipTool.h; sourceTree = "<group>"; };
 		AD23F6CD20B5126B0057E662 /* ATSkipTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSkipTool.m; sourceTree = "<group>"; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -630,6 +660,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04B631D120B54B6500D063B8 /* UIBarButtonItem_ZZExtension */ = {
+			isa = PBXGroup;
+			children = (
+				04B631D220B54B6500D063B8 /* UIBarButtonItem+ZZExtension.h */,
+				04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */,
+			);
+			path = UIBarButtonItem_ZZExtension;
+			sourceTree = "<group>";
+		};
 		060A336220B3DF32004A1E20 /* BCMeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,8 +676,16 @@
 				060A336420B3DF65004A1E20 /* BCMeHeaderView.m */,
 				060A336620B3DFA2004A1E20 /* BCMeTableViewCell.h */,
 				060A336720B3DFA2004A1E20 /* BCMeTableViewCell.m */,
-				06ED21AA20B446C7008F44FE /* BCMeTangGuoListHeaderView.h */,
-				06ED21AB20B446C7008F44FE /* BCMeTangGuoListHeaderView.m */,
+				04B631BE20B54AF800D063B8 /* BCMePDCListHeaderView.h */,
+				04B631BF20B54AF800D063B8 /* BCMePDCListHeaderView.m */,
+				04B631BD20B54AF800D063B8 /* BCMeQRCodeView.h */,
+				04B631C020B54AF800D063B8 /* BCMeQRCodeView.m */,
+				04B631BA20B54AF700D063B8 /* BCMeTangGuoJiLuCell.h */,
+				04B631B920B54AF700D063B8 /* BCMeTangGuoJiLuCell.m */,
+				04B631BB20B54AF800D063B8 /* BCMeTangGuoJiLuHeaderView.h */,
+				04B631C220B54AF800D063B8 /* BCMeTangGuoJiLuHeaderView.m */,
+				04B631C120B54AF800D063B8 /* BCVewForHeader.h */,
+				04B631BC20B54AF800D063B8 /* BCVewForHeader.m */,
 			);
 			path = BCMeView;
 			sourceTree = "<group>";
@@ -648,6 +695,12 @@
 			children = (
 				062B59DB20B3F1E100488DDD /* BCMeModel.h */,
 				062B59DC20B3F1E100488DDD /* BCMeModel.m */,
+				04B631C820B54B0800D063B8 /* BCMePDCListMode.h */,
+				04B631CD20B54B0800D063B8 /* BCMePDCListMode.m */,
+				04B631C920B54B0800D063B8 /* BCMeTangGuoJiLuMode.h */,
+				04B631CC20B54B0800D063B8 /* BCMeTangGuoJiLuMode.m */,
+				04B631CA20B54B0800D063B8 /* BCQRCodeMode.h */,
+				04B631CB20B54B0800D063B8 /* BCQRCodeMode.m */,
 			);
 			path = BCMeModel;
 			sourceTree = "<group>";
@@ -1425,6 +1478,7 @@
 		ADE1269220B2EB4F00F6E172 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				04B631D120B54B6500D063B8 /* UIBarButtonItem_ZZExtension */,
 				0652473520B3C08500F65C2A /* UILabel_Extension */,
 				0652473120B3C06800F65C2A /* UIImageView_Extension */,
 				0652472A20B3C04900F65C2A /* UIButton_Extension */,
@@ -1569,6 +1623,10 @@
 				ADD0895320B3B42400B3C4A4 /* BCMeViewController.m */,
 				06ED21A720B44558008F44FE /* BCMeTangGuoJiLuListController.h */,
 				06ED21A820B44558008F44FE /* BCMeTangGuoJiLuListController.m */,
+				04B631B420B54ADD00D063B8 /* BCMePDCListController.h */,
+				04B631B320B54ADD00D063B8 /* BCMePDCListController.m */,
+				04B631B620B54ADD00D063B8 /* BCMeQRCodeController.h */,
+				04B631B520B54ADD00D063B8 /* BCMeQRCodeController.m */,
 			);
 			path = BCMeController;
 			sourceTree = "<group>";
@@ -1726,10 +1784,13 @@
 				0652472F20B3C04900F65C2A /* UIButton+Extensions.m in Sources */,
 				ADE126DE20B2EB4F00F6E172 /* UIColor+WHColor.m in Sources */,
 				ADE1264920B2E84F00F6E172 /* MJPropertyType.m in Sources */,
+				04B631B720B54ADE00D063B8 /* BCMePDCListController.m in Sources */,
 				06ED219D20B436EC008F44FE /* MASCompositeConstraint.m in Sources */,
 				ADE1270A20B2EDC200F6E172 /* LFAccountTool.m in Sources */,
 				ADE1270620B2ED4D00F6E172 /* AFNetworkReachabilityManager.m in Sources */,
+				04B631C320B54AF800D063B8 /* BCMeTangGuoJiLuCell.m in Sources */,
 				ADE126D820B2EB4F00F6E172 /* UIBarButtonItem+WHBarButtonItem.m in Sources */,
+				04B631C720B54AF800D063B8 /* BCMeTangGuoJiLuHeaderView.m in Sources */,
 				06ED219F20B436EC008F44FE /* MASConstraintMaker.m in Sources */,
 				ADE125A420B2E84F00F6E172 /* FMResultSet.m in Sources */,
 				06ED21A020B436EC008F44FE /* MASLayoutConstraint.m in Sources */,
@@ -1761,6 +1822,7 @@
 				ADE126D320B2EB4F00F6E172 /* UIView+CLFExtension.m in Sources */,
 				ADE1264C20B2E84F00F6E172 /* NSObject+MJCoding.m in Sources */,
 				ADE125B720B2E84F00F6E172 /* SDAnimatedImageRep.m in Sources */,
+				04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */,
 				060A336820B3DFA2004A1E20 /* BCMeTableViewCell.m in Sources */,
 				ADE1266020B2E84F00F6E172 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				ADE1265D20B2E84F00F6E172 /* IQUIScrollView+Additions.m in Sources */,
@@ -1773,6 +1835,7 @@
 				AD6EA45520B43ED200F61B33 /* MJRefreshConst.m in Sources */,
 				06ED21A520B436EC008F44FE /* View+MASAdditions.m in Sources */,
 				ADE126E720B2EB4F00F6E172 /* NSTimer+WHTimer.m in Sources */,
+				04B631D020B54B0900D063B8 /* BCMePDCListMode.m in Sources */,
 				ADE125A820B2E84F00F6E172 /* UIImageView+HighlightedWebCache.m in Sources */,
 				ADE125C120B2E84F00F6E172 /* UIView+WebCache.m in Sources */,
 				ADE125B520B2E84F00F6E172 /* SDWebImageCoder.m in Sources */,
@@ -1782,6 +1845,7 @@
 				ADE125BD20B2E84F00F6E172 /* NSImage+WebCache.m in Sources */,
 				AD6EA46620B43ED200F61B33 /* MJRefreshAutoFooter.m in Sources */,
 				AD6EA45720B43ED200F61B33 /* UIScrollView+MJExtension.m in Sources */,
+				04B631C520B54AF800D063B8 /* BCMePDCListHeaderView.m in Sources */,
 				06ED21A320B436EC008F44FE /* NSArray+MASAdditions.m in Sources */,
 				ADE126DA20B2EB4F00F6E172 /* NSDate+WHDate.m in Sources */,
 				ADE126DC20B2EB4F00F6E172 /* UIImageView+PlayGIF.m in Sources */,
@@ -1796,6 +1860,7 @@
 				ADE125AF20B2E84F00F6E172 /* SDWebImageDownloader.m in Sources */,
 				ADE125B320B2E84F00F6E172 /* SDWebImageCompat.m in Sources */,
 				ADE126D220B2EB4F00F6E172 /* UILabel+WHLabel.m in Sources */,
+				04B631C420B54AF800D063B8 /* BCVewForHeader.m in Sources */,
 				ADE1264F20B2E84F00F6E172 /* NSObject+MJClass.m in Sources */,
 				ADE125A720B2E84F00F6E172 /* SDWebImageManager.m in Sources */,
 				ADE126D020B2EB4F00F6E172 /* NSNumber+WHNumber.m in Sources */,
@@ -1806,7 +1871,6 @@
 				060A336520B3DF65004A1E20 /* BCMeHeaderView.m in Sources */,
 				ADE125C220B2E84F00F6E172 /* SDWebImageImageIOCoder.m in Sources */,
 				ADE1264E20B2E84F00F6E172 /* NSObject+MJProperty.m in Sources */,
-				06ED21AC20B446C7008F44FE /* BCMeTangGuoListHeaderView.m in Sources */,
 				ADE1265C20B2E84F00F6E172 /* IQUITextFieldView+Additions.m in Sources */,
 				ADE1265320B2E84F00F6E172 /* IQTextView.m in Sources */,
 				06ED21A920B44558008F44FE /* BCMeTangGuoJiLuListController.m in Sources */,
@@ -1831,6 +1895,7 @@
 				ADE126D520B2EB4F00F6E172 /* WHMethods.m in Sources */,
 				ADE126E320B2EB4F00F6E172 /* NSDateFormatter+Category.m in Sources */,
 				ADE126E420B2EB4F00F6E172 /* UIBarButtonItem+Item.m in Sources */,
+				04B631CE20B54B0900D063B8 /* BCQRCodeMode.m in Sources */,
 				ADE125A120B2E84F00F6E172 /* FMDatabaseAdditions.m in Sources */,
 				ADE126D420B2EB4F00F6E172 /* NSDictionary+WHDictionary.m in Sources */,
 				AD6EA45A20B43ED200F61B33 /* MJRefreshBackGifFooter.m in Sources */,
@@ -1839,11 +1904,13 @@
 				ADE125C320B2E84F00F6E172 /* UIButton+WebCache.m in Sources */,
 				ADE1267720B2E91000F6E172 /* UIView+GKExtension.m in Sources */,
 				ADE126E120B2EB4F00F6E172 /* UIButton+WHButton.m in Sources */,
+				04B631C620B54AF800D063B8 /* BCMeQRCodeView.m in Sources */,
 				06ED219E20B436EC008F44FE /* MASConstraint.m in Sources */,
 				ADD0896420B3B71900B3C4A4 /* BCLoginController.m in Sources */,
 				AD6EA46120B43ED200F61B33 /* MJRefreshStateHeader.m in Sources */,
 				ADE126E820B2EB4F00F6E172 /* UIViewController+WHVC.m in Sources */,
 				ADE1270220B2ED4D00F6E172 /* AFURLResponseSerialization.m in Sources */,
+				04B631B820B54ADE00D063B8 /* BCMeQRCodeController.m in Sources */,
 				ADE125BE20B2E84F00F6E172 /* SDWebImageGIFCoder.m in Sources */,
 				AD6EA3CE20B43B7100F61B33 /* BCHomeTopView.m in Sources */,
 				ADE126CF20B2EB4F00F6E172 /* NSString+WHString.m in Sources */,
@@ -1860,6 +1927,7 @@
 				ADE1266B20B2E87D00F6E172 /* SATabBarController.m in Sources */,
 				ADE125B020B2E84F00F6E172 /* UIImage+GIF.m in Sources */,
 				ADE1266920B2E87D00F6E172 /* SALoginRegistNavController.m in Sources */,
+				04B631CF20B54B0900D063B8 /* BCMeTangGuoJiLuMode.m in Sources */,
 				ADE126E220B2EB4F00F6E172 /* UIScrollView+WHScrollView.m in Sources */,
 				AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */,
 				ADE1270D20B2EDED00F6E172 /* MBManager.m in Sources */,
