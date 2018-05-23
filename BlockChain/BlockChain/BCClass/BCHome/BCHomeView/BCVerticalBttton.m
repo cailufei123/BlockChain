@@ -37,8 +37,6 @@
     self.imageView.clf_width = 26;
     self.imageView.clf_height = 40;
     self.imageView.clf_centerX = self.clf_width/2;
-  
-    
     //调整文字
     self.titleLabel.clf_x = 0;
     self.titleLabel.clf_y = self.imageView.clf_bottom;
