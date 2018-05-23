@@ -48,14 +48,14 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 //    }
 //    return _meModel;
 //}
-
+//kTopHeight
 
 /**表格**/
 -(UITableView *)tableView{
     if (!_tableView) {
         
         self.automaticallyAdjustsScrollViewInsets = NO;
-        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, kTopHeight, LFscreenW, LFscreenH-kTabBarHeight-kTopHeight) style:UITableViewStylePlain];
+        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTabBarHeight-kTopHeight) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor  =bagColor;
