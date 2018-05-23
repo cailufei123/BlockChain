@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 @class BCMePDCListMode;
+//协议
+@protocol BCMePDCListHeaderViewDelegate <NSObject>
+
+@optional
+
+-(void)xiaQingBtnClickWithModel:(BCMePDCListMode *)model;
+
+@end
+
 
 @interface BCMePDCListHeaderView : UIView
 @property (nonatomic, strong)BCMePDCListMode *model;
+
+@property (nonatomic, weak) id <BCMePDCListHeaderViewDelegate> delegate;
+
 
 @end

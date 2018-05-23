@@ -39,8 +39,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置导航栏
+    [self setNaviTitle];
     //加载扫描界面
     [self.view addSubview:self.qRcodeView];
+}
+-(void)setNaviTitle{
+    self.navigationItem.title=@"收款码";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(17)),
+       NSForegroundColorAttributeName:naverTextColor}];
 }
 //复制收款地址
 -(void)QRCodeBtn1Click{

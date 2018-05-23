@@ -71,6 +71,9 @@
     [self.view addSubview:self.tableView];
     //加载headerView
     self.tableView.tableHeaderView =  self.headerView;
+   
+    
+    
 }
 
 //右边边导航控制器右边item

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCMe/BCMeController/BCMeTangGuoJiLuListController.m"
-            timestampString = "548753497.527663"
+            timestampString = "548770780.789814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-onNavButtonTapped:event:"
             landmarkType = "7">
          </BreakpointContent>

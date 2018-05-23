@@ -85,6 +85,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置导航栏
+    [self setNaviTitle];
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //加载headerView
@@ -92,6 +94,12 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 
 }
 
+-(void)setNaviTitle{
+    self.navigationItem.title=@"糖果包";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(17)),
+       NSForegroundColorAttributeName:naverTextColor}];
+}
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick{
     NSLog(@"糖果记录");

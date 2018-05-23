@@ -23,6 +23,8 @@
 		04B6320320B54E7700D063B8 /* BCMePDCListMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631F120B54E7600D063B8 /* BCMePDCListMode.m */; };
 		04B6320420B54E7700D063B8 /* BCMeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631F420B54E7600D063B8 /* BCMeModel.m */; };
 		04B6320520B54E7700D063B8 /* BCMeTangGuoJiLuMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631F520B54E7600D063B8 /* BCMeTangGuoJiLuMode.m */; };
+		04B6320820B58CC700D063B8 /* BCMePDCListAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */; };
+		04B6320B20B5913C00D063B8 /* BCMePDCListAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6320A20B5913C00D063B8 /* BCMePDCListAlertController.m */; };
 		0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472420B3BFC100F65C2A /* UIView+WBY.m */; };
 		0652472920B3C02900F65C2A /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472820B3C02900F65C2A /* Util.m */; };
 		0652472F20B3C04900F65C2A /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472C20B3C04900F65C2A /* UIButton+Extensions.m */; };
@@ -257,6 +259,10 @@
 		04B631F420B54E7600D063B8 /* BCMeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMeModel.m; sourceTree = "<group>"; };
 		04B631F520B54E7600D063B8 /* BCMeTangGuoJiLuMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMeTangGuoJiLuMode.m; sourceTree = "<group>"; };
 		04B631F620B54E7600D063B8 /* BCMePDCListMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMePDCListMode.h; sourceTree = "<group>"; };
+		04B6320620B58CC700D063B8 /* BCMePDCListAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCListAlertView.h; sourceTree = "<group>"; };
+		04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCListAlertView.m; sourceTree = "<group>"; };
+		04B6320920B5913C00D063B8 /* BCMePDCListAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCListAlertController.h; sourceTree = "<group>"; };
+		04B6320A20B5913C00D063B8 /* BCMePDCListAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCListAlertController.m; sourceTree = "<group>"; };
 		0652472320B3BFC100F65C2A /* UIView+WBY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WBY.h"; sourceTree = "<group>"; };
 		0652472420B3BFC100F65C2A /* UIView+WBY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WBY.m"; sourceTree = "<group>"; };
 		0652472720B3C02900F65C2A /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
@@ -696,6 +702,8 @@
 				04B631E120B54E7600D063B8 /* BCMeQRCodeView.m */,
 				04B631DA20B54E7600D063B8 /* BCMePDCListHeaderView.h */,
 				04B631E020B54E7600D063B8 /* BCMePDCListHeaderView.m */,
+				04B6320620B58CC700D063B8 /* BCMePDCListAlertView.h */,
+				04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */,
 			);
 			path = BCMeView;
 			sourceTree = "<group>";
@@ -711,6 +719,8 @@
 				04B631E920B54E7600D063B8 /* BCMeQRCodeController.m */,
 				04B631E620B54E7600D063B8 /* BCMePDCListController.h */,
 				04B631EB20B54E7600D063B8 /* BCMePDCListController.m */,
+				04B6320920B5913C00D063B8 /* BCMePDCListAlertController.h */,
+				04B6320A20B5913C00D063B8 /* BCMePDCListAlertController.m */,
 			);
 			path = BCMeController;
 			sourceTree = "<group>";
@@ -1850,12 +1860,14 @@
 				ADE126DC20B2EB4F00F6E172 /* UIImageView+PlayGIF.m in Sources */,
 				ADE125BC20B2E84F00F6E172 /* UIImageView+WebCache.m in Sources */,
 				ADE125C020B2E84F00F6E172 /* UIView+WebCacheOperation.m in Sources */,
+				04B6320820B58CC700D063B8 /* BCMePDCListAlertView.m in Sources */,
 				ADE1264A20B2E84F00F6E172 /* NSObject+MJKeyValue.m in Sources */,
 				ADE125A220B2E84F00F6E172 /* FMDatabase.m in Sources */,
 				ADE1270420B2ED4D00F6E172 /* AFURLSessionManager.m in Sources */,
 				ADE1265420B2E84F00F6E172 /* IQToolbar.m in Sources */,
 				ADE1268F20B2EABD00F6E172 /* LFConst.m in Sources */,
 				ADE125BA20B2E84F00F6E172 /* SDWebImageTransition.m in Sources */,
+				04B6320B20B5913C00D063B8 /* BCMePDCListAlertController.m in Sources */,
 				ADE125AF20B2E84F00F6E172 /* SDWebImageDownloader.m in Sources */,
 				ADE125B320B2E84F00F6E172 /* SDWebImageCompat.m in Sources */,
 				ADE126D220B2EB4F00F6E172 /* UILabel+WHLabel.m in Sources */,
