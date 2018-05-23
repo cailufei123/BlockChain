@@ -248,9 +248,13 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用邀请码额外获得10紫钻，没有邀请码？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-wA-WlI">
                                             <rect key="frame" x="128" y="138" width="229" height="17"/>
+                                            <gestureRecognizers/>
                                             <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="dRd-Wv-JBZ" appends="YES" id="GhB-ps-rBh"/>
+                                            </connections>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDH-UK-wE2">
                                             <rect key="frame" x="144" y="160" width="16" height="22"/>
@@ -294,9 +298,6 @@
                                 <constraint firstItem="BdV-vR-aAZ" firstAttribute="top" secondItem="cru-hr-dFj" secondAttribute="bottom" id="yP2-DK-Ska"/>
                                 <constraint firstItem="nsa-7j-Egs" firstAttribute="centerX" secondItem="fDW-Uv-6SW" secondAttribute="centerX" id="zAU-5a-c6X"/>
                             </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="PMf-HJ-zoK" appends="YES" id="eEh-TJ-gqZ"/>
-                            </connections>
                         </view>
                     </subviews>
                     <constraints>
@@ -320,9 +321,9 @@
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="104.5" y="69.5"/>
         </view>
-        <tapGestureRecognizer id="PMf-HJ-zoK">
+        <tapGestureRecognizer id="dRd-Wv-JBZ">
             <connections>
-                <action selector="noCodeTop:" destination="-1" id="xHF-fy-vpw"/>
+                <action selector="noCodeTop:" destination="-1" id="7E5-Qe-Vl9"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
