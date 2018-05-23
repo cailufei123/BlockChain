@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BCMeTangGuoListHeaderView : UIView
+@interface BCMeTangGuoJiLuHeaderView : UIView
 
 -(void)setUpImage:(UIImage *)image;
 

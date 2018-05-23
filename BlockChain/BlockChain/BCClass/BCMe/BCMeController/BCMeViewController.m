@@ -11,6 +11,8 @@
 #import "BCMeTableViewCell.h"
 #import "BCMeModel.h"
 #import "BCMeTangGuoJiLuListController.h"
+#import "BCMeQRCodeController.h"
+#import "BCMePDCListController.h"
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -93,8 +95,9 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick{
     NSLog(@"糖果记录");
-    BCMeTangGuoJiLuListController *me = [[BCMeTangGuoJiLuListController alloc] init];
-    [self.navigationController pushViewController:me animated:YES];
+    BCMeTangGuoJiLuListController *vc = [[BCMeTangGuoJiLuListController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 #pragma 糖果更多记录跳转
@@ -103,6 +106,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 }
 #pragma 二维码
 -(void)QRCodeBtnClick{
+    BCMeQRCodeController *QRVc= [[BCMeQRCodeController alloc] init];
+    [self.navigationController pushViewController:QRVc animated:YES];
     NSLog(@"二维码");
 }
 
@@ -140,6 +145,12 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     cell.delegate =self;
     cell.model =self.meModel;
     return cell;
+}
+//进入PDC简介
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //BCMeHeaderListMode *listMode = self.listArray[indexPath.section];
+    BCMePDCListController *pdcListVc = [[BCMePDCListController alloc] init];
+    [self.navigationController pushViewController:pdcListVc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -274,14 +274,14 @@
         [self.tangGuoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(self.downView.mas_centerX).with.offset(SXRealValue(-2));
             make.centerY.equalTo(self.downView.mas_centerY);
-            make.width.mas_equalTo(SXRealValue(156));
-            make.height.mas_equalTo((SYRealValue(40)));
+            make.width.mas_equalTo(SCREENWIDTH/2-(SXRealValue(31)));
+            make.height.mas_equalTo((SCREENWIDTH/2-(SXRealValue(31)))*40/156);
         }];
         [self.moreTangGuoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.downView.mas_centerX).with.offset(SXRealValue(2));
             make.centerY.equalTo(self.downView.mas_centerY);
-            make.width.mas_equalTo(SXRealValue(156));
-            make.height.mas_equalTo((SYRealValue(40)));
+            make.width.mas_equalTo(SCREENWIDTH/2-(SXRealValue(31)));
+            make.height.mas_equalTo((SCREENWIDTH/2-(SXRealValue(31)))*40/156);
         }];
     
     }
@@ -291,13 +291,13 @@
     _model =model;
     if (model!=nil) {
         
-        
     }else{
         //假数据
         self.myIcon.image = [UIImage imageNamed:@"usericon_placeholder"];
         self.myName.text = @"我的名字";
         self.myAddress.text= @"sadfasdfsdfasdfasdfasdf134124sdfasdfasdf2342342342342erqefasdfsadfasdfsdfasdfasdfasdf134124sdfasdfasdf2342342342342erqefasdf";
         self.ziChanIcon.image =[UIImage imageNamed:@"wallet-iocn"];
+        [self.QRCode setImage:[UIImage imageNamed:@"二维码"] forState:UIControlStateNormal];
         self.zongLable1.text =@"总资产≈";
         self.zongLable2.text = [NSString stringWithFormat:@"%@%.2f",@"¥",0.1223];
         [self.tangGuoBtn setTitle:@"糖果记录" forState:UIControlStateNormal];

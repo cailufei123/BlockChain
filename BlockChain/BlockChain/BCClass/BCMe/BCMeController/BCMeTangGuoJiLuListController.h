@@ -6,8 +6,8 @@
 //  Copyright © 2018年 蔡路飞. All rights reserved.
 //
 
-#import "SANavigationController.h"
+#import <UIKit/UIKit.h>
 
-@interface BCMeTangGuoJiLuListController : SANavigationController
+@interface BCMeTangGuoJiLuListController : UIViewController
 
 @end

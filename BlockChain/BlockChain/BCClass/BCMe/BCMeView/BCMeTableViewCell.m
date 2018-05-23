@@ -176,6 +176,8 @@
 //
 //
 //    }
+//[picture sd_setImageWithURL:[NSURL URLWithString:introduction.picture] placeholderImage:[UIImage imageNamed:@"fengmian_defultIcon"]];
+
 //}
 //self.oneAnswer.preferredMaxLayoutWidth = SCREENWIDTH - self.oneName1.zz_right-WidthScale(25)-WidthScale(10)-WidthScale(20);
 

@@ -7,14 +7,17 @@
 //
 
 #import "BCMeTangGuoJiLuListController.h"
-#import "BCMeTangGuoListHeaderView.h"
-#import "BCMeTableViewCell.h"
+#import "BCMeTangGuoJiLuHeaderView.h"
+#import "BCMeTangGuoJiLuMode.h"
+#import "BCMeTangGuoJiLuCell.h"
+#import "UIBarButtonItem+ZZExtension.h"
 
 @interface BCMeTangGuoJiLuListController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)NSMutableArray *tangGuolistArray;//列表数据
+@property(nonatomic,strong)NSMutableArray *tangGuolistArray;//列表数据（矿场日常领取、糖果列表、任务板）
 
-@property(nonatomic,strong)BCMeTangGuoListHeaderView *headerView;//列表数据
+@property(nonatomic,strong)BCMeTangGuoJiLuHeaderView *headerView;
+@property(nonatomic,strong)BCMeTangGuoJiLuMode *listMode;//糖果记录mode
 
 
 @end
@@ -51,11 +54,10 @@
     return _tableView;
 }
 /**顶部view**/
--(BCMeTangGuoListHeaderView *)headerView{
+-(BCMeTangGuoJiLuHeaderView *)headerView{
     if (!_headerView) {
-        _headerView = [[BCMeTangGuoListHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, HeaderViewHeight)];
+        _headerView = [[BCMeTangGuoJiLuHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, HeaderViewHeight)];
         [_headerView setUpImage:[UIImage imageNamed:@"home_top_bg"]];
-        _headerView.backgroundColor =[UIColor redColor];
     }
     return _headerView;
 }
@@ -63,18 +65,61 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"糖果包";
+    //设置导航按钮
+    [self setupUIBarButtonItem];
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //加载headerView
     self.tableView.tableHeaderView =  self.headerView;
 }
 
-
+//右边边导航控制器右边item
+- (void)setupUIBarButtonItem {
+    UIBarButtonItem *rightItemButton =[UIBarButtonItem itemWithImage:@"home_purple_diamonds" hightImage:nil target:self action:@selector(onNavButtonTapped:event:)];
+    self.navigationItem.rightBarButtonItem =rightItemButton;
+    // self.navigationController.automaticallyAdjustsScrollViewInsets = YES;
+}
+#pragma mark-右侧导航按钮item 点击事件
+-(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
+{
+   // WS(weakSelf);
+//    if (isKeyBoard==YES) {
+//        [UIView animateWithDuration:0.6 animations:^{
+//            [[LBReplyTextView shareInstance] dismissInput];
+//        }];
+//    }
+//    if ([_detailMode.isFavorite isEqualToString:@"true"]) {//已点赞
+//        _changeArr =@[@"取消收藏",@"举报"];
+//    }else{
+//        _changeArr =@[@"收藏",@"举报"];
+//    }
+//    [FTPopDetailMenu showFromEvent:event
+//                          withMenu:_changeArr
+//                    imageNameArray:nil
+//                         doneBlock:^(NSInteger selectedIndex) {
+//                             /**判断是否被选择了*/
+//                             [weakSelf selectedIndex:selectedIndex];
+//                         } dismissBlock:^{
+//
+//                         }];
+}
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return  (SYRealValue(13)) ;
+    return  (SYRealValue(54)) ;
 }
-
+//返回高度
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+        UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
+        UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(16)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+        tangGuoJiLulable.text =@"糖果记录";
+        [view addSubview:tangGuoJiLulable];
+        [tangGuoJiLulable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(view.mas_left).with.offset(SXRealValue(16));
+            make.right.mas_equalTo(view.mas_right).with.offset(SXRealValue(-20));
+            make.centerY.equalTo(view.mas_centerY);
+        }];
+        return view;
+}
 //-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 //{
 //    return 50;
@@ -96,11 +141,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //添加事件
-    BCMeTableViewCell *cell = [BCMeTableViewCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
-    //BCMeHeaderListMode *listMode = self.listArray[indexPath.section];
-    //cell.delegate =self;
-    //cell.model =self.meModel;
+    //BCMeTangGuoJiLuMode *model = self.tangGuolistArray[indexPath.row];
+    BCMeTangGuoJiLuMode *model;
+    model.type=0;
+        //添加事件
+        BCMeTangGuoJiLuCell *cell = [BCMeTangGuoJiLuCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
+        cell.model =model;
     return cell;
 }
 

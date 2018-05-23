@@ -6,13 +6,13 @@
 //  Copyright © 2018年 蔡路飞. All rights reserved.
 //
 
-#import "BCMeTangGuoListHeaderView.h"
-@interface BCMeTangGuoListHeaderView()
+#import "BCMeTangGuoJiLuHeaderView.h"
+@interface BCMeTangGuoJiLuHeaderView()
 /** 雷鹿财务con*/
 @property (nonatomic, strong)UIImageView *liLuCaiFuIcon;
 
 @end
-@implementation BCMeTangGuoListHeaderView
+@implementation BCMeTangGuoJiLuHeaderView
 
 -(UIImageView *)liLuCaiFuIcon{
     if (!_liLuCaiFuIcon) {
@@ -20,10 +20,10 @@
         //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
         //[Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_myIcon];
         [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_liLuCaiFuIcon];
-        
     }
     return _liLuCaiFuIcon;
 }
+
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self =[super initWithFrame:frame]) {
         self.backgroundColor = naverTextColor;
