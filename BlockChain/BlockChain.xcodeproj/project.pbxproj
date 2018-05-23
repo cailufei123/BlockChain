@@ -59,6 +59,8 @@
 		AD23F70220B5766E0057E662 /* BCCodeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F70120B5766E0057E662 /* BCCodeAlertView.m */; };
 		AD23F70420B5767A0057E662 /* BCCodeAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F70320B5767A0057E662 /* BCCodeAlertView.xib */; };
 		AD23F70720B580800057E662 /* BCLevelBtton.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F70620B580800057E662 /* BCLevelBtton.m */; };
+		AD23F70B20B59C0C0057E662 /* BCSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F70920B59C0C0057E662 /* BCSetViewController.m */; };
+		AD23F70C20B59C0C0057E662 /* BCSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F70A20B59C0C0057E662 /* BCSetViewController.xib */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -347,6 +349,9 @@
 		AD23F70320B5767A0057E662 /* BCCodeAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCCodeAlertView.xib; sourceTree = "<group>"; };
 		AD23F70520B580800057E662 /* BCLevelBtton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCLevelBtton.h; sourceTree = "<group>"; };
 		AD23F70620B580800057E662 /* BCLevelBtton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCLevelBtton.m; sourceTree = "<group>"; };
+		AD23F70820B59C0C0057E662 /* BCSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCSetViewController.h; sourceTree = "<group>"; };
+		AD23F70920B59C0C0057E662 /* BCSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCSetViewController.m; sourceTree = "<group>"; };
+		AD23F70A20B59C0C0057E662 /* BCSetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCSetViewController.xib; sourceTree = "<group>"; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -763,6 +768,9 @@
 				04B631EB20B54E7600D063B8 /* BCMePDCListController.m */,
 				04B6320920B5913C00D063B8 /* BCMePDCListAlertController.h */,
 				04B6320A20B5913C00D063B8 /* BCMePDCListAlertController.m */,
+				AD23F70820B59C0C0057E662 /* BCSetViewController.h */,
+				AD23F70920B59C0C0057E662 /* BCSetViewController.m */,
+				AD23F70A20B59C0C0057E662 /* BCSetViewController.xib */,
 			);
 			path = BCMeController;
 			sourceTree = "<group>";
@@ -1851,6 +1859,7 @@
 				ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */,
 				ADE1266220B2E84F00F6E172 /* Info.plist in Resources */,
 				AD23F6DB20B5575A0057E662 /* BCTaskTableViewCell.xib in Resources */,
+				AD23F70C20B59C0C0057E662 /* BCSetViewController.xib in Resources */,
 				AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */,
 				AD23F6D620B556BA0057E662 /* BCTaskTopView.xib in Resources */,
 				ADE1265920B2E84F00F6E172 /* IQKeyboardManager.bundle in Resources */,
@@ -2018,6 +2027,7 @@
 				ADE126D420B2EB4F00F6E172 /* NSDictionary+WHDictionary.m in Sources */,
 				04B631FC20B54E7700D063B8 /* BCMeQRCodeView.m in Sources */,
 				AD6EA45A20B43ED200F61B33 /* MJRefreshBackGifFooter.m in Sources */,
+				AD23F70B20B59C0C0057E662 /* BCSetViewController.m in Sources */,
 				ADE125AC20B2E84F00F6E172 /* FLAnimatedImageView+WebCache.m in Sources */,
 				04B6320320B54E7700D063B8 /* BCMePDCListMode.m in Sources */,
 				AD6EA46520B43ED200F61B33 /* MJRefreshBackFooter.m in Sources */,
