@@ -138,7 +138,7 @@
     if (tabBarController.selectedIndex == 0) {
 
     }else if (tabBarController.selectedIndex == 1){
-        if (!loginTokenlength) {
+        if (loginTokenlength) {
             tabBarController.selectedIndex = self.oldSelectIndex;
             [ATSKIPTOOl loginAction:self];return;
         }
