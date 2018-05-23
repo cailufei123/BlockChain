@@ -14,6 +14,7 @@
 #import "BCMeQRCodeController.h"
 #import "BCMePDCListController.h"
 #import "UIBarButtonItem+ZZExtension.h"
+#import "BCSetViewController.h"
 
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
@@ -106,14 +107,15 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 }
 //右边边导航控制器右边item
 - (void)setupUIBarButtonItem {
-    UIBarButtonItem *rightItemButton =[UIBarButtonItem itemWithImage:@"home_purple_diamonds" hightImage:nil target:self action:@selector(onNavButtonTapped:event:)];
+    UIBarButtonItem *rightItemButton =[UIBarButtonItem itemWithImage:@"me_set_icon" hightImage:nil target:self action:@selector(onNavButtonTapped:event:)];
     self.navigationItem.rightBarButtonItem =rightItemButton;
     // self.navigationController.automaticallyAdjustsScrollViewInsets = YES;
 }
 #pragma mark-右侧导航按钮item 点击事件
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
-    
+    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+    [self.navigationController pushViewController:setVc animated:YES];
 }
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick{
