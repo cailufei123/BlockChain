@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BCMePDCListMode;
 
 @interface BCMePDCListAlertView : UIView
 
+@property(nonatomic,strong)BCMePDCListMode *model;
+/**知道了按钮*/
+@property(nonatomic,strong)UIButton *sureBtn;
 @end

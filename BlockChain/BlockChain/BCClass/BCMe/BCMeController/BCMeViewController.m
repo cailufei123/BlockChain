@@ -13,6 +13,8 @@
 #import "BCMeTangGuoJiLuListController.h"
 #import "BCMeQRCodeController.h"
 #import "BCMePDCListController.h"
+#import "UIBarButtonItem+ZZExtension.h"
+
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -87,6 +89,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     [super viewDidLoad];
     //设置导航栏
     [self setNaviTitle];
+    //设置导航按钮
+    [self setupUIBarButtonItem];
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //加载headerView
@@ -99,6 +103,17 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(17)),
        NSForegroundColorAttributeName:naverTextColor}];
+}
+//右边边导航控制器右边item
+- (void)setupUIBarButtonItem {
+    UIBarButtonItem *rightItemButton =[UIBarButtonItem itemWithImage:@"home_purple_diamonds" hightImage:nil target:self action:@selector(onNavButtonTapped:event:)];
+    self.navigationItem.rightBarButtonItem =rightItemButton;
+    // self.navigationController.automaticallyAdjustsScrollViewInsets = YES;
+}
+#pragma mark-右侧导航按钮item 点击事件
+-(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
+{
+    
 }
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick{

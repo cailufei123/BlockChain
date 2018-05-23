@@ -7,14 +7,60 @@
 //
 
 #import "BCMePDCListAlertView.h"
+#import "BCMePDCListMode.h"
 
 @interface BCMePDCListAlertView()
-@property (nonatomic, strong)UIView *bigView;
-@property (nonatomic, strong)UIView *upBigView;
-/** PDC总数*/
-@property (nonatomic, strong)UILabel *price;
+
+/** PDC详情名字*/
+@property (nonatomic, strong)UILabel *xiangQingLable;
+/** 项目名字*/
+@property (nonatomic, strong)UILabel *mingChengLable;
+/** 标语*/
+@property (nonatomic, strong)UILabel *biaoYuLable;
+/** 项目介绍*/
+@property (nonatomic, strong)UILabel *jieShaoLable;
+/** 发行*/
+@property (nonatomic, strong)UILabel *faXingLable;
+/** 发行价格*/
+@property (nonatomic, strong)UILabel *faXingPriceLable;
+/** 官网*/
+@property (nonatomic, strong)UILabel *guanWangLable;
+/** 跳转官网*/
+@property (nonatomic, strong)UIButton *guanWangBtn;
+
+
 @end
 @implementation BCMePDCListAlertView
+
+-(UILabel *)xiangQingLable{
+    if (!_xiangQingLable) {
+        _xiangQingLable =[UILabel LabelWithTextColor:color414754 textFont:FONT(@"PingFangSC-Semibold", SXRealValue(18)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_xiangQingLable];
+    }
+    return _xiangQingLable;
+}
+//-(UILabel *)mingChengLable{
+//    if (!_mingChengLable) {
+//        _mingChengLable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label2];
+//    }
+//    return _mingChengLable;
+//}
+//
+//-(UILabel *)label3{
+//    if (!_label3) {
+//        _label3 =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label3];
+//    }
+//    return _label3;
+//}
+//-(UILabel *)label4{
+//    if (!_label4) {
+//        _label4 =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:0];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label4];
+//    }
+//    return _label4;
+//}
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self =[super initWithFrame:frame]) {
@@ -45,5 +91,9 @@
     return self;
 }
 
+-(void)setModel:(BCMePDCListMode *)model{
+    _model =model;
+    
+}
 
 @end

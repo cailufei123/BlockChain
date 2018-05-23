@@ -70,7 +70,7 @@
         _alertView = [[BCMePDCListAlertView alloc] initWithFrame:CGRectMake(0, 0, alertViewWidth, alertViewHeight)];
         _alertView.backgroundColor =[UIColor greenColor];
         //_alertView.delegate =self;
-        //_alertView.model=self.model;
+        _alertView.model=self.model;
     }
     return _alertView;
 }
@@ -105,9 +105,10 @@
 }
 #pragma mark -
 -(void)xiaQingBtnClickWithModel:(BCMePDCListMode *)model{
+    //BCCodeAlertView * codeAlertView  =[BCCodeAlertView loadNameBCCodeAlertViewXib];
+    //self.alertView.clf_size = CGSizeMake(LFscreenW-30, 270);
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.alertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
 
-    BCMePDCListAlertController *alertVc = [[BCMePDCListAlertController alloc] init];
-    [self presentViewController:alertVc animated:YES completion:nil];
 }
 #pragma 底部转账与收款
 -(void)setPayOrGetMoneyBtn{
