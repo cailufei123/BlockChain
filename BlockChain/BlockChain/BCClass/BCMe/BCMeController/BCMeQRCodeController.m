@@ -28,7 +28,7 @@
 /**顶部view**/
 -(BCMeQRCodeView *)qRcodeView{
     if (!_qRcodeView) {
-        _qRcodeView = [[BCMeQRCodeView alloc] initWithFrame:CGRectMake(0, kTopHeight, SCREENWIDTH, SCREENHEIGHT-kTopHeight)];
+        _qRcodeView = [[BCMeQRCodeView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT-kTopHeight)];
         [_qRcodeView.QRCodeBtn1 addTarget:self action:@selector(QRCodeBtn1Click) forControlEvents:UIControlEventTouchUpInside];
         [_qRcodeView.QRCodeBtn2 addTarget:self action:@selector(QRCodeBtn2Click) forControlEvents:UIControlEventTouchUpInside];
         _qRcodeView.model =self.model;

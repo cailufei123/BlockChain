@@ -672,8 +672,8 @@
 		04B631D520B54E7600D063B8 /* BCMe */ = {
 			isa = PBXGroup;
 			children = (
-				04B631D620B54E7600D063B8 /* BCMeView */,
 				04B631E520B54E7600D063B8 /* BCMeController */,
+				04B631D620B54E7600D063B8 /* BCMeView */,
 				04B631EE20B54E7600D063B8 /* BCMeModel */,
 			);
 			path = BCMe;
@@ -682,20 +682,20 @@
 		04B631D620B54E7600D063B8 /* BCMeView */ = {
 			isa = PBXGroup;
 			children = (
-				04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */,
-				04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */,
-				04B631D920B54E7600D063B8 /* BCMeQRCodeView.h */,
-				04B631DA20B54E7600D063B8 /* BCMePDCListHeaderView.h */,
-				04B631DB20B54E7600D063B8 /* BCVewForHeader.m */,
-				04B631DC20B54E7600D063B8 /* BCMeTangGuoJiLuCell.m */,
 				04B631DD20B54E7600D063B8 /* BCMeHeaderView.h */,
-				04B631DE20B54E7600D063B8 /* BCMeTableViewCell.h */,
-				04B631DF20B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.m */,
-				04B631E020B54E7600D063B8 /* BCMePDCListHeaderView.m */,
-				04B631E120B54E7600D063B8 /* BCMeQRCodeView.m */,
-				04B631E220B54E7600D063B8 /* BCVewForHeader.h */,
 				04B631E320B54E7600D063B8 /* BCMeHeaderView.m */,
+				04B631DE20B54E7600D063B8 /* BCMeTableViewCell.h */,
+				04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */,
+				04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */,
+				04B631DF20B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.m */,
+				04B631E220B54E7600D063B8 /* BCVewForHeader.h */,
+				04B631DB20B54E7600D063B8 /* BCVewForHeader.m */,
 				04B631E420B54E7600D063B8 /* BCMeTangGuoJiLuCell.h */,
+				04B631DC20B54E7600D063B8 /* BCMeTangGuoJiLuCell.m */,
+				04B631D920B54E7600D063B8 /* BCMeQRCodeView.h */,
+				04B631E120B54E7600D063B8 /* BCMeQRCodeView.m */,
+				04B631DA20B54E7600D063B8 /* BCMePDCListHeaderView.h */,
+				04B631E020B54E7600D063B8 /* BCMePDCListHeaderView.m */,
 			);
 			path = BCMeView;
 			sourceTree = "<group>";
@@ -703,14 +703,14 @@
 		04B631E520B54E7600D063B8 /* BCMeController */ = {
 			isa = PBXGroup;
 			children = (
-				04B631E620B54E7600D063B8 /* BCMePDCListController.h */,
-				04B631E720B54E7600D063B8 /* BCMeTangGuoJiLuListController.h */,
-				04B631E820B54E7600D063B8 /* BCMeViewController.m */,
-				04B631E920B54E7600D063B8 /* BCMeQRCodeController.m */,
-				04B631EA20B54E7600D063B8 /* BCMeTangGuoJiLuListController.m */,
-				04B631EB20B54E7600D063B8 /* BCMePDCListController.m */,
 				04B631EC20B54E7600D063B8 /* BCMeViewController.h */,
+				04B631E820B54E7600D063B8 /* BCMeViewController.m */,
+				04B631E720B54E7600D063B8 /* BCMeTangGuoJiLuListController.h */,
+				04B631EA20B54E7600D063B8 /* BCMeTangGuoJiLuListController.m */,
 				04B631ED20B54E7600D063B8 /* BCMeQRCodeController.h */,
+				04B631E920B54E7600D063B8 /* BCMeQRCodeController.m */,
+				04B631E620B54E7600D063B8 /* BCMePDCListController.h */,
+				04B631EB20B54E7600D063B8 /* BCMePDCListController.m */,
 			);
 			path = BCMeController;
 			sourceTree = "<group>";
@@ -719,13 +719,13 @@
 			isa = PBXGroup;
 			children = (
 				04B631EF20B54E7600D063B8 /* BCMeModel.h */,
-				04B631F020B54E7600D063B8 /* BCQRCodeMode.m */,
-				04B631F120B54E7600D063B8 /* BCMePDCListMode.m */,
-				04B631F220B54E7600D063B8 /* BCMeTangGuoJiLuMode.h */,
-				04B631F320B54E7600D063B8 /* BCQRCodeMode.h */,
 				04B631F420B54E7600D063B8 /* BCMeModel.m */,
+				04B631F220B54E7600D063B8 /* BCMeTangGuoJiLuMode.h */,
 				04B631F520B54E7600D063B8 /* BCMeTangGuoJiLuMode.m */,
+				04B631F320B54E7600D063B8 /* BCQRCodeMode.h */,
+				04B631F020B54E7600D063B8 /* BCQRCodeMode.m */,
 				04B631F620B54E7600D063B8 /* BCMePDCListMode.h */,
+				04B631F120B54E7600D063B8 /* BCMePDCListMode.m */,
 			);
 			path = BCMeModel;
 			sourceTree = "<group>";
