@@ -33,7 +33,7 @@
 //#import "YWSelectButton.h"
 //#import "ATSkipTool.h"
 //#import "SALoginModel.h"
-//#import "LFAccountTool.h"
+#import "LFAccountTool.h"
 #import "UIScrollView+EmptyDataSet.h"
 //#import "SARefreshGifHeader.h"
 //#import "SARefreshAutoGifFooter.h"
@@ -60,4 +60,6 @@
 #import "Masonry.h"
 #import "BCRefreshAutoGifFooter.h"
 #import "SARefreshGifHeader.h"
+#import "ATSkipTool.h"
+
 #endif /* HeaderFile_h */

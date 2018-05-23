@@ -22,8 +22,15 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLyout;
 @property (weak, nonatomic) IBOutlet UIButton *morebt;
+@property (strong, nonatomic)  NSMutableArray *buttons;
 @end
 @implementation BCHomeTopView
+- (NSMutableArray *)buttons{
+    if (_buttons == nil) {
+        _buttons = [NSMutableArray new];
+    }
+    return _buttons;
+}
 
 -(void)awakeFromNib{
     [super awakeFromNib];
@@ -138,27 +145,44 @@
 //    UIView * bg = [[UIView alloc] init];
 //    self.stoneBgView.frame = CGRectMake(0, 0, LFscreenW, 180);
 //    [self.stoneBgView addSubview:bg];
- 
+    [self.buttons makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.buttons removeAllObjects];
     CGFloat buttonH = 50;
     CGFloat buttonW = 30;
     
     for (int i = 0; i < 10; i++) {
-        CGFloat buttonStartX = [self getRandomNumber:10 to:LFscreenW-30];
-        CGFloat butttonStartY = [self getRandomNumber:10 to:150];;
+//        CGFloat buttonStartX = [self getRandomNumber:10 to:LFscreenW-30];
+//        CGFloat butttonStartY = [self getRandomNumber:10 to:150];;
       
         BCVerticalBttton * bt = [[BCVerticalBttton alloc] init];
-        [  self.stoneBgView  addSubview:bt];
+        bt.clf_width = buttonW;
+        bt.clf_height = buttonH;
         [bt setImage:[UIImage imageNamed:@"home_mineral_icon"] forState:UIControlStateNormal];
         [bt setTitle:@"0.001" forState:UIControlStateNormal];
         bt.titleLabel.font = [UIFont systemFontOfSize:10];
         bt.tag = i;
 //        [bt setTitleColor:bCwhiteColor forState:UIControlStateNormal];
-      
+        do {
+            bt.frame = [self randomFrameForLabel:bt];
+        } while ([self frameIntersects:bt.frame]);
+        
+        [self.buttons addObject:bt];
+         [  self.stoneBgView  addSubview:bt];
     
         [bt addTarget:self action:@selector(clickBgBtClick:) forControlEvents:UIControlEventTouchUpInside];
-        bt.frame = CGRectMake(buttonStartX, butttonStartY, buttonW, buttonH);
+//        bt.frame = CGRectMake(buttonStartX, butttonStartY, buttonW, buttonH);
         
     }
+}
+
+- (CGRect)randomFrameForLabel:(UIButton *)button {
+//    button.clf_width = 30;
+//    button.clf_height = 50;
+//    CGFloat maxWidth = LFscreenW - 30;
+//    CGFloat maxHeight = 180-50;
+    
+    return CGRectMake( [self getRandomNumber:10 to:LFscreenW-30], [self getRandomNumber:10 to:150],
+                      30, 50);
 }
 -(void)clickBgBtClick:(UIButton*)bt{
     [UIView animateWithDuration:self.duration animations:^{
@@ -167,6 +191,14 @@
         [bt removeFromSuperview];
     }];
     
+}
+- (BOOL)frameIntersects:(CGRect)frame {
+    for (UIButton *label in self.buttons) {
+        if (CGRectIntersectsRect(frame, label.frame)) {
+            return YES;
+        }
+    }
+    return NO;
 }
 +(instancetype)loadNameBCHomeTopViewXib {
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
