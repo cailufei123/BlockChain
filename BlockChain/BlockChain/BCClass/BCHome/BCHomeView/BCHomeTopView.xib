@@ -39,7 +39,6 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="IHo-Lk-3Xl"/>
                                 <constraint firstItem="QA3-IW-myS" firstAttribute="leading" secondItem="Jvt-dI-knM" secondAttribute="leading" constant="10" id="IpG-iV-am4"/>
@@ -77,22 +76,10 @@
                                     <color key="textColor" red="0.4549019608" green="0.59999999999999998" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzw-qH-XNU">
-                                    <rect key="frame" x="266" y="17.5" width="86" height="34"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="34" id="0rn-Ku-DOd"/>
-                                        <constraint firstAttribute="width" constant="86" id="OoI-rJ-9DZ"/>
-                                    </constraints>
-                                    <state key="normal" title="隐藏矿场" backgroundImage="home_hide_bg">
-                                        <color key="titleColor" red="0.72941176470588232" green="0.92156862745098034" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="Fjb-Xq-caQ" firstAttribute="leading" secondItem="hZC-YV-5GI" secondAttribute="trailing" constant="5" id="CMN-b3-Em5"/>
-                                <constraint firstAttribute="trailing" secondItem="Yzw-qH-XNU" secondAttribute="trailing" id="LeP-lb-Unq"/>
                                 <constraint firstItem="Fjb-Xq-caQ" firstAttribute="centerY" secondItem="hZC-YV-5GI" secondAttribute="centerY" id="SLp-rl-D2U"/>
-                                <constraint firstItem="Yzw-qH-XNU" firstAttribute="centerY" secondItem="gYb-YF-eph" secondAttribute="centerY" id="SvN-Is-eMP"/>
                                 <constraint firstItem="jsB-aO-JDS" firstAttribute="leading" secondItem="oun-4S-VZ0" secondAttribute="trailing" constant="5" id="UFV-Nh-lxb"/>
                                 <constraint firstItem="oun-4S-VZ0" firstAttribute="leading" secondItem="gYb-YF-eph" secondAttribute="leading" constant="10" id="bQn-rS-qQ0"/>
                                 <constraint firstAttribute="bottom" secondItem="hZC-YV-5GI" secondAttribute="bottom" constant="16" id="bzc-ng-VoO"/>
@@ -197,7 +184,6 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="calculationBt" destination="ydI-up-tAu" id="0zW-dm-f3A"/>
-                <outlet property="hideSquareBt" destination="Yzw-qH-XNU" id="Q95-Iz-mF7"/>
                 <outlet property="horseLampbgView" destination="Jvt-dI-knM" id="GaN-Ub-hUI"/>
                 <outlet property="morebt" destination="b2a-5o-7aX" id="dCl-V5-ztp"/>
                 <outlet property="purpleStoneLb" destination="jsB-aO-JDS" id="hgw-sv-HM2"/>
@@ -211,7 +197,6 @@
     </objects>
     <resources>
         <image name="home_computingpower" width="81" height="81"/>
-        <image name="home_hide_bg" width="129" height="51"/>
         <image name="home_purple_diamonds" width="24" height="19"/>
         <image name="home_top_bg" width="562" height="510"/>
         <image name="home_yellew_diamonds" width="24" height="22"/>

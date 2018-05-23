@@ -9,10 +9,12 @@
 #import "BCHomeViewController.h"
 #import "BCHomeTableViewCell.h"
 #import "BCHomeTopView.h"
-
+#import "BCTaskViewController.h"
+#import "BCLevelBtton.h"
 @interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)BCHomeTopView * homeTopView;
+@property(nonatomic,strong)UILabel * lampLable;
 @end
 static NSString * const cellidenfder = @"BCHomeTableViewCell";
 @implementation BCHomeViewController
@@ -45,6 +47,75 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     [self setTable];
     [self createTopView];
     [self createRefresh];
+    [self createHideBt];
+    [self createHorseLampbgView];
+    
+}
+-(void)createHorseLampbgView{
+    UIView * lampbgView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, LFscreenW, 24)];
+    lampbgView.backgroundColor = [SVGloble colorWithHexString:@"#242424"];
+    UIImageView * iconimg = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 14, 14)];
+    iconimg.image= [UIImage imageNamed:@"广播"];
+    iconimg.clf_centerY = 12;
+    [lampbgView addSubview:iconimg];
+      [self.view addSubview:lampbgView];
+    UILabel * lampLable = [[UILabel alloc] init];
+    self.lampLable = lampLable;
+    lampLable.font = FONT(@"PingFangSC-Regular", 12);
+   lampLable.textColor = [UIColor whiteColor];
+    lampLable.frame = CGRectMake(iconimg.clf_right+5, 0, LFscreenW-40, 24);
+    lampLable.clf_centerY = 12;
+    [lampbgView addSubview:lampLable];
+    
+    
+    
+  
+    
+  
+    
+ 
+    
+    NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"今天天气不错呀"];
+    
+    [AttributedStr addAttribute:NSFontAttributeName
+     
+                          value:[UIFont systemFontOfSize:12.0]
+     
+                          range:NSMakeRange(2, 2)];
+    
+    [AttributedStr addAttribute:NSForegroundColorAttributeName
+     
+                          value:[UIColor redColor]
+     
+                          range:NSMakeRange(2, 2)];
+    
+    self.lampLable.attributedText = AttributedStr;
+    
+    [lampbgView addSubview:self.lampLable];
+}
+-(void)createHideBt{
+    
+    BCLevelBtton * button = [[BCLevelBtton alloc] init];
+    [button setImage:[UIImage imageNamed:@"右"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"左"] forState:UIControlStateSelected];
+    [button setTitle:@"我的矿场" forState:UIControlStateNormal];
+    [button setTitle:@"隐藏矿场" forState:UIControlStateSelected];
+    button.titleLabel.font = [UIFont systemFontOfSize:12];
+    [button setBackgroundImage:[UIImage imageNamed:@"home_hide_bg"] forState:UIControlStateNormal];
+    button.frame = CGRectMake(LFscreenW-86, kTopHeight+20, 86, 34);
+    [button addTarget:self action:@selector(hideSquare:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+-(void)hideSquare:(UIButton * )bt{
+    if (bt.selected) {
+        bt.selected = NO;
+           [self.tableView setContentOffset:CGPointMake(0,0) animated:YES];
+        
+    }else{
+         bt.selected = YES;
+       [self.tableView setContentOffset:CGPointMake(0,350) animated:YES];
+    }
+ 
 }
 - (void)createRefresh
 {
@@ -55,18 +126,19 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 }
 -(void)loadMoreData{
     
-    
+   
 }
 -(void)createTopView{
+    WeakSelf(weakSelf)
      self.homeTopView = [BCHomeTopView loadNameBCHomeTopViewXib];
     self.homeTopView.calculation = ^{//获取算力
-        
+        BCTaskViewController * taskVc = [[BCTaskViewController alloc] init];
+        [weakSelf.navigationController pushViewController:taskVc animated:YES];
     };
-    self.homeTopView.hideSquare = ^{//隐藏矿场
-        
-    };
+   
     self.homeTopView.more = ^{//获取更多糖果
-        
+        BCTaskViewController * taskVc = [[BCTaskViewController alloc] init];
+        [weakSelf.navigationController pushViewController:taskVc animated:YES];
     };
     self.tableView.tableHeaderView =  self.homeTopView;
     

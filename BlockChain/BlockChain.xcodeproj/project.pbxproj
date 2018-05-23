@@ -42,6 +42,21 @@
 		06ED21A520B436EC008F44FE /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219820B436EC008F44FE /* View+MASAdditions.m */; };
 		06ED21A620B436EC008F44FE /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */; };
 		AD23F6CE20B5126B0057E662 /* ATSkipTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CD20B5126B0057E662 /* ATSkipTool.m */; };
+		AD23F6D120B5562B0057E662 /* BCTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6D020B5562B0057E662 /* BCTaskViewController.m */; };
+		AD23F6D420B556AB0057E662 /* BCTaskTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6D320B556AB0057E662 /* BCTaskTopView.m */; };
+		AD23F6D620B556BA0057E662 /* BCTaskTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6D520B556BA0057E662 /* BCTaskTopView.xib */; };
+		AD23F6DA20B5575A0057E662 /* BCTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6D820B5575A0057E662 /* BCTaskTableViewCell.m */; };
+		AD23F6DB20B5575A0057E662 /* BCTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F6D920B5575A0057E662 /* BCTaskTableViewCell.xib */; };
+		AD23F6EC20B569290057E662 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6E020B569290057E662 /* SDCycleScrollView.m */; };
+		AD23F6ED20B569290057E662 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6E120B569290057E662 /* UIView+SDExtension.m */; };
+		AD23F6EE20B569290057E662 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6E220B569290057E662 /* SDCollectionViewCell.m */; };
+		AD23F6EF20B569290057E662 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6E520B569290057E662 /* TADotView.m */; };
+		AD23F6F020B569290057E662 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6E620B569290057E662 /* TAPageControl.m */; };
+		AD23F6F120B569290057E662 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6E720B569290057E662 /* TAAnimatedDotView.m */; };
+		AD23F6F220B569290057E662 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6E820B569290057E662 /* TAAbstractDotView.m */; };
+		AD23F70220B5766E0057E662 /* BCCodeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F70120B5766E0057E662 /* BCCodeAlertView.m */; };
+		AD23F70420B5767A0057E662 /* BCCodeAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F70320B5767A0057E662 /* BCCodeAlertView.xib */; };
+		AD23F70720B580800057E662 /* BCLevelBtton.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F70620B580800057E662 /* BCLevelBtton.m */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -299,6 +314,33 @@
 		06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		AD23F6CC20B5126A0057E662 /* ATSkipTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSkipTool.h; sourceTree = "<group>"; };
 		AD23F6CD20B5126B0057E662 /* ATSkipTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSkipTool.m; sourceTree = "<group>"; };
+		AD23F6CF20B5562B0057E662 /* BCTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTaskViewController.h; sourceTree = "<group>"; };
+		AD23F6D020B5562B0057E662 /* BCTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskViewController.m; sourceTree = "<group>"; };
+		AD23F6D220B556AB0057E662 /* BCTaskTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTaskTopView.h; sourceTree = "<group>"; };
+		AD23F6D320B556AB0057E662 /* BCTaskTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskTopView.m; sourceTree = "<group>"; };
+		AD23F6D520B556BA0057E662 /* BCTaskTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCTaskTopView.xib; sourceTree = "<group>"; };
+		AD23F6D720B5575A0057E662 /* BCTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTaskTableViewCell.h; sourceTree = "<group>"; };
+		AD23F6D820B5575A0057E662 /* BCTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskTableViewCell.m; sourceTree = "<group>"; };
+		AD23F6D920B5575A0057E662 /* BCTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCTaskTableViewCell.xib; sourceTree = "<group>"; };
+		AD23F6DD20B569290057E662 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		AD23F6DE20B569290057E662 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		AD23F6DF20B569290057E662 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		AD23F6E020B569290057E662 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		AD23F6E120B569290057E662 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		AD23F6E220B569290057E662 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		AD23F6E420B569290057E662 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		AD23F6E520B569290057E662 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		AD23F6E620B569290057E662 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		AD23F6E720B569290057E662 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		AD23F6E820B569290057E662 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		AD23F6E920B569290057E662 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		AD23F6EA20B569290057E662 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		AD23F6EB20B569290057E662 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		AD23F70020B5766E0057E662 /* BCCodeAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCCodeAlertView.h; sourceTree = "<group>"; };
+		AD23F70120B5766E0057E662 /* BCCodeAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCCodeAlertView.m; sourceTree = "<group>"; };
+		AD23F70320B5767A0057E662 /* BCCodeAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCCodeAlertView.xib; sourceTree = "<group>"; };
+		AD23F70520B580800057E662 /* BCLevelBtton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCLevelBtton.h; sourceTree = "<group>"; };
+		AD23F70620B580800057E662 /* BCLevelBtton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCLevelBtton.m; sourceTree = "<group>"; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -812,6 +854,45 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		AD23F6DC20B569290057E662 /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6DD20B569290057E662 /* UIView+SDExtension.h */,
+				AD23F6DE20B569290057E662 /* SDCycleScrollView.h */,
+				AD23F6DF20B569290057E662 /* SDCollectionViewCell.h */,
+				AD23F6E020B569290057E662 /* SDCycleScrollView.m */,
+				AD23F6E120B569290057E662 /* UIView+SDExtension.m */,
+				AD23F6E220B569290057E662 /* SDCollectionViewCell.m */,
+				AD23F6E320B569290057E662 /* PageControl */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		AD23F6E320B569290057E662 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F6E420B569290057E662 /* TAAbstractDotView.h */,
+				AD23F6E520B569290057E662 /* TADotView.m */,
+				AD23F6E620B569290057E662 /* TAPageControl.m */,
+				AD23F6E720B569290057E662 /* TAAnimatedDotView.m */,
+				AD23F6E820B569290057E662 /* TAAbstractDotView.m */,
+				AD23F6E920B569290057E662 /* TADotView.h */,
+				AD23F6EA20B569290057E662 /* TAAnimatedDotView.h */,
+				AD23F6EB20B569290057E662 /* TAPageControl.h */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
+		AD23F6FF20B5764D0057E662 /* BCLoginView */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F70020B5766E0057E662 /* BCCodeAlertView.h */,
+				AD23F70120B5766E0057E662 /* BCCodeAlertView.m */,
+				AD23F70320B5767A0057E662 /* BCCodeAlertView.xib */,
+			);
+			path = BCLoginView;
+			sourceTree = "<group>";
+		};
 		AD6EA3BD20B43B7100F61B33 /* BCHome */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,6 +913,14 @@
 				AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */,
 				AD6EA3C520B43B7100F61B33 /* BCVerticalBttton.h */,
 				AD6EA3C320B43B7100F61B33 /* BCVerticalBttton.m */,
+				AD23F70520B580800057E662 /* BCLevelBtton.h */,
+				AD23F70620B580800057E662 /* BCLevelBtton.m */,
+				AD23F6D220B556AB0057E662 /* BCTaskTopView.h */,
+				AD23F6D320B556AB0057E662 /* BCTaskTopView.m */,
+				AD23F6D520B556BA0057E662 /* BCTaskTopView.xib */,
+				AD23F6D720B5575A0057E662 /* BCTaskTableViewCell.h */,
+				AD23F6D820B5575A0057E662 /* BCTaskTableViewCell.m */,
+				AD23F6D920B5575A0057E662 /* BCTaskTableViewCell.xib */,
 			);
 			path = BCHomeView;
 			sourceTree = "<group>";
@@ -841,6 +930,8 @@
 			children = (
 				AD6EA3C920B43B7100F61B33 /* BCHomeViewController.h */,
 				AD6EA3C820B43B7100F61B33 /* BCHomeViewController.m */,
+				AD23F6CF20B5562B0057E662 /* BCTaskViewController.h */,
+				AD23F6D020B5562B0057E662 /* BCTaskViewController.m */,
 			);
 			path = BCHomeController;
 			sourceTree = "<group>";
@@ -1448,6 +1539,7 @@
 		ADE1266F20B2E8D400F6E172 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				AD23F6DC20B569290057E662 /* SDCycleScrollView */,
 				AD23F6CC20B5126A0057E662 /* ATSkipTool.h */,
 				AD23F6CD20B5126B0057E662 /* ATSkipTool.m */,
 				ADE1270B20B2EDEC00F6E172 /* MBManager.h */,
@@ -1574,6 +1666,7 @@
 		ADE126E920B2ECBA00F6E172 /* BCLogin */ = {
 			isa = PBXGroup;
 			children = (
+				AD23F6FF20B5764D0057E662 /* BCLoginView */,
 				ADE126EA20B2ECBA00F6E172 /* BCLoginModel */,
 				ADE126EB20B2ECBA00F6E172 /* BCLoginController */,
 			);
@@ -1742,11 +1835,14 @@
 				ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */,
 				ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */,
 				ADE1264320B2E84F00F6E172 /* UMSocialSDKResources.bundle in Resources */,
+				AD23F70420B5767A0057E662 /* BCCodeAlertView.xib in Resources */,
 				AD6EA45620B43ED200F61B33 /* MJRefresh.bundle in Resources */,
 				06ED219C20B436EC008F44FE /* Info.plist in Resources */,
 				ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */,
 				ADE1266220B2E84F00F6E172 /* Info.plist in Resources */,
+				AD23F6DB20B5575A0057E662 /* BCTaskTableViewCell.xib in Resources */,
 				AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */,
+				AD23F6D620B556BA0057E662 /* BCTaskTopView.xib in Resources */,
 				ADE1265920B2E84F00F6E172 /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1776,8 +1872,10 @@
 				AD6EA45E20B43ED200F61B33 /* MJRefreshAutoGifFooter.m in Sources */,
 				AD6EA45820B43ED200F61B33 /* NSBundle+MJRefresh.m in Sources */,
 				ADE123CA20B2E80300F6E172 /* AppDelegate.m in Sources */,
+				AD23F6D120B5562B0057E662 /* BCTaskViewController.m in Sources */,
 				ADE125A320B2E84F00F6E172 /* FMDatabasePool.m in Sources */,
 				0652473020B3C04900F65C2A /* UIButton+LWB.m in Sources */,
+				AD23F6ED20B569290057E662 /* UIView+SDExtension.m in Sources */,
 				0652473820B3C08500F65C2A /* UILabel+LWB.m in Sources */,
 				ADE126DB20B2EB4F00F6E172 /* NSArray+WHArray.m in Sources */,
 				04B6320420B54E7700D063B8 /* BCMeModel.m in Sources */,
@@ -1787,6 +1885,7 @@
 				ADE1264920B2E84F00F6E172 /* MJPropertyType.m in Sources */,
 				06ED219D20B436EC008F44FE /* MASCompositeConstraint.m in Sources */,
 				ADE1270A20B2EDC200F6E172 /* LFAccountTool.m in Sources */,
+				AD23F6F020B569290057E662 /* TAPageControl.m in Sources */,
 				ADE1270620B2ED4D00F6E172 /* AFNetworkReachabilityManager.m in Sources */,
 				04B631F820B54E7700D063B8 /* BCVewForHeader.m in Sources */,
 				ADE126D820B2EB4F00F6E172 /* UIBarButtonItem+WHBarButtonItem.m in Sources */,
@@ -1820,6 +1919,7 @@
 				ADE126D620B2EB4F00F6E172 /* UIView+WHView.m in Sources */,
 				AD23F6CE20B5126B0057E662 /* ATSkipTool.m in Sources */,
 				ADE126D320B2EB4F00F6E172 /* UIView+CLFExtension.m in Sources */,
+				AD23F6DA20B5575A0057E662 /* BCTaskTableViewCell.m in Sources */,
 				ADE1264C20B2E84F00F6E172 /* NSObject+MJCoding.m in Sources */,
 				ADE125B720B2E84F00F6E172 /* SDAnimatedImageRep.m in Sources */,
 				04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */,
@@ -1827,6 +1927,7 @@
 				ADE1265D20B2E84F00F6E172 /* IQUIScrollView+Additions.m in Sources */,
 				ADE126D120B2EB4F00F6E172 /* NSObject+WHObject.m in Sources */,
 				AD6EA46720B43ED200F61B33 /* MJRefreshComponent.m in Sources */,
+				AD23F6F220B569290057E662 /* TAAbstractDotView.m in Sources */,
 				04B6320020B54E7700D063B8 /* BCMeTangGuoJiLuListController.m in Sources */,
 				06ED21A620B436EC008F44FE /* ViewController+MASAdditions.m in Sources */,
 				ADE125BB20B2E84F00F6E172 /* NSData+ImageContentType.m in Sources */,
@@ -1841,6 +1942,7 @@
 				04B631FB20B54E7700D063B8 /* BCMePDCListHeaderView.m in Sources */,
 				AD6EA46420B43ED200F61B33 /* MJRefreshHeader.m in Sources */,
 				0652473420B3C06900F65C2A /* UIImageView+WBY.m in Sources */,
+				AD23F70220B5766E0057E662 /* BCCodeAlertView.m in Sources */,
 				ADE125BD20B2E84F00F6E172 /* NSImage+WebCache.m in Sources */,
 				04B631FF20B54E7700D063B8 /* BCMeQRCodeController.m in Sources */,
 				AD6EA46620B43ED200F61B33 /* MJRefreshAutoFooter.m in Sources */,
@@ -1865,6 +1967,8 @@
 				ADE125B120B2E84F00F6E172 /* UIImage+MultiFormat.m in Sources */,
 				ADE125B920B2E84F00F6E172 /* SDWebImageDownloaderOperation.m in Sources */,
 				ADE126E020B2EB4F00F6E172 /* UITableView+WHTableView.m in Sources */,
+				AD23F6EC20B569290057E662 /* SDCycleScrollView.m in Sources */,
+				AD23F6EE20B569290057E662 /* SDCollectionViewCell.m in Sources */,
 				ADE125B420B2E84F00F6E172 /* SDWebImagePrefetcher.m in Sources */,
 				ADE125C220B2E84F00F6E172 /* SDWebImageImageIOCoder.m in Sources */,
 				ADE1264E20B2E84F00F6E172 /* NSObject+MJProperty.m in Sources */,
@@ -1872,6 +1976,8 @@
 				04B6320120B54E7700D063B8 /* BCMePDCListController.m in Sources */,
 				ADE1265320B2E84F00F6E172 /* IQTextView.m in Sources */,
 				AD6EA45B20B43ED200F61B33 /* MJRefreshBackStateFooter.m in Sources */,
+				AD23F6F120B569290057E662 /* TAAnimatedDotView.m in Sources */,
+				AD23F70720B580800057E662 /* BCLevelBtton.m in Sources */,
 				ADE1270720B2ED4D00F6E172 /* AFSecurityPolicy.m in Sources */,
 				ADE1270520B2ED4D00F6E172 /* AFURLRequestSerialization.m in Sources */,
 				ADE1265820B2E84F00F6E172 /* IQPreviousNextView.m in Sources */,
@@ -1891,6 +1997,7 @@
 				06ED21A120B436EC008F44FE /* MASViewAttribute.m in Sources */,
 				ADE126D520B2EB4F00F6E172 /* WHMethods.m in Sources */,
 				04B631FD20B54E7700D063B8 /* BCMeHeaderView.m in Sources */,
+				AD23F6EF20B569290057E662 /* TADotView.m in Sources */,
 				04B631FE20B54E7700D063B8 /* BCMeViewController.m in Sources */,
 				ADE126E320B2EB4F00F6E172 /* NSDateFormatter+Category.m in Sources */,
 				ADE126E420B2EB4F00F6E172 /* UIBarButtonItem+Item.m in Sources */,
@@ -1903,6 +2010,7 @@
 				04B6320320B54E7700D063B8 /* BCMePDCListMode.m in Sources */,
 				AD6EA46520B43ED200F61B33 /* MJRefreshBackFooter.m in Sources */,
 				ADE125C320B2E84F00F6E172 /* UIButton+WebCache.m in Sources */,
+				AD23F6D420B556AB0057E662 /* BCTaskTopView.m in Sources */,
 				ADE1267720B2E91000F6E172 /* UIView+GKExtension.m in Sources */,
 				ADE126E120B2EB4F00F6E172 /* UIButton+WHButton.m in Sources */,
 				06ED219E20B436EC008F44FE /* MASConstraint.m in Sources */,

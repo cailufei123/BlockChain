@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCHome/BCHomeView/BCHomeTopView.m"
-            timestampString = "548754124.288643"
+            timestampString = "548769825.649303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "189"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCHome/BCHomeView/BCHomeTopView.m"
-            timestampString = "548754124.288941"
+            timestampString = "548769825.64976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "191"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCHome/BCHomeView/BCHomeTopView.m"
-            timestampString = "548754124.289116"
+            timestampString = "548769825.650087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
@@ -58,7 +58,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/BCHome/BCHomeView/BCHomeTopView.m"
-                  timestampString = "548754165.875301"
+                  timestampString = "548762901.668782"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "188"
@@ -73,7 +73,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/BCHome/BCHomeView/BCHomeTopView.m"
-                  timestampString = "548754165.882576"
+                  timestampString = "548762901.676446"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "188"
@@ -88,7 +88,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/BCHome/BCHomeView/BCHomeTopView.m"
-                  timestampString = "548754165.88643"
+                  timestampString = "548762901.682197"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "188"
@@ -105,12 +105,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCLogin/BCLoginController/BCLoginController.m"
-            timestampString = "548754124.289252"
+            timestampString = "548769825.6502759"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "-agreementBtClick"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-addNoticeForKeyboard"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,13 +121,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCLogin/BCLoginController/BCLoginController.m"
-            timestampString = "548754124.2900341"
+            timestampString = "548769825.6503921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-noCodeTop:"
-            landmarkType = "7">
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "BCLoginController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeView/BCTaskTopView.h"
+            timestampString = "548769825.650488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6"
+            endingLineNumber = "6"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

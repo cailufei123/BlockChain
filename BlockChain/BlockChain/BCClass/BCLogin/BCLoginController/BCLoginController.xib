@@ -40,15 +40,15 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDW-Uv-6SW">
                             <rect key="frame" x="0.0" y="0.0" width="485" height="629"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nsa-7j-Egs">
-                                    <rect key="frame" x="135" y="18" width="215" height="59"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="雷鹿财富logoc-2" translatesAutoresizingMaskIntoConstraints="NO" id="nsa-7j-Egs">
+                                    <rect key="frame" x="135" y="30" width="215" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="215" id="ZMI-Ix-rf0"/>
-                                        <constraint firstAttribute="height" constant="59" id="lMh-IQ-i2g"/>
+                                        <constraint firstAttribute="height" constant="45" id="lMh-IQ-i2g"/>
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83u-8c-LJj">
-                                    <rect key="frame" x="40" y="147" width="405" height="64"/>
+                                    <rect key="frame" x="40" y="145" width="405" height="64"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kq-BY-aXt">
                                             <rect key="frame" x="0.0" y="63.5" width="405" height="0.5"/>
@@ -87,7 +87,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2C-i8-xNF">
-                                    <rect key="frame" x="40" y="211" width="405" height="64"/>
+                                    <rect key="frame" x="40" y="209" width="405" height="64"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fI-M1-iWA">
                                             <rect key="frame" x="0.0" y="63.5" width="405" height="0.5"/>
@@ -141,7 +141,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdV-vR-aAZ">
-                                    <rect key="frame" x="40" y="475" width="405" height="44"/>
+                                    <rect key="frame" x="40" y="473" width="405" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="xvJ-ZX-Jfa"/>
                                     </constraints>
@@ -155,7 +155,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cru-hr-dFj">
-                                    <rect key="frame" x="0.0" y="275" width="485" height="200"/>
+                                    <rect key="frame" x="0.0" y="273" width="485" height="200"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2l-5i-nYM">
                                             <rect key="frame" x="40" y="0.0" width="405" height="64"/>
@@ -253,9 +253,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDH-UK-wE2">
-                                            <rect key="frame" x="147" y="160" width="16" height="22"/>
+                                            <rect key="frame" x="144" y="160" width="16" height="22"/>
                                             <state key="normal" image="login_agreementbt_nosure"/>
-                                            <state key="selected" image="login_agreementbt_sure"/>
+                                            <state key="selected" image="login_agreementbt"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -265,7 +265,7 @@
                                         <constraint firstItem="LGY-wA-WlI" firstAttribute="top" secondItem="G3s-1A-7Yr" secondAttribute="bottom" constant="10" id="5CO-Gl-m0k"/>
                                         <constraint firstItem="G3s-1A-7Yr" firstAttribute="top" secondItem="N2l-5i-nYM" secondAttribute="bottom" id="LYJ-HK-d6X"/>
                                         <constraint firstItem="dSb-oL-CcD" firstAttribute="top" secondItem="LGY-wA-WlI" secondAttribute="bottom" constant="8" id="Pe7-Re-csz"/>
-                                        <constraint firstItem="dSb-oL-CcD" firstAttribute="leading" secondItem="XDH-UK-wE2" secondAttribute="trailing" id="dXx-Es-9v9"/>
+                                        <constraint firstItem="dSb-oL-CcD" firstAttribute="leading" secondItem="XDH-UK-wE2" secondAttribute="trailing" constant="3" id="dXx-Es-9v9"/>
                                         <constraint firstItem="G3s-1A-7Yr" firstAttribute="leading" secondItem="N2l-5i-nYM" secondAttribute="leading" id="kN2-2i-gsx"/>
                                         <constraint firstItem="N2l-5i-nYM" firstAttribute="top" secondItem="cru-hr-dFj" secondAttribute="top" id="tpc-i4-Gud"/>
                                     </constraints>
@@ -288,7 +288,7 @@
                                 <constraint firstItem="cru-hr-dFj" firstAttribute="top" secondItem="u2C-i8-xNF" secondAttribute="bottom" id="e5g-nm-fYu"/>
                                 <constraint firstItem="BdV-vR-aAZ" firstAttribute="top" secondItem="u2C-i8-xNF" secondAttribute="bottom" constant="200" id="gCK-7v-hdu"/>
                                 <constraint firstAttribute="trailing" secondItem="BdV-vR-aAZ" secondAttribute="trailing" constant="40" id="sQc-us-w2w"/>
-                                <constraint firstItem="nsa-7j-Egs" firstAttribute="top" secondItem="fDW-Uv-6SW" secondAttribute="top" constant="18" id="u0m-JQ-A1E"/>
+                                <constraint firstItem="nsa-7j-Egs" firstAttribute="top" secondItem="fDW-Uv-6SW" secondAttribute="top" constant="30" id="u0m-JQ-A1E"/>
                                 <constraint firstItem="LGY-wA-WlI" firstAttribute="centerX" secondItem="fDW-Uv-6SW" secondAttribute="centerX" id="xFo-IU-zKy"/>
                                 <constraint firstAttribute="trailing" secondItem="83u-8c-LJj" secondAttribute="trailing" constant="40" id="xzC-Bz-2fZ"/>
                                 <constraint firstItem="BdV-vR-aAZ" firstAttribute="top" secondItem="cru-hr-dFj" secondAttribute="bottom" id="yP2-DK-Ska"/>
@@ -330,6 +330,6 @@
         <image name="bt_bg" width="147" height="22"/>
         <image name="login_agreementbt" width="16" height="16"/>
         <image name="login_agreementbt_nosure" width="16" height="16"/>
-        <image name="login_agreementbt_sure" width="16" height="16"/>
+        <image name="雷鹿财富logoc-2" width="297" height="64"/>
     </resources>
 </document>

@@ -7,7 +7,9 @@
 //
 
 #import "BCLoginController.h"
+#import "BCCodeAlertView.h"
 #define timeCount 60
+
 @interface BCLoginController ()<UITextFieldDelegate,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *businessImg;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTf;
@@ -93,15 +95,14 @@
     }
     
 }
-- (IBAction)noCodeTop:(id)sender {
-//    if (!self.sureBt.selected) {
-//        [MBManager showBriefAlert:@""]
-//    }
-    
+- (IBAction)noCodeTop:(id)sender {//没有邀请码
+
+    BCCodeAlertView * codeAlertView  =[BCCodeAlertView loadNameBCCodeAlertViewXib];
+     codeAlertView.clf_size = CGSizeMake(LFscreenW-30, 270);
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:codeAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
+
 }
-//-(void)noCodeBtClick{//没有邀请码
-//
-//}
+
 -(void)agreementBtClick{//用户协议
     
 }
