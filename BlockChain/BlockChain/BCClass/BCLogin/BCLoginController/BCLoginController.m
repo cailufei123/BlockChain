@@ -37,6 +37,11 @@
     
     
 }
+- (IBAction)noCodeBtClick:(id)sender {
+    BCCodeAlertView * codeAlertView  =[BCCodeAlertView loadNameBCCodeAlertViewXib];
+    codeAlertView.clf_size = CGSizeMake(LFscreenW-30, 270);
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:codeAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
+}
 
 //按下return keyboard消失
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -83,8 +88,12 @@
     [invitationstr addAttributes:invitationDic range:invitationRange];
 //
     self.invitationLb.attributedText = invitationstr;
-
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(wwww)];
+    [self.invitationLb addGestureRecognizer:tap];
   
+    
+}
+-(void)wwww{
     
 }
 -(void)sureBtClick:(UIButton * )bt{
@@ -94,13 +103,6 @@
          bt.selected = YES;
     }
     
-}
-- (IBAction)noCodeTop:(id)sender {//没有邀请码
-
-    BCCodeAlertView * codeAlertView  =[BCCodeAlertView loadNameBCCodeAlertViewXib];
-     codeAlertView.clf_size = CGSizeMake(LFscreenW-30, 270);
-    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:codeAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
-
 }
 
 -(void)agreementBtClick{//用户协议
