@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIView *invitationView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *invitationLyout;
 @property (weak, nonatomic) IBOutlet UIButton *noCodeBt;
+@property (weak, nonatomic) IBOutlet UIButton *sureBt;
 @end
 
 @implementation BCLoginController
@@ -52,7 +53,7 @@
     [self.getCodeBt addTarget:self action:@selector(getCodeBtCilck) forControlEvents:UIControlEventTouchUpInside];
      [self.loginBt addTarget:self action:@selector(logingBtClick) forControlEvents:UIControlEventTouchUpInside];
     [self.agreementLb addTarget:self action:@selector(agreementBtClick) forControlEvents:UIControlEventTouchUpInside];
-    
+    [self.sureBt addTarget:self action:@selector(sureBtClick:) forControlEvents:UIControlEventTouchUpInside];
    
     WeakSelf(weakSelf)
     self.timer = [NSTimer wh_scheduledTimerWithTimeInterval:1 repeats:YES callback:^(NSTimer *timer) {
@@ -84,8 +85,18 @@
   
     
 }
-- (IBAction)noCodeTop:(id)sender {
+-(void)sureBtClick:(UIButton * )bt{
+    if (bt.selected) {
+        bt.selected = NO;
+    }else{
+         bt.selected = YES;
+    }
     
+}
+- (IBAction)noCodeTop:(id)sender {
+//    if (!self.sureBt.selected) {
+//        [MBManager showBriefAlert:@""]
+//    }
     
 }
 //-(void)noCodeBtClick{//没有邀请码
