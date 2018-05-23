@@ -29,8 +29,9 @@
 
 #define HeaderViewHeight   ((SYRealValue(67+33+23))+kTopHeight+(SYRealValue(235)))  //顶部view高度
 //弹框
-#define HeaderViewWidth   ((SYRealValue(343)))
-#define HeaderViewHeight   ((SYRealValue(467)))
+#define alertViewWidth    ((SYRealValue(343)))
+#define alertViewHeight   ((SYRealValue(467)))
+
 /**表格**/
 -(UITableView *)tableView{
     if (!_tableView) {
@@ -66,7 +67,7 @@
 /**顶部view**/
 -(BCMePDCListAlertView *)alertView{
     if (!_alertView) {
-        _alertView = [[BCMePDCListAlertView alloc] initWithFrame:CGRectMake(0, 0, HeaderViewWidth, HeaderViewHeight)];
+        _alertView = [[BCMePDCListAlertView alloc] initWithFrame:CGRectMake(0, 0, alertViewWidth, alertViewHeight)];
         _alertView.backgroundColor =[UIColor greenColor];
         //_alertView.delegate =self;
         //_alertView.model=self.model;
