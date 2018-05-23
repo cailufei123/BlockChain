@@ -13,7 +13,10 @@
 @end
 
 @implementation SALoginRegistNavController
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.interactivePopGestureRecognizer.delegate = self;
@@ -23,7 +26,8 @@
 //    self.navigationBar.translucent = NO;
     self.navigationBar.barTintColor = naverBagColor;
     self.navigationBar.titleTextAttributes = normalAttrs;
-   
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
+
 }
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     
@@ -44,11 +48,7 @@
        backItem.imageEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
         [backItem addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         viewController.hidesBottomBarWhenPushed = YES;
-        
-
      [super pushViewController:viewController animated:animated];
-  
-    
 }
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated{
     
@@ -65,18 +65,13 @@
 }
 //手势识别器会调用这个代理方法YES 有效  NO没有效果
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    //    if (self.childViewControllers.count==1) {
-    //         return NO;
-    //    }
-    //    return YES;
     return self.childViewControllers.count>1;
 }
 
-//-(UIStatusBarStyle)preferredStatusBarStyle{
-//    
-//    return UIStatusBarStyleDefault;
-//}
-//
+-(UIStatusBarStyle)preferredStatusBarStyle{
+
+      return UIStatusBarStyleLightContent;
+}
 
 
 

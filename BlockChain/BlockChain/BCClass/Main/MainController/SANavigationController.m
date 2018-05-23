@@ -33,7 +33,7 @@
 
        NSForegroundColorAttributeName:naverTextColor}];
      self.navigationBar.barTintColor = naverTextColor;
-//    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"data_list_tabrbg.png"] forBarMetrics:UIBarMetricsDefault];
+  [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
 //   [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }

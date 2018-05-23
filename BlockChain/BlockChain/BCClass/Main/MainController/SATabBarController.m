@@ -135,12 +135,13 @@
 
 -(void)tabBarController:(UITabBarController*)tabBarController didSelectViewController:(UIViewController*)viewController
 {
-    if (tabBarController.selectedIndex == 4) {
+    if (tabBarController.selectedIndex == 0) {
 
-    }else if (tabBarController.selectedIndex == 2){
-      
-    }else if (tabBarController.selectedIndex == 3){
-
+    }else if (tabBarController.selectedIndex == 1){
+        if (!loginTokenlength) {
+            tabBarController.selectedIndex = self.oldSelectIndex;
+            [ATSKIPTOOl loginAction:self];return;
+        }
     }
 }
 -(void)longinseccous{

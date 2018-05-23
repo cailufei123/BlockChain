@@ -30,6 +30,7 @@
 		06ED21A620B436EC008F44FE /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */; };
 		06ED21A920B44558008F44FE /* BCMeTangGuoJiLuListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED21A820B44558008F44FE /* BCMeTangGuoJiLuListController.m */; };
 		06ED21AC20B446C7008F44FE /* BCMeTangGuoListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED21AB20B446C7008F44FE /* BCMeTangGuoListHeaderView.m */; };
+		AD23F6CE20B5126B0057E662 /* ATSkipTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CD20B5126B0057E662 /* ATSkipTool.m */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -193,9 +194,6 @@
 		ADE1270D20B2EDED00F6E172 /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1270C20B2EDEC00F6E172 /* MBManager.m */; };
 		ADE1271320B2F00B00F6E172 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1270F20B2F00B00F6E172 /* MBProgressHUD.m */; };
 		ADE1271420B2F00B00F6E172 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1271020B2F00B00F6E172 /* MBProgressHUD+Add.m */; };
-		ADE1271E20B2F04400F6E172 /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1271720B2F04300F6E172 /* WRNavigationBar.m */; };
-		ADE1271F20B2F04400F6E172 /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1271A20B2F04300F6E172 /* WRCustomNavigationBar.m */; };
-		ADE1272020B2F04400F6E172 /* WRImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1271C20B2F04300F6E172 /* WRImageHelper.m */; };
 		ADE1272220B2F13600F6E172 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADE1272120B2F13600F6E172 /* Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -267,6 +265,8 @@
 		06ED21A820B44558008F44FE /* BCMeTangGuoJiLuListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeTangGuoJiLuListController.m; sourceTree = "<group>"; };
 		06ED21AA20B446C7008F44FE /* BCMeTangGuoListHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoListHeaderView.h; sourceTree = "<group>"; };
 		06ED21AB20B446C7008F44FE /* BCMeTangGuoListHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeTangGuoListHeaderView.m; sourceTree = "<group>"; };
+		AD23F6CC20B5126A0057E662 /* ATSkipTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSkipTool.h; sourceTree = "<group>"; };
+		AD23F6CD20B5126B0057E662 /* ATSkipTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSkipTool.m; sourceTree = "<group>"; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -591,12 +591,6 @@
 		ADE1271020B2F00B00F6E172 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		ADE1271120B2F00B00F6E172 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		ADE1271220B2F00B00F6E172 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
-		ADE1271720B2F04300F6E172 /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
-		ADE1271820B2F04300F6E172 /* WRCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCustomNavigationBar.h; sourceTree = "<group>"; };
-		ADE1271920B2F04300F6E172 /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
-		ADE1271A20B2F04300F6E172 /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
-		ADE1271C20B2F04300F6E172 /* WRImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRImageHelper.m; sourceTree = "<group>"; };
-		ADE1271D20B2F04300F6E172 /* WRImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRImageHelper.h; sourceTree = "<group>"; };
 		ADE1272120B2F13600F6E172 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -752,14 +746,14 @@
 		AD6EA3BE20B43B7100F61B33 /* BCHomeView */ = {
 			isa = PBXGroup;
 			children = (
-				AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */,
-				AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */,
-				AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */,
 				AD6EA3C220B43B7100F61B33 /* BCHomeTopView.h */,
-				AD6EA3C320B43B7100F61B33 /* BCVerticalBttton.m */,
-				AD6EA3C420B43B7100F61B33 /* BCHomeTableViewCell.h */,
-				AD6EA3C520B43B7100F61B33 /* BCVerticalBttton.h */,
 				AD6EA3C620B43B7100F61B33 /* BCHomeTopView.m */,
+				AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */,
+				AD6EA3C420B43B7100F61B33 /* BCHomeTableViewCell.h */,
+				AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */,
+				AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */,
+				AD6EA3C520B43B7100F61B33 /* BCVerticalBttton.h */,
+				AD6EA3C320B43B7100F61B33 /* BCVerticalBttton.m */,
 			);
 			path = BCHomeView;
 			sourceTree = "<group>";
@@ -1376,13 +1370,14 @@
 		ADE1266F20B2E8D400F6E172 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				AD23F6CC20B5126A0057E662 /* ATSkipTool.h */,
+				AD23F6CD20B5126B0057E662 /* ATSkipTool.m */,
 				ADE1270B20B2EDEC00F6E172 /* MBManager.h */,
 				ADE1270C20B2EDEC00F6E172 /* MBManager.m */,
 				ADE1270920B2EDC100F6E172 /* LFAccountTool.h */,
 				ADE1270820B2EDC100F6E172 /* LFAccountTool.m */,
 				ADE126F120B2ECF100F6E172 /* LFHttpTool.h */,
 				ADE126F020B2ECF100F6E172 /* LFHttpTool.m */,
-				ADE1271520B2F04300F6E172 /* 自定义导航栏 */,
 				ADE1267020B2E91000F6E172 /* GKCover */,
 			);
 			path = Tools;
@@ -1555,35 +1550,6 @@
 				ADE1271220B2F00B00F6E172 /* MBProgressHUD+Add.h */,
 			);
 			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		ADE1271520B2F04300F6E172 /* 自定义导航栏 */ = {
-			isa = PBXGroup;
-			children = (
-				ADE1271620B2F04300F6E172 /* WRNavigationBar */,
-				ADE1271B20B2F04300F6E172 /* WRImageHelper */,
-			);
-			path = "自定义导航栏";
-			sourceTree = "<group>";
-		};
-		ADE1271620B2F04300F6E172 /* WRNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				ADE1271720B2F04300F6E172 /* WRNavigationBar.m */,
-				ADE1271820B2F04300F6E172 /* WRCustomNavigationBar.h */,
-				ADE1271920B2F04300F6E172 /* WRNavigationBar.h */,
-				ADE1271A20B2F04300F6E172 /* WRCustomNavigationBar.m */,
-			);
-			path = WRNavigationBar;
-			sourceTree = "<group>";
-		};
-		ADE1271B20B2F04300F6E172 /* WRImageHelper */ = {
-			isa = PBXGroup;
-			children = (
-				ADE1271C20B2F04300F6E172 /* WRImageHelper.m */,
-				ADE1271D20B2F04300F6E172 /* WRImageHelper.h */,
-			);
-			path = WRImageHelper;
 			sourceTree = "<group>";
 		};
 		ADE1272720B2F20600F6E172 /* BCMe */ = {
@@ -1791,6 +1757,7 @@
 				ADE125A020B2E84F00F6E172 /* FMDatabaseQueue.m in Sources */,
 				ADE1264B20B2E84F00F6E172 /* MJProperty.m in Sources */,
 				ADE126D620B2EB4F00F6E172 /* UIView+WHView.m in Sources */,
+				AD23F6CE20B5126B0057E662 /* ATSkipTool.m in Sources */,
 				ADE126D320B2EB4F00F6E172 /* UIView+CLFExtension.m in Sources */,
 				ADE1264C20B2E84F00F6E172 /* NSObject+MJCoding.m in Sources */,
 				ADE125B720B2E84F00F6E172 /* SDAnimatedImageRep.m in Sources */,
@@ -1848,7 +1815,6 @@
 				ADE1270520B2ED4D00F6E172 /* AFURLRequestSerialization.m in Sources */,
 				ADE1265820B2E84F00F6E172 /* IQPreviousNextView.m in Sources */,
 				ADE126CD20B2EB4F00F6E172 /* UIDevice+WHDevice.m in Sources */,
-				ADE1271E20B2F04400F6E172 /* WRNavigationBar.m in Sources */,
 				ADE1265B20B2E84F00F6E172 /* IQNSArray+Sort.m in Sources */,
 				ADE1271420B2F00B00F6E172 /* MBProgressHUD+Add.m in Sources */,
 				ADE126F220B2ECF100F6E172 /* LFHttpTool.m in Sources */,
@@ -1869,7 +1835,6 @@
 				ADE126D420B2EB4F00F6E172 /* NSDictionary+WHDictionary.m in Sources */,
 				AD6EA45A20B43ED200F61B33 /* MJRefreshBackGifFooter.m in Sources */,
 				ADE125AC20B2E84F00F6E172 /* FLAnimatedImageView+WebCache.m in Sources */,
-				ADE1272020B2F04400F6E172 /* WRImageHelper.m in Sources */,
 				AD6EA46520B43ED200F61B33 /* MJRefreshBackFooter.m in Sources */,
 				ADE125C320B2E84F00F6E172 /* UIButton+WebCache.m in Sources */,
 				ADE1267720B2E91000F6E172 /* UIView+GKExtension.m in Sources */,
@@ -1900,7 +1865,6 @@
 				ADE1270D20B2EDED00F6E172 /* MBManager.m in Sources */,
 				0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */,
 				ADE125A620B2E84F00F6E172 /* MKAnnotationView+WebCache.m in Sources */,
-				ADE1271F20B2F04400F6E172 /* WRCustomNavigationBar.m in Sources */,
 				ADE126E620B2EB4F00F6E172 /* NSFileManager+WHFileManager.m in Sources */,
 				ADE1264D20B2E84F00F6E172 /* MJExtensionConst.m in Sources */,
 				ADE1269120B2EABD00F6E172 /* YWRequestData.m in Sources */,
