@@ -22,8 +22,10 @@
                 <outlet property="invitationView" destination="cru-hr-dFj" id="xfe-x9-gEk"/>
                 <outlet property="loginBt" destination="BdV-vR-aAZ" id="shY-xp-Hbj"/>
                 <outlet property="nameTf" destination="8E1-RS-waB" id="iyu-ZR-Gtg"/>
+                <outlet property="noCodeBt" destination="dSb-oL-CcD" id="Vmb-yL-LGO"/>
                 <outlet property="phoneTf" destination="weW-zz-rVE" id="xgc-yz-gX9"/>
                 <outlet property="scrollow" destination="EJN-cs-vuq" id="CCs-4x-eT0"/>
+                <outlet property="sureBt" destination="XDH-UK-wE2" id="NF0-CM-T2b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -233,8 +235,8 @@
                                                 <constraint firstItem="eyd-24-zxr" firstAttribute="top" secondItem="TzD-HM-k8h" secondAttribute="bottom" constant="12" id="zAs-qv-ceU"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-oL-CcD">
-                                            <rect key="frame" x="162.5" y="163" width="160" height="16"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-oL-CcD">
+                                            <rect key="frame" x="163" y="163" width="160" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="eQr-ed-5Q2"/>
                                             </constraints>
@@ -242,6 +244,7 @@
                                             <state key="normal" title="我已阅读并同意《用户协议》">
                                                 <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <state key="selected" image="login_agreementbt"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用邀请码额外获得10紫钻，没有邀请码？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-wA-WlI">
                                             <rect key="frame" x="128" y="138" width="229" height="17"/>
@@ -249,13 +252,20 @@
                                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDH-UK-wE2">
+                                            <rect key="frame" x="147" y="160" width="16" height="22"/>
+                                            <state key="normal" image="login_agreementbt_nosure"/>
+                                            <state key="selected" image="login_agreementbt_sure"/>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="XDH-UK-wE2" firstAttribute="centerY" secondItem="dSb-oL-CcD" secondAttribute="centerY" id="1Dc-8A-JKB"/>
                                         <constraint firstItem="G3s-1A-7Yr" firstAttribute="trailing" secondItem="N2l-5i-nYM" secondAttribute="trailing" id="4Jd-eG-aQ0"/>
                                         <constraint firstItem="LGY-wA-WlI" firstAttribute="top" secondItem="G3s-1A-7Yr" secondAttribute="bottom" constant="10" id="5CO-Gl-m0k"/>
                                         <constraint firstItem="G3s-1A-7Yr" firstAttribute="top" secondItem="N2l-5i-nYM" secondAttribute="bottom" id="LYJ-HK-d6X"/>
                                         <constraint firstItem="dSb-oL-CcD" firstAttribute="top" secondItem="LGY-wA-WlI" secondAttribute="bottom" constant="8" id="Pe7-Re-csz"/>
+                                        <constraint firstItem="dSb-oL-CcD" firstAttribute="leading" secondItem="XDH-UK-wE2" secondAttribute="trailing" id="dXx-Es-9v9"/>
                                         <constraint firstItem="G3s-1A-7Yr" firstAttribute="leading" secondItem="N2l-5i-nYM" secondAttribute="leading" id="kN2-2i-gsx"/>
                                         <constraint firstItem="N2l-5i-nYM" firstAttribute="top" secondItem="cru-hr-dFj" secondAttribute="top" id="tpc-i4-Gud"/>
                                     </constraints>
@@ -318,5 +328,8 @@
     </objects>
     <resources>
         <image name="bt_bg" width="147" height="22"/>
+        <image name="login_agreementbt" width="16" height="16"/>
+        <image name="login_agreementbt_nosure" width="16" height="16"/>
+        <image name="login_agreementbt_sure" width="16" height="16"/>
     </resources>
 </document>
