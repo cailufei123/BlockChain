@@ -8,18 +8,24 @@
 
 #import "BCSetViewController.h"
 #import "BCReaNameController.h"
+#import "BCRealNameInReviewViewController.h"
+#import "BCRealNameReviewFailureViewController.h"
+#import "BCRealNameReviewPassViewController.h"
+#import "SAMessageViewController.h"
 @interface BCSetViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *acountLb;
 @property (weak, nonatomic) IBOutlet UILabel *realNameLb;
 @property (weak, nonatomic) IBOutlet UILabel *payPasswordLb;
 
 @property (weak, nonatomic) IBOutlet UILabel *versionLb;
+@property(copy,nonatomic)NSString * realNameSkipstr;
 @end
 
 @implementation BCSetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     self.navigationItem.title = @"设置";
     self.view.backgroundColor = bagColor;
     NSString * agreementStr = @"去认证";
     NSRange agreement = [agreementStr rangeOfString:agreementStr];
@@ -28,6 +34,7 @@
     [attribtStr addAttributes:attribtDic range:agreement];
     
     self.realNameLb.attributedText = attribtStr;
+self.realNameSkipstr = @"1";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,11 +42,24 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)meaageTap:(id)sender {
-    
+    SAMessageViewController * messageV = [[SAMessageViewController alloc] init];
+    [self.navigationController pushViewController:messageV animated:YES];
 }
 - (IBAction)realnameTap:(id)sender {
-    BCReaNameController * reaNamv = [[BCReaNameController alloc] init];
-    [self.navigationController pushViewController:reaNamv animated:YES];
+    if ([self.realNameSkipstr isEqualToString:@"1"]) {
+        BCReaNameController * reaNamv = [[BCReaNameController alloc] init];
+        [self.navigationController pushViewController:reaNamv animated:YES];
+    }else if([self.realNameSkipstr isEqualToString:@"2"]) {
+        BCRealNameInReviewViewController * reaNamv = [[BCRealNameInReviewViewController alloc] init];
+        [self.navigationController pushViewController:reaNamv animated:YES];
+    }else if([self.realNameSkipstr isEqualToString:@"3"]) {
+        BCRealNameReviewFailureViewController * reaNamv = [[BCRealNameReviewFailureViewController alloc] init];
+        [self.navigationController pushViewController:reaNamv animated:YES];
+    }else if([self.realNameSkipstr isEqualToString:@"4"]) {
+        BCRealNameReviewPassViewController * reaNamv = [[BCRealNameReviewPassViewController alloc] init];
+        [self.navigationController pushViewController:reaNamv animated:YES];
+    }
+   
 }
 - (IBAction)paypasswordTap:(id)sender {
     
@@ -49,6 +69,8 @@
 }
 - (IBAction)aboutMeTap:(id)sender {
     
+}
+- (IBAction)loginOutClick:(id)sender {
 }
 
 /*

@@ -160,7 +160,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EjU-eY-LoR">
                                             <rect key="frame" x="58.5" y="67" width="258" height="154"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="身份证正面" translatesAutoresizingMaskIntoConstraints="NO" id="S4J-bv-nLf">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="身份证正面" translatesAutoresizingMaskIntoConstraints="NO" id="S4J-bv-nLf">
                                                     <rect key="frame" x="0.0" y="0.0" width="258" height="154"/>
                                                 </imageView>
                                             </subviews>
@@ -173,6 +173,11 @@
                                                 <constraint firstAttribute="height" constant="154" id="hDK-jA-5hi"/>
                                                 <constraint firstAttribute="trailing" secondItem="S4J-bv-nLf" secondAttribute="trailing" id="r2h-3v-PiK"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传身份证正面照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pm-nm-0dP">
                                             <rect key="frame" x="125" y="231" width="126" height="20"/>
@@ -186,7 +191,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYA-QD-THF">
                                             <rect key="frame" x="58.5" y="295" width="258" height="154"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="身份证背面" translatesAutoresizingMaskIntoConstraints="NO" id="OQL-ef-e2b">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="身份证背面" translatesAutoresizingMaskIntoConstraints="NO" id="OQL-ef-e2b">
                                                     <rect key="frame" x="0.0" y="0.0" width="258" height="154"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMw-RA-qqt">
@@ -205,6 +210,11 @@
                                                 <constraint firstItem="TMw-RA-qqt" firstAttribute="centerX" secondItem="OQL-ef-e2b" secondAttribute="centerX" id="t70-Hc-YRG"/>
                                                 <constraint firstAttribute="height" constant="154" id="zMq-pv-N1D"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传身份证背面照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aR1-zK-tRC">
                                             <rect key="frame" x="124.5" y="459" width="126" height="20"/>
@@ -218,7 +228,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxq-AW-QT9">
                                             <rect key="frame" x="58.5" y="523" width="258" height="154"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="身份证手持" translatesAutoresizingMaskIntoConstraints="NO" id="bM8-Al-xPM">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="身份证手持" translatesAutoresizingMaskIntoConstraints="NO" id="bM8-Al-xPM">
                                                     <rect key="frame" x="0.0" y="0.0" width="258" height="154"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcf-RY-jNa">
@@ -238,6 +248,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="bM8-Al-xPM" secondAttribute="bottom" id="ewg-Sm-LsR"/>
                                                 <constraint firstItem="Hcf-RY-jNa" firstAttribute="centerY" secondItem="yxq-AW-QT9" secondAttribute="centerY" id="jeG-vy-btk"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传手持身份证及手写验证照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHF-h6-TKV">
                                             <rect key="frame" x="89.5" y="687" width="196" height="20"/>

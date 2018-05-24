@@ -63,6 +63,26 @@
 		AD23F70C20B59C0C0057E662 /* BCSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F70A20B59C0C0057E662 /* BCSetViewController.xib */; };
 		AD23F71220B661B00057E662 /* BCReaNameController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F71020B661B00057E662 /* BCReaNameController.m */; };
 		AD23F71320B661B00057E662 /* BCReaNameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F71120B661B00057E662 /* BCReaNameController.xib */; };
+		AD23F71B20B682130057E662 /* ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F71920B682130057E662 /* ImagePicker.m */; };
+		AD23F71F20B6895D0057E662 /* BCRealNameInReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F71D20B6895D0057E662 /* BCRealNameInReviewViewController.m */; };
+		AD23F72020B6895D0057E662 /* BCRealNameInReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F71E20B6895D0057E662 /* BCRealNameInReviewViewController.xib */; };
+		AD23F72420B689990057E662 /* BCRealNameReviewFailureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F72220B689990057E662 /* BCRealNameReviewFailureViewController.m */; };
+		AD23F72520B689990057E662 /* BCRealNameReviewFailureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F72320B689990057E662 /* BCRealNameReviewFailureViewController.xib */; };
+		AD23F72E20B689E70057E662 /* BCRealNameReviewPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F72C20B689E70057E662 /* BCRealNameReviewPassViewController.m */; };
+		AD23F72F20B689E70057E662 /* BCRealNameReviewPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F72D20B689E70057E662 /* BCRealNameReviewPassViewController.xib */; };
+		AD23F73220B6981C0057E662 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F73020B6981C0057E662 /* DataBase.m */; };
+		AD23F73820B6992E0057E662 /* SAMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F73720B6992E0057E662 /* SAMessageModel.m */; };
+		AD23F73B20B699540057E662 /* BCSystemMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F73A20B699540057E662 /* BCSystemMessageController.m */; };
+		AD23F73E20B6A2490057E662 /* SAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F73D20B6A2490057E662 /* SAMessageViewController.m */; };
+		AD23F74120B6A2970057E662 /* SAMessageContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F74020B6A2960057E662 /* SAMessageContentController.m */; };
+		AD23F74E20B6A5BB0057E662 /* YWCustomMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F74520B6A5B90057E662 /* YWCustomMessageCell.xib */; };
+		AD23F74F20B6A5BB0057E662 /* YWCustomMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F74620B6A5BA0057E662 /* YWCustomMessageCell.m */; };
+		AD23F75020B6A5BB0057E662 /* ATMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F74720B6A5BA0057E662 /* ATMessageCell.m */; };
+		AD23F75120B6A5BB0057E662 /* LFBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F74820B6A5BA0057E662 /* LFBadgeView.m */; };
+		AD23F75220B6A5BB0057E662 /* ATMessageContentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F74920B6A5BA0057E662 /* ATMessageContentViewCell.m */; };
+		AD23F75320B6A5BB0057E662 /* ATMessageContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F74A20B6A5BB0057E662 /* ATMessageContentViewCell.xib */; };
+		AD23F75420B6A5BB0057E662 /* ATMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F74C20B6A5BB0057E662 /* ATMessageCell.xib */; };
+		AD23F75720B6A5FD0057E662 /* ATServiceAgreementController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F75620B6A5FC0057E662 /* ATServiceAgreementController.m */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -357,6 +377,40 @@
 		AD23F70F20B661B00057E662 /* BCReaNameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCReaNameController.h; sourceTree = "<group>"; };
 		AD23F71020B661B00057E662 /* BCReaNameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCReaNameController.m; sourceTree = "<group>"; };
 		AD23F71120B661B00057E662 /* BCReaNameController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCReaNameController.xib; sourceTree = "<group>"; };
+		AD23F71920B682130057E662 /* ImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePicker.m; sourceTree = "<group>"; };
+		AD23F71A20B682130057E662 /* ImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePicker.h; sourceTree = "<group>"; };
+		AD23F71C20B6895D0057E662 /* BCRealNameInReviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCRealNameInReviewViewController.h; sourceTree = "<group>"; };
+		AD23F71D20B6895D0057E662 /* BCRealNameInReviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCRealNameInReviewViewController.m; sourceTree = "<group>"; };
+		AD23F71E20B6895D0057E662 /* BCRealNameInReviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCRealNameInReviewViewController.xib; sourceTree = "<group>"; };
+		AD23F72120B689990057E662 /* BCRealNameReviewFailureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCRealNameReviewFailureViewController.h; sourceTree = "<group>"; };
+		AD23F72220B689990057E662 /* BCRealNameReviewFailureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCRealNameReviewFailureViewController.m; sourceTree = "<group>"; };
+		AD23F72320B689990057E662 /* BCRealNameReviewFailureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCRealNameReviewFailureViewController.xib; sourceTree = "<group>"; };
+		AD23F72B20B689E70057E662 /* BCRealNameReviewPassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCRealNameReviewPassViewController.h; sourceTree = "<group>"; };
+		AD23F72C20B689E70057E662 /* BCRealNameReviewPassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCRealNameReviewPassViewController.m; sourceTree = "<group>"; };
+		AD23F72D20B689E70057E662 /* BCRealNameReviewPassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCRealNameReviewPassViewController.xib; sourceTree = "<group>"; };
+		AD23F73020B6981C0057E662 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
+		AD23F73120B6981C0057E662 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
+		AD23F73620B6992E0057E662 /* SAMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageModel.h; sourceTree = "<group>"; };
+		AD23F73720B6992E0057E662 /* SAMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageModel.m; sourceTree = "<group>"; };
+		AD23F73920B699540057E662 /* BCSystemMessageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCSystemMessageController.h; sourceTree = "<group>"; };
+		AD23F73A20B699540057E662 /* BCSystemMessageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCSystemMessageController.m; sourceTree = "<group>"; };
+		AD23F73C20B6A2490057E662 /* SAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageViewController.h; sourceTree = "<group>"; };
+		AD23F73D20B6A2490057E662 /* SAMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageViewController.m; sourceTree = "<group>"; };
+		AD23F73F20B6A2960057E662 /* SAMessageContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageContentController.h; sourceTree = "<group>"; };
+		AD23F74020B6A2960057E662 /* SAMessageContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageContentController.m; sourceTree = "<group>"; };
+		AD23F74320B6A5B90057E662 /* YWCustomMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWCustomMessageCell.h; sourceTree = "<group>"; };
+		AD23F74420B6A5B90057E662 /* ATMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMessageCell.h; sourceTree = "<group>"; };
+		AD23F74520B6A5B90057E662 /* YWCustomMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YWCustomMessageCell.xib; sourceTree = "<group>"; };
+		AD23F74620B6A5BA0057E662 /* YWCustomMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWCustomMessageCell.m; sourceTree = "<group>"; };
+		AD23F74720B6A5BA0057E662 /* ATMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMessageCell.m; sourceTree = "<group>"; };
+		AD23F74820B6A5BA0057E662 /* LFBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFBadgeView.m; sourceTree = "<group>"; };
+		AD23F74920B6A5BA0057E662 /* ATMessageContentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMessageContentViewCell.m; sourceTree = "<group>"; };
+		AD23F74A20B6A5BB0057E662 /* ATMessageContentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATMessageContentViewCell.xib; sourceTree = "<group>"; };
+		AD23F74B20B6A5BB0057E662 /* ATMessageContentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMessageContentViewCell.h; sourceTree = "<group>"; };
+		AD23F74C20B6A5BB0057E662 /* ATMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATMessageCell.xib; sourceTree = "<group>"; };
+		AD23F74D20B6A5BB0057E662 /* LFBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFBadgeView.h; sourceTree = "<group>"; };
+		AD23F75520B6A5FB0057E662 /* ATServiceAgreementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATServiceAgreementController.h; sourceTree = "<group>"; };
+		AD23F75620B6A5FC0057E662 /* ATServiceAgreementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATServiceAgreementController.m; sourceTree = "<group>"; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -930,8 +984,78 @@
 				AD23F70F20B661B00057E662 /* BCReaNameController.h */,
 				AD23F71020B661B00057E662 /* BCReaNameController.m */,
 				AD23F71120B661B00057E662 /* BCReaNameController.xib */,
+				AD23F71C20B6895D0057E662 /* BCRealNameInReviewViewController.h */,
+				AD23F71D20B6895D0057E662 /* BCRealNameInReviewViewController.m */,
+				AD23F71E20B6895D0057E662 /* BCRealNameInReviewViewController.xib */,
+				AD23F72120B689990057E662 /* BCRealNameReviewFailureViewController.h */,
+				AD23F72220B689990057E662 /* BCRealNameReviewFailureViewController.m */,
+				AD23F72320B689990057E662 /* BCRealNameReviewFailureViewController.xib */,
+				AD23F72B20B689E70057E662 /* BCRealNameReviewPassViewController.h */,
+				AD23F72C20B689E70057E662 /* BCRealNameReviewPassViewController.m */,
+				AD23F72D20B689E70057E662 /* BCRealNameReviewPassViewController.xib */,
 			);
 			path = BCReaNameController;
+			sourceTree = "<group>";
+		};
+		AD23F71820B682130057E662 /* DWImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F71920B682130057E662 /* ImagePicker.m */,
+				AD23F71A20B682130057E662 /* ImagePicker.h */,
+			);
+			path = DWImagePicker;
+			sourceTree = "<group>";
+		};
+		AD23F73320B6991A0057E662 /* BCSystemMessage */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F74220B6A5A90057E662 /* BCSystemMessageView */,
+				AD23F73420B6991A0057E662 /* BCSystemMessageModel */,
+				AD23F73520B6991A0057E662 /* BCSystemMessageController */,
+			);
+			path = BCSystemMessage;
+			sourceTree = "<group>";
+		};
+		AD23F73420B6991A0057E662 /* BCSystemMessageModel */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F73620B6992E0057E662 /* SAMessageModel.h */,
+				AD23F73720B6992E0057E662 /* SAMessageModel.m */,
+			);
+			path = BCSystemMessageModel;
+			sourceTree = "<group>";
+		};
+		AD23F73520B6991A0057E662 /* BCSystemMessageController */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F75520B6A5FB0057E662 /* ATServiceAgreementController.h */,
+				AD23F75620B6A5FC0057E662 /* ATServiceAgreementController.m */,
+				AD23F73F20B6A2960057E662 /* SAMessageContentController.h */,
+				AD23F74020B6A2960057E662 /* SAMessageContentController.m */,
+				AD23F73C20B6A2490057E662 /* SAMessageViewController.h */,
+				AD23F73D20B6A2490057E662 /* SAMessageViewController.m */,
+				AD23F73920B699540057E662 /* BCSystemMessageController.h */,
+				AD23F73A20B699540057E662 /* BCSystemMessageController.m */,
+			);
+			path = BCSystemMessageController;
+			sourceTree = "<group>";
+		};
+		AD23F74220B6A5A90057E662 /* BCSystemMessageView */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F74420B6A5B90057E662 /* ATMessageCell.h */,
+				AD23F74720B6A5BA0057E662 /* ATMessageCell.m */,
+				AD23F74C20B6A5BB0057E662 /* ATMessageCell.xib */,
+				AD23F74B20B6A5BB0057E662 /* ATMessageContentViewCell.h */,
+				AD23F74920B6A5BA0057E662 /* ATMessageContentViewCell.m */,
+				AD23F74A20B6A5BB0057E662 /* ATMessageContentViewCell.xib */,
+				AD23F74D20B6A5BB0057E662 /* LFBadgeView.h */,
+				AD23F74820B6A5BA0057E662 /* LFBadgeView.m */,
+				AD23F74320B6A5B90057E662 /* YWCustomMessageCell.h */,
+				AD23F74620B6A5BA0057E662 /* YWCustomMessageCell.m */,
+				AD23F74520B6A5B90057E662 /* YWCustomMessageCell.xib */,
+			);
+			path = BCSystemMessageView;
 			sourceTree = "<group>";
 		};
 		AD6EA3BD20B43B7100F61B33 /* BCHome */ = {
@@ -1126,6 +1250,7 @@
 		ADE123C220B2D9EF00F6E172 /* BCClass */ = {
 			isa = PBXGroup;
 			children = (
+				AD23F73320B6991A0057E662 /* BCSystemMessage */,
 				AD23F70D20B661910057E662 /* BCReaName */,
 				04B631D520B54E7600D063B8 /* BCMe */,
 				AD6EA3BD20B43B7100F61B33 /* BCHome */,
@@ -1581,6 +1706,8 @@
 		ADE1266F20B2E8D400F6E172 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				ADE1267020B2E91000F6E172 /* GKCover */,
+				AD23F71820B682130057E662 /* DWImagePicker */,
 				AD23F6DC20B569290057E662 /* SDCycleScrollView */,
 				AD23F6CC20B5126A0057E662 /* ATSkipTool.h */,
 				AD23F6CD20B5126B0057E662 /* ATSkipTool.m */,
@@ -1590,7 +1717,8 @@
 				ADE1270820B2EDC100F6E172 /* LFAccountTool.m */,
 				ADE126F120B2ECF100F6E172 /* LFHttpTool.h */,
 				ADE126F020B2ECF100F6E172 /* LFHttpTool.m */,
-				ADE1267020B2E91000F6E172 /* GKCover */,
+				AD23F73120B6981C0057E662 /* DataBase.h */,
+				AD23F73020B6981C0057E662 /* DataBase.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1874,19 +2002,25 @@
 				AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */,
 				ADE1272220B2F13600F6E172 /* Info.plist in Resources */,
 				ADE1263D20B2E84F00F6E172 /* UMCommonLog.bundle in Resources */,
+				AD23F75420B6A5BB0057E662 /* ATMessageCell.xib in Resources */,
 				ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */,
 				ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */,
 				ADE1264320B2E84F00F6E172 /* UMSocialSDKResources.bundle in Resources */,
 				AD23F70420B5767A0057E662 /* BCCodeAlertView.xib in Resources */,
+				AD23F74E20B6A5BB0057E662 /* YWCustomMessageCell.xib in Resources */,
+				AD23F72F20B689E70057E662 /* BCRealNameReviewPassViewController.xib in Resources */,
 				AD23F71320B661B00057E662 /* BCReaNameController.xib in Resources */,
 				AD6EA45620B43ED200F61B33 /* MJRefresh.bundle in Resources */,
 				06ED219C20B436EC008F44FE /* Info.plist in Resources */,
 				ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */,
 				ADE1266220B2E84F00F6E172 /* Info.plist in Resources */,
+				AD23F72520B689990057E662 /* BCRealNameReviewFailureViewController.xib in Resources */,
 				AD23F6DB20B5575A0057E662 /* BCTaskTableViewCell.xib in Resources */,
 				AD23F70C20B59C0C0057E662 /* BCSetViewController.xib in Resources */,
+				AD23F72020B6895D0057E662 /* BCRealNameInReviewViewController.xib in Resources */,
 				AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */,
 				AD23F6D620B556BA0057E662 /* BCTaskTopView.xib in Resources */,
+				AD23F75320B6A5BB0057E662 /* ATMessageContentViewCell.xib in Resources */,
 				ADE1265920B2E84F00F6E172 /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1932,6 +2066,7 @@
 				ADE1270A20B2EDC200F6E172 /* LFAccountTool.m in Sources */,
 				AD23F6F020B569290057E662 /* TAPageControl.m in Sources */,
 				ADE1270620B2ED4D00F6E172 /* AFNetworkReachabilityManager.m in Sources */,
+				AD23F72420B689990057E662 /* BCRealNameReviewFailureViewController.m in Sources */,
 				04B631F820B54E7700D063B8 /* BCVewForHeader.m in Sources */,
 				ADE126D820B2EB4F00F6E172 /* UIBarButtonItem+WHBarButtonItem.m in Sources */,
 				06ED219F20B436EC008F44FE /* MASConstraintMaker.m in Sources */,
@@ -1943,6 +2078,7 @@
 				ADE125A920B2E84F00F6E172 /* SDWebImageFrame.m in Sources */,
 				ADE125AD20B2E84F00F6E172 /* FLAnimatedImage.m in Sources */,
 				AD6EA3CF20B43B7100F61B33 /* BCHomeViewController.m in Sources */,
+				AD23F75120B6A5BB0057E662 /* LFBadgeView.m in Sources */,
 				06ED21A220B436EC008F44FE /* MASViewConstraint.m in Sources */,
 				ADE126E520B2EB4F00F6E172 /* UIBarButtonItem+LFExtension.m in Sources */,
 				ADE125BF20B2E84F00F6E172 /* SDImageCacheConfig.m in Sources */,
@@ -1955,6 +2091,7 @@
 				ADE1267820B2E91000F6E172 /* GKCover.m in Sources */,
 				AD6EA45F20B43ED200F61B33 /* MJRefreshAutoNormalFooter.m in Sources */,
 				ADE1266A20B2E87D00F6E172 /* SANavigationController.m in Sources */,
+				AD23F73E20B6A2490057E662 /* SAMessageViewController.m in Sources */,
 				ADE1271320B2F00B00F6E172 /* MBProgressHUD.m in Sources */,
 				ADE1265520B2E84F00F6E172 /* IQTitleBarButtonItem.m in Sources */,
 				ADE123A020B2D67E00F6E172 /* main.m in Sources */,
@@ -1974,6 +2111,7 @@
 				AD6EA46720B43ED200F61B33 /* MJRefreshComponent.m in Sources */,
 				AD23F6F220B569290057E662 /* TAAbstractDotView.m in Sources */,
 				04B6320020B54E7700D063B8 /* BCMeTangGuoJiLuListController.m in Sources */,
+				AD23F71B20B682130057E662 /* ImagePicker.m in Sources */,
 				06ED21A620B436EC008F44FE /* ViewController+MASAdditions.m in Sources */,
 				ADE125BB20B2E84F00F6E172 /* NSData+ImageContentType.m in Sources */,
 				ADE125B820B2E84F00F6E172 /* SDImageCache.m in Sources */,
@@ -1982,6 +2120,7 @@
 				ADE126E720B2EB4F00F6E172 /* NSTimer+WHTimer.m in Sources */,
 				ADE125A820B2E84F00F6E172 /* UIImageView+HighlightedWebCache.m in Sources */,
 				ADE125C120B2E84F00F6E172 /* UIView+WebCache.m in Sources */,
+				AD23F74120B6A2970057E662 /* SAMessageContentController.m in Sources */,
 				ADE125B520B2E84F00F6E172 /* SDWebImageCoder.m in Sources */,
 				06ED21A420B436EC008F44FE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				04B631FB20B54E7700D063B8 /* BCMePDCListHeaderView.m in Sources */,
@@ -1989,9 +2128,11 @@
 				0652473420B3C06900F65C2A /* UIImageView+WBY.m in Sources */,
 				AD23F70220B5766E0057E662 /* BCCodeAlertView.m in Sources */,
 				ADE125BD20B2E84F00F6E172 /* NSImage+WebCache.m in Sources */,
+				AD23F73820B6992E0057E662 /* SAMessageModel.m in Sources */,
 				04B631FF20B54E7700D063B8 /* BCMeQRCodeController.m in Sources */,
 				AD6EA46620B43ED200F61B33 /* MJRefreshAutoFooter.m in Sources */,
 				AD6EA45720B43ED200F61B33 /* UIScrollView+MJExtension.m in Sources */,
+				AD23F73B20B699540057E662 /* BCSystemMessageController.m in Sources */,
 				06ED21A320B436EC008F44FE /* NSArray+MASAdditions.m in Sources */,
 				ADE126DA20B2EB4F00F6E172 /* NSDate+WHDate.m in Sources */,
 				ADE126DC20B2EB4F00F6E172 /* UIImageView+PlayGIF.m in Sources */,
@@ -2009,6 +2150,7 @@
 				ADE126D220B2EB4F00F6E172 /* UILabel+WHLabel.m in Sources */,
 				ADE1264F20B2E84F00F6E172 /* NSObject+MJClass.m in Sources */,
 				ADE125A720B2E84F00F6E172 /* SDWebImageManager.m in Sources */,
+				AD23F75020B6A5BB0057E662 /* ATMessageCell.m in Sources */,
 				ADE126D020B2EB4F00F6E172 /* NSNumber+WHNumber.m in Sources */,
 				ADE125B120B2E84F00F6E172 /* UIImage+MultiFormat.m in Sources */,
 				ADE125B920B2E84F00F6E172 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -2029,6 +2171,7 @@
 				ADE1265820B2E84F00F6E172 /* IQPreviousNextView.m in Sources */,
 				ADE126CD20B2EB4F00F6E172 /* UIDevice+WHDevice.m in Sources */,
 				ADE1265B20B2E84F00F6E172 /* IQNSArray+Sort.m in Sources */,
+				AD23F75720B6A5FD0057E662 /* ATServiceAgreementController.m in Sources */,
 				ADE1271420B2F00B00F6E172 /* MBProgressHUD+Add.m in Sources */,
 				ADE126F220B2ECF100F6E172 /* LFHttpTool.m in Sources */,
 				ADE1265720B2E84F00F6E172 /* IQUIView+IQKeyboardToolbar.m in Sources */,
@@ -2069,8 +2212,10 @@
 				AD6EA3CE20B43B7100F61B33 /* BCHomeTopView.m in Sources */,
 				ADE126CF20B2EB4F00F6E172 /* NSString+WHString.m in Sources */,
 				ADE125C420B2E84F00F6E172 /* SDWebImageWebPCoder.m in Sources */,
+				AD23F75220B6A5BB0057E662 /* ATMessageContentViewCell.m in Sources */,
 				ADE1266E20B2E88D00F6E172 /* SATabBar.m in Sources */,
 				0652473B20B3C4B500F65C2A /* UIView+Extension.m in Sources */,
+				AD23F72E20B689E70057E662 /* BCRealNameReviewPassViewController.m in Sources */,
 				AD6EA42420B43E4500F61B33 /* BCRefreshAutoGifFooter.m in Sources */,
 				ADE125AB20B2E84F00F6E172 /* SDWebImageCodersManager.m in Sources */,
 				ADE125AE20B2E84F00F6E172 /* FLAnimatedImageView.m in Sources */,
@@ -2084,15 +2229,18 @@
 				AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */,
 				04B631F920B54E7700D063B8 /* BCMeTangGuoJiLuCell.m in Sources */,
 				ADE1270D20B2EDED00F6E172 /* MBManager.m in Sources */,
+				AD23F71F20B6895D0057E662 /* BCRealNameInReviewViewController.m in Sources */,
 				04B631F720B54E7700D063B8 /* BCMeTableViewCell.m in Sources */,
 				0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */,
 				ADE125A620B2E84F00F6E172 /* MKAnnotationView+WebCache.m in Sources */,
 				ADE126E620B2EB4F00F6E172 /* NSFileManager+WHFileManager.m in Sources */,
 				ADE1264D20B2E84F00F6E172 /* MJExtensionConst.m in Sources */,
+				AD23F73220B6981C0057E662 /* DataBase.m in Sources */,
 				ADE1269120B2EABD00F6E172 /* YWRequestData.m in Sources */,
 				AD23F71220B661B00057E662 /* BCReaNameController.m in Sources */,
 				ADE1265020B2E84F00F6E172 /* NSString+MJExtension.m in Sources */,
 				AD6EA45420B43ED200F61B33 /* UIScrollView+MJRefresh.m in Sources */,
+				AD23F74F20B6A5BB0057E662 /* YWCustomMessageCell.m in Sources */,
 				AD6EA45D20B43ED200F61B33 /* MJRefreshAutoStateFooter.m in Sources */,
 				AD6EA46320B43ED200F61B33 /* MJRefreshFooter.m in Sources */,
 				AD6EA46020B43ED200F61B33 /* MJRefreshNormalHeader.m in Sources */,
