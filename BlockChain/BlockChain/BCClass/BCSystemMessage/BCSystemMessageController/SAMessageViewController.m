@@ -9,7 +9,6 @@
 #import "SAMessageViewController.h"
 #import "DataBase.h"
 #import "SAMessageModel.h"
-#import "SAMessageContentController.h"
 #import "ATMessageCell.h"
 @interface SAMessageViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property(nonatomic,strong) UITableView * tableView;
@@ -105,18 +104,7 @@ static NSString * const atmessageID = @"ATMessageCell";
     
     return self.isStart;
 }
-#pragma mark 空白页面被点击时刷新页面
-//- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
-//    // 空白页面被点击时开启动画，reloadEmptyDataSet
-//    self.loading = YES;
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        // 关闭动画，reloadEmptyDataSet
-//        self.number = 20;
-//         self.tableView.mj_footer.hidden = NO;
-//        [self.tableView reloadData];
-//        self.loading = NO;
-//    });
-//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"清除消息" color:[UIColor whiteColor] highlightColor:[UIColor whiteColor] target:self action: @selector(cleanBtClick) ];
@@ -124,7 +112,7 @@ static NSString * const atmessageID = @"ATMessageCell";
     [self setTable];
     [self getmessageBageVlue];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getmessageBageVlu) name:pushRefresh object:nil];
-//    [self creveBootomTabar];
+   [self creveBootomTabar];
 
 }
 -(void)creveBootomTabar{
@@ -151,16 +139,44 @@ static NSString * const atmessageID = @"ATMessageCell";
 }
 -(void)cleanBtClick{
 
+  
+
     [[DataBase sharedDataBase] deleteAllMessage];
     [self getmessageBageVlue];
 }
 -(void)readBtClick{
-[[DataBase sharedDataBase] readMessage];
-[self getmessageBageVlue];
+//[[DataBase sharedDataBase] readMessage];
+//[self getmessageBageVlue];
+  
+    NSString *msg_id = [self currentTimeStr];
+    SAMessageModel * messageModel = [[SAMessageModel alloc] init];
+    messageModel.msg_content = @"统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能";
+    messageModel.msg_type = @"0";
+    messageModel.msg_title = @"统计";
+     messageModel.bageVlue = @"0";
+      messageModel.msg_id = msg_id;
+    NSDate * data  =[NSDate date];
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    fmt.dateFormat = @"MM-dd HH:mm";
+    NSString *dateStr = [fmt stringFromDate:data];
+    messageModel.timeStr = dateStr;
+     
+    [[DataBase sharedDataBase] addMessage:messageModel];
+    [self getmessageBageVlue];
+    
     
 }
+- (NSString *)currentTimeStr{
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval time=[date timeIntervalSince1970]*1000;// *1000 是精确到毫秒，不乘就是精确到秒
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
+    return timeString;
+}
+
+
 -(void)viewDidAppear:(BOOL)animated{
-[self getmessageBageVlue];
+//[self getmessageBageVlue];
 
 }
 -(void)dealloc{
@@ -168,61 +184,28 @@ static NSString * const atmessageID = @"ATMessageCell";
 
 }
 -(void)getmessageBageVlu{
- [self getmessageBageVlue];
+// [self getmessageBageVlue];
 
+    
+    
+   
+    
+  
 }
 -(void)getmessageBageVlue{
     [self.datas removeAllObjects];
-    [self.array1 removeAllObjects];
-    [self.array2 removeAllObjects];
-    [self.array3 removeAllObjects];
-    
-    NSMutableArray * datas1 = [[DataBase sharedDataBase] selectitemDream_desc:@"0"];
-    NSMutableArray * datas2 = [[DataBase sharedDataBase] selectitemDream_desc:@"1"];
-    NSMutableArray * datas3 = [[DataBase sharedDataBase] selectitemDream_desc:@"2"];
-     LFLog(@"%@ ////%@ ///%@",datas1,datas2,datas3);
-    if (datas1.count>0) {
-        for (SAMessageModel * messageModel in datas1) {
-            LFLog(@"%@",messageModel.extra1);
-            if ([messageModel.extra1 isEqualToString:@"0"]) {
-                [self.array1 addObject:messageModel];
-            }
-        }
-        SAMessageModel * messageModel  = [datas1 lastObject];
-        messageModel.arrary = datas1;
-        messageModel.bageVlue = [NSString stringWithFormat:@"%ld",self.array1.count];
-        [self.datas addObject:messageModel];
-    }
-    if (datas2.count>0) {
-        for (SAMessageModel * messageModel in datas2) {
-            if ([messageModel.extra1 isEqualToString:@"0"]) {
-                [self.array2 addObject:messageModel];
-            }
-        }
-        SAMessageModel * messageModel  = [datas2 lastObject];
-         messageModel.arrary = datas2;
-        LFLog(@"%@",[NSString stringWithFormat:@"%ld",self.array2.count]);
-        messageModel.bageVlue = [NSString stringWithFormat:@"%ld",self.array2.count];
-        [self.datas addObject:messageModel];
-    }
-    
-    if (datas3.count>0) {
-        for (SAMessageModel * messageModel in datas3) {
-            if ([messageModel.extra1 isEqualToString:@"0"]) {
-                [self.array3 addObject:messageModel];
-            }
-        }
-        SAMessageModel * messageModel  = [datas3 lastObject];
-        messageModel.arrary = [[DataBase sharedDataBase] getAllMessage];
-        messageModel.bageVlue = [NSString stringWithFormat:@"%ld",self.array3.count];
-        [self.datas addObject:messageModel];
-    }
-    self.isStart = datas1.count+datas3.count+datas2.count>0?NO:YES;
+
+      NSMutableArray * datas1 = [[DataBase sharedDataBase] getAllMessage];
+   
+
+        [self.datas addObjectsFromArray:datas1];
+ LFLog(@"%@",self.datas);
+    self.isStart = datas1.count>0?NO:YES;
     [self.tableView reloadEmptyDataSet];
     [self.tableView reloadData];
 }
 -(void)setTable{
-    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kTopHeight, LFscreenW, LFscreenH-kTopHeight) style:UITableViewStylePlain];
+    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTopHeight) style:UITableViewStylePlain];
    self. number = 0;
     self.tableView = tableView;
     [self.view addSubview:tableView];
@@ -245,27 +228,6 @@ static NSString * const atmessageID = @"ATMessageCell";
 
 }
 
-#pragma mark 是否开启动画
-//- (BOOL)emptyDataSetShouldAnimateImageView:(UIScrollView *)scrollView {
-////    if (self. number>0) {
-////        return YES;
-////    }else{
-////    return YES;
-////    }
-//     return YES;
-//}
-#pragma mark 图片旋转动画
-//- (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView
-//{
-//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-//    animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-//    animation.toValue = [NSValue valueWithCATransform3D: CATransform3DMakeRotation(M_PI_2, 0.0, 0.0, 1.0) ];
-//    animation.duration = 0.25;
-//    animation.cumulative = YES;
-//    animation.repeatCount = MAXFLOAT;
-//    
-//    return animation;
-//}
 
 -(void)loadNewData{
    
@@ -310,13 +272,17 @@ static NSString * const atmessageID = @"ATMessageCell";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SAMessageModel * messageModel  = self.datas[indexPath.row];
-    SAMessageContentController *  messageContentVc = [[SAMessageContentController alloc] init];
-    messageContentVc.refreshmianpage = ^{
-        [self getmessageBageVlue];
-//         [[NSNotificationCenter defaultCenter] postNotificationName:pushRefresh object:nil];
-    };
-    messageContentVc.type = messageModel.msg_type;
-    [self.navigationController pushViewController:messageContentVc animated:YES];
+     messageModel.bageVlue = @"1";
+    LFLog(@"%@",messageModel.msg_id);
+      [[DataBase sharedDataBase] updateMessage:messageModel];
+    [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
+//    SAMessageContentController *  messageContentVc = [[SAMessageContentController alloc] init];
+//    messageContentVc.refreshmianpage = ^{
+////        [self getmessageBageVlue];
+////         [[NSNotificationCenter defaultCenter] postNotificationName:pushRefresh object:nil];
+//    };
+//    messageContentVc.type = messageModel.msg_type;
+//    [self.navigationController pushViewController:messageContentVc animated:YES];
     
 
 }

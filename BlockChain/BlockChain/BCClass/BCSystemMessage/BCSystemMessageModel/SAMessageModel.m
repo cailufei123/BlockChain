@@ -10,12 +10,12 @@
 
 @implementation SAMessageModel
 
--(NSString *)msg_content{
-    CGFloat textH = [NSString textF:_msg_content textSizeW:LFscreenW-52 textFont:14];
-
-    _cellHight = textH + 20;
-    return _msg_content;
-}
+//-(NSString *)msg_content{
+//    CGFloat textH = [NSString textF:_msg_content textSizeW:LFscreenW-52 textFont:14];
+//
+//    _cellHight = textH + 20;
+//    return _msg_content;
+//}
 @end
 @implementation SABodyModel
 
