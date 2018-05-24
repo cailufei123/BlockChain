@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0468FB7620B6694900C83299 /* BCMeRealNameAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */; };
 		04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */; };
 		04B631F720B54E7700D063B8 /* BCMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */; };
 		04B631F820B54E7700D063B8 /* BCVewForHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631DB20B54E7600D063B8 /* BCVewForHeader.m */; };
@@ -24,7 +25,6 @@
 		04B6320420B54E7700D063B8 /* BCMeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631F420B54E7600D063B8 /* BCMeModel.m */; };
 		04B6320520B54E7700D063B8 /* BCMeTangGuoJiLuMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631F520B54E7600D063B8 /* BCMeTangGuoJiLuMode.m */; };
 		04B6320820B58CC700D063B8 /* BCMePDCListAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */; };
-		04B6320B20B5913C00D063B8 /* BCMePDCListAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6320A20B5913C00D063B8 /* BCMePDCListAlertController.m */; };
 		0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472420B3BFC100F65C2A /* UIView+WBY.m */; };
 		0652472920B3C02900F65C2A /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472820B3C02900F65C2A /* Util.m */; };
 		0652472F20B3C04900F65C2A /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472C20B3C04900F65C2A /* UIButton+Extensions.m */; };
@@ -244,6 +244,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0468FB7420B6694900C83299 /* BCMeRealNameAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeRealNameAlertView.h; sourceTree = "<group>"; };
+		0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeRealNameAlertView.m; sourceTree = "<group>"; };
 		04B631D220B54B6500D063B8 /* UIBarButtonItem+ZZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZZExtension.h"; sourceTree = "<group>"; };
 		04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZZExtension.m"; sourceTree = "<group>"; };
 		04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoJiLuHeaderView.h; sourceTree = "<group>"; };
@@ -278,8 +280,6 @@
 		04B631F620B54E7600D063B8 /* BCMePDCListMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMePDCListMode.h; sourceTree = "<group>"; };
 		04B6320620B58CC700D063B8 /* BCMePDCListAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCListAlertView.h; sourceTree = "<group>"; };
 		04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCListAlertView.m; sourceTree = "<group>"; };
-		04B6320920B5913C00D063B8 /* BCMePDCListAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCListAlertController.h; sourceTree = "<group>"; };
-		04B6320A20B5913C00D063B8 /* BCMePDCListAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCListAlertController.m; sourceTree = "<group>"; };
 		0652472320B3BFC100F65C2A /* UIView+WBY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WBY.h"; sourceTree = "<group>"; };
 		0652472420B3BFC100F65C2A /* UIView+WBY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WBY.m"; sourceTree = "<group>"; };
 		0652472720B3C02900F65C2A /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
@@ -751,6 +751,8 @@
 				04B631E020B54E7600D063B8 /* BCMePDCListHeaderView.m */,
 				04B6320620B58CC700D063B8 /* BCMePDCListAlertView.h */,
 				04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */,
+				0468FB7420B6694900C83299 /* BCMeRealNameAlertView.h */,
+				0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */,
 			);
 			path = BCMeView;
 			sourceTree = "<group>";
@@ -766,8 +768,6 @@
 				04B631E920B54E7600D063B8 /* BCMeQRCodeController.m */,
 				04B631E620B54E7600D063B8 /* BCMePDCListController.h */,
 				04B631EB20B54E7600D063B8 /* BCMePDCListController.m */,
-				04B6320920B5913C00D063B8 /* BCMePDCListAlertController.h */,
-				04B6320A20B5913C00D063B8 /* BCMePDCListAlertController.m */,
 				AD23F70820B59C0C0057E662 /* BCSetViewController.h */,
 				AD23F70920B59C0C0057E662 /* BCSetViewController.m */,
 				AD23F70A20B59C0C0057E662 /* BCSetViewController.xib */,
@@ -1893,6 +1893,7 @@
 				ADE123CA20B2E80300F6E172 /* AppDelegate.m in Sources */,
 				AD23F6D120B5562B0057E662 /* BCTaskViewController.m in Sources */,
 				ADE125A320B2E84F00F6E172 /* FMDatabasePool.m in Sources */,
+				0468FB7620B6694900C83299 /* BCMeRealNameAlertView.m in Sources */,
 				0652473020B3C04900F65C2A /* UIButton+LWB.m in Sources */,
 				AD23F6ED20B569290057E662 /* UIView+SDExtension.m in Sources */,
 				0652473820B3C08500F65C2A /* UILabel+LWB.m in Sources */,
@@ -1978,7 +1979,6 @@
 				ADE1265420B2E84F00F6E172 /* IQToolbar.m in Sources */,
 				ADE1268F20B2EABD00F6E172 /* LFConst.m in Sources */,
 				ADE125BA20B2E84F00F6E172 /* SDWebImageTransition.m in Sources */,
-				04B6320B20B5913C00D063B8 /* BCMePDCListAlertController.m in Sources */,
 				ADE125AF20B2E84F00F6E172 /* SDWebImageDownloader.m in Sources */,
 				ADE125B320B2E84F00F6E172 /* SDWebImageCompat.m in Sources */,
 				ADE126D220B2EB4F00F6E172 /* UILabel+WHLabel.m in Sources */,

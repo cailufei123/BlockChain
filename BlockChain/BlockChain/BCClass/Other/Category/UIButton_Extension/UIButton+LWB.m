@@ -46,6 +46,7 @@
     }
     if (titleColor!=nil) {
        [button setTitleColor:titleColor forState:UIControlStateNormal];
+        button.titleLabel.textColor =titleColor;
     }
     if (titleFont!=nil) {
         button.titleLabel.font = titleFont;

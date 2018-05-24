@@ -85,26 +85,7 @@
 #pragma mark-右侧导航按钮item 点击事件
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
-   // WS(weakSelf);
-//    if (isKeyBoard==YES) {
-//        [UIView animateWithDuration:0.6 animations:^{
-//            [[LBReplyTextView shareInstance] dismissInput];
-//        }];
-//    }
-//    if ([_detailMode.isFavorite isEqualToString:@"true"]) {//已点赞
-//        _changeArr =@[@"取消收藏",@"举报"];
-//    }else{
-//        _changeArr =@[@"收藏",@"举报"];
-//    }
-//    [FTPopDetailMenu showFromEvent:event
-//                          withMenu:_changeArr
-//                    imageNameArray:nil
-//                         doneBlock:^(NSInteger selectedIndex) {
-//                             /**判断是否被选择了*/
-//                             [weakSelf selectedIndex:selectedIndex];
-//                         } dismissBlock:^{
-//
-//                         }];
+
 }
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {

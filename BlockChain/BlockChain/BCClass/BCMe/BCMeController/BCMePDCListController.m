@@ -11,16 +11,16 @@
 #import "BCMeTangGuoJiLuMode.h"
 #import "BCMePDCListMode.h"
 #import "BCMeTangGuoJiLuCell.h"
-#import "BCMePDCListAlertController.h"
 #import "BCMePDCListAlertView.h"
+#import "BCMeRealNameAlertView.h"
 
-
-@interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListHeaderViewDelegate>
+@interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListHeaderViewDelegate,BCMePDCListAlertViewDelegate,BCMeRealNameAlertViewDelegate>
 @property(nonatomic,strong)BCMePDCListHeaderView *headerView;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)CAGradientLayer *gradientLayer;//渐变色
 @property(nonatomic,strong)BCMePDCListMode *model;
 @property(nonatomic,strong)BCMePDCListAlertView *alertView;//弹框
+@property(nonatomic,strong)BCMeRealNameAlertView *realNameAlertView;//弹框
 
 @end
 
@@ -29,8 +29,12 @@
 
 #define HeaderViewHeight   ((SYRealValue(67+33+23))+kTopHeight+(SYRealValue(235)))  //顶部view高度
 //弹框
-#define alertViewWidth    ((SYRealValue(343)))
-#define alertViewHeight   ((SYRealValue(467)))
+#define alertViewWidth    (SXRealValue(343))
+#define alertViewHeight   (SYRealValue(467))
+
+#define realWidth         (SXRealValue(343))
+#define realHeigth        (SXRealValue(211))
+
 
 /**表格**/
 -(UITableView *)tableView{
@@ -68,12 +72,32 @@
 -(BCMePDCListAlertView *)alertView{
     if (!_alertView) {
         _alertView = [[BCMePDCListAlertView alloc] initWithFrame:CGRectMake(0, 0, alertViewWidth, alertViewHeight)];
-        _alertView.backgroundColor =[UIColor greenColor];
-        //_alertView.delegate =self;
+        //_alertView.backgroundColor =[UIColor greenColor];
+        _alertView.delegate =self;
         _alertView.model=self.model;
     }
     return _alertView;
 }
+
+-(BCMeRealNameAlertView *)realNameAlertView{
+    if (!_realNameAlertView) {
+        _realNameAlertView = [[BCMeRealNameAlertView alloc] initWithFrame:CGRectMake(0, 0, realWidth, realHeigth)];
+        [_realNameAlertView setUpMessage];//设置数据
+        _alertView.delegate =self;
+    }
+    return _realNameAlertView;
+}
+
+#pragma mark -BCMePDCListAlertViewDelegate 加载官网按钮
+-(void)guanWangBtnClick:(BCMePDCListMode *)model{
+    NSLog(@"点击了官网");
+}
+#pragma mark -BCMePDCListAlertViewDelegate 知道了按钮点击
+-(void)sureBtnClick:(BCMePDCListMode *)model{
+    NSLog(@"点击了确定按钮");
+    [GKCover hide];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
 //去掉背景图片
@@ -97,8 +121,6 @@
     [self.view addSubview:self.tableView];
     //加载headerView
     self.tableView.tableHeaderView =  self.headerView;
-    //设置变色
-    //[self setGradientLayer];
     //初始化转账与收款
     [self setPayOrGetMoneyBtn];
     
@@ -162,11 +184,12 @@
     
 }
 
-#pragma mark - 转账
+#pragma mark - 转账按钮
 -(void)payBtnClick{
+       [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.realNameAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
     
 }
-#pragma mark -收款
+#pragma mark -收款按钮
 -(void)getBtnClick{
     
 }

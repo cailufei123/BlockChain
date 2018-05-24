@@ -7,11 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class BCMePDCListMode;
+
+//协议
+@protocol BCMePDCListAlertViewDelegate <NSObject>
+
+@optional
+
+-(void)guanWangBtnClick:(BCMePDCListMode *)model;
+-(void)sureBtnClick:(BCMePDCListMode *)model;
+
+
+@end
+
+
 
 @interface BCMePDCListAlertView : UIView
 
 @property(nonatomic,strong)BCMePDCListMode *model;
 /**知道了按钮*/
 @property(nonatomic,strong)UIButton *sureBtn;
+@property (nonatomic, weak) id <BCMePDCListAlertViewDelegate> delegate;
+
 @end
