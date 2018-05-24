@@ -75,7 +75,7 @@
         _myIcon = [[UIImageView alloc] init];
         //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
         [Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_myIcon];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_myIcon];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_myIcon];
 
     }
     return _myIcon;
@@ -84,29 +84,29 @@
 
 -(UILabel *)myName{
     if (!_myName) {
-        _myName =[UILabel LabelWithTextColor:bkColor textFont:FONT(@"PingFangSC-Semibold", SXRealValue(20)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_myName];
+        _myName =[UILabel LabelWithTextColor:bkColor textFont:FONT(@"PingFangSC-Semibold", SXRealValue(19)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+                //[Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_myName];
     }
     return _myName;
 }
 -(UILabel *)myAddress{
     if (!_myAddress) {
-        _myAddress =[UILabel LabelWithTextColor:color484848 textFont:FONT(@"PingFangSC-Regular", SXRealValue(12)) textAlignment:NSTextAlignmentLeft numberOfLines:2];
-                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_myAddress];
+        _myAddress =[UILabel LabelWithTextColor:color484848 textFont:FONT(@"PingFangSC-Regular", SXRealValue(11)) textAlignment:NSTextAlignmentLeft numberOfLines:2];
+//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_myAddress];
     }
     return _myAddress;
 }
 -(UILabel *)zongLable1{
     if (!_zongLable1) {
-        _zongLable1 =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(20)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_zongLable1];
+        _zongLable1 =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(19)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_zongLable1];
     }
     return _zongLable1;
 }
 -(UILabel *)zongLable2{
     if (!_zongLable2) {
-        _zongLable2 =[UILabel LabelWithTextColor:orangebagColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(20)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_zongLable2];
+        _zongLable2 =[UILabel LabelWithTextColor:orangebagColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(19)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_zongLable2];
     }
     return _zongLable2;
 }
@@ -133,7 +133,7 @@
         _ziChanIcon = [[UIImageView alloc] init];
         //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
         //[Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_ziChanIcon];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_ziChanIcon];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_ziChanIcon];
         
     }
     return _ziChanIcon;
@@ -142,12 +142,12 @@
     if (!_tangGuoBtn) {
         _tangGuoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_tangGuoBtn setTitleColor:naverTextColor forState:UIControlStateNormal];
-        _tangGuoBtn.titleLabel.font = FONT(@"PingFangSC-Semibold", SXRealValue(16));
+        _tangGuoBtn.titleLabel.font = FONT(@"PingFangSC-Semibold", SXRealValue(15));
         _tangGuoBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_tangGuoBtn setBackgroundColor:colorB378D5];
         [_tangGuoBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
         [_tangGuoBtn addTarget:self action:@selector(tangGuoBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [Util roundBorderView:SXRealValue(2) border:1 color:[UIColor blackColor] view:_tangGuoBtn];
+        [Util roundBorderView:SXRealValue(2) border:0 color:[UIColor blackColor] view:_tangGuoBtn];
     }
     return _tangGuoBtn;
 }
@@ -155,12 +155,12 @@
     if (!_moreTangGuoBtn) {
         _moreTangGuoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_moreTangGuoBtn setTitleColor:color7B7B7B forState:UIControlStateNormal];
-        _moreTangGuoBtn.titleLabel.font = FONT(@"PingFangSC-Semibold", SXRealValue(16));
+        _moreTangGuoBtn.titleLabel.font = FONT(@"PingFangSC-Semibold", SXRealValue(15));
         _moreTangGuoBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_moreTangGuoBtn setBackgroundColor:naverTextColor];
         [_moreTangGuoBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
         [_moreTangGuoBtn addTarget:self action:@selector(moreTangGuoBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [Util roundBorderView:SXRealValue(2) border:1 color:[UIColor blackColor] view:_moreTangGuoBtn];
+        [Util roundBorderView:SXRealValue(2) border:1 color:colorB378D5 view:_moreTangGuoBtn];
     }
     return _moreTangGuoBtn;
 }
@@ -169,7 +169,7 @@
         _QRCode = [UIButton buttonWithType:UIButtonTypeCustom];
         [_QRCode  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
         [_QRCode addTarget:self action:@selector(QRCodeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [Util roundBorderView:SXRealValue(2) border:1 color:[UIColor blackColor] view:_QRCode];
+        [Util roundBorderView:SXRealValue(2) border:0 color:[UIColor blackColor] view:_QRCode];
     }
     return _QRCode;
 }
@@ -261,7 +261,7 @@
         [self.zongLable2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.zongLable1.mas_right).with.offset(SXRealValue(5));
             make.top.mas_equalTo(self.middleView.mas_top).with.offset((SYRealValue(16)));
-            make.right.mas_equalTo(self.middleView.mas_right).with.offset(SXRealValue(-20));
+            //make.right.mas_equalTo(self.middleView.mas_right).with.offset(SXRealValue(-20));
         }];
         
         [self.separatorLine1 mas_makeConstraints:^(MASConstraintMaker *make) {

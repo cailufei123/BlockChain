@@ -24,7 +24,7 @@
 -(UILabel *)tangGuoJiLulable{
     if (!_tangGuoJiLulable) {
         _tangGuoJiLulable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(16)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_tangGuoJiLulable];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_tangGuoJiLulable];
     }
     return _tangGuoJiLulable;
 }

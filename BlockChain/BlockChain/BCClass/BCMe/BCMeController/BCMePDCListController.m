@@ -13,6 +13,9 @@
 #import "BCMeTangGuoJiLuCell.h"
 #import "BCMePDCListAlertView.h"
 #import "BCMeRealNameAlertView.h"
+#import "BCSetViewController.h"
+#import "BCMeChangeMoneyController.h"
+#import "BCMeQRCodeController.h"
 
 @interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListHeaderViewDelegate,BCMePDCListAlertViewDelegate,BCMeRealNameAlertViewDelegate>
 @property(nonatomic,strong)BCMePDCListHeaderView *headerView;
@@ -83,7 +86,7 @@
     if (!_realNameAlertView) {
         _realNameAlertView = [[BCMeRealNameAlertView alloc] initWithFrame:CGRectMake(0, 0, realWidth, realHeigth)];
         [_realNameAlertView setUpMessage];//设置数据
-        _alertView.delegate =self;
+        _realNameAlertView.delegate =self;
     }
     return _realNameAlertView;
 }
@@ -95,6 +98,16 @@
 #pragma mark -BCMePDCListAlertViewDelegate 知道了按钮点击
 -(void)sureBtnClick:(BCMePDCListMode *)model{
     NSLog(@"点击了确定按钮");
+    [GKCover hide];
+}
+#pragma mark -BCMeRealNameAlertViewDelegate 去认证
+-(void)goBtnClick{
+    [GKCover hide];
+    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+    [self.navigationController pushViewController:setVc animated:YES];
+}
+#pragma mark -BCMeRealNameAlertViewDelegate 取消认证
+-(void)cancelBtnClick{
     [GKCover hide];
 }
 
@@ -135,25 +148,27 @@
 #pragma 底部转账与收款
 -(void)setPayOrGetMoneyBtn{
     UIView *view = [[UIView alloc] init];
- //   view.backgroundColor = naverTextColor;
-    view.backgroundColor =[UIColor blueColor];
+    view.backgroundColor =naverTextColor;
     UIButton *payBtn = [UIButton getButtonTitleColor:blackBColor titleFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) backGroundColor:naverTextColor target:self action:@selector(payBtnClick)];
     payBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [payBtn setTitle:@"转账" forState:UIControlStateNormal];
-    
     [payBtn setImage:[UIImage imageNamed:@"home_purple_diamonds"] forState:UIControlStateNormal];
     [payBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:payBtn];
+//    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:payBtn];
     UIButton *getBtn = [UIButton getButtonTitleColor:blackBColor titleFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) backGroundColor:naverTextColor target:self action:@selector(getBtnClick)];
     getBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [getBtn setTitle:@"收款" forState:UIControlStateNormal];
     [getBtn setImage:[UIImage imageNamed:@"home_purple_diamonds"] forState:UIControlStateNormal];
     [getBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:getBtn];
+//    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:getBtn];
    //中线
     UIView *line = [[UIView alloc] init];
     line.backgroundColor = colorE5E7E9;
     [self.view addSubview:view];
+    UIView *line1 = [[UIView alloc] init];
+    line1.backgroundColor = colorE5E7E9;
+    [self.view addSubview:line1];
+    
     [view addSubview:payBtn];
     [view addSubview:line];
     [view addSubview:getBtn];
@@ -166,37 +181,48 @@
     [payBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(view.mas_left).with.offset(0);
         make.top.mas_equalTo(view.mas_top).with.offset(0);
-        make.width.mas_equalTo(SCREENWIDTH/2);
+        make.width.mas_equalTo(SCREENWIDTH/2-1);
+        make.bottom.mas_equalTo(view.mas_bottom).with.offset(0);
+    }];
+    [getBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(view.mas_right).with.offset(0);
+        make.top.mas_equalTo(view.mas_top).with.offset(0);
+        make.width.mas_equalTo(SCREENWIDTH/2-1);
         make.bottom.mas_equalTo(view.mas_bottom).with.offset(0);
     }];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(view.mas_top).with.offset((SYRealValue(5)));
         make.bottom.mas_equalTo(view.mas_bottom).with.offset((SYRealValue(-5)));
-        make.width.mas_equalTo((SYRealValue(0.6)));
-        //make.height.mas_equalTo(kTabBarHeight);
+        make.centerX.mas_equalTo(view.mas_centerX);
+        make.width.mas_equalTo((SYRealValue(1)));
     }];
-    [getBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(view.mas_right).with.offset(0);
-        make.top.mas_equalTo(view.mas_top).with.offset(0);
-        make.width.mas_equalTo(SCREENWIDTH/2);
-        make.bottom.mas_equalTo(view.mas_bottom).with.offset(0);
+    [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(view.mas_top).with.offset((SYRealValue(0)));
+        make.left.mas_equalTo(self.view.mas_left).with.offset(0);
+        make.right.mas_equalTo(self.view.mas_right).with.offset((SYRealValue(-0.6)));
+        make.height.mas_equalTo((SYRealValue(0.6)));
     }];
     
 }
 
 #pragma mark - 转账按钮
 -(void)payBtnClick{
+    //未进行实名认证
        [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.realNameAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
-    
+    //已进行实名认证
+//    BCMeChangeMoneyController *moneyVc = [[BCMeChangeMoneyController alloc] init];
+//    [self.navigationController pushViewController:moneyVc animated:YES];
 }
 #pragma mark -收款按钮
 -(void)getBtnClick{
-    
+    BCMeQRCodeController *QRVc= [[BCMeQRCodeController alloc] init];
+    [self.navigationController pushViewController:QRVc animated:YES];
+    NSLog(@"二维码");
 }
 -(void)setNaviTitle{
     self.navigationItem.title=@"PDC总数";
     [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(17)),
+     @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(16)),
        NSForegroundColorAttributeName:naverTextColor}];
 }
 
@@ -209,7 +235,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
     view.backgroundColor = naverTextColor;
-    UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(16)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+    UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
     tangGuoJiLulable.text =@"糖果记录";
     UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(0.6)))];
     lineView.backgroundColor = colorE5E7E9;

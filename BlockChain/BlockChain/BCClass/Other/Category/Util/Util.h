@@ -15,4 +15,8 @@
 //设置按钮底部线
 +(void)setUnderlineFromButton:(UIButton *)button textColor:(UIColor *)textColor underlineColor:(UIColor *)underlineColor;
 
+/**设置cell中的选中颜色*/
++(void)selectCellBackgroundColor:(UITableViewCell *)cell;
++(void)selectCellBackgroundColor:(UITableViewCell *)cell selectBackgroundColor:(UIColor *)color;
+
 @end

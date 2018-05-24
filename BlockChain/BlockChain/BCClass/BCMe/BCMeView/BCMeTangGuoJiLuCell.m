@@ -18,39 +18,46 @@
 @property (nonatomic, strong)UILabel *type;
 /** 钱*/
 @property (nonatomic, strong)UILabel *price;
+@property(nonatomic,strong)UIView *line;
 @end
 @implementation BCMeTangGuoJiLuCell
 
 -(UILabel *)name{
     if (!_name) {
-        _name =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_name];
+        _name =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_name];
     }
     return _name;
 }
 -(UILabel *)time{
     if (!_time) {
-        _time =[UILabel LabelWithTextColor:color717171 textFont:FONT(@"PingFangSC-Regular", SXRealValue(10)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_time];
+        _time =[UILabel LabelWithTextColor:color717171 textFont:FONT(@"PingFangSC-Regular", SXRealValue(9)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_time];
     }
     return _time;
 }
 -(UILabel *)type{
     if (!_type) {
-        _type =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_type];
+        _type =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_type];
     }
     return _type;
 }
 
 -(UILabel *)price{
     if (!_price) {
-        _price =[UILabel LabelWithTextColor:colorD35353 textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_price];
+        _price =[UILabel LabelWithTextColor:colorD35353 textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_price];
     }
     return _price;
 }
-
+-(UIView *)line{
+    if (!_line) {
+        _line= [[UIView alloc] init];
+        _line.backgroundColor = colorE5E7E9;
+    }
+    return _line;
+}
 
 
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -72,7 +79,7 @@
         [self.contentView addSubview:self.time];
         [self.contentView addSubview:self.type];
         [self.contentView addSubview:self.price];
-
+        [self.contentView addSubview:self.line];
         
         [self.type mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contentView.mas_centerX);
@@ -92,6 +99,12 @@
         [self.price mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-15));
             make.centerY.equalTo(self.contentView.mas_centerY);
+        }];
+        [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(0));
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(0));
+            make.bottom.mas_equalTo(self.contentView.mas_bottom).with.offset((SYRealValue(-0.6)));
+            make.height.mas_equalTo((SYRealValue(0.6)));
         }];
     }
     return self;

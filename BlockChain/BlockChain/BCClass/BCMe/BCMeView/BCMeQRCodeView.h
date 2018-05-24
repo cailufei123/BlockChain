@@ -10,6 +10,7 @@
 @class BCQRCodeMode;
 
 @interface BCMeQRCodeView : UIView
+
 /** 二维码*/
 @property (nonatomic, strong)UILabel *QRCode;
 /** 复制二维码*/
