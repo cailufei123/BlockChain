@@ -78,7 +78,6 @@
 		AD23F73820B6992E0057E662 /* SAMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F73720B6992E0057E662 /* SAMessageModel.m */; };
 		AD23F73B20B699540057E662 /* BCSystemMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F73A20B699540057E662 /* BCSystemMessageController.m */; };
 		AD23F73E20B6A2490057E662 /* SAMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F73D20B6A2490057E662 /* SAMessageViewController.m */; };
-		AD23F74120B6A2970057E662 /* SAMessageContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F74020B6A2960057E662 /* SAMessageContentController.m */; };
 		AD23F74E20B6A5BB0057E662 /* YWCustomMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F74520B6A5B90057E662 /* YWCustomMessageCell.xib */; };
 		AD23F74F20B6A5BB0057E662 /* YWCustomMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F74620B6A5BA0057E662 /* YWCustomMessageCell.m */; };
 		AD23F75020B6A5BB0057E662 /* ATMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F74720B6A5BA0057E662 /* ATMessageCell.m */; };
@@ -92,6 +91,8 @@
 		AD23F75E20B6AF670057E662 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F75D20B6AF670057E662 /* libsqlite3.tbd */; };
 		AD23F76020B6AF7A0057E662 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F75F20B6AF790057E662 /* CoreTelephony.framework */; };
 		AD23F76220B6AF860057E662 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F76120B6AF860057E662 /* SystemConfiguration.framework */; };
+		AD23F76620B6E3AB0057E662 /* BCMessageDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F76420B6E3AA0057E662 /* BCMessageDetailsViewController.m */; };
+		AD23F76720B6E3AB0057E662 /* BCMessageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F76520B6E3AA0057E662 /* BCMessageDetailsViewController.xib */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -413,8 +414,6 @@
 		AD23F73A20B699540057E662 /* BCSystemMessageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCSystemMessageController.m; sourceTree = "<group>"; };
 		AD23F73C20B6A2490057E662 /* SAMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageViewController.h; sourceTree = "<group>"; };
 		AD23F73D20B6A2490057E662 /* SAMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageViewController.m; sourceTree = "<group>"; };
-		AD23F73F20B6A2960057E662 /* SAMessageContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageContentController.h; sourceTree = "<group>"; };
-		AD23F74020B6A2960057E662 /* SAMessageContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageContentController.m; sourceTree = "<group>"; };
 		AD23F74320B6A5B90057E662 /* YWCustomMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWCustomMessageCell.h; sourceTree = "<group>"; };
 		AD23F74420B6A5B90057E662 /* ATMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMessageCell.h; sourceTree = "<group>"; };
 		AD23F74520B6A5B90057E662 /* YWCustomMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YWCustomMessageCell.xib; sourceTree = "<group>"; };
@@ -433,6 +432,9 @@
 		AD23F75D20B6AF670057E662 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AD23F75F20B6AF790057E662 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		AD23F76120B6AF860057E662 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AD23F76320B6E3AA0057E662 /* BCMessageDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMessageDetailsViewController.h; sourceTree = "<group>"; };
+		AD23F76420B6E3AA0057E662 /* BCMessageDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMessageDetailsViewController.m; sourceTree = "<group>"; };
+		AD23F76520B6E3AA0057E662 /* BCMessageDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCMessageDetailsViewController.xib; sourceTree = "<group>"; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -1065,12 +1067,13 @@
 			children = (
 				AD23F75520B6A5FB0057E662 /* ATServiceAgreementController.h */,
 				AD23F75620B6A5FC0057E662 /* ATServiceAgreementController.m */,
-				AD23F73F20B6A2960057E662 /* SAMessageContentController.h */,
-				AD23F74020B6A2960057E662 /* SAMessageContentController.m */,
 				AD23F73C20B6A2490057E662 /* SAMessageViewController.h */,
 				AD23F73D20B6A2490057E662 /* SAMessageViewController.m */,
 				AD23F73920B699540057E662 /* BCSystemMessageController.h */,
 				AD23F73A20B699540057E662 /* BCSystemMessageController.m */,
+				AD23F76320B6E3AA0057E662 /* BCMessageDetailsViewController.h */,
+				AD23F76420B6E3AA0057E662 /* BCMessageDetailsViewController.m */,
+				AD23F76520B6E3AA0057E662 /* BCMessageDetailsViewController.xib */,
 			);
 			path = BCSystemMessageController;
 			sourceTree = "<group>";
@@ -2062,6 +2065,7 @@
 				06ED219C20B436EC008F44FE /* Info.plist in Resources */,
 				ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */,
 				ADE1266220B2E84F00F6E172 /* Info.plist in Resources */,
+				AD23F76720B6E3AB0057E662 /* BCMessageDetailsViewController.xib in Resources */,
 				AD23F72520B689990057E662 /* BCRealNameReviewFailureViewController.xib in Resources */,
 				AD23F6DB20B5575A0057E662 /* BCTaskTableViewCell.xib in Resources */,
 				AD23F70C20B59C0C0057E662 /* BCSetViewController.xib in Resources */,
@@ -2122,6 +2126,7 @@
 				06ED21A020B436EC008F44FE /* MASLayoutConstraint.m in Sources */,
 				ADE126D720B2EB4F00F6E172 /* UIImageView+WHImageView.m in Sources */,
 				0468FB7920B6857000C83299 /* BCMeChangeMoneyController.m in Sources */,
+				AD23F76620B6E3AB0057E662 /* BCMessageDetailsViewController.m in Sources */,
 				ADE126DF20B2EB4F00F6E172 /* UINavigationController+WHNavigationController.m in Sources */,
 				ADE1265220B2E84F00F6E172 /* MJFoundation.m in Sources */,
 				ADE125A920B2E84F00F6E172 /* SDWebImageFrame.m in Sources */,
@@ -2170,7 +2175,6 @@
 				ADE126E720B2EB4F00F6E172 /* NSTimer+WHTimer.m in Sources */,
 				ADE125A820B2E84F00F6E172 /* UIImageView+HighlightedWebCache.m in Sources */,
 				ADE125C120B2E84F00F6E172 /* UIView+WebCache.m in Sources */,
-				AD23F74120B6A2970057E662 /* SAMessageContentController.m in Sources */,
 				ADE125B520B2E84F00F6E172 /* SDWebImageCoder.m in Sources */,
 				06ED21A420B436EC008F44FE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				04B631FB20B54E7700D063B8 /* BCMePDCListHeaderView.m in Sources */,

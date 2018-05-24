@@ -9,7 +9,6 @@
 #import "SAMessageViewController.h"
 #import "DataBase.h"
 #import "SAMessageModel.h"
-#import "SAMessageContentController.h"
 #import "ATMessageCell.h"
 @interface SAMessageViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property(nonatomic,strong) UITableView * tableView;
@@ -148,24 +147,34 @@ static NSString * const atmessageID = @"ATMessageCell";
 -(void)readBtClick{
 //[[DataBase sharedDataBase] readMessage];
 //[self getmessageBageVlue];
-    
+  
+    NSString *msg_id = [self currentTimeStr];
     SAMessageModel * messageModel = [[SAMessageModel alloc] init];
     messageModel.msg_content = @"统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能";
     messageModel.msg_type = @"0";
     messageModel.msg_title = @"统计";
      messageModel.bageVlue = @"0";
+      messageModel.msg_id = msg_id;
     NSDate * data  =[NSDate date];
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
     fmt.dateFormat = @"MM-dd HH:mm";
     NSString *dateStr = [fmt stringFromDate:data];
     messageModel.timeStr = dateStr;
-    
+     
     [[DataBase sharedDataBase] addMessage:messageModel];
     [self getmessageBageVlue];
     
     
 }
+- (NSString *)currentTimeStr{
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval time=[date timeIntervalSince1970]*1000;// *1000 是精确到毫秒，不乘就是精确到秒
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
+    return timeString;
+}
+
+
 -(void)viewDidAppear:(BOOL)animated{
 //[self getmessageBageVlue];
 
@@ -264,6 +273,7 @@ static NSString * const atmessageID = @"ATMessageCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SAMessageModel * messageModel  = self.datas[indexPath.row];
      messageModel.bageVlue = @"1";
+    LFLog(@"%@",messageModel.msg_id);
       [[DataBase sharedDataBase] updateMessage:messageModel];
     [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
 //    SAMessageContentController *  messageContentVc = [[SAMessageContentController alloc] init];

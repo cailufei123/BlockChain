@@ -31,6 +31,7 @@
 
 
 -(void)setMessageModel:(SAMessageModel *)messageModel{
+     LFLog(@"%@",messageModel.bageVlue);
     if ([messageModel.bageVlue isEqualToString:@"0"]) {
         self.pointView.hidden = NO;
         self.titleLyout.constant = 30;

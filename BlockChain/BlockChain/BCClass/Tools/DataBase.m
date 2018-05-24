@@ -100,8 +100,7 @@ static DataBase *_DBCtl = nil;
     
     [_db open];
     
-
-
+  
     // 初始化数据表
     NSString *SAMessageModelSql = @"CREATE TABLE 'SAMessage' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'msg_content' VARCHAR(255),'msg_title' VARCHAR(255),'msg_type' VARCHAR(255),'skip_id' VARCHAR(255),'skip_type' VARCHAR(255),'timeStr' VARCHAR(255),'msg_tag' VARCHAR(255),'msg_id' VARCHAR(255),'bageVlue' VARCHAR(255))";
 //    if (![_db columnExists:@"timeStr" inTableWithName:@"SAMessage"]){
@@ -126,7 +125,7 @@ static DataBase *_DBCtl = nil;
 
 - (void)addMessage:(SAMessageModel *)messageModel{
     [_db open];
-    
+    LFLog(@"%@",messageModel.bageVlue);
    
    BOOL result = [_db executeUpdate:@"INSERT INTO SAMessage(msg_content,msg_title,msg_type,skip_id,skip_type,timeStr,msg_tag,msg_id,bageVlue)VALUES(?,?,?,?,?,?,?,?,?)",messageModel.msg_content,messageModel.msg_title,messageModel.msg_type,messageModel.skip_id,messageModel.skip_type,messageModel.timeStr,messageModel.msg_tag,messageModel.msg_id,messageModel.bageVlue];
     LFLog(@"%d",result);
@@ -147,10 +146,10 @@ static DataBase *_DBCtl = nil;
     
 //    [_db executeUpdate:@"UPDATE 'SAMessage' SET extra1 = ? ",messageModel.extra1];
     
-    [_db executeUpdate:@"UPDATE 'SAMessage' SET bageVlue = ?  WHERE msg_id = ? ",@"1",messageModel.msg_id];
+     BOOL result =  [_db executeUpdate:@"UPDATE 'SAMessage' SET bageVlue = ?  WHERE msg_id = ? ",@"1",messageModel.msg_id];
 //    [_db executeUpdate:@"UPDATE 'SAMessage' SET SAMessageModel_number = ?  WHERE SAMessageModel_id = ? ",@(SAMessageModel.number + 1),SAMessageModel.ID];
 
-    
+    LFLog(@"%d",result);
     
     [_db close];
 }
@@ -185,6 +184,7 @@ static DataBase *_DBCtl = nil;
         messageModel.timeStr = [res stringForColumn:@"timeStr"];
          messageModel.msg_tag = [res stringForColumn:@"msg_tag"];
            messageModel.msg_id = [res stringForColumn:@"msg_id"];
+          messageModel.bageVlue = [res stringForColumn:@"bageVlue"];
         
         [dataArray addObject:messageModel];
         
@@ -243,6 +243,8 @@ static DataBase *_DBCtl = nil;
          messageModel.timeStr = [res stringForColumn:@"timeStr"];
          messageModel.msg_tag = [res stringForColumn:@"msg_tag"];
            messageModel.msg_id = [res stringForColumn:@"msg_id"];
+         messageModel.bageVlue = [res stringForColumn:@"bageVlue"];
+        
         [array addObject:messageModel];
         
     }
@@ -277,6 +279,7 @@ static DataBase *_DBCtl = nil;
          messageModel.timeStr = [res stringForColumn:@"timeStr"];
          messageModel.msg_tag = [res stringForColumn:@"msg_tag"];
             messageModel.msg_id = [res stringForColumn:@"msg_id"];
+          messageModel.bageVlue = [res stringForColumn:@"bageVlue"];
         [array addObject:messageModel];
         
     }
