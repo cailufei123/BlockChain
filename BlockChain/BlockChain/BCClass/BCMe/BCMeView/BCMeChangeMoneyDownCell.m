@@ -42,12 +42,28 @@
         //大于滑块当前值滑块条的颜色，默认为白色
         _slider.maximumTrackTintColor = colorF0F0F0;
         //09.thumbTintColor : 当前滑块的颜色，默认为白色
-        _slider.thumbTintColor = [UIColor yellowColor];
+        //_slider.thumbTintColor = [UIColor yellowColor];
+        UIImage *imagea=[self OriginImage:[UIImage imageNamed:@"椭圆形"] scaleToSize:CGSizeMake(SXRealValue(23), SXRealValue(23))];
+        [_slider setThumbImage:imagea forState:UIControlStateNormal];
         [_slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
        // [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_tiXianLable];
     }
     return _slider;
 }
+
+ /*
+  对原来的图片的大小进行处理
+  @param image 要处理的图片
+  @param size  处理过图片的大小
+  */
+ -(UIImage *)OriginImage:(UIImage *)image scaleToSize:(CGSize)size
+ {
+     UIGraphicsBeginImageContext(size);
+     [image drawInRect:CGRectMake(0,0, size.width, size.height)];
+     UIImage *scaleImage=UIGraphicsGetImageFromCurrentImageContext();
+     UIGraphicsEndImageContext();
+     return scaleImage;
+ }
 
 -(UILabel *)tiXianLable{
     if (!_tiXianLable) {

@@ -107,6 +107,7 @@
 #define  color808080 [SVGloble colorWithHexString:@"#808080"]
 #define  colorF0F0F0 [SVGloble colorWithHexString:@"#F0F0F0"]
 #define  color6D6D72 [SVGloble colorWithHexString:@"#6D6D72"]
+#define  color636161 [SVGloble colorWithHexString:@"#636161"]
 
 
 

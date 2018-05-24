@@ -15,7 +15,8 @@
 #import "BCMePDCListController.h"
 #import "UIBarButtonItem+ZZExtension.h"
 #import "BCSetViewController.h"
-
+#import "BCTaskViewController.h"
+#import "BCTaskDetailViewController.h"
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -114,8 +115,12 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 #pragma mark-右侧导航按钮item 点击事件
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
-    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+    
+    BCTaskDetailViewController *setVc =[[BCTaskDetailViewController alloc] init];
     [self.navigationController pushViewController:setVc animated:YES];
+    
+//    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+//    [self.navigationController pushViewController:setVc animated:YES];
 }
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick{
@@ -128,6 +133,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 #pragma 糖果更多记录跳转
 -(void)moreTangGuoBtnClick{
     NSLog(@"更多糖果");
+    BCTaskViewController *taskVc =[[BCTaskViewController alloc] init];
+    [self.navigationController pushViewController:taskVc animated:YES];
 }
 #pragma 二维码
 -(void)QRCodeBtnClick{
@@ -142,21 +149,16 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 {
         return  (SYRealValue(13)) ;
 }
-
 //-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 //{
 //    return 50;
 //}
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return  10;
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -7,6 +7,7 @@
 //
 
 #import "BCMeRealNameAlertView.h"
+
 //实名认证弹框
 @interface BCMeRealNameAlertView()
 /** 官网*/
