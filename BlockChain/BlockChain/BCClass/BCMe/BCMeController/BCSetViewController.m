@@ -7,21 +7,48 @@
 //
 
 #import "BCSetViewController.h"
-
+#import "BCReaNameController.h"
 @interface BCSetViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *acountLb;
+@property (weak, nonatomic) IBOutlet UILabel *realNameLb;
+@property (weak, nonatomic) IBOutlet UILabel *payPasswordLb;
 
+@property (weak, nonatomic) IBOutlet UILabel *versionLb;
 @end
 
 @implementation BCSetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = bagColor;
+    NSString * agreementStr = @"去认证";
+    NSRange agreement = [agreementStr rangeOfString:agreementStr];
+    NSDictionary *attribtDic = @{NSUnderlineStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
+    NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:agreementStr ];
+    [attribtStr addAttributes:attribtDic range:agreement];
+    
+    self.realNameLb.attributedText = attribtStr;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)meaageTap:(id)sender {
+    
+}
+- (IBAction)realnameTap:(id)sender {
+    BCReaNameController * reaNamv = [[BCReaNameController alloc] init];
+    [self.navigationController pushViewController:reaNamv animated:YES];
+}
+- (IBAction)paypasswordTap:(id)sender {
+    
+}
+- (IBAction)invitationFriendTap:(id)sender {
+    
+}
+- (IBAction)aboutMeTap:(id)sender {
+    
 }
 
 /*

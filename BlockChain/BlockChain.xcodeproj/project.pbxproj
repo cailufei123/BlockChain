@@ -61,6 +61,8 @@
 		AD23F70720B580800057E662 /* BCLevelBtton.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F70620B580800057E662 /* BCLevelBtton.m */; };
 		AD23F70B20B59C0C0057E662 /* BCSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F70920B59C0C0057E662 /* BCSetViewController.m */; };
 		AD23F70C20B59C0C0057E662 /* BCSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F70A20B59C0C0057E662 /* BCSetViewController.xib */; };
+		AD23F71220B661B00057E662 /* BCReaNameController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F71020B661B00057E662 /* BCReaNameController.m */; };
+		AD23F71320B661B00057E662 /* BCReaNameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F71120B661B00057E662 /* BCReaNameController.xib */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -352,6 +354,9 @@
 		AD23F70820B59C0C0057E662 /* BCSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCSetViewController.h; sourceTree = "<group>"; };
 		AD23F70920B59C0C0057E662 /* BCSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCSetViewController.m; sourceTree = "<group>"; };
 		AD23F70A20B59C0C0057E662 /* BCSetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCSetViewController.xib; sourceTree = "<group>"; };
+		AD23F70F20B661B00057E662 /* BCReaNameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCReaNameController.h; sourceTree = "<group>"; };
+		AD23F71020B661B00057E662 /* BCReaNameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCReaNameController.m; sourceTree = "<group>"; };
+		AD23F71120B661B00057E662 /* BCReaNameController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCReaNameController.xib; sourceTree = "<group>"; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -911,6 +916,24 @@
 			path = BCLoginView;
 			sourceTree = "<group>";
 		};
+		AD23F70D20B661910057E662 /* BCReaName */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F70E20B661910057E662 /* BCReaNameController */,
+			);
+			path = BCReaName;
+			sourceTree = "<group>";
+		};
+		AD23F70E20B661910057E662 /* BCReaNameController */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F70F20B661B00057E662 /* BCReaNameController.h */,
+				AD23F71020B661B00057E662 /* BCReaNameController.m */,
+				AD23F71120B661B00057E662 /* BCReaNameController.xib */,
+			);
+			path = BCReaNameController;
+			sourceTree = "<group>";
+		};
 		AD6EA3BD20B43B7100F61B33 /* BCHome */ = {
 			isa = PBXGroup;
 			children = (
@@ -1103,6 +1126,7 @@
 		ADE123C220B2D9EF00F6E172 /* BCClass */ = {
 			isa = PBXGroup;
 			children = (
+				AD23F70D20B661910057E662 /* BCReaName */,
 				04B631D520B54E7600D063B8 /* BCMe */,
 				AD6EA3BD20B43B7100F61B33 /* BCHome */,
 				ADE126E920B2ECBA00F6E172 /* BCLogin */,
@@ -1854,6 +1878,7 @@
 				ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */,
 				ADE1264320B2E84F00F6E172 /* UMSocialSDKResources.bundle in Resources */,
 				AD23F70420B5767A0057E662 /* BCCodeAlertView.xib in Resources */,
+				AD23F71320B661B00057E662 /* BCReaNameController.xib in Resources */,
 				AD6EA45620B43ED200F61B33 /* MJRefresh.bundle in Resources */,
 				06ED219C20B436EC008F44FE /* Info.plist in Resources */,
 				ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */,
@@ -2065,6 +2090,7 @@
 				ADE126E620B2EB4F00F6E172 /* NSFileManager+WHFileManager.m in Sources */,
 				ADE1264D20B2E84F00F6E172 /* MJExtensionConst.m in Sources */,
 				ADE1269120B2EABD00F6E172 /* YWRequestData.m in Sources */,
+				AD23F71220B661B00057E662 /* BCReaNameController.m in Sources */,
 				ADE1265020B2E84F00F6E172 /* NSString+MJExtension.m in Sources */,
 				AD6EA45420B43ED200F61B33 /* UIScrollView+MJRefresh.m in Sources */,
 				AD6EA45D20B43ED200F61B33 /* MJRefreshAutoStateFooter.m in Sources */,
