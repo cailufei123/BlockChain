@@ -83,6 +83,11 @@
 		AD23F75320B6A5BB0057E662 /* ATMessageContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F74A20B6A5BB0057E662 /* ATMessageContentViewCell.xib */; };
 		AD23F75420B6A5BB0057E662 /* ATMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F74C20B6A5BB0057E662 /* ATMessageCell.xib */; };
 		AD23F75720B6A5FD0057E662 /* ATServiceAgreementController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F75620B6A5FC0057E662 /* ATServiceAgreementController.m */; };
+		AD23F75A20B6ADE40057E662 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F75920B6ADE40057E662 /* UserNotifications.framework */; };
+		AD23F75C20B6AF490057E662 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F75B20B6AF490057E662 /* libz.tbd */; };
+		AD23F75E20B6AF670057E662 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F75D20B6AF670057E662 /* libsqlite3.tbd */; };
+		AD23F76020B6AF7A0057E662 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F75F20B6AF790057E662 /* CoreTelephony.framework */; };
+		AD23F76220B6AF860057E662 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F76120B6AF860057E662 /* SystemConfiguration.framework */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -411,6 +416,11 @@
 		AD23F74D20B6A5BB0057E662 /* LFBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFBadgeView.h; sourceTree = "<group>"; };
 		AD23F75520B6A5FB0057E662 /* ATServiceAgreementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATServiceAgreementController.h; sourceTree = "<group>"; };
 		AD23F75620B6A5FC0057E662 /* ATServiceAgreementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATServiceAgreementController.m; sourceTree = "<group>"; };
+		AD23F75920B6ADE40057E662 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		AD23F75B20B6AF490057E662 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AD23F75D20B6AF670057E662 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		AD23F75F20B6AF790057E662 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AD23F76120B6AF860057E662 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -741,6 +751,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD23F76220B6AF860057E662 /* SystemConfiguration.framework in Frameworks */,
+				AD23F76020B6AF7A0057E662 /* CoreTelephony.framework in Frameworks */,
+				AD23F75E20B6AF670057E662 /* libsqlite3.tbd in Frameworks */,
+				AD23F75C20B6AF490057E662 /* libz.tbd in Frameworks */,
+				AD23F75A20B6ADE40057E662 /* UserNotifications.framework in Frameworks */,
 				ADE1264620B2E84F00F6E172 /* libSocialWeChat.a in Frameworks */,
 				ADE1263C20B2E84F00F6E172 /* UMCommonLog.framework in Frameworks */,
 				ADE1263F20B2E84F00F6E172 /* SecurityEnvSDK.framework in Frameworks */,
@@ -1058,6 +1073,18 @@
 			path = BCSystemMessageView;
 			sourceTree = "<group>";
 		};
+		AD23F75820B6ADE30057E662 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD23F76120B6AF860057E662 /* SystemConfiguration.framework */,
+				AD23F75F20B6AF790057E662 /* CoreTelephony.framework */,
+				AD23F75D20B6AF670057E662 /* libsqlite3.tbd */,
+				AD23F75B20B6AF490057E662 /* libz.tbd */,
+				AD23F75920B6ADE40057E662 /* UserNotifications.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AD6EA3BD20B43B7100F61B33 /* BCHome */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,6 +1230,7 @@
 				ADE123A820B2D67E00F6E172 /* BlockChainTests */,
 				ADE123B320B2D67E00F6E172 /* BlockChainUITests */,
 				ADE1238E20B2D67D00F6E172 /* Products */,
+				AD23F75820B6ADE30057E662 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2430,7 +2458,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BlockChain/BCClass/Other/LF.pch";
 				INFOPLIST_FILE = BlockChain/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2443,6 +2471,7 @@
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/Sina",
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/QQ",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain.BlockChain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2467,7 +2496,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BlockChain/BCClass/Other/LF.pch";
 				INFOPLIST_FILE = BlockChain/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2480,6 +2509,7 @@
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/Sina",
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/QQ",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain.BlockChain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

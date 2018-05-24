@@ -92,6 +92,7 @@ static DataBase *_DBCtl = nil;
     // 文件路径
     
     NSString *filePath = [documentsPath stringByAppendingPathComponent:@"messageModel.sqlite"];
+   
     
     // 实例化FMDataBase对象
     
@@ -102,7 +103,7 @@ static DataBase *_DBCtl = nil;
 
 
     // 初始化数据表
-    NSString *SAMessageModelSql = @"CREATE TABLE 'SAMessage' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'extra1' VARCHAR(255),'extra2' VARCHAR(255),'extra3' VARCHAR(255),'msg_content' VARCHAR(255),'msg_title' VARCHAR(255),'msg_type' VARCHAR(255),'skip_id' VARCHAR(255),'skip_type' VARCHAR(255),'timeStr' VARCHAR(255),'msg_tag' VARCHAR(255))";
+    NSString *SAMessageModelSql = @"CREATE TABLE 'SAMessage' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'msg_content' VARCHAR(255),'msg_title' VARCHAR(255),'msg_type' VARCHAR(255),'skip_id' VARCHAR(255),'skip_type' VARCHAR(255),'timeStr' VARCHAR(255),'msg_tag' VARCHAR(255),'msg_id' VARCHAR(255),'bageVlue' VARCHAR(255))";
 //    if (![_db columnExists:@"timeStr" inTableWithName:@"SAMessage"]){
 //        NSString *alertStr = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ INTEGER",@"SAMessage",@"timeStr"];
 //        BOOL worked = [_db executeUpdate:alertStr];
@@ -127,7 +128,7 @@ static DataBase *_DBCtl = nil;
     [_db open];
     
    
-   BOOL result = [_db executeUpdate:@"INSERT INTO SAMessage(extra1,extra2,extra3,msg_content,msg_title,msg_type,skip_id,skip_type,timeStr,msg_tag)VALUES(?,?,?,?,?,?,?,?,?,?)",messageModel.extra1,messageModel.extra2,messageModel.extra3,messageModel.msg_content,messageModel.msg_title,messageModel.msg_type,messageModel.skip_id,messageModel.skip_type,messageModel.timeStr,messageModel.msg_tag];
+   BOOL result = [_db executeUpdate:@"INSERT INTO SAMessage(msg_content,msg_title,msg_type,skip_id,skip_type,timeStr,msg_tag,msg_id,bageVlue)VALUES(?,?,?,?,?,?,?,?,?)",messageModel.msg_content,messageModel.msg_title,messageModel.msg_type,messageModel.skip_id,messageModel.skip_type,messageModel.timeStr,messageModel.msg_tag,messageModel.msg_id,messageModel.bageVlue];
     LFLog(@"%d",result);
     [_db close];
     
@@ -136,7 +137,7 @@ static DataBase *_DBCtl = nil;
 - (void)deleteMessage:(SAMessageModel *)messageModel{
     [_db open];
     
-//    [_db executeUpdate:@"DELETE FROM SAMessageModel WHERE SAMessageModel_id = ?",SAMessageModel.ID];
+    [_db executeUpdate:@"DELETE FROM SAMessage WHERE msg_id = ?",messageModel.msg_id];
 
     [_db close];
 }
@@ -146,7 +147,7 @@ static DataBase *_DBCtl = nil;
     
 //    [_db executeUpdate:@"UPDATE 'SAMessage' SET extra1 = ? ",messageModel.extra1];
     
-    [_db executeUpdate:@"UPDATE 'SAMessage' SET extra1 = ?  WHERE msg_type = ? ",messageModel.extra1,messageModel.msg_type];
+    [_db executeUpdate:@"UPDATE 'SAMessage' SET bageVlue = ?  WHERE msg_id = ? ",@"1",messageModel.msg_id];
 //    [_db executeUpdate:@"UPDATE 'SAMessage' SET SAMessageModel_number = ?  WHERE SAMessageModel_id = ? ",@(SAMessageModel.number + 1),SAMessageModel.ID];
 
     
@@ -158,7 +159,7 @@ static DataBase *_DBCtl = nil;
     [_db open];
     
     
-    [_db executeUpdate:@"UPDATE 'SAMessage' SET extra1 = ?  WHERE msg_type = ? or  msg_type = ? or  msg_type = ?",@"1",@"0",@"1",@"2"];
+    [_db executeUpdate:@"UPDATE 'SAMessage' SET msg_id = ?  WHERE msg_type = ? or  msg_type = ? or  msg_type = ?",@"1",@"0",@"1",@"2"];
     
     
     [_db close];
@@ -175,9 +176,7 @@ static DataBase *_DBCtl = nil;
 
     while ([res next]) {
         SAMessageModel * messageModel = [[SAMessageModel alloc] init];
-        messageModel.extra1 = [res stringForColumn:@"extra1"] ;
-        messageModel.extra2 = [res stringForColumn:@"extra2"];
-        messageModel.extra3 = [res stringForColumn:@"extra3"] ;
+      
         messageModel.msg_content = [res stringForColumn:@"msg_content"];
         messageModel.msg_title = [res stringForColumn:@"msg_title"];
         messageModel.msg_type = [res stringForColumn:@"msg_type"];
@@ -185,7 +184,7 @@ static DataBase *_DBCtl = nil;
         messageModel.skip_type = [res stringForColumn:@"skip_type"];
         messageModel.timeStr = [res stringForColumn:@"timeStr"];
          messageModel.msg_tag = [res stringForColumn:@"msg_tag"];
-        
+           messageModel.msg_id = [res stringForColumn:@"msg_id"];
         
         [dataArray addObject:messageModel];
         
@@ -235,9 +234,7 @@ static DataBase *_DBCtl = nil;
         
         SAMessageModel * messageModel = [[SAMessageModel alloc]init];
         
-        messageModel.extra1 = [res stringForColumn:@"extra1"] ;
-        messageModel.extra2 = [res stringForColumn:@"extra2"];
-        messageModel.extra3 = [res stringForColumn:@"extra3"] ;
+
         messageModel.msg_content = [res stringForColumn:@"msg_content"];
         messageModel.msg_title = [res stringForColumn:@"msg_title"];
         messageModel.msg_type = [res stringForColumn:@"msg_type"];
@@ -245,6 +242,7 @@ static DataBase *_DBCtl = nil;
         messageModel.skip_type = [res stringForColumn:@"skip_type"];
          messageModel.timeStr = [res stringForColumn:@"timeStr"];
          messageModel.msg_tag = [res stringForColumn:@"msg_tag"];
+           messageModel.msg_id = [res stringForColumn:@"msg_id"];
         [array addObject:messageModel];
         
     }
@@ -270,9 +268,7 @@ static DataBase *_DBCtl = nil;
         
         SAMessageModel * messageModel = [[SAMessageModel alloc]init];
         
-        messageModel.extra1 = [res stringForColumn:@"extra1"] ;
-        messageModel.extra2 = [res stringForColumn:@"extra2"];
-        messageModel.extra3 = [res stringForColumn:@"extra3"] ;
+      
         messageModel.msg_content = [res stringForColumn:@"msg_content"];
         messageModel.msg_title = [res stringForColumn:@"msg_title"];
         messageModel.msg_type = [res stringForColumn:@"msg_type"];
@@ -280,6 +276,7 @@ static DataBase *_DBCtl = nil;
         messageModel.skip_type = [res stringForColumn:@"skip_type"];
          messageModel.timeStr = [res stringForColumn:@"timeStr"];
          messageModel.msg_tag = [res stringForColumn:@"msg_tag"];
+            messageModel.msg_id = [res stringForColumn:@"msg_id"];
         [array addObject:messageModel];
         
     }

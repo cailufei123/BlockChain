@@ -58,14 +58,14 @@ static NSString * const contentID = @"ATMessageContentViewCell";
         self.navigationItem.title = @"系统消息";
         
         SAMessageModel * messageModel  = [datas1 firstObject];
-         messageModel.extra1 = @"1";
+      
         [[DataBase sharedDataBase] updateMessage:messageModel];
         self.datas = datasO;
     }else if ([self.type isEqualToString:@"1"]){
         self.navigationItem.title = @"我的收藏";
         for (int i = 0; i<datas2.count; i++) {
            SAMessageModel * messageModel  = datas2[i];
-             messageModel.extra1 = @"1";
+           
              [[DataBase sharedDataBase] updateMessage:messageModel];
         }
 //        SAMessageModel * messageModel  = [datas2 firstObject];
@@ -76,7 +76,7 @@ static NSString * const contentID = @"ATMessageContentViewCell";
     }else if ([self.type isEqualToString:@"2"]){
         self.navigationItem.title = @"通知";
         SAMessageModel * messageModel  = [datas3 firstObject];
-        messageModel.extra1 = @"1";
+      
         [[DataBase sharedDataBase] updateMessage:messageModel];
         self.datas = datasS;
     }
