@@ -21,14 +21,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="334" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="334" height="546"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBo-vL-7pG">
-                    <rect key="frame" x="0.0" y="0.0" width="334" height="480"/>
+                    <rect key="frame" x="0.0" y="0.0" width="334" height="546"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G43-vp-KMD">
-                            <rect key="frame" x="0.0" y="0.0" width="334" height="490"/>
+                            <rect key="frame" x="0.0" y="0.0" width="334" height="556"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ok-K4-LXJ">
                                     <rect key="frame" x="0.0" y="20" width="334" height="44"/>
@@ -301,12 +301,33 @@
                                         <constraint firstAttribute="trailing" secondItem="75O-4C-gm0" secondAttribute="trailing" constant="10" id="z1p-4k-gva"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uch-KZ-nmO">
+                                    <rect key="frame" x="16" y="408" width="302" height="40"/>
+                                    <color key="backgroundColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Xld-yv-wRU"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="退出登录">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="loginOutClick:" destination="-1" eventType="touchUpInside" id="T0B-0j-hYa"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="Fbf-HC-ei2" firstAttribute="top" secondItem="E1M-vH-GIC" secondAttribute="bottom" id="0qX-Wh-a3O"/>
                                 <constraint firstItem="Fbf-HC-ei2" firstAttribute="leading" secondItem="G43-vp-KMD" secondAttribute="leading" id="1X8-6r-2pN"/>
                                 <constraint firstAttribute="trailing" secondItem="md8-2P-E7c" secondAttribute="trailing" id="29X-Ny-Ubx"/>
+                                <constraint firstAttribute="trailing" secondItem="uch-KZ-nmO" secondAttribute="trailing" constant="16" id="3v2-TC-GeO"/>
+                                <constraint firstItem="uch-KZ-nmO" firstAttribute="leading" secondItem="G43-vp-KMD" secondAttribute="leading" constant="16" id="44J-KN-lSb"/>
                                 <constraint firstItem="8Ok-K4-LXJ" firstAttribute="top" secondItem="G43-vp-KMD" secondAttribute="top" constant="20" id="4CR-AE-lSg"/>
                                 <constraint firstItem="LP3-UI-0to" firstAttribute="top" secondItem="md8-2P-E7c" secondAttribute="bottom" id="4a5-Ru-8Be"/>
                                 <constraint firstAttribute="trailing" secondItem="Fbf-HC-ei2" secondAttribute="trailing" id="7To-UK-Mke"/>
@@ -317,6 +338,7 @@
                                 <constraint firstAttribute="trailing" secondItem="E1M-vH-GIC" secondAttribute="trailing" id="NAP-xA-EUw"/>
                                 <constraint firstAttribute="trailing" secondItem="Bez-fH-7yd" secondAttribute="trailing" id="Nc1-ni-gL9"/>
                                 <constraint firstItem="Bez-fH-7yd" firstAttribute="top" secondItem="rO1-Tk-Sgw" secondAttribute="bottom" constant="20" id="Rgw-PF-J5h"/>
+                                <constraint firstItem="uch-KZ-nmO" firstAttribute="top" secondItem="LP3-UI-0to" secondAttribute="bottom" constant="40" id="SJA-OH-5IC"/>
                                 <constraint firstAttribute="trailing" secondItem="LP3-UI-0to" secondAttribute="trailing" id="WRG-YK-gSN"/>
                                 <constraint firstItem="E1M-vH-GIC" firstAttribute="top" secondItem="8Ok-K4-LXJ" secondAttribute="bottom" id="YdJ-bM-XLN"/>
                                 <constraint firstAttribute="trailing" secondItem="rO1-Tk-Sgw" secondAttribute="trailing" id="ZvF-5E-Ueo"/>
@@ -347,7 +369,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-334" y="-195"/>
+            <point key="canvasLocation" x="-334" y="-162"/>
         </view>
         <tapGestureRecognizer id="9Iy-kA-S3Z" userLabel="messageTap">
             <connections>

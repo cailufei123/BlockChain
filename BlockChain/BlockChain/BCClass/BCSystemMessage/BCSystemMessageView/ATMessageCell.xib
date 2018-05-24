@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ATMessageCell" rowHeight="272" id="KGk-i7-Jjw" customClass="ATMessageCell">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="433" height="271.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvQ-c5-pNP">
+                        <rect key="frame" x="0.0" y="271" width="433" height="0.5"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.040000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="n2u-hp-qtp"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_systemmessage_iocn" translatesAutoresizingMaskIntoConstraints="NO" id="tVh-f6-IEq">
+                        <rect key="frame" x="15" y="118" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="Fma-B3-zkh"/>
+                            <constraint firstAttribute="height" constant="36" id="KI0-d0-hQ1"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新活动" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIG-R5-IUZ">
+                        <rect key="frame" x="61" y="118" width="326" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜您获得了王者荣耀检验特使-韩信（皮肤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd0-Le-kUV">
+                        <rect key="frame" x="61" y="139" width="292" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me_more_iocn" translatesAutoresizingMaskIntoConstraints="NO" id="Fbg-Iw-jQB">
+                        <rect key="frame" x="407" y="128.5" width="8" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="Kae-IF-nwr"/>
+                            <constraint firstAttribute="height" constant="15" id="sop-V0-gKC"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Rd0-Le-kUV" firstAttribute="leading" secondItem="EIG-R5-IUZ" secondAttribute="leading" id="4ir-2j-UNw"/>
+                    <constraint firstAttribute="trailing" secondItem="Fbg-Iw-jQB" secondAttribute="trailing" constant="18" id="FDF-Qh-oha"/>
+                    <constraint firstItem="jvQ-c5-pNP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="GVu-oQ-9hb"/>
+                    <constraint firstAttribute="trailing" secondItem="jvQ-c5-pNP" secondAttribute="trailing" id="KCb-a8-GQG"/>
+                    <constraint firstItem="EIG-R5-IUZ" firstAttribute="top" secondItem="tVh-f6-IEq" secondAttribute="top" id="T6H-i1-AnF"/>
+                    <constraint firstItem="Fbg-Iw-jQB" firstAttribute="leading" secondItem="EIG-R5-IUZ" secondAttribute="trailing" constant="20" id="UqV-A6-9II"/>
+                    <constraint firstItem="tVh-f6-IEq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Wiz-g8-qce"/>
+                    <constraint firstItem="Fbg-Iw-jQB" firstAttribute="centerY" secondItem="tVh-f6-IEq" secondAttribute="centerY" id="bny-QZ-QfQ"/>
+                    <constraint firstAttribute="trailing" secondItem="Rd0-Le-kUV" secondAttribute="trailing" constant="80" id="iku-fj-a7m"/>
+                    <constraint firstItem="Rd0-Le-kUV" firstAttribute="top" secondItem="EIG-R5-IUZ" secondAttribute="bottom" constant="4" id="jXn-6X-Zyg"/>
+                    <constraint firstItem="tVh-f6-IEq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="mAY-xm-SaU"/>
+                    <constraint firstItem="EIG-R5-IUZ" firstAttribute="leading" secondItem="tVh-f6-IEq" secondAttribute="trailing" constant="10" id="wNS-ap-D3t"/>
+                    <constraint firstAttribute="bottom" secondItem="jvQ-c5-pNP" secondAttribute="bottom" id="yws-fJ-NUQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="ativeImageVew" destination="tVh-f6-IEq" id="Kdq-Th-gRD"/>
+                <outlet property="meaageContent" destination="Rd0-Le-kUV" id="zfE-uR-YD1"/>
+                <outlet property="messageNameLb" destination="EIG-R5-IUZ" id="IkQ-bv-o4t"/>
+            </connections>
+            <point key="canvasLocation" x="90.5" y="168"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="me_more_iocn" width="8" height="15"/>
+        <image name="message_systemmessage_iocn" width="38" height="38"/>
+    </resources>
+</document>

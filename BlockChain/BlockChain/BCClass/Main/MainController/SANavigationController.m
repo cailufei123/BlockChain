@@ -87,6 +87,10 @@
 //- (UIViewController *)childViewControllerForStatusBarStyle{
 //    return self.topViewController;
 //}
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    
+    return UIStatusBarStyleLightContent;
+}
 
 
 
