@@ -31,28 +31,28 @@
         _moneyImage = [[UIImageView alloc] init];
         //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
         //[Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_moneyImage];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_moneyImage];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_moneyImage];
     }
     return _moneyImage;
 }
 -(UILabel *)moneyName{
     if (!_moneyName) {
-        _moneyName =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_moneyName];
+        _moneyName =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_moneyName];
     }
     return _moneyName;
 }
 -(UILabel *)upPrice{
     if (!_upPrice) {
-        _upPrice =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentRight numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_upPrice];
+        _upPrice =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentRight numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_upPrice];
     }
     return _upPrice;
 }
 -(UILabel *)downPrice{
     if (!_downPrice) {
-        _downPrice =[UILabel LabelWithTextColor:color101010 textFont:FONT(@"PingFangSC-Regular", SXRealValue(12)) textAlignment:NSTextAlignmentRight numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downPrice];
+        _downPrice =[UILabel LabelWithTextColor:color101010 textFont:FONT(@"PingFangSC-Regular", SXRealValue(11)) textAlignment:NSTextAlignmentRight numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downPrice];
     }
     return _downPrice;
 }
@@ -87,7 +87,6 @@
         [self.contentView addSubview:self.separatorLine];
 
 
-        
         [self.moneyImage mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(19));
             make.centerY.equalTo(self.contentView.mas_centerY);
@@ -109,7 +108,12 @@
             make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-19));
             make.left.mas_equalTo(self.moneyName.mas_right).with.offset(SXRealValue(10));
         }];
-        
+        [self.separatorLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(50));
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(0));
+            make.bottom.mas_equalTo(self.contentView.mas_bottom).with.offset((SYRealValue(-0.6)));
+            make.height.mas_equalTo((SYRealValue(0.6)));
+        }];
     }
     return self;
 }
@@ -119,7 +123,7 @@
         
     }else{
         //假数据
-        self.moneyImage.image =[UIImage imageNamed:@"currency_iocn"];
+        self.moneyImage.image =[UIImage imageNamed:@"金币-2"];
         self.moneyName.text =@"TBC";
         self.upPrice.text=[NSString stringWithFormat:@"%.4f",0.145346];
         self.downPrice.text = [NSString stringWithFormat:@"≈¥%.1f",0.12];

@@ -24,7 +24,7 @@
 
 @implementation BCMeTangGuoJiLuListController
 
-#define HeaderViewHeight   (SYRealValue(140))  //顶部view高度
+#define HeaderViewHeight   (SYRealValue(140+8+54))  //顶部view高度
 
 -(NSMutableArray *)tangGuolistArray{
     if (!_tangGuolistArray) {
@@ -57,7 +57,7 @@
 -(BCMeTangGuoJiLuHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [[BCMeTangGuoJiLuHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, HeaderViewHeight)];
-        [_headerView setUpImage:[UIImage imageNamed:@"home_top_bg"]];
+        [_headerView setUpImage:[UIImage imageNamed:@"雷鹿财富logoc-2"]];
     }
     return _headerView;
 }
@@ -71,14 +71,11 @@
     [self.view addSubview:self.tableView];
     //加载headerView
     self.tableView.tableHeaderView =  self.headerView;
-   
-    
-    
 }
 
 //右边边导航控制器右边item
 - (void)setupUIBarButtonItem {
-    UIBarButtonItem *rightItemButton =[UIBarButtonItem itemWithImage:@"home_purple_diamonds" hightImage:nil target:self action:@selector(onNavButtonTapped:event:)];
+    UIBarButtonItem *rightItemButton =[UIBarButtonItem itemWithImage:@"me_set_icon" hightImage:nil target:self action:@selector(onNavButtonTapped:event:)];
     self.navigationItem.rightBarButtonItem =rightItemButton;
     // self.navigationController.automaticallyAdjustsScrollViewInsets = YES;
 }
@@ -87,23 +84,24 @@
 {
 
 }
--(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return  (SYRealValue(54)) ;
-}
+//-(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return  (SYRealValue(54)) ;
+//}
 //返回高度
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-        UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
-        UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(16)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        tangGuoJiLulable.text =@"糖果记录";
-        [view addSubview:tangGuoJiLulable];
-        [tangGuoJiLulable mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(view.mas_left).with.offset(SXRealValue(16));
-            make.right.mas_equalTo(view.mas_right).with.offset(SXRealValue(-20));
-            make.centerY.equalTo(view.mas_centerY);
-        }];
-        return view;
-}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+
+//        UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
+//        UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(16)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//        tangGuoJiLulable.text =@"糖果记录";
+//        [view addSubview:tangGuoJiLulable];
+//        [tangGuoJiLulable mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(view.mas_left).with.offset(SXRealValue(16));
+//            make.right.mas_equalTo(view.mas_right).with.offset(SXRealValue(-20));
+//            make.centerY.equalTo(view.mas_centerY);
+//        }];
+//        return nil;
+//}
 //-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 //{
 //    return 50;
@@ -116,7 +114,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return  10;
+    return  20;
     
 }
 

@@ -36,8 +36,8 @@
 }
 -(UILabel *)QRCode{
     if (!_QRCode) {
-        _QRCode =[UILabel LabelWithTextColor:color484848 textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_QRCode];
+        _QRCode =[UILabel LabelWithTextColor:color484848 textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentCenter numberOfLines:2];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_QRCode];
     }
     return _QRCode;
 }
@@ -45,11 +45,11 @@
     if (!_QRCodeBtn1) {
         _QRCodeBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
         [_QRCodeBtn1 setTitleColor:naverTextColor forState:UIControlStateNormal];
-        _QRCodeBtn1.titleLabel.font = FONT(@"PingFangSC-Regular", SXRealValue(14));
+        _QRCodeBtn1.titleLabel.font = FONT(@"PingFangSC-Semibold", SXRealValue(14));
         _QRCodeBtn1.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_QRCodeBtn1 setBackgroundColor:color9164D6];
         [_QRCodeBtn1  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-        [Util roundBorderView:SXRealValue(2) border:1 color:[UIColor blackColor] view:_QRCodeBtn1];
+        [Util roundBorderView:SXRealValue(2) border:0 color:[UIColor blackColor] view:_QRCodeBtn1];
     }
     return _QRCodeBtn1;
 }
@@ -58,7 +58,7 @@
     if (!_view) {
         _view = [[UIView alloc] init];
         _view.backgroundColor =naverTextColor;
-          [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_view];
+//          [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_view];
     }
     return _view;
 }
@@ -68,7 +68,7 @@
         _QRImage = [[UIImageView alloc] init];
         //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
         //[Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_ziChanIcon];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_QRImage];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_QRImage];
         
     }
     return _QRImage;
@@ -77,11 +77,8 @@
 
 -(UIButton *)QRCodeBtn2{
     if (!_QRCodeBtn2) {
-        _QRCodeBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_QRCodeBtn2 setTitleColor:color484848 forState:UIControlStateNormal];
-        _QRCodeBtn2.titleLabel.font = FONT(@"PingFangSC-Regular", SXRealValue(12));
+        _QRCodeBtn2 = [UIButton getButtonTitleColor:color484848 titleFont:FONT(@"PingFangSC-Regular", SXRealValue(12)) backGroundColor:nil target:self action:nil];
         _QRCodeBtn2.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [_QRCodeBtn2 setBackgroundColor:color9164D6];
         [_QRCodeBtn2  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
         //给button添加下划线
         NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"保存二维码到手机"];
@@ -89,15 +86,14 @@
         [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
         [self.QRCodeBtn2 setAttributedTitle:title
                                    forState:UIControlStateNormal];
-        [Util roundBorderView:SXRealValue(2) border:1 color:[UIColor blackColor] view:_QRCodeBtn2];
+        [Util roundBorderView:SXRealValue(2) border:0 color:[UIColor blackColor] view:_QRCodeBtn2];
     }
     return _QRCodeBtn2;
 }
 -(UILabel *)message{
     if (!_message) {
         _message =[UILabel LabelWithTextColor:color000000 textFont:FONT(@"PingFangSC-Regular", SXRealValue(10)) textAlignment:NSTextAlignmentLeft numberOfLines:2];
-        _message.backgroundColor = naverTextColor;
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_message];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_message];
     }
     return _message;
 }
@@ -122,8 +118,8 @@
         [self.QRCode mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.bigView.mas_top).with.offset(SYRealValue(20));
             make.centerX.equalTo(self.bigView.mas_centerX);
-            make.width.mas_equalTo(SCREENWIDTH-2*(SXRealValue(27)));
-            make.height.mas_equalTo((SCREENWIDTH-2*(SXRealValue(27)))*66/320);
+            make.width.mas_equalTo(SCREENWIDTH-2*(SXRealValue(50)));
+            make.height.mas_equalTo((SCREENWIDTH-2*(SXRealValue(50)))*66/320);
         }];
         [self.QRCodeBtn1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.QRCode.mas_bottom).with.offset(SYRealValue(6));
@@ -161,11 +157,10 @@
 -(void)setModel:(BCQRCodeMode *)model{
     _model =model;
     if (model!=nil) {
-             self.QRCode.text =@"asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf";   //传递code码
+             self.QRCode.text =@"asdfasdfasdfasdfasdfasdfasdfasdfasddfasdfasdfasdfasdfasdf";   //传递code码
                 [self.QRCodeBtn1 setTitle:@"复制收款地址" forState:UIControlStateNormal];
         self.QRImage.image =[UIImage imageNamed:@"二维码"];
        
-        
                 [self.QRCodeBtn2 setTitle:@"保存二维码到手机" forState:UIControlStateNormal];
         self.message.text =@"温馨提示:改地址仅用于接收ETH和ERC20 Token,请不要向该地址发送不符合ERC20标准的Token";
     }else{
@@ -189,11 +184,10 @@
 //    }
 
 }
-#pragma 保存二维码到手机
--(void)moreTangGuoBtnClick:(UIButton *)button{
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(moreTangGuoBtnClick)]) {
-//        [self.delegate moreTangGuoBtnClick];
-//    }
-
+#pragma mark -保存二维码到手机
+-(void)QRCodeBtn2Click:(UIButton *)button{
+    //    if (self.delegate && [self.delegate respondsToSelector:@selector(moreTangGuoBtnClick)]) {
+    //        [self.delegate moreTangGuoBtnClick];
+    //    }
 }
 @end

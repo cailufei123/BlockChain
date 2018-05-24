@@ -40,7 +40,7 @@
 -(UILabel *)xiangQingLable{
     if (!_xiangQingLable) {
         _xiangQingLable =[UILabel LabelWithTextColor:color414754 textFont:FONT(@"PingFangSC-Semibold", SXRealValue(18)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_xiangQingLable];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_xiangQingLable];
     }
     return _xiangQingLable;
 }
@@ -48,7 +48,7 @@
     if (!_downView) {
         _downView = [[UIView alloc] init];
         _downView.backgroundColor =naverTextColor;
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downView];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downView];
     }
     return _downView;
 }
@@ -56,7 +56,7 @@
 -(UILabel *)mingChengLable{
     if (!_mingChengLable) {
         _mingChengLable =[UILabel LabelWithTextColor:color414754 textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_mingChengLable];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_mingChengLable];
     }
     return _mingChengLable;
 }
@@ -64,45 +64,44 @@
 -(UILabel *)biaoYuLable{
     if (!_biaoYuLable) {
         _biaoYuLable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_biaoYuLable];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_biaoYuLable];
     }
     return _biaoYuLable;
 }
 -(UILabel *)jieShaoLable{
     if (!_jieShaoLable) {
         _jieShaoLable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:4];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_jieShaoLable];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_jieShaoLable];
     }
     return _jieShaoLable;
 }
 -(UILabel *)faXingLable{
     if (!_faXingLable) {
         _faXingLable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_faXingLable];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_faXingLable];
     }
     return _faXingLable;
 }
 -(UILabel *)faXingPriceLable{
     if (!_faXingPriceLable) {
         _faXingPriceLable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_faXingPriceLable];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_faXingPriceLable];
     }
     return _faXingPriceLable;
 }
 -(UILabel *)guanWangLable{
     if (!_guanWangLable) {
         _guanWangLable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_guanWangLable];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_guanWangLable];
     }
     return _guanWangLable;
 }
 -(UIButton *)guanWangBtn{
     if (!_guanWangBtn) {
-        _guanWangBtn = [UIButton getButtonTitleColor:color200000 titleFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) backGroundColor:naverTextColor target:self action:@selector(guanWangBtnClick:)];
-        _guanWangBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        _guanWangBtn.titleLabel.textColor =color200000;
+        _guanWangBtn = [UIButton getButtonTitleColor:color2B73EE titleFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) backGroundColor:naverTextColor target:self action:@selector(guanWangBtnClick:)];
+        _guanWangBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
         [_guanWangBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-        [Util roundBorderView:SXRealValue(2) border:1 color:color2B73EE view:_guanWangBtn];
+        [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_guanWangBtn];
     }
     return _guanWangBtn;
 }
@@ -113,7 +112,7 @@
         _sureBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
         //_sureBtn.titleLabel.textColor =naverTextColor;
         [_sureBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-        [Util roundBorderView:SXRealValue(2) border:1 color:color2B73EE view:_sureBtn];
+        [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_sureBtn];
     }
     return _sureBtn;
 }
@@ -183,7 +182,7 @@
         [self.guanWangBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.guanWangLable.mas_right).with.offset(SXRealValue(5));
             make.centerY.equalTo(self.guanWangLable.mas_centerY);
-            make.width.mas_equalTo((SYRealValue(200)));
+            make.width.mas_equalTo((SYRealValue(130)));
             make.height.mas_equalTo((SYRealValue(25)));
         }];
         [self.sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -201,12 +200,12 @@
 -(void)setModel:(BCMePDCListMode *)model{
     _model =model;
     self.xiangQingLable.text=@"PDC简介";
-    self.mingChengLable.text=[NSString stringWithFormat:@"项目名称:%@",@"雷鹿财富"];
-    self.biaoYuLable.text=[NSString stringWithFormat:@"标语:%@",@"雷鹿财富"];
-    self.jieShaoLable.text=[NSString stringWithFormat:@"项目介绍:%@",@"雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财"];
-    self.faXingLable.text =[NSString stringWithFormat:@"发行总量:%@",@"1000000000000000"];
-    self.faXingPriceLable.text =[NSString stringWithFormat:@"发行价格:%@",@"2ES DFA SDF"];
-    self.guanWangLable.text=@"官网";
+    self.mingChengLable.text=[NSString stringWithFormat:@"项目名称: %@",@"雷鹿财富"];
+    self.biaoYuLable.text=[NSString stringWithFormat:@"标语: %@",@"雷鹿财富"];
+    self.jieShaoLable.text=[NSString stringWithFormat:@"项目介绍: %@",@"雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财富雷鹿财"];
+    self.faXingLable.text =[NSString stringWithFormat:@"发行总量: %@",@"1000000000000000"];
+    self.faXingPriceLable.text =[NSString stringWithFormat:@"发行价格: %@",@"2ES DFA SDF"];
+    self.guanWangLable.text=@"官网:";
     [self.guanWangBtn setTitle:@"money.leilook.com" forState:UIControlStateNormal];
     [self.sureBtn setTitle:@"知道了" forState:UIControlStateNormal];
 

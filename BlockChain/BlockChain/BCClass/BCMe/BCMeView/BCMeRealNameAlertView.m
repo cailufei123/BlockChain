@@ -21,23 +21,23 @@
 
 -(UILabel *)message{
     if (!_message) {
-        _message =[UILabel LabelWithTextColor:color414754 textFont:FONT(@"PingFangSC-Medium", SXRealValue(16)) textAlignment:NSTextAlignmentCenter numberOfLines:2];
-        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_message];
+        _message =[UILabel LabelWithTextColor:color414754 textFont:FONT(@"PingFangSC-Medium", SXRealValue(15)) textAlignment:NSTextAlignmentCenter numberOfLines:2];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_message];
     }
     return _message;
 }
 -(UIButton *)goBtn{
     if (!_goBtn) {
-        _goBtn = [UIButton getButtonTitleColor:naverTextColor titleFont:FONT(@"PingFangSC-Semibold", SXRealValue(16)) backGroundColor:colorB378D5 target:self action:@selector(goBtnClick:)];
+        _goBtn = [UIButton getButtonTitleColor:naverTextColor titleFont:FONT(@"PingFangSC-Semibold", SXRealValue(15)) backGroundColor:colorB378D5 target:self action:@selector(goBtnClick:)];
         _goBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_goBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-        [Util roundBorderView:SXRealValue(2) border:1 color:color2B73EE view:_goBtn];
+        [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_goBtn];
     }
     return _goBtn;
 }
 -(UIButton *)cancelBtn{
     if (!_cancelBtn) {
-        _cancelBtn = [UIButton getButtonTitleColor:color7B7B7B titleFont:FONT(@"PingFangSC-Semibold", SXRealValue(16)) backGroundColor:naverTextColor target:self action:@selector(cancelBtnClick:)];
+        _cancelBtn = [UIButton getButtonTitleColor:color7B7B7B titleFont:FONT(@"PingFangSC-Semibold", SXRealValue(15)) backGroundColor:naverTextColor target:self action:@selector(cancelBtnClick:)];
         _cancelBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_cancelBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
         [Util roundBorderView:SXRealValue(2) border:1 color:colorB378D5 view:_cancelBtn];
@@ -73,17 +73,16 @@
             make.width.mas_equalTo(SXRealValue(156));
             make.height.mas_equalTo((SYRealValue(40)));
             make.bottom.mas_equalTo(self.mas_bottom).with.offset((SYRealValue(-16)));
-
         }];
     }
     return self;
 }
+
 -(void)setUpMessage{
     self.message.text=[NSString stringWithFormat:@"%@",@"请先完成实名认证并设置支付密码才可进行转账操作"];
     [self.goBtn setTitle:@"去认证" forState:UIControlStateNormal];
     [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
 }
-
 
 #pragma mark - 去认证
 -(void)goBtnClick:(UIButton *)button{
