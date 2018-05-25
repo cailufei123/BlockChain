@@ -17,6 +17,7 @@
 #import "BCSetViewController.h"
 #import "BCTaskViewController.h"
 #import "BCTaskDetailViewController.h"
+#import "BCHomeDetailViewController.h"
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -114,9 +115,12 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 }
 #pragma mark-右侧导航按钮item 点击事件
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
-{    
-    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+{
+    
+    BCHomeDetailViewController *setVc =[[BCHomeDetailViewController alloc] init];
     [self.navigationController pushViewController:setVc animated:YES];
+//    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+//    [self.navigationController pushViewController:setVc animated:YES];
 }
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick{

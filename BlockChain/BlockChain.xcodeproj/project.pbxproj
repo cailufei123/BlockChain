@@ -16,6 +16,10 @@
 		0468FB8820B6D54A00C83299 /* BCTaskDetailUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8720B6D54A00C83299 /* BCTaskDetailUpCell.m */; };
 		0468FB8B20B6D55A00C83299 /* BCTaskDetailDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8A20B6D55A00C83299 /* BCTaskDetailDownCell.m */; };
 		0468FB8F20B6D5E200C83299 /* BCTaskDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */; };
+		0487042820B7E821005C77DA /* BCHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487042720B7E821005C77DA /* BCHomeDetailViewController.m */; };
+		0487042B20B7E8A5005C77DA /* BCHomeDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487042A20B7E8A5005C77DA /* BCHomeDetailModel.m */; };
+		0487043120B7E940005C77DA /* BCHomeDetailDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043020B7E940005C77DA /* BCHomeDetailDownCell.m */; };
+		0487043420B7F882005C77DA /* BCHomeDetailUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043320B7F882005C77DA /* BCHomeDetailUpCell.m */; };
 		04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */; };
 		04B631F720B54E7700D063B8 /* BCMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */; };
 		04B631F820B54E7700D063B8 /* BCVewForHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631DB20B54E7600D063B8 /* BCVewForHeader.m */; };
@@ -298,6 +302,14 @@
 		0468FB8A20B6D55A00C83299 /* BCTaskDetailDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskDetailDownCell.m; sourceTree = "<group>"; };
 		0468FB8D20B6D5E200C83299 /* BCTaskDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTaskDetailModel.h; sourceTree = "<group>"; };
 		0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskDetailModel.m; sourceTree = "<group>"; };
+		0487042620B7E821005C77DA /* BCHomeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeDetailViewController.h; sourceTree = "<group>"; };
+		0487042720B7E821005C77DA /* BCHomeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeDetailViewController.m; sourceTree = "<group>"; };
+		0487042920B7E8A5005C77DA /* BCHomeDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeDetailModel.h; sourceTree = "<group>"; };
+		0487042A20B7E8A5005C77DA /* BCHomeDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeDetailModel.m; sourceTree = "<group>"; };
+		0487042F20B7E940005C77DA /* BCHomeDetailDownCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeDetailDownCell.h; sourceTree = "<group>"; };
+		0487043020B7E940005C77DA /* BCHomeDetailDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeDetailDownCell.m; sourceTree = "<group>"; };
+		0487043220B7F882005C77DA /* BCHomeDetailUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeDetailUpCell.h; sourceTree = "<group>"; };
+		0487043320B7F882005C77DA /* BCHomeDetailUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeDetailUpCell.m; sourceTree = "<group>"; };
 		04B631D220B54B6500D063B8 /* UIBarButtonItem+ZZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZZExtension.h"; sourceTree = "<group>"; };
 		04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZZExtension.m"; sourceTree = "<group>"; };
 		04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoJiLuHeaderView.h; sourceTree = "<group>"; };
@@ -818,6 +830,8 @@
 			children = (
 				0468FB8D20B6D5E200C83299 /* BCTaskDetailModel.h */,
 				0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */,
+				0487042920B7E8A5005C77DA /* BCHomeDetailModel.h */,
+				0487042A20B7E8A5005C77DA /* BCHomeDetailModel.m */,
 			);
 			path = BCHomeModel;
 			sourceTree = "<group>";
@@ -1148,6 +1162,10 @@
 				AD6EA3C420B43B7100F61B33 /* BCHomeTableViewCell.h */,
 				AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */,
 				AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */,
+				0487043220B7F882005C77DA /* BCHomeDetailUpCell.h */,
+				0487043320B7F882005C77DA /* BCHomeDetailUpCell.m */,
+				0487042F20B7E940005C77DA /* BCHomeDetailDownCell.h */,
+				0487043020B7E940005C77DA /* BCHomeDetailDownCell.m */,
 				AD6EA3C520B43B7100F61B33 /* BCVerticalBttton.h */,
 				AD6EA3C320B43B7100F61B33 /* BCVerticalBttton.m */,
 				AD23F70520B580800057E662 /* BCLevelBtton.h */,
@@ -1171,6 +1189,8 @@
 			children = (
 				AD6EA3C920B43B7100F61B33 /* BCHomeViewController.h */,
 				AD6EA3C820B43B7100F61B33 /* BCHomeViewController.m */,
+				0487042620B7E821005C77DA /* BCHomeDetailViewController.h */,
+				0487042720B7E821005C77DA /* BCHomeDetailViewController.m */,
 				AD23F6CF20B5562B0057E662 /* BCTaskViewController.h */,
 				AD23F6D020B5562B0057E662 /* BCTaskViewController.m */,
 				0468FB8320B6D51400C83299 /* BCTaskDetailViewController.h */,
@@ -2130,6 +2150,7 @@
 				AD6EA45E20B43ED200F61B33 /* MJRefreshAutoGifFooter.m in Sources */,
 				AD6EA45820B43ED200F61B33 /* NSBundle+MJRefresh.m in Sources */,
 				ADE123CA20B2E80300F6E172 /* AppDelegate.m in Sources */,
+				0487042B20B7E8A5005C77DA /* BCHomeDetailModel.m in Sources */,
 				AD23F6D120B5562B0057E662 /* BCTaskViewController.m in Sources */,
 				ADE125A320B2E84F00F6E172 /* FMDatabasePool.m in Sources */,
 				0468FB7620B6694900C83299 /* BCMeRealNameAlertView.m in Sources */,
@@ -2188,6 +2209,7 @@
 				ADE1264C20B2E84F00F6E172 /* NSObject+MJCoding.m in Sources */,
 				ADE125B720B2E84F00F6E172 /* SDAnimatedImageRep.m in Sources */,
 				04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */,
+				0487043420B7F882005C77DA /* BCHomeDetailUpCell.m in Sources */,
 				ADE1266020B2E84F00F6E172 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				0468FB8220B6887E00C83299 /* BCMeChangeMoneyMode.m in Sources */,
 				ADE1265D20B2E84F00F6E172 /* IQUIScrollView+Additions.m in Sources */,
@@ -2312,6 +2334,7 @@
 				ADE1265E20B2E84F00F6E172 /* IQUIView+Hierarchy.m in Sources */,
 				ADE1266B20B2E87D00F6E172 /* SATabBarController.m in Sources */,
 				ADE125B020B2E84F00F6E172 /* UIImage+GIF.m in Sources */,
+				0487042820B7E821005C77DA /* BCHomeDetailViewController.m in Sources */,
 				ADE1266920B2E87D00F6E172 /* SALoginRegistNavController.m in Sources */,
 				ADE126E220B2EB4F00F6E172 /* UIScrollView+WHScrollView.m in Sources */,
 				AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */,
@@ -2335,6 +2358,7 @@
 				AD6EA3CD20B43B7100F61B33 /* BCVerticalBttton.m in Sources */,
 				04B6320520B54E7700D063B8 /* BCMeTangGuoJiLuMode.m in Sources */,
 				ADE125AA20B2E84F00F6E172 /* UIImage+ForceDecode.m in Sources */,
+				0487043120B7E940005C77DA /* BCHomeDetailDownCell.m in Sources */,
 				ADE1270320B2ED4D00F6E172 /* AFHTTPSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2505,7 +2529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PSM9QJGHC3;
+				DEVELOPMENT_TEAM = FQVXX46TGF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/umcommonlog/umcommonlog_ios_1.0.0",
@@ -2543,7 +2567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PSM9QJGHC3;
+				DEVELOPMENT_TEAM = FQVXX46TGF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/umcommonlog/umcommonlog_ios_1.0.0",
