@@ -207,11 +207,13 @@
 
 #pragma mark - 转账按钮
 -(void)payBtnClick{
+    //用户点击"转账"时验证其身份认证状态和支付密码状态，身份未认证或者未设置支付密码时提示“请先完成实名认证并设置支付密码才可进行转账操作”
+
     //未进行实名认证
-       [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.realNameAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
+//       [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.realNameAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
     //已进行实名认证
-//    BCMeChangeMoneyController *moneyVc = [[BCMeChangeMoneyController alloc] init];
-//    [self.navigationController pushViewController:moneyVc animated:YES];
+    BCMeChangeMoneyController *moneyVc = [[BCMeChangeMoneyController alloc] init];
+    [self.navigationController pushViewController:moneyVc animated:YES];
 }
 #pragma mark -收款按钮
 -(void)getBtnClick{

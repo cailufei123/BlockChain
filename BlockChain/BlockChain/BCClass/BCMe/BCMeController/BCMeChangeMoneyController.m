@@ -117,7 +117,7 @@
     }
     return _footerView;
 }
-
+//header
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section==0) {
@@ -127,12 +127,11 @@
     }
     return 50;
 }
-
-
+//几个分区
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
-
+//每行显示几个
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return  1;
 }

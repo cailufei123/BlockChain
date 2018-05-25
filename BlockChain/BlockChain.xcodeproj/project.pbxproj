@@ -12,6 +12,10 @@
 		0468FB7C20B687E900C83299 /* BCMeChangeMoneyUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7B20B687E900C83299 /* BCMeChangeMoneyUpCell.m */; };
 		0468FB7F20B687F600C83299 /* BCMeChangeMoneyDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7E20B687F600C83299 /* BCMeChangeMoneyDownCell.m */; };
 		0468FB8220B6887E00C83299 /* BCMeChangeMoneyMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8120B6887E00C83299 /* BCMeChangeMoneyMode.m */; };
+		0468FB8520B6D51400C83299 /* BCTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8420B6D51400C83299 /* BCTaskDetailViewController.m */; };
+		0468FB8820B6D54A00C83299 /* BCTaskDetailUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8720B6D54A00C83299 /* BCTaskDetailUpCell.m */; };
+		0468FB8B20B6D55A00C83299 /* BCTaskDetailDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8A20B6D55A00C83299 /* BCTaskDetailDownCell.m */; };
+		0468FB8F20B6D5E200C83299 /* BCTaskDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */; };
 		04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */; };
 		04B631F720B54E7700D063B8 /* BCMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */; };
 		04B631F820B54E7700D063B8 /* BCVewForHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631DB20B54E7600D063B8 /* BCVewForHeader.m */; };
@@ -286,6 +290,14 @@
 		0468FB7E20B687F600C83299 /* BCMeChangeMoneyDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeChangeMoneyDownCell.m; sourceTree = "<group>"; };
 		0468FB8020B6887E00C83299 /* BCMeChangeMoneyMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeChangeMoneyMode.h; sourceTree = "<group>"; };
 		0468FB8120B6887E00C83299 /* BCMeChangeMoneyMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeChangeMoneyMode.m; sourceTree = "<group>"; };
+		0468FB8320B6D51400C83299 /* BCTaskDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTaskDetailViewController.h; sourceTree = "<group>"; };
+		0468FB8420B6D51400C83299 /* BCTaskDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskDetailViewController.m; sourceTree = "<group>"; };
+		0468FB8620B6D54A00C83299 /* BCTaskDetailUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTaskDetailUpCell.h; sourceTree = "<group>"; };
+		0468FB8720B6D54A00C83299 /* BCTaskDetailUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskDetailUpCell.m; sourceTree = "<group>"; };
+		0468FB8920B6D55A00C83299 /* BCTaskDetailDownCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTaskDetailDownCell.h; sourceTree = "<group>"; };
+		0468FB8A20B6D55A00C83299 /* BCTaskDetailDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskDetailDownCell.m; sourceTree = "<group>"; };
+		0468FB8D20B6D5E200C83299 /* BCTaskDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTaskDetailModel.h; sourceTree = "<group>"; };
+		0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskDetailModel.m; sourceTree = "<group>"; };
 		04B631D220B54B6500D063B8 /* UIBarButtonItem+ZZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZZExtension.h"; sourceTree = "<group>"; };
 		04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZZExtension.m"; sourceTree = "<group>"; };
 		04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoJiLuHeaderView.h; sourceTree = "<group>"; };
@@ -801,6 +813,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0468FB8C20B6D5CB00C83299 /* BCHomeModel */ = {
+			isa = PBXGroup;
+			children = (
+				0468FB8D20B6D5E200C83299 /* BCTaskDetailModel.h */,
+				0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */,
+			);
+			path = BCHomeModel;
+			sourceTree = "<group>";
+		};
 		04B631D120B54B6500D063B8 /* UIBarButtonItem_ZZExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1111,6 +1132,7 @@
 		AD6EA3BD20B43B7100F61B33 /* BCHome */ = {
 			isa = PBXGroup;
 			children = (
+				0468FB8C20B6D5CB00C83299 /* BCHomeModel */,
 				AD6EA3BE20B43B7100F61B33 /* BCHomeView */,
 				AD6EA3C720B43B7100F61B33 /* BCHomeController */,
 			);
@@ -1136,6 +1158,10 @@
 				AD23F6D720B5575A0057E662 /* BCTaskTableViewCell.h */,
 				AD23F6D820B5575A0057E662 /* BCTaskTableViewCell.m */,
 				AD23F6D920B5575A0057E662 /* BCTaskTableViewCell.xib */,
+				0468FB8620B6D54A00C83299 /* BCTaskDetailUpCell.h */,
+				0468FB8720B6D54A00C83299 /* BCTaskDetailUpCell.m */,
+				0468FB8920B6D55A00C83299 /* BCTaskDetailDownCell.h */,
+				0468FB8A20B6D55A00C83299 /* BCTaskDetailDownCell.m */,
 			);
 			path = BCHomeView;
 			sourceTree = "<group>";
@@ -1147,6 +1173,8 @@
 				AD6EA3C820B43B7100F61B33 /* BCHomeViewController.m */,
 				AD23F6CF20B5562B0057E662 /* BCTaskViewController.h */,
 				AD23F6D020B5562B0057E662 /* BCTaskViewController.m */,
+				0468FB8320B6D51400C83299 /* BCTaskDetailViewController.h */,
+				0468FB8420B6D51400C83299 /* BCTaskDetailViewController.m */,
 			);
 			path = BCHomeController;
 			sourceTree = "<group>";
@@ -2115,6 +2143,7 @@
 				ADE126DE20B2EB4F00F6E172 /* UIColor+WHColor.m in Sources */,
 				ADE1264920B2E84F00F6E172 /* MJPropertyType.m in Sources */,
 				06ED219D20B436EC008F44FE /* MASCompositeConstraint.m in Sources */,
+				0468FB8B20B6D55A00C83299 /* BCTaskDetailDownCell.m in Sources */,
 				ADE1270A20B2EDC200F6E172 /* LFAccountTool.m in Sources */,
 				AD23F6F020B569290057E662 /* TAPageControl.m in Sources */,
 				ADE1270620B2ED4D00F6E172 /* AFNetworkReachabilityManager.m in Sources */,
@@ -2177,6 +2206,7 @@
 				ADE125C120B2E84F00F6E172 /* UIView+WebCache.m in Sources */,
 				ADE125B520B2E84F00F6E172 /* SDWebImageCoder.m in Sources */,
 				06ED21A420B436EC008F44FE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				0468FB8820B6D54A00C83299 /* BCTaskDetailUpCell.m in Sources */,
 				04B631FB20B54E7700D063B8 /* BCMePDCListHeaderView.m in Sources */,
 				AD6EA46420B43ED200F61B33 /* MJRefreshHeader.m in Sources */,
 				0652473420B3C06900F65C2A /* UIImageView+WBY.m in Sources */,
@@ -2210,6 +2240,7 @@
 				ADE125B920B2E84F00F6E172 /* SDWebImageDownloaderOperation.m in Sources */,
 				ADE126E020B2EB4F00F6E172 /* UITableView+WHTableView.m in Sources */,
 				AD23F6EC20B569290057E662 /* SDCycleScrollView.m in Sources */,
+				0468FB8F20B6D5E200C83299 /* BCTaskDetailModel.m in Sources */,
 				AD23F6EE20B569290057E662 /* SDCollectionViewCell.m in Sources */,
 				ADE125B420B2E84F00F6E172 /* SDWebImagePrefetcher.m in Sources */,
 				ADE125C220B2E84F00F6E172 /* SDWebImageImageIOCoder.m in Sources */,
@@ -2263,6 +2294,7 @@
 				ADD0896420B3B71900B3C4A4 /* BCLoginController.m in Sources */,
 				AD6EA46120B43ED200F61B33 /* MJRefreshStateHeader.m in Sources */,
 				ADE126E820B2EB4F00F6E172 /* UIViewController+WHVC.m in Sources */,
+				0468FB8520B6D51400C83299 /* BCTaskDetailViewController.m in Sources */,
 				ADE1270220B2ED4D00F6E172 /* AFURLResponseSerialization.m in Sources */,
 				ADE125BE20B2E84F00F6E172 /* SDWebImageGIFCoder.m in Sources */,
 				AD6EA3CE20B43B7100F61B33 /* BCHomeTopView.m in Sources */,
