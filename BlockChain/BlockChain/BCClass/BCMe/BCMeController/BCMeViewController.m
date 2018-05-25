@@ -117,10 +117,10 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
     
-    BCHomeDetailViewController *setVc =[[BCHomeDetailViewController alloc] init];
-    [self.navigationController pushViewController:setVc animated:YES];
-//    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+//    BCHomeDetailViewController *setVc =[[BCHomeDetailViewController alloc] init];
 //    [self.navigationController pushViewController:setVc animated:YES];
+    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+    [self.navigationController pushViewController:setVc animated:YES];
 }
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick{
