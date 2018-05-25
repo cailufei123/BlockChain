@@ -104,6 +104,8 @@
 		AD23F76C20B7FCA90057E662 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F76B20B7FCA80057E662 /* CoreGraphics.framework */; };
 		AD23F76E20B7FD5D0057E662 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F76D20B7FD5C0057E662 /* libc++.tbd */; };
 		AD23F77020B7FDB10057E662 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F76F20B7FDB10057E662 /* UIKit.framework */; };
+		AD23F77420B8139A0057E662 /* BCSetPayPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F77220B8139A0057E662 /* BCSetPayPasswordViewController.m */; };
+		AD23F77520B8139A0057E662 /* BCSetPayPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F77320B8139A0057E662 /* BCSetPayPasswordViewController.xib */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -466,6 +468,9 @@
 		AD23F76B20B7FCA80057E662 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AD23F76D20B7FD5C0057E662 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		AD23F76F20B7FDB10057E662 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AD23F77120B8139A0057E662 /* BCSetPayPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCSetPayPasswordViewController.h; sourceTree = "<group>"; };
+		AD23F77220B8139A0057E662 /* BCSetPayPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCSetPayPasswordViewController.m; sourceTree = "<group>"; };
+		AD23F77320B8139A0057E662 /* BCSetPayPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCSetPayPasswordViewController.xib; sourceTree = "<group>"; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -910,6 +915,9 @@
 				AD23F70820B59C0C0057E662 /* BCSetViewController.h */,
 				AD23F70920B59C0C0057E662 /* BCSetViewController.m */,
 				AD23F70A20B59C0C0057E662 /* BCSetViewController.xib */,
+				AD23F77120B8139A0057E662 /* BCSetPayPasswordViewController.h */,
+				AD23F77220B8139A0057E662 /* BCSetPayPasswordViewController.m */,
+				AD23F77320B8139A0057E662 /* BCSetPayPasswordViewController.xib */,
 			);
 			path = BCMeController;
 			sourceTree = "<group>";
@@ -2128,6 +2136,7 @@
 				AD23F74E20B6A5BB0057E662 /* YWCustomMessageCell.xib in Resources */,
 				AD23F72F20B689E70057E662 /* BCRealNameReviewPassViewController.xib in Resources */,
 				AD23F71320B661B00057E662 /* BCReaNameController.xib in Resources */,
+				AD23F77520B8139A0057E662 /* BCSetPayPasswordViewController.xib in Resources */,
 				AD6EA45620B43ED200F61B33 /* MJRefresh.bundle in Resources */,
 				06ED219C20B436EC008F44FE /* Info.plist in Resources */,
 				ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */,
@@ -2183,6 +2192,7 @@
 				ADE126DE20B2EB4F00F6E172 /* UIColor+WHColor.m in Sources */,
 				ADE1264920B2E84F00F6E172 /* MJPropertyType.m in Sources */,
 				06ED219D20B436EC008F44FE /* MASCompositeConstraint.m in Sources */,
+				AD23F77420B8139A0057E662 /* BCSetPayPasswordViewController.m in Sources */,
 				0468FB8B20B6D55A00C83299 /* BCTaskDetailDownCell.m in Sources */,
 				ADE1270A20B2EDC200F6E172 /* LFAccountTool.m in Sources */,
 				AD23F6F020B569290057E662 /* TAPageControl.m in Sources */,

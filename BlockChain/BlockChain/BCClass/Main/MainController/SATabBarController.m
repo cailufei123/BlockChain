@@ -89,8 +89,8 @@
     
 }
 -(void)setupChildViewControllers{
-    [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCHomeViewController alloc] init]]  title:@"房间" image:@"糖豆－点击" selectedImage:@"糖豆"];
-      [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCMeViewController alloc] init]]  title:@"我的" image:@"我的-点击" selectedImage:@"我的"];
+    [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCHomeViewController alloc] init]]  title:@"房间" image:@"糖豆" selectedImage:@"糖豆－点击"];
+      [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCMeViewController alloc] init]]  title:@"我的" image:@"我的" selectedImage:@"我的-点击"];
 
    
 

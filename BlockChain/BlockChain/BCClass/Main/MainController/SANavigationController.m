@@ -52,9 +52,9 @@
         [backItem setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
         backItem.titleLabel.font = [UIFont systemFontOfSize:15];
-//        backItem.clf_size = CGSizeMake(40, 40);
+        backItem.clf_size = CGSizeMake(40, 40);
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backItem];
-        backItem.imageEdgeInsets = UIEdgeInsetsMake(0, -25, 0, 0);
+        backItem.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
 
         [backItem addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         viewController.hidesBottomBarWhenPushed = YES;
