@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCSystemMessage/BCSystemMessageController/SAMessageViewController.m"
-            timestampString = "548912138.206951"
+            timestampString = "548931407.773689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCSystemMessage/BCSystemMessageController/SAMessageViewController.m"
-            timestampString = "548912138.207553"
+            timestampString = "548931407.774549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/Tools/DataBase.m"
-            timestampString = "548912138.2077481"
+            timestampString = "548931407.77476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/Tools/DataBase.m"
-            timestampString = "548912138.208282"
+            timestampString = "548931407.775333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCSystemMessage/BCSystemMessageView/ATMessageCell.m"
-            timestampString = "548912138.208491"
+            timestampString = "548931407.775521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCSystemMessage/BCSystemMessageView/ATMessageCell.m"
-            timestampString = "548912138.209065"
+            timestampString = "548931407.776023"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/Other/AppDelegate.m"
-            timestampString = "548912138.209237"
+            timestampString = "548931407.776202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/Other/AppDelegate.m"
-            timestampString = "548912138.210324"
+            timestampString = "548931407.776734"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
             landmarkType = "7">
             <Locations>
@@ -138,11 +138,11 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Other/AppDelegate.m"
-                  timestampString = "548912169.02679"
+                  timestampString = "548931464.94444"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
                   offsetFromSymbolStart = "932">
                </Location>
                <Location
@@ -153,11 +153,11 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Other/AppDelegate.m"
-                  timestampString = "548912169.03431"
+                  timestampString = "548931464.947513"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
                   offsetFromSymbolStart = "56">
                </Location>
             </Locations>
@@ -170,12 +170,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/Other/AppDelegate.m"
-            timestampString = "548912138.21076"
+            timestampString = "548931407.776935"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-uMessageNotificatiodidFinishLaunchingWithOptions:"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/Tools/ATSkipTool.m"
+            timestampString = "548931407.777101"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-shareImageAndTextToPlatformType:shareObjectWithTitle:descr:thumImage:webpageUrl:currentViewController:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCHomeViewController.m"
+            timestampString = "548931407.7775871"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-createHideBt"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

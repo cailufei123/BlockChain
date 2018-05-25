@@ -101,6 +101,9 @@
 		AD23F76220B6AF860057E662 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F76120B6AF860057E662 /* SystemConfiguration.framework */; };
 		AD23F76620B6E3AB0057E662 /* BCMessageDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F76420B6E3AA0057E662 /* BCMessageDetailsViewController.m */; };
 		AD23F76720B6E3AB0057E662 /* BCMessageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23F76520B6E3AA0057E662 /* BCMessageDetailsViewController.xib */; };
+		AD23F76C20B7FCA90057E662 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F76B20B7FCA80057E662 /* CoreGraphics.framework */; };
+		AD23F76E20B7FD5D0057E662 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F76D20B7FD5C0057E662 /* libc++.tbd */; };
+		AD23F77020B7FDB10057E662 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23F76F20B7FDB10057E662 /* UIKit.framework */; };
 		AD6EA3CA20B43B7100F61B33 /* BCHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */; };
 		AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */; };
 		AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */; };
@@ -459,6 +462,10 @@
 		AD23F76320B6E3AA0057E662 /* BCMessageDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMessageDetailsViewController.h; sourceTree = "<group>"; };
 		AD23F76420B6E3AA0057E662 /* BCMessageDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMessageDetailsViewController.m; sourceTree = "<group>"; };
 		AD23F76520B6E3AA0057E662 /* BCMessageDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCMessageDetailsViewController.xib; sourceTree = "<group>"; };
+		AD23F76A20B7E5D10057E662 /* BlockChain.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlockChain.entitlements; sourceTree = "<group>"; };
+		AD23F76B20B7FCA80057E662 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AD23F76D20B7FD5C0057E662 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		AD23F76F20B7FDB10057E662 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AD6EA3BF20B43B7100F61B33 /* BCHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTableViewCell.xib; sourceTree = "<group>"; };
 		AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCHomeTopView.xib; sourceTree = "<group>"; };
 		AD6EA3C120B43B7100F61B33 /* BCHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHomeTableViewCell.m; sourceTree = "<group>"; };
@@ -789,8 +796,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD23F76220B6AF860057E662 /* SystemConfiguration.framework in Frameworks */,
+				AD23F77020B7FDB10057E662 /* UIKit.framework in Frameworks */,
+				AD23F76E20B7FD5D0057E662 /* libc++.tbd in Frameworks */,
+				AD23F76C20B7FCA90057E662 /* CoreGraphics.framework in Frameworks */,
 				AD23F76020B6AF7A0057E662 /* CoreTelephony.framework in Frameworks */,
+				AD23F76220B6AF860057E662 /* SystemConfiguration.framework in Frameworks */,
 				AD23F75E20B6AF670057E662 /* libsqlite3.tbd in Frameworks */,
 				AD23F75C20B6AF490057E662 /* libz.tbd in Frameworks */,
 				AD23F75A20B6ADE40057E662 /* UserNotifications.framework in Frameworks */,
@@ -1134,6 +1144,9 @@
 		AD23F75820B6ADE30057E662 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD23F76F20B7FDB10057E662 /* UIKit.framework */,
+				AD23F76D20B7FD5C0057E662 /* libc++.tbd */,
+				AD23F76B20B7FCA80057E662 /* CoreGraphics.framework */,
 				AD23F76120B6AF860057E662 /* SystemConfiguration.framework */,
 				AD23F75F20B6AF790057E662 /* CoreTelephony.framework */,
 				AD23F75D20B6AF670057E662 /* libsqlite3.tbd */,
@@ -1318,6 +1331,7 @@
 		ADE1238F20B2D67D00F6E172 /* BlockChain */ = {
 			isa = PBXGroup;
 			children = (
+				AD23F76A20B7E5D10057E662 /* BlockChain.entitlements */,
 				ADE123C220B2D9EF00F6E172 /* BCClass */,
 				ADE1239620B2D67D00F6E172 /* Main.storyboard */,
 				ADE1239920B2D67E00F6E172 /* Assets.xcassets */,
@@ -2061,6 +2075,11 @@
 				TargetAttributes = {
 					ADE1238C20B2D67D00F6E172 = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					ADE123A420B2D67E00F6E172 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -2528,6 +2547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BlockChain/BlockChain.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FQVXX46TGF;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2558,7 +2578,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2566,6 +2586,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BlockChain/BlockChain.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FQVXX46TGF;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2596,7 +2617,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
