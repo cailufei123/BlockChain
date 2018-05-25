@@ -12,8 +12,9 @@
 @protocol BCTaskDetailDownCellDelegate <NSObject>
 
 @optional
-//-(void)goBtnClick;
-//-(void)cancelBtnClick;
+
+-(void)fenXiangBtnClick;//分享
+
 @end
 @interface BCTaskDetailDownCell : UITableViewCell
 

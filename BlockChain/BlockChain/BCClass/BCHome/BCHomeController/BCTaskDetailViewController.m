@@ -10,7 +10,7 @@
 #import "BCTaskDetailModel.h"
 #import "BCTaskDetailUpCell.h"
 #import "BCTaskDetailDownCell.h"
-@interface BCTaskDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface BCTaskDetailViewController ()<UITableViewDataSource,UITableViewDelegate,BCTaskDetailDownCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)BCTaskDetailModel *detailModel;
 @end
@@ -21,7 +21,7 @@
 -(UITableView *)tableView{
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
-        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-49) style:UITableViewStyleGrouped];
+        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTabBarHeight) style:UITableViewStyleGrouped];
         NSLog(@"%f",kTopHeight);
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -117,10 +117,17 @@
         return cell;
     }else{
         BCTaskDetailDownCell *cell = [BCTaskDetailDownCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
+        cell.delegate=self;
         cell.model =model;
         return cell;
     }
 }
+#pragma mark -BCTaskDetailDownCellDelegate 分享按钮
+-(void)fenXiangBtnClick{
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
