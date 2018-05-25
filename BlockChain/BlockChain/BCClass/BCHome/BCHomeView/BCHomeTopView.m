@@ -10,9 +10,11 @@
 #import "BCVerticalBttton.h"
 @interface BCHomeTopView()
 @property (weak, nonatomic) IBOutlet UIView *horseLampbgView;
-@property (weak, nonatomic) IBOutlet UILabel *purpleStoneLb;
+@property (weak, nonatomic) IBOutlet UIButton *purpleStoneBt;
 
-@property (weak, nonatomic) IBOutlet UILabel *yellowStoneLb;
+@property (weak, nonatomic) IBOutlet UIButton *tellowStoneBt;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *hideSquareBt;
 @property (weak, nonatomic) IBOutlet UIView *stoneBgView;
 @property (weak, nonatomic) IBOutlet UIButton *calculationBt;
@@ -68,7 +70,19 @@
     [self.hideSquareBt addTarget:self action:@selector(hideSquareBtClick) forControlEvents:UIControlEventTouchUpInside];
      [self.calculationBt addTarget:self action:@selector(calculationBtClick) forControlEvents:UIControlEventTouchUpInside];
      [self.morebt addTarget:self action:@selector(moreBtClick) forControlEvents:UIControlEventTouchUpInside];
+     [self.purpleStoneBt addTarget:self action:@selector(purpleStoneBtClick) forControlEvents:UIControlEventTouchUpInside];
+     [self.tellowStoneBt addTarget:self action:@selector(tellowStoneBtClick) forControlEvents:UIControlEventTouchUpInside];
 
+}
+-(void)purpleStoneBtClick{
+    if (self.purpleStone) {
+        self.purpleStone();
+    }
+}
+-(void)tellowStoneBtClick{
+    if (self.yellowStoneBt) {
+        self.yellowStoneBt();
+    }
 }
 -(void)hideSquareBtClick{
     if (self.hideSquare) {

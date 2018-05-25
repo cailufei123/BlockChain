@@ -9,6 +9,7 @@
 #import "BCTaskViewController.h"
 #import "BCTaskTopView.h"
 #import "BCTaskTableViewCell.h"
+#import "BCTaskDetailViewController.h"
 @interface BCTaskViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)BCTaskTopView * taskTopView;
@@ -102,5 +103,9 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
     
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    BCTaskDetailViewController  * taskVc = [[BCTaskDetailViewController  alloc] init];
+    [self.navigationController pushViewController:taskVc animated:YES];
+}
 @end

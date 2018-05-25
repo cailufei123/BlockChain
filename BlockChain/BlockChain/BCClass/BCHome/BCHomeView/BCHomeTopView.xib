@@ -20,7 +20,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="352" height="394"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29h-gh-EnZ">
-                    <rect key="frame" x="0.0" y="20" width="352" height="92"/>
+                    <rect key="frame" x="0.0" y="20" width="352" height="83"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvt-dI-knM">
                             <rect key="frame" x="0.0" y="0.0" width="352" height="24"/>
@@ -48,45 +48,35 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYb-YF-eph">
-                            <rect key="frame" x="0.0" y="24" width="352" height="68"/>
+                            <rect key="frame" x="0.0" y="24" width="352" height="59"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_purple_diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="oun-4S-VZ0">
-                                    <rect key="frame" x="10" y="16" width="16" height="13"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2z-It-cl5">
+                                    <rect key="frame" x="10" y="10" width="89" height="17"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="16" id="2WT-CO-M9Z"/>
-                                        <constraint firstAttribute="height" constant="13" id="BUK-iI-uaH"/>
+                                        <constraint firstAttribute="height" constant="17" id="0va-dK-kMC"/>
                                     </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紫钻：3.7777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsB-aO-JDS">
-                                    <rect key="frame" x="31" y="14" width="73" height="17"/>
                                     <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
-                                    <color key="textColor" red="0.45490196078431372" green="0.59999999999999998" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_yellew_diamonds" translatesAutoresizingMaskIntoConstraints="NO" id="hZC-YV-5GI">
-                                    <rect key="frame" x="10" y="39" width="16" height="13"/>
+                                    <state key="normal" title="紫钻：3.7777" image="home_purple_diamonds">
+                                        <color key="titleColor" red="0.45490196078431372" green="0.59999999999999998" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQ1-VY-EEp">
+                                    <rect key="frame" x="10" y="32" width="89" height="17"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="13" id="Pto-Ph-bie"/>
-                                        <constraint firstAttribute="width" constant="16" id="Vtq-1H-NBh"/>
+                                        <constraint firstAttribute="height" constant="17" id="Tht-T4-OGn"/>
                                     </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="算力：19999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjb-Xq-caQ">
-                                    <rect key="frame" x="31" y="37" width="70" height="17"/>
                                     <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
-                                    <color key="textColor" red="0.4549019608" green="0.59999999999999998" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                    <state key="normal" title="紫钻：3.7777" image="home_yellew_diamonds">
+                                        <color key="titleColor" red="0.4549019608" green="0.59999999999999998" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="Fjb-Xq-caQ" firstAttribute="leading" secondItem="hZC-YV-5GI" secondAttribute="trailing" constant="5" id="CMN-b3-Em5"/>
-                                <constraint firstItem="Fjb-Xq-caQ" firstAttribute="centerY" secondItem="hZC-YV-5GI" secondAttribute="centerY" id="SLp-rl-D2U"/>
-                                <constraint firstItem="jsB-aO-JDS" firstAttribute="leading" secondItem="oun-4S-VZ0" secondAttribute="trailing" constant="5" id="UFV-Nh-lxb"/>
-                                <constraint firstItem="oun-4S-VZ0" firstAttribute="leading" secondItem="gYb-YF-eph" secondAttribute="leading" constant="10" id="bQn-rS-qQ0"/>
-                                <constraint firstAttribute="bottom" secondItem="hZC-YV-5GI" secondAttribute="bottom" constant="16" id="bzc-ng-VoO"/>
-                                <constraint firstItem="oun-4S-VZ0" firstAttribute="top" secondItem="gYb-YF-eph" secondAttribute="top" constant="16" id="gw8-0P-oUW"/>
-                                <constraint firstItem="jsB-aO-JDS" firstAttribute="centerY" secondItem="oun-4S-VZ0" secondAttribute="centerY" id="hXr-KA-HoD"/>
-                                <constraint firstItem="hZC-YV-5GI" firstAttribute="leading" secondItem="oun-4S-VZ0" secondAttribute="leading" id="i93-3m-ppE"/>
-                                <constraint firstItem="hZC-YV-5GI" firstAttribute="top" secondItem="oun-4S-VZ0" secondAttribute="bottom" constant="10" id="sGw-gk-LH7"/>
+                                <constraint firstItem="fQ1-VY-EEp" firstAttribute="leading" secondItem="i2z-It-cl5" secondAttribute="leading" id="7Ne-gc-Knz"/>
+                                <constraint firstItem="i2z-It-cl5" firstAttribute="top" secondItem="gYb-YF-eph" secondAttribute="top" constant="10" id="TSq-cd-oKy"/>
+                                <constraint firstItem="i2z-It-cl5" firstAttribute="leading" secondItem="gYb-YF-eph" secondAttribute="leading" constant="10" id="d2z-p7-eJB"/>
+                                <constraint firstAttribute="bottom" secondItem="fQ1-VY-EEp" secondAttribute="bottom" constant="10" id="l2G-vA-OLa"/>
+                                <constraint firstItem="fQ1-VY-EEp" firstAttribute="top" secondItem="i2z-It-cl5" secondAttribute="bottom" constant="5" id="uOA-aT-Shf"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -101,7 +91,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-ld-lSh">
-                    <rect key="frame" x="0.0" y="112" width="352" height="180"/>
+                    <rect key="frame" x="0.0" y="103" width="352" height="180"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="8wH-yT-HCa"/>
                     </constraints>
@@ -184,22 +174,22 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="calculationBt" destination="ydI-up-tAu" id="0zW-dm-f3A"/>
-                <outlet property="horseLampbgView" destination="Jvt-dI-knM" id="GaN-Ub-hUI"/>
+                <outlet property="horseLampbgView" destination="Jvt-dI-knM" id="gsS-de-wAj"/>
                 <outlet property="morebt" destination="b2a-5o-7aX" id="dCl-V5-ztp"/>
-                <outlet property="purpleStoneLb" destination="jsB-aO-JDS" id="hgw-sv-HM2"/>
+                <outlet property="purpleStoneBt" destination="i2z-It-cl5" id="gMd-XX-onZ"/>
                 <outlet property="samgent" destination="lhW-ak-Vdj" id="bBD-zT-vRa"/>
                 <outlet property="stoneBgView" destination="ntA-ld-lSh" id="zyb-Qm-whB"/>
+                <outlet property="tellowStoneBt" destination="fQ1-VY-EEp" id="Jih-hu-h1j"/>
                 <outlet property="topLyout" destination="6PG-S5-Vcd" id="HAh-r1-ZgO"/>
-                <outlet property="yellowStoneLb" destination="Fjb-Xq-caQ" id="gg1-Yb-Tgo"/>
             </connections>
             <point key="canvasLocation" x="47" y="139"/>
         </view>
     </objects>
     <resources>
         <image name="home_computingpower" width="81" height="81"/>
-        <image name="home_purple_diamonds" width="24" height="19"/>
+        <image name="home_purple_diamonds" width="16" height="13"/>
         <image name="home_top_bg" width="562" height="510"/>
-        <image name="home_yellew_diamonds" width="24" height="22"/>
+        <image name="home_yellew_diamonds" width="16" height="15"/>
         <image name="sugar_iocn" width="26" height="26"/>
     </resources>
 </document>

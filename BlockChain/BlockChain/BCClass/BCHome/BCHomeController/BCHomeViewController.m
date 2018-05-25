@@ -11,6 +11,9 @@
 #import "BCHomeTopView.h"
 #import "BCTaskViewController.h"
 #import "BCLevelBtton.h"
+#import "BCHomeDetailViewController.h"
+#import "BCMePDCListController.h"
+
 @interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)BCHomeTopView * homeTopView;
@@ -142,6 +145,15 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
         BCTaskViewController * taskVc = [[BCTaskViewController alloc] init];
         [weakSelf.navigationController pushViewController:taskVc animated:YES];
     };
+    
+    
+    self.homeTopView.yellowStoneBt = ^{
+        
+    };
+    self.homeTopView.purpleStone  = ^{
+        BCMePDCListController *pdcV = [[BCMePDCListController alloc] init];
+        [weakSelf.navigationController pushViewController:pdcV animated:YES];
+    };
     self.tableView.tableHeaderView =  self.homeTopView;
     
 }
@@ -207,5 +219,10 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     BCHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellidenfder];
  
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    BCHomeDetailViewController * taskVc = [[BCHomeDetailViewController alloc] init];
+    [self.navigationController pushViewController:taskVc animated:YES];
 }
 @end
