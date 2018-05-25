@@ -115,10 +115,13 @@
    
     if (sender.selectedSegmentIndex == 0) {
        
+      
     }else if (sender.selectedSegmentIndex == 1){
-       
+      
     }
 }
+
+
 -(void)animateWithDuration{
     [UIView animateWithDuration:self.duration delay:0 options:(UIViewAnimationOptionCurveLinear | UIViewAnimationOptionAllowUserInteraction) animations:^{
           self.stoneBgView.frame = CGRectMake(0,  self.stoneBgView.clf_y+=10, LFscreenW, 180);

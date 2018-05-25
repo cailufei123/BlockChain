@@ -32,19 +32,15 @@
     [self uMessageNotificatiodidFinishLaunchingWithOptions:launchOptions];//友盟推送
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     
-    // 文件路径
-    
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:@"messageModel.sqlite"];
-    LFLog(@"%@",filePath);
+  
     
     return YES;
 }
 
 
-
 - (void)configUSharePlatforms
 {
-    [[UMSocialManager defaultManager] setUmSocialAppkey:@"5ab378238f4a9d3d3000011c"];
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"5b0780deb27b0a78c6000016"];
     /* 设置微信的appKey和appSecret */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx4811a06dcdcd581b" appSecret:@"389aca7ab30fc23e5ebc127c494ca6b6" redirectURL:@"http://mobile.umeng.com/social"];
     /* 设置微信的appKey和appSecret */

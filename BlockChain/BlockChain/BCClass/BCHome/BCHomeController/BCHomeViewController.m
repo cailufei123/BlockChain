@@ -105,7 +105,9 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     button.frame = CGRectMake(LFscreenW-86, kTopHeight+20, 86, 34);
     [button addTarget:self action:@selector(hideSquare:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+   
 }
+
 -(void)hideSquare:(UIButton * )bt{
     if (bt.selected) {
         bt.selected = NO;

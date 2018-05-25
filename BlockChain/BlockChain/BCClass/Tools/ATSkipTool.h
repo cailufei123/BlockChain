@@ -16,4 +16,9 @@
 - (void)loginAction:(UIViewController * )controller;
 
 -(void)pushToViewControllerWithClassName:(NSString *)className ViewController:(UIViewController * )controller ;
+-(void)shareObjectWithTitle:(NSString *)title
+                      descr:(NSString *)descr
+                  thumImage:(id)thumImage
+                 webpageUrl:(NSString *)Url
+currentViewController:(id)currentViewController;
 @end
