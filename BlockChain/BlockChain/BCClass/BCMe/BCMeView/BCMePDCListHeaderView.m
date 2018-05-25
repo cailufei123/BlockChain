@@ -159,6 +159,8 @@
     if (self =[super initWithFrame:frame]) {
         //顶部
         self.bigView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+        [self.bigView gradientFreme:CGRectMake(0, 0, frame.size.width, frame.size.height) startColor:color5E4FC9 endColor:colorC483FB];    //初始化CAGradientlayer对象，使它的大小为UIView的大小
+        
         self.upBigView.frame = CGRectMake(0, kTopHeight, SCREENWIDTH, upBigViewHeight);
         [self.upBigView addSubview:self.price];
         [self.upBigView addSubview:self.smallBgView];
@@ -235,7 +237,7 @@
             make.height.mas_equalTo((SYRealValue(20)));
         }];
       
-        [self setGradientLayer];
+        
         
 //
     }
@@ -272,19 +274,5 @@
     
 //}
 
--(void)setGradientLayer{
-    //初始化CAGradientlayer对象，使它的大小为UIView的大小
-    self.gradientLayer = [CAGradientLayer layer];
-    self.gradientLayer.frame = self.bigView.bounds;
-    //将CAGradientlayer对象添加在我们要设置背景色的视图的layer层
-    [self.bigView.layer addSublayer:self.gradientLayer];
-    //设置渐变区域的起始和终止位置（范围为0-1）
-    self.gradientLayer.startPoint = CGPointMake(0.5, 1);
-    self.gradientLayer.endPoint = CGPointMake(1, 0.2);
-    //设置颜色数组
-    self.gradientLayer.colors = @[(__bridge id)color5E4FC9.CGColor,
-                                  (__bridge id)colorC483FB.CGColor];
-    //设置颜色分割点（范围：0-1）
-    self.gradientLayer.locations = @[@(0.5f), @(1.0f)];
-}
+
 @end

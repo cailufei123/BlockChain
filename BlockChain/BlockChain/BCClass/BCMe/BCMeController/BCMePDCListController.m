@@ -20,7 +20,6 @@
 @interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListHeaderViewDelegate,BCMePDCListAlertViewDelegate,BCMeRealNameAlertViewDelegate>
 @property(nonatomic,strong)BCMePDCListHeaderView *headerView;
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)CAGradientLayer *gradientLayer;//渐变色
 @property(nonatomic,strong)BCMePDCListMode *model;
 @property(nonatomic,strong)BCMePDCListAlertView *alertView;//弹框
 @property(nonatomic,strong)BCMeRealNameAlertView *realNameAlertView;//弹框

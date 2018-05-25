@@ -17,7 +17,7 @@
 #import "BCSetViewController.h"
 #import "BCTaskViewController.h"
 #import "BCTaskDetailViewController.h"
-#import "BCHomeDetailViewController.h"
+#import "BCSuanLiJiLuController.h"
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -117,11 +117,12 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
     
-//    BCHomeDetailViewController *setVc =[[BCHomeDetailViewController alloc] init];
+//    BCSuanLiJiLuController *setVc =[[BCSuanLiJiLuController alloc] init];
 //    [self.navigationController pushViewController:setVc animated:YES];
     BCSetViewController *setVc =[[BCSetViewController alloc] init];
     [self.navigationController pushViewController:setVc animated:YES];
 }
+
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick{
     NSLog(@"糖果记录");
@@ -158,6 +159,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return  10;
 }
 

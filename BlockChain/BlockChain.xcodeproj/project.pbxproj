@@ -20,6 +20,10 @@
 		0487042B20B7E8A5005C77DA /* BCHomeDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487042A20B7E8A5005C77DA /* BCHomeDetailModel.m */; };
 		0487043120B7E940005C77DA /* BCHomeDetailDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043020B7E940005C77DA /* BCHomeDetailDownCell.m */; };
 		0487043420B7F882005C77DA /* BCHomeDetailUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043320B7F882005C77DA /* BCHomeDetailUpCell.m */; };
+		0487043720B80BD6005C77DA /* BCSuanLiJiLuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043620B80BD6005C77DA /* BCSuanLiJiLuController.m */; };
+		0487043A20B80C3F005C77DA /* BCSuanLiJiLuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043920B80C3F005C77DA /* BCSuanLiJiLuModel.m */; };
+		0487043D20B810F8005C77DA /* BCHomeSuanLiUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043C20B810F8005C77DA /* BCHomeSuanLiUpCell.m */; };
+		0487044020B81107005C77DA /* BCHomeSuanLiDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043F20B81107005C77DA /* BCHomeSuanLiDownCell.m */; };
 		04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */; };
 		04B631F720B54E7700D063B8 /* BCMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */; };
 		04B631F820B54E7700D063B8 /* BCVewForHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631DB20B54E7600D063B8 /* BCVewForHeader.m */; };
@@ -313,6 +317,14 @@
 		0487043020B7E940005C77DA /* BCHomeDetailDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeDetailDownCell.m; sourceTree = "<group>"; };
 		0487043220B7F882005C77DA /* BCHomeDetailUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeDetailUpCell.h; sourceTree = "<group>"; };
 		0487043320B7F882005C77DA /* BCHomeDetailUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeDetailUpCell.m; sourceTree = "<group>"; };
+		0487043520B80BD6005C77DA /* BCSuanLiJiLuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCSuanLiJiLuController.h; sourceTree = "<group>"; };
+		0487043620B80BD6005C77DA /* BCSuanLiJiLuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCSuanLiJiLuController.m; sourceTree = "<group>"; };
+		0487043820B80C3F005C77DA /* BCSuanLiJiLuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCSuanLiJiLuModel.h; sourceTree = "<group>"; };
+		0487043920B80C3F005C77DA /* BCSuanLiJiLuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCSuanLiJiLuModel.m; sourceTree = "<group>"; };
+		0487043B20B810F8005C77DA /* BCHomeSuanLiUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeSuanLiUpCell.h; sourceTree = "<group>"; };
+		0487043C20B810F8005C77DA /* BCHomeSuanLiUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeSuanLiUpCell.m; sourceTree = "<group>"; };
+		0487043E20B81107005C77DA /* BCHomeSuanLiDownCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeSuanLiDownCell.h; sourceTree = "<group>"; };
+		0487043F20B81107005C77DA /* BCHomeSuanLiDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeSuanLiDownCell.m; sourceTree = "<group>"; };
 		04B631D220B54B6500D063B8 /* UIBarButtonItem+ZZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZZExtension.h"; sourceTree = "<group>"; };
 		04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZZExtension.m"; sourceTree = "<group>"; };
 		04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoJiLuHeaderView.h; sourceTree = "<group>"; };
@@ -842,6 +854,8 @@
 				0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */,
 				0487042920B7E8A5005C77DA /* BCHomeDetailModel.h */,
 				0487042A20B7E8A5005C77DA /* BCHomeDetailModel.m */,
+				0487043820B80C3F005C77DA /* BCSuanLiJiLuModel.h */,
+				0487043920B80C3F005C77DA /* BCSuanLiJiLuModel.m */,
 			);
 			path = BCHomeModel;
 			sourceTree = "<group>";
@@ -1179,6 +1193,10 @@
 				0487043320B7F882005C77DA /* BCHomeDetailUpCell.m */,
 				0487042F20B7E940005C77DA /* BCHomeDetailDownCell.h */,
 				0487043020B7E940005C77DA /* BCHomeDetailDownCell.m */,
+				0487043B20B810F8005C77DA /* BCHomeSuanLiUpCell.h */,
+				0487043C20B810F8005C77DA /* BCHomeSuanLiUpCell.m */,
+				0487043E20B81107005C77DA /* BCHomeSuanLiDownCell.h */,
+				0487043F20B81107005C77DA /* BCHomeSuanLiDownCell.m */,
 				AD6EA3C520B43B7100F61B33 /* BCVerticalBttton.h */,
 				AD6EA3C320B43B7100F61B33 /* BCVerticalBttton.m */,
 				AD23F70520B580800057E662 /* BCLevelBtton.h */,
@@ -1208,6 +1226,8 @@
 				AD23F6D020B5562B0057E662 /* BCTaskViewController.m */,
 				0468FB8320B6D51400C83299 /* BCTaskDetailViewController.h */,
 				0468FB8420B6D51400C83299 /* BCTaskDetailViewController.m */,
+				0487043520B80BD6005C77DA /* BCSuanLiJiLuController.h */,
+				0487043620B80BD6005C77DA /* BCSuanLiJiLuController.m */,
 			);
 			path = BCHomeController;
 			sourceTree = "<group>";
@@ -2169,6 +2189,7 @@
 				AD6EA45E20B43ED200F61B33 /* MJRefreshAutoGifFooter.m in Sources */,
 				AD6EA45820B43ED200F61B33 /* NSBundle+MJRefresh.m in Sources */,
 				ADE123CA20B2E80300F6E172 /* AppDelegate.m in Sources */,
+				0487043A20B80C3F005C77DA /* BCSuanLiJiLuModel.m in Sources */,
 				0487042B20B7E8A5005C77DA /* BCHomeDetailModel.m in Sources */,
 				AD23F6D120B5562B0057E662 /* BCTaskViewController.m in Sources */,
 				ADE125A320B2E84F00F6E172 /* FMDatabasePool.m in Sources */,
@@ -2199,6 +2220,7 @@
 				ADE126DF20B2EB4F00F6E172 /* UINavigationController+WHNavigationController.m in Sources */,
 				ADE1265220B2E84F00F6E172 /* MJFoundation.m in Sources */,
 				ADE125A920B2E84F00F6E172 /* SDWebImageFrame.m in Sources */,
+				0487044020B81107005C77DA /* BCHomeSuanLiDownCell.m in Sources */,
 				ADE125AD20B2E84F00F6E172 /* FLAnimatedImage.m in Sources */,
 				AD6EA3CF20B43B7100F61B33 /* BCHomeViewController.m in Sources */,
 				AD23F75120B6A5BB0057E662 /* LFBadgeView.m in Sources */,
@@ -2226,6 +2248,7 @@
 				ADE126D320B2EB4F00F6E172 /* UIView+CLFExtension.m in Sources */,
 				AD23F6DA20B5575A0057E662 /* BCTaskTableViewCell.m in Sources */,
 				ADE1264C20B2E84F00F6E172 /* NSObject+MJCoding.m in Sources */,
+				0487043720B80BD6005C77DA /* BCSuanLiJiLuController.m in Sources */,
 				ADE125B720B2E84F00F6E172 /* SDAnimatedImageRep.m in Sources */,
 				04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */,
 				0487043420B7F882005C77DA /* BCHomeDetailUpCell.m in Sources */,
@@ -2259,6 +2282,7 @@
 				AD6EA45720B43ED200F61B33 /* UIScrollView+MJExtension.m in Sources */,
 				AD23F73B20B699540057E662 /* BCSystemMessageController.m in Sources */,
 				06ED21A320B436EC008F44FE /* NSArray+MASAdditions.m in Sources */,
+				0487043D20B810F8005C77DA /* BCHomeSuanLiUpCell.m in Sources */,
 				ADE126DA20B2EB4F00F6E172 /* NSDate+WHDate.m in Sources */,
 				ADE126DC20B2EB4F00F6E172 /* UIImageView+PlayGIF.m in Sources */,
 				ADE125BC20B2E84F00F6E172 /* UIImageView+WebCache.m in Sources */,
