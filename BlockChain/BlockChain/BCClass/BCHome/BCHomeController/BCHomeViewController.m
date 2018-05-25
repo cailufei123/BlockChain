@@ -13,7 +13,7 @@
 #import "BCLevelBtton.h"
 #import "BCHomeDetailViewController.h"
 #import "BCMePDCListController.h"
-
+#import "BCSuanLiJiLuController.h"
 @interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)BCHomeTopView * homeTopView;
@@ -149,6 +149,8 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     
     self.homeTopView.yellowStoneBt = ^{
         
+        BCSuanLiJiLuController *pdcV = [[BCSuanLiJiLuController alloc] init];
+        [weakSelf.navigationController pushViewController:pdcV animated:YES];
     };
     self.homeTopView.purpleStone  = ^{
         BCMePDCListController *pdcV = [[BCMePDCListController alloc] init];

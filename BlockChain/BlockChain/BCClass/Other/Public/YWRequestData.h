@@ -15,7 +15,7 @@
 //// - 创建房间-----
 //+ (void)createRoomDict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess;
 //// - 注册用户发送验证码-----
-//+ (void)registUserSendcodeDict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess;
++ (void)registUserSendcodeDict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess;
 //// - 注册用户-----
 //+ (void)registUserDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 //// - 用户登录-----
@@ -103,6 +103,6 @@
 ////粉丝列表
 //+ (void)fanListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 ////从启动到开始游戏
-+ (void)kaishiyouxiDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+//+ (void)kaishiyouxiDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 
 @end

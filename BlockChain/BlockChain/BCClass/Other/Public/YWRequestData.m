@@ -59,24 +59,24 @@
 //
 //    }];
 //}
-//+ (void)registUserSendcodeDict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess{
++ (void)registUserSendcodeDict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess{
+
+    [LFHttpTool post:GET_VCODE params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+
+          [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+             [MBManager showBriefAlert:@"验证码已发动注意查收"];
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        [MBManager showBriefAlert:@"网络错误"];
+         [MBManager hideAlert];
+    }];
 //
-//    [LFHttpTool post:GET_VCODE params:dict progress:^(id downloadProgress) {
-//    } success:^(id responseObj) {
-//        LFLog(@"%@",responseObj);
-//
-//          [MBManager hideAlert];
-//        if ([responseObj[@"status"] isEqual:@(0)]) {
-//            sucess(responseObj);
-//             [MBManager showBriefAlert:@"验证码已发动注意查收"];
-//        }else{
-//            [MBManager showBriefAlert:responseObj[@"message"]];}
-//    } failure:^(NSError *error) {
-//        [MBManager showBriefAlert:@"网络错误"];
-//         [MBManager hideAlert];
-//    }];
-//
-//}
+}
 //#pragma mark - 注册用户-----
 //+ (void)registUserDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
 //    [LFHttpTool post:USER_REGISTER params:dict progress:^(id downloadProgress) {

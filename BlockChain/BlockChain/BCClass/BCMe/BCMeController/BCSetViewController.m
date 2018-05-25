@@ -12,6 +12,7 @@
 #import "BCRealNameReviewFailureViewController.h"
 #import "BCRealNameReviewPassViewController.h"
 #import "SAMessageViewController.h"
+#import "BCSetPayPasswordViewController.h"
 @interface BCSetViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *acountLb;
 @property (weak, nonatomic) IBOutlet UILabel *realNameLb;
@@ -62,7 +63,9 @@ self.realNameSkipstr = @"1";
    
 }
 - (IBAction)paypasswordTap:(id)sender {
-    
+
+    BCSetPayPasswordViewController * reaNamv = [[BCSetPayPasswordViewController alloc] init];
+    [self.navigationController pushViewController:reaNamv animated:YES];
 }
 - (IBAction)invitationFriendTap:(id)sender {
     

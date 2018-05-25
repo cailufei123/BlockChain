@@ -58,11 +58,11 @@
                                             </constraints>
                                         </view>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="weW-zz-rVE">
-                                            <rect key="frame" x="93" y="21" width="307" height="40"/>
+                                            <rect key="frame" x="93" y="22" width="307" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="WuA-uQ-tbN"/>
                                             </constraints>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
@@ -75,7 +75,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="weW-zz-rVE" firstAttribute="centerY" secondItem="vqV-is-4XF" secondAttribute="centerY" id="1BT-Qo-rmy"/>
+                                        <constraint firstItem="weW-zz-rVE" firstAttribute="centerY" secondItem="vqV-is-4XF" secondAttribute="centerY" constant="1" id="1BT-Qo-rmy"/>
                                         <constraint firstAttribute="height" constant="64" id="3BY-9w-gQO"/>
                                         <constraint firstItem="vqV-is-4XF" firstAttribute="leading" secondItem="83u-8c-LJj" secondAttribute="leading" id="50L-AJ-iEj"/>
                                         <constraint firstAttribute="bottom" secondItem="5kq-BY-aXt" secondAttribute="bottom" id="5G2-31-HkM"/>
@@ -101,7 +101,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="EKR-t3-mbF"/>
                                             </constraints>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
@@ -172,7 +172,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="inF-uW-6UK"/>
                                                     </constraints>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -211,7 +211,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="rmp-Xl-Lml"/>
                                                     </constraints>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>

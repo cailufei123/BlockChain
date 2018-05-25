@@ -41,6 +41,7 @@
     BCCodeAlertView * codeAlertView  =[BCCodeAlertView loadNameBCCodeAlertViewXib];
     codeAlertView.clf_size = CGSizeMake(LFscreenW-30, 270);
     [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:codeAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
+   
 }
 
 //按下return keyboard消失
@@ -219,10 +220,10 @@
     self.count = timeCount;
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"mobile"] = self.phoneTf.text;
-//    [YWRequestData registUserSendcodeDict:dic success:^(id responseObject) {
-//        [self.timer resumeTimer];
-//    }];
-     [self.timer resumeTimer];
+    [YWRequestData registUserSendcodeDict:dic success:^(id responseObject) {
+        [self.timer resumeTimer];
+    }];
+   
 }
 -(void)dealloc{
     [self.timer invalidate];
