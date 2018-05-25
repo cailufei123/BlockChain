@@ -10,6 +10,7 @@
 #import "DataBase.h"
 #import "SAMessageModel.h"
 #import "ATMessageCell.h"
+#import "BCMessageDetailsViewController.h"
 @interface SAMessageViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property(nonatomic,strong) UITableView * tableView;
 @property (strong, nonatomic, nullable) NSArray *tags;
@@ -150,7 +151,7 @@ static NSString * const atmessageID = @"ATMessageCell";
   
     NSString *msg_id = [self currentTimeStr];
     SAMessageModel * messageModel = [[SAMessageModel alloc] init];
-    messageModel.msg_content = @"统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能";
+    messageModel.msg_content = @"统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能统计分析组件可以精准分析应用的各种事件，并包含了crash错误定位等功能";
     messageModel.msg_type = @"0";
     messageModel.msg_title = @"统计";
      messageModel.bageVlue = @"0";
@@ -234,19 +235,37 @@ static NSString * const atmessageID = @"ATMessageCell";
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
          [self.tableView.mj_footer endRefreshingWithNoMoreData];
-        [self.tableView.mj_header endRefreshing ];
-        [self.tableView.mj_footer endRefreshing ];
-        self. number = 0;
-        [self.tableView reloadData];
-        [self.tableView reloadEmptyDataSet];
-          self.tableView.mj_footer.hidden = YES;
+         [self.tableView.mj_header endRefreshing ];
+         [self.tableView.mj_footer endRefreshing ];
+         self. number = 0;
+         [self.tableView reloadData];
+         [self.tableView reloadEmptyDataSet];
+         self.tableView.mj_footer.hidden = YES;
          self.loading = NO;
-        [self.tableView.mj_footer endRefreshingWithNoMoreData];
+         [self.tableView.mj_footer endRefreshingWithNoMoreData];
     });
     
     
 }
 
+//增加编辑模式
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return YES;
+}
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return @"删除";
+}
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+      SAMessageModel * messageModel  = self.datas[indexPath.row];
+     [[DataBase sharedDataBase] deleteMessage:messageModel];
+    [self.datas removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    self.isStart = self.datas.count>0?NO:YES;
+    [self.tableView reloadEmptyDataSet];
+}
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -276,14 +295,11 @@ static NSString * const atmessageID = @"ATMessageCell";
     LFLog(@"%@",messageModel.msg_id);
       [[DataBase sharedDataBase] updateMessage:messageModel];
     [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
-//    SAMessageContentController *  messageContentVc = [[SAMessageContentController alloc] init];
-//    messageContentVc.refreshmianpage = ^{
-////        [self getmessageBageVlue];
-////         [[NSNotificationCenter defaultCenter] postNotificationName:pushRefresh object:nil];
-//    };
-//    messageContentVc.type = messageModel.msg_type;
-//    [self.navigationController pushViewController:messageContentVc animated:YES];
     
+    BCMessageDetailsViewController * detailsV = [[BCMessageDetailsViewController alloc] init];
+    detailsV.messageModel = messageModel;
+    [self.navigationController pushViewController:detailsV animated:YES];
+
 
 }
 @end

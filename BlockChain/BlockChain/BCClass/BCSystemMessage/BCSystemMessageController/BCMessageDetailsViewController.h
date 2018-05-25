@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SAMessageModel.h"
 
 @interface BCMessageDetailsViewController : UIViewController
-
+@property (strong, nonatomic)SAMessageModel * messageModel;
 @end

@@ -13,7 +13,7 @@
 #import <UserNotifications/UserNotifications.h>
 #import <UMPush/UMessage.h>
 #import <UMAnalytics/MobClickGameAnalytics.h>
-@interface AppDelegate ()
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 

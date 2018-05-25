@@ -2500,7 +2500,7 @@
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/QQ",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain.BlockChain;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2538,7 +2538,7 @@
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/QQ",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain.BlockChain;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
