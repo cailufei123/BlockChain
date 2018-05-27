@@ -53,6 +53,7 @@
     }
     return _tableView;
 }
+
 /**顶部view**/
 -(BCMeTangGuoJiLuHeaderView *)headerView{
     if (!_headerView) {

@@ -58,6 +58,7 @@
     return _numberLable;
 }
 
+
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //初始化
     static NSString * DetailArticleID = @"BCHomeSuanLiDownCell";
