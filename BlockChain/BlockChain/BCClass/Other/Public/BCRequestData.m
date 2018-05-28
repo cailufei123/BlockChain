@@ -13,8 +13,6 @@
 #pragma mark - 糖果包详情-----
 
 + (void)getRequestTangGuoBaoDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
-//#define USER_LOGIN [NSString stringWithFormat:@"%@%@",USER_SERVICE,@"login"]
-//#define MY_TOKEN_LIST [NSString stringWithFormat:@"%@%@",TOKEN_SERVICE,@"getUserCoin"]
 
     [LFHttpTool post:USER_LOGIN params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
