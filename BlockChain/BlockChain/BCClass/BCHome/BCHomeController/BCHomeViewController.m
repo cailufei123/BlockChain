@@ -27,7 +27,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+     [self loadHomeCandyLis];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -54,13 +54,14 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     [self createRefresh];
     [self createHideBt];
     [self createHorseLampbgView];
-    [self loadHomeCandyLis];
+   
 }
 -(void)loadHomeCandyLis{
+    HomeCandyListModel * candyListModel = [self.candyLists lastObject];
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
-   candyDict[@"lastId"] = loginToken;
-     candyDict[@"size"] = @"10";
+   candyDict[@"lastId"] = candyListModel.ID;
+     candyDict[@"size"] = @"3";
    
     [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
         self.candyLists = [HomeCandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
@@ -149,6 +150,9 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 -(void)createTopView{
     WeakSelf(weakSelf)
      self.homeTopView = [BCHomeTopView loadNameBCHomeTopViewXib];
+    self.homeTopView.refreshCandyList = ^{
+         [weakSelf loadHomeCandyLis];
+    };
     self.homeTopView.calculation = ^{//获取算力
         BCTaskViewController * taskVc = [[BCTaskViewController alloc] init];
         [weakSelf.navigationController pushViewController:taskVc animated:YES];
