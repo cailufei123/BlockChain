@@ -31,7 +31,8 @@
 }
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     
-        // self.automaticallyAdjustsScrollViewInsets=NO; 不要自动调整内边距
+    if (self.childViewControllers.count>0) {
+        
         
         UIButton * backItem = [UIButton buttonWithType:UIButtonTypeCustom];
         [backItem setImage:[UIImage imageNamed:@"btn_back_titlebar"] forState:UIControlStateNormal];
@@ -42,13 +43,16 @@
         [backItem setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
         backItem.titleLabel.font = [UIFont systemFontOfSize:15];
-
-        backItem.size = CGSizeMake(40, 40);
+        backItem.clf_size = CGSizeMake(40, 40);
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backItem];
-       backItem.imageEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
+        backItem.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+        
         [backItem addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         viewController.hidesBottomBarWhenPushed = YES;
-     [super pushViewController:viewController animated:animated];
+        
+    }
+    [super pushViewController:viewController animated:animated];
+    
 }
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated{
     

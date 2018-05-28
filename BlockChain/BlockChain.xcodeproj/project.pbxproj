@@ -144,6 +144,8 @@
 		AD6EA46620B43ED200F61B33 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA44F20B43ED200F61B33 /* MJRefreshAutoFooter.m */; };
 		AD6EA46720B43ED200F61B33 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EA45120B43ED200F61B33 /* MJRefreshComponent.m */; };
 		ADACD07C20BBAE9C00EE21F6 /* BCRequestData.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD07B20BBAE9C00EE21F6 /* BCRequestData.m */; };
+		ADACD07F20BBB1AB00EE21F6 /* LKControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD07D20BBB1AA00EE21F6 /* LKControllerTool.m */; };
+		ADACD08220BBC9E200EE21F6 /* BCHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD08120BBC9E200EE21F6 /* BCHomeModel.m */; };
 		ADD0896420B3B71900B3C4A4 /* BCLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0896220B3B71900B3C4A4 /* BCLoginController.m */; };
 		ADD0896520B3B71900B3C4A4 /* BCLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */; };
 		ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239620B2D67D00F6E172 /* Main.storyboard */; };
@@ -555,6 +557,10 @@
 		AD6EA45320B43ED200F61B33 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		ADACD07A20BBAE9C00EE21F6 /* BCRequestData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCRequestData.h; sourceTree = "<group>"; };
 		ADACD07B20BBAE9C00EE21F6 /* BCRequestData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCRequestData.m; sourceTree = "<group>"; };
+		ADACD07D20BBB1AA00EE21F6 /* LKControllerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKControllerTool.m; sourceTree = "<group>"; };
+		ADACD07E20BBB1AA00EE21F6 /* LKControllerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKControllerTool.h; sourceTree = "<group>"; };
+		ADACD08020BBC9E200EE21F6 /* BCHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeModel.h; sourceTree = "<group>"; };
+		ADACD08120BBC9E200EE21F6 /* BCHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeModel.m; sourceTree = "<group>"; };
 		ADD0896120B3B71900B3C4A4 /* BCLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCLoginController.h; sourceTree = "<group>"; };
 		ADD0896220B3B71900B3C4A4 /* BCLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCLoginController.m; sourceTree = "<group>"; };
 		ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCLoginController.xib; sourceTree = "<group>"; };
@@ -879,6 +885,8 @@
 				0487042A20B7E8A5005C77DA /* BCHomeDetailModel.m */,
 				0487043820B80C3F005C77DA /* BCSuanLiJiLuModel.h */,
 				0487043920B80C3F005C77DA /* BCSuanLiJiLuModel.m */,
+				ADACD08020BBC9E200EE21F6 /* BCHomeModel.h */,
+				ADACD08120BBC9E200EE21F6 /* BCHomeModel.m */,
 			);
 			path = BCHomeModel;
 			sourceTree = "<group>";
@@ -1888,6 +1896,8 @@
 				ADE126F020B2ECF100F6E172 /* LFHttpTool.m */,
 				AD23F73120B6981C0057E662 /* DataBase.h */,
 				AD23F73020B6981C0057E662 /* DataBase.m */,
+				ADACD07E20BBB1AA00EE21F6 /* LKControllerTool.h */,
+				ADACD07D20BBB1AA00EE21F6 /* LKControllerTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2235,11 +2245,13 @@
 				0468FB7620B6694900C83299 /* BCMeRealNameAlertView.m in Sources */,
 				0652473020B3C04900F65C2A /* UIButton+LWB.m in Sources */,
 				AD23F6ED20B569290057E662 /* UIView+SDExtension.m in Sources */,
+				ADACD08220BBC9E200EE21F6 /* BCHomeModel.m in Sources */,
 				0652473820B3C08500F65C2A /* UILabel+LWB.m in Sources */,
 				ADE126DB20B2EB4F00F6E172 /* NSArray+WHArray.m in Sources */,
 				04B6320420B54E7700D063B8 /* BCMeModel.m in Sources */,
 				AD6EA46220B43ED200F61B33 /* MJRefreshGifHeader.m in Sources */,
 				04AA068220B951F9007DEDB1 /* BCMeInvitingFriendsView.m in Sources */,
+				ADACD07F20BBB1AB00EE21F6 /* LKControllerTool.m in Sources */,
 				0652472F20B3C04900F65C2A /* UIButton+Extensions.m in Sources */,
 				ADE126DE20B2EB4F00F6E172 /* UIColor+WHColor.m in Sources */,
 				ADE1264920B2E84F00F6E172 /* MJPropertyType.m in Sources */,

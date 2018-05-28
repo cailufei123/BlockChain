@@ -29,16 +29,16 @@
 #define USER_URL  @"/blockcoin/api/user/"
 #define COIN_URL  @"/blockcoin/api/token/"
 #define HONGBAO_URL @"/blockcoin/hongbao/"
-#define INFO_URL  @"/blockcoin/api/"
+#define INFO_URL @"/blockcoin/api/"
 #define ORDER_URL @"/blockcoin/api/game/"
-#define HTML_URL  @"/html/"
-#define TOKEN_URL = @"/blockcoin/api/token/"
+#define HTML_URL @"/html/"
+#define TOKEN_URL @"/blockcoin/api/token/"
 
     #define USER_SERVICE [NSString stringWithFormat:@"%@%@",SERVER_ADDR,USER_URL]
-    #define HTML_SERVICE = [NSString stringWithFormat:@"%@%@",SERVER_ADDR,HTML_URL]
-    #define INFO_SERVICE =  [NSString stringWithFormat:@"%@%@",SERVER_ADDR,INFO_URL]
-    #define TOKEN_SERVICE = [NSString stringWithFormat:@"%@%@",SERVER_ADDR,TOKEN_URL]
-    #define COIN_SERVICE =  [NSString stringWithFormat:@"%@%@",SERVER_ADDR,COIN_URL]
+    #define HTML_SERVICE  [NSString stringWithFormat:@"%@%@",SERVER_ADDR,HTML_URL]
+    #define INFO_SERVICE   [NSString stringWithFormat:@"%@%@",SERVER_ADDR,INFO_URL]
+    #define TOKEN_SERVICE  [NSString stringWithFormat:@"%@%@",SERVER_ADDR,TOKEN_URL]
+    #define COIN_SERVICE   [NSString stringWithFormat:@"%@%@",SERVER_ADDR,COIN_URL]
 
 
 
@@ -98,7 +98,7 @@
 //领取紫钻
  #define GAIN_DIAMOND [NSString stringWithFormat:@"%@%@",USER_SERVICE,@"drill/grantUserDrill"]  
 //首页糖果列
- #define CANDY_LIST [NSString stringWithFormat:@"%@%@",INFO_SERVICE,@"candy/list"]  
+ #define CANDY_LIST [NSString stringWithFormat:@"%@%@",INFO_SERVICE,@"candy/list"]
 //领取糖果
  #define CANDY_GAIN [NSString stringWithFormat:@"%@%@",INFO_SERVICE,@"candy/user/gain"]  
 //糖果详情

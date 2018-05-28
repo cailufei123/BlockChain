@@ -15,4 +15,6 @@
 @property(nonatomic,copy)void (^more)(void);
 @property(nonatomic,copy)void (^purpleStone)(void);
 @property(nonatomic,copy)void (^yellowStoneBt)(void);
+@property(nonatomic,copy)void (^refreshCandyList)(void);
+@property(nonatomic,strong)NSMutableArray * candyLists;
 @end

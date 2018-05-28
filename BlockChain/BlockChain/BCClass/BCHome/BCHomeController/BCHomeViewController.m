@@ -14,10 +14,12 @@
 #import "BCHomeDetailViewController.h"
 #import "BCMePDCListController.h"
 #import "BCSuanLiJiLuController.h"
+#import "BCHomeModel.h"
 @interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)BCHomeTopView * homeTopView;
 @property(nonatomic,strong)UILabel * lampLable;
+@property(nonatomic,strong)NSMutableArray * candyLists;
 @end
 static NSString * const cellidenfder = @"BCHomeTableViewCell";
 @implementation BCHomeViewController
@@ -52,7 +54,18 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     [self createRefresh];
     [self createHideBt];
     [self createHorseLampbgView];
-    
+    [self loadHomeCandyLis];
+}
+-(void)loadHomeCandyLis{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+   candyDict[@"lastId"] = loginToken;
+     candyDict[@"size"] = @"10";
+   
+    [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
+        self.candyLists = [HomeCandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+        self.homeTopView.candyLists = self.candyLists ;
+    }];
 }
 -(void)createHorseLampbgView{
     UIView * lampbgView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, LFscreenW, 24)];
