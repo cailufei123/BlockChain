@@ -10,4 +10,26 @@
 
 @implementation BCRequestData
 
+#pragma mark - 糖果包详情-----
+
++ (void)getRequestTangGuoBaoDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+//#define USER_LOGIN [NSString stringWithFormat:@"%@%@",USER_SERVICE,@"login"]
+//#define MY_TOKEN_LIST [NSString stringWithFormat:@"%@%@",TOKEN_SERVICE,@"getUserCoin"]
+
+    [LFHttpTool post:USER_LOGIN params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            [MBManager showBriefAlert:@"登录成功"];
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+
 @end
