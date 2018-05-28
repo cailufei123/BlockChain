@@ -17,7 +17,7 @@
 #import "BCSetViewController.h"
 #import "BCTaskViewController.h"
 #import "BCTaskDetailViewController.h"
-#import "BCSuanLiJiLuController.h"
+#import "BCMeInvitingFriendsController.h"
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -117,7 +117,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
     
-//    BCSuanLiJiLuController *setVc =[[BCSuanLiJiLuController alloc] init];
+//    BCMeInvitingFriendsController *setVc =[[BCMeInvitingFriendsController alloc] init];
 //    [self.navigationController pushViewController:setVc animated:YES];
     BCSetViewController *setVc =[[BCSetViewController alloc] init];
     [self.navigationController pushViewController:setVc animated:YES];

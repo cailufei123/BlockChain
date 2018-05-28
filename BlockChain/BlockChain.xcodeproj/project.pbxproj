@@ -24,6 +24,9 @@
 		0487043A20B80C3F005C77DA /* BCSuanLiJiLuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043920B80C3F005C77DA /* BCSuanLiJiLuModel.m */; };
 		0487043D20B810F8005C77DA /* BCHomeSuanLiUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043C20B810F8005C77DA /* BCHomeSuanLiUpCell.m */; };
 		0487044020B81107005C77DA /* BCHomeSuanLiDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043F20B81107005C77DA /* BCHomeSuanLiDownCell.m */; };
+		04AA067F20B90F5E007DEDB1 /* BCMeInvitingFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AA067E20B90F5E007DEDB1 /* BCMeInvitingFriendsController.m */; };
+		04AA068220B951F9007DEDB1 /* BCMeInvitingFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AA068120B951F9007DEDB1 /* BCMeInvitingFriendsView.m */; };
+		04AA068520B95255007DEDB1 /* BCMeInvitingFriendsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AA068420B95255007DEDB1 /* BCMeInvitingFriendsModel.m */; };
 		04B631D420B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */; };
 		04B631F720B54E7700D063B8 /* BCMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */; };
 		04B631F820B54E7700D063B8 /* BCVewForHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631DB20B54E7600D063B8 /* BCVewForHeader.m */; };
@@ -41,13 +44,14 @@
 		04B6320420B54E7700D063B8 /* BCMeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631F420B54E7600D063B8 /* BCMeModel.m */; };
 		04B6320520B54E7700D063B8 /* BCMeTangGuoJiLuMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631F520B54E7600D063B8 /* BCMeTangGuoJiLuMode.m */; };
 		04B6320820B58CC700D063B8 /* BCMePDCListAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */; };
+		04D88D8B20BA954B008570FE /* BCInvitingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8A20BA954B008570FE /* BCInvitingBtn.m */; };
+		04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */; };
 		0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472420B3BFC100F65C2A /* UIView+WBY.m */; };
 		0652472920B3C02900F65C2A /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472820B3C02900F65C2A /* Util.m */; };
 		0652472F20B3C04900F65C2A /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472C20B3C04900F65C2A /* UIButton+Extensions.m */; };
 		0652473020B3C04900F65C2A /* UIButton+LWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472E20B3C04900F65C2A /* UIButton+LWB.m */; };
 		0652473420B3C06900F65C2A /* UIImageView+WBY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652473320B3C06800F65C2A /* UIImageView+WBY.m */; };
 		0652473820B3C08500F65C2A /* UILabel+LWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652473720B3C08500F65C2A /* UILabel+LWB.m */; };
-		0652473B20B3C4B500F65C2A /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652473920B3C4B500F65C2A /* UIView+Extension.m */; };
 		06ED219C20B436EC008F44FE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06ED218220B436EC008F44FE /* Info.plist */; };
 		06ED219D20B436EC008F44FE /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED218420B436EC008F44FE /* MASCompositeConstraint.m */; };
 		06ED219E20B436EC008F44FE /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED218720B436EC008F44FE /* MASConstraint.m */; };
@@ -328,6 +332,12 @@
 		0487043C20B810F8005C77DA /* BCHomeSuanLiUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeSuanLiUpCell.m; sourceTree = "<group>"; };
 		0487043E20B81107005C77DA /* BCHomeSuanLiDownCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeSuanLiDownCell.h; sourceTree = "<group>"; };
 		0487043F20B81107005C77DA /* BCHomeSuanLiDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeSuanLiDownCell.m; sourceTree = "<group>"; };
+		04AA067D20B90F5E007DEDB1 /* BCMeInvitingFriendsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeInvitingFriendsController.h; sourceTree = "<group>"; };
+		04AA067E20B90F5E007DEDB1 /* BCMeInvitingFriendsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeInvitingFriendsController.m; sourceTree = "<group>"; };
+		04AA068020B951F9007DEDB1 /* BCMeInvitingFriendsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeInvitingFriendsView.h; sourceTree = "<group>"; };
+		04AA068120B951F9007DEDB1 /* BCMeInvitingFriendsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeInvitingFriendsView.m; sourceTree = "<group>"; };
+		04AA068320B95255007DEDB1 /* BCMeInvitingFriendsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeInvitingFriendsModel.h; sourceTree = "<group>"; };
+		04AA068420B95255007DEDB1 /* BCMeInvitingFriendsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeInvitingFriendsModel.m; sourceTree = "<group>"; };
 		04B631D220B54B6500D063B8 /* UIBarButtonItem+ZZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ZZExtension.h"; sourceTree = "<group>"; };
 		04B631D320B54B6500D063B8 /* UIBarButtonItem+ZZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ZZExtension.m"; sourceTree = "<group>"; };
 		04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoJiLuHeaderView.h; sourceTree = "<group>"; };
@@ -362,6 +372,10 @@
 		04B631F620B54E7600D063B8 /* BCMePDCListMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMePDCListMode.h; sourceTree = "<group>"; };
 		04B6320620B58CC700D063B8 /* BCMePDCListAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCListAlertView.h; sourceTree = "<group>"; };
 		04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCListAlertView.m; sourceTree = "<group>"; };
+		04D88D8920BA954B008570FE /* BCInvitingBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCInvitingBtn.h; sourceTree = "<group>"; };
+		04D88D8A20BA954B008570FE /* BCInvitingBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCInvitingBtn.m; sourceTree = "<group>"; };
+		04D88D8C20BAA5C0008570FE /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
+		04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMGExtension.m"; sourceTree = "<group>"; };
 		0652472320B3BFC100F65C2A /* UIView+WBY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WBY.h"; sourceTree = "<group>"; };
 		0652472420B3BFC100F65C2A /* UIView+WBY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WBY.m"; sourceTree = "<group>"; };
 		0652472720B3C02900F65C2A /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
@@ -374,8 +388,6 @@
 		0652473320B3C06800F65C2A /* UIImageView+WBY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WBY.m"; sourceTree = "<group>"; };
 		0652473620B3C08500F65C2A /* UILabel+LWB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LWB.h"; sourceTree = "<group>"; };
 		0652473720B3C08500F65C2A /* UILabel+LWB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LWB.m"; sourceTree = "<group>"; };
-		0652473920B3C4B500F65C2A /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		0652473A20B3C4B500F65C2A /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		06ED218220B436EC008F44FE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06ED218320B436EC008F44FE /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		06ED218420B436EC008F44FE /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -959,8 +971,8 @@
 		0652472220B3BFC100F65C2A /* UIView_Extension */ = {
 			isa = PBXGroup;
 			children = (
-				0652473A20B3C4B500F65C2A /* UIView+Extension.h */,
-				0652473920B3C4B500F65C2A /* UIView+Extension.m */,
+				04D88D8C20BAA5C0008570FE /* UIView+XMGExtension.h */,
+				04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */,
 				0652472320B3BFC100F65C2A /* UIView+WBY.h */,
 				0652472420B3BFC100F65C2A /* UIView+WBY.m */,
 			);
@@ -1128,6 +1140,8 @@
 			children = (
 				AD23F73620B6992E0057E662 /* SAMessageModel.h */,
 				AD23F73720B6992E0057E662 /* SAMessageModel.m */,
+				04AA068320B95255007DEDB1 /* BCMeInvitingFriendsModel.h */,
+				04AA068420B95255007DEDB1 /* BCMeInvitingFriendsModel.m */,
 			);
 			path = BCSystemMessageModel;
 			sourceTree = "<group>";
@@ -1144,6 +1158,8 @@
 				AD23F76320B6E3AA0057E662 /* BCMessageDetailsViewController.h */,
 				AD23F76420B6E3AA0057E662 /* BCMessageDetailsViewController.m */,
 				AD23F76520B6E3AA0057E662 /* BCMessageDetailsViewController.xib */,
+				04AA067D20B90F5E007DEDB1 /* BCMeInvitingFriendsController.h */,
+				04AA067E20B90F5E007DEDB1 /* BCMeInvitingFriendsController.m */,
 			);
 			path = BCSystemMessageController;
 			sourceTree = "<group>";
@@ -1162,6 +1178,10 @@
 				AD23F74320B6A5B90057E662 /* YWCustomMessageCell.h */,
 				AD23F74620B6A5BA0057E662 /* YWCustomMessageCell.m */,
 				AD23F74520B6A5B90057E662 /* YWCustomMessageCell.xib */,
+				04AA068020B951F9007DEDB1 /* BCMeInvitingFriendsView.h */,
+				04AA068120B951F9007DEDB1 /* BCMeInvitingFriendsView.m */,
+				04D88D8920BA954B008570FE /* BCInvitingBtn.h */,
+				04D88D8A20BA954B008570FE /* BCInvitingBtn.m */,
 			);
 			path = BCSystemMessageView;
 			sourceTree = "<group>";
@@ -2214,6 +2234,7 @@
 				ADE126DB20B2EB4F00F6E172 /* NSArray+WHArray.m in Sources */,
 				04B6320420B54E7700D063B8 /* BCMeModel.m in Sources */,
 				AD6EA46220B43ED200F61B33 /* MJRefreshGifHeader.m in Sources */,
+				04AA068220B951F9007DEDB1 /* BCMeInvitingFriendsView.m in Sources */,
 				0652472F20B3C04900F65C2A /* UIButton+Extensions.m in Sources */,
 				ADE126DE20B2EB4F00F6E172 /* UIColor+WHColor.m in Sources */,
 				ADE1264920B2E84F00F6E172 /* MJPropertyType.m in Sources */,
@@ -2306,6 +2327,7 @@
 				ADE1264A20B2E84F00F6E172 /* NSObject+MJKeyValue.m in Sources */,
 				ADE125A220B2E84F00F6E172 /* FMDatabase.m in Sources */,
 				ADE1270420B2ED4D00F6E172 /* AFURLSessionManager.m in Sources */,
+				04AA068520B95255007DEDB1 /* BCMeInvitingFriendsModel.m in Sources */,
 				ADE1265420B2E84F00F6E172 /* IQToolbar.m in Sources */,
 				ADE1268F20B2EABD00F6E172 /* LFConst.m in Sources */,
 				ADE125BA20B2E84F00F6E172 /* SDWebImageTransition.m in Sources */,
@@ -2351,6 +2373,7 @@
 				AD6EA42320B43E4500F61B33 /* SARefreshGifHeader.m in Sources */,
 				ADE1265620B2E84F00F6E172 /* IQBarButtonItem.m in Sources */,
 				06ED21A120B436EC008F44FE /* MASViewAttribute.m in Sources */,
+				04AA067F20B90F5E007DEDB1 /* BCMeInvitingFriendsController.m in Sources */,
 				ADE126D520B2EB4F00F6E172 /* WHMethods.m in Sources */,
 				04B631FD20B54E7700D063B8 /* BCMeHeaderView.m in Sources */,
 				AD23F6EF20B569290057E662 /* TADotView.m in Sources */,
@@ -2367,6 +2390,7 @@
 				04B6320320B54E7700D063B8 /* BCMePDCListMode.m in Sources */,
 				AD6EA46520B43ED200F61B33 /* MJRefreshBackFooter.m in Sources */,
 				ADE125C320B2E84F00F6E172 /* UIButton+WebCache.m in Sources */,
+				04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */,
 				AD23F6D420B556AB0057E662 /* BCTaskTopView.m in Sources */,
 				ADE1267720B2E91000F6E172 /* UIView+GKExtension.m in Sources */,
 				ADACD07C20BBAE9C00EE21F6 /* BCRequestData.m in Sources */,
@@ -2379,11 +2403,11 @@
 				ADE1270220B2ED4D00F6E172 /* AFURLResponseSerialization.m in Sources */,
 				ADE125BE20B2E84F00F6E172 /* SDWebImageGIFCoder.m in Sources */,
 				AD6EA3CE20B43B7100F61B33 /* BCHomeTopView.m in Sources */,
+				04D88D8B20BA954B008570FE /* BCInvitingBtn.m in Sources */,
 				ADE126CF20B2EB4F00F6E172 /* NSString+WHString.m in Sources */,
 				ADE125C420B2E84F00F6E172 /* SDWebImageWebPCoder.m in Sources */,
 				AD23F75220B6A5BB0057E662 /* ATMessageContentViewCell.m in Sources */,
 				ADE1266E20B2E88D00F6E172 /* SATabBar.m in Sources */,
-				0652473B20B3C4B500F65C2A /* UIView+Extension.m in Sources */,
 				AD23F72E20B689E70057E662 /* BCRealNameReviewPassViewController.m in Sources */,
 				AD6EA42420B43E4500F61B33 /* BCRefreshAutoGifFooter.m in Sources */,
 				ADE125AB20B2E84F00F6E172 /* SDWebImageCodersManager.m in Sources */,
