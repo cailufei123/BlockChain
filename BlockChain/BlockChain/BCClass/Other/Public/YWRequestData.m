@@ -74,7 +74,7 @@
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
             
-            [MBManager showBriefAlert:@"登录成功"];
+           
         }else{
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {
@@ -91,7 +91,7 @@
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
             
-            [MBManager showBriefAlert:@"登录成功"];
+          
         }else{
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {
