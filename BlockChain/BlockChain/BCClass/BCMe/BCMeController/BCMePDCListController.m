@@ -24,6 +24,8 @@
 @property(nonatomic,strong)BCMePDCListAlertView *alertView;//弹框
 @property(nonatomic,strong)BCMeRealNameAlertView *realNameAlertView;//弹框
 
+@property(nonatomic,strong)SARefreshGifHeader *header;
+@property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
 @end
 
 @implementation BCMePDCListController
@@ -129,6 +131,8 @@
     [super viewDidLoad];
     //设置导航栏
     [self setNaviTitle];
+    //增加刷新
+    [self createRefresh];
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //加载headerView
@@ -137,6 +141,27 @@
     [self setPayOrGetMoneyBtn];
     
 }
+- (void)createRefresh
+{
+    SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    [header beginRefreshing];
+    self.tableView.mj_header = header;
+    self.tableView.mj_footer = footer;
+    self.header =header;
+    self.footer =footer;
+    
+}
+//下拉加载
+-(void)loadNewData{
+    [self.header endRefreshing];
+    
+}
+//上拉加载
+-(void)loadMoreData{
+    [self.footer endRefreshing];
+}
+
 #pragma mark -
 -(void)xiaQingBtnClickWithModel:(BCMePDCListMode *)model{
     //BCCodeAlertView * codeAlertView  =[BCCodeAlertView loadNameBCCodeAlertViewXib];

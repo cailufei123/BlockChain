@@ -26,6 +26,8 @@
 @property(nonatomic,strong)NSMutableArray *listArray;//列表数据
 @property(nonatomic,strong)BCMeModel *meModel;//数据源
 
+@property(nonatomic,strong)SARefreshGifHeader *header;
+@property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
 
 @end
 
@@ -94,11 +96,34 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     [self setNaviTitle];
     //设置导航按钮
     [self setupUIBarButtonItem];
+    //增加下拉刷新
+    [self createRefresh];
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //加载headerView
      self.tableView.tableHeaderView =  self.meHeaderView;
 
+}
+
+- (void)createRefresh
+{
+    SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    [header beginRefreshing];
+    self.tableView.mj_header = header;
+    self.tableView.mj_footer = footer;
+    self.header =header;
+    self.footer =footer;
+
+}
+//下拉加载
+-(void)loadNewData{
+    [self.header endRefreshing];
+    
+}
+//上拉加载
+-(void)loadMoreData{
+    [self.footer endRefreshing];
 }
 
 -(void)setNaviTitle{
