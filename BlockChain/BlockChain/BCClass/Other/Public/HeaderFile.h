@@ -42,7 +42,7 @@
 #import "LFConst.h"
 //#import "EaseSDKHelper.h"
 //#import <UMShare/UMShare.h>
-//#import "SATabBarController.h"
+#import "SATabBarController.h"
 //#import "JXTAlertManagerHeader.h"
 //#import "YWRoomModel.h"
 //#import "ATServiceAgreementController.h"
@@ -62,7 +62,7 @@
 #import "SARefreshGifHeader.h"
 #import "ATSkipTool.h"
 #import <UShareUI/UShareUI.h>
-
+#import "BCRequestData.h"
 
 
 
