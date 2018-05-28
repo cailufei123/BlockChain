@@ -15,5 +15,7 @@
 + (void)registUserDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 // - 用户登录-----
 + (void)userLoginDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
-
+// - 首页糖果记录-----
++ (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
++ (void)candycainDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 @end

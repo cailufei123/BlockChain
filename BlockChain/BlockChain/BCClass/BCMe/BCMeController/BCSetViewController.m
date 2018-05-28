@@ -99,9 +99,7 @@ self.realNameSkipstr = @"1";
                 [defaultManager removeItemAtPath:filename error:nil];
             }
             
-            UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            SATabBarController * tabBarvc = [[SATabBarController alloc] init];
-            window.rootViewController = tabBarvc;
+             [LKControllerTool chooseRootViewController];
             
             
         }

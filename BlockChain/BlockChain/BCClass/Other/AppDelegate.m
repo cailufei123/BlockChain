@@ -13,6 +13,7 @@
 #import <UserNotifications/UserNotifications.h>
 #import <UMPush/UMessage.h>
 #import <UMAnalytics/MobClickGameAnalytics.h>
+#import "BCLoginController.h"
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
@@ -25,13 +26,13 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     self.window.backgroundColor = [UIColor whiteColor];
-    SATabBarController * tabBarvc = [[SATabBarController alloc] init];
-    self. window.rootViewController = tabBarvc;
-    [self.window makeKeyAndVisible];
+    
+   [self.window makeKeyAndVisible];
+    [LKControllerTool chooseRootViewController];
+    
     [self configUSharePlatforms];//分享登陆
     [self uMessageNotificatiodidFinishLaunchingWithOptions:launchOptions];//友盟推送
-    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    
+  
   
     
     return YES;

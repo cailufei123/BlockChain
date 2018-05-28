@@ -64,6 +64,40 @@
          [MBManager hideAlert];
     }];
 }
-
+// - 首页糖果记录-----
++ (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+    
+    [LFHttpTool post:CANDY_LIST params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            [MBManager showBriefAlert:@"登录成功"];
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+// - 领取糖果-----
++ (void)candycainDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+    [LFHttpTool post:CANDY_GAIN params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            [MBManager showBriefAlert:@"登录成功"];
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
 
 @end

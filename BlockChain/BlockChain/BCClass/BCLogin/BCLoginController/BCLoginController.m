@@ -191,11 +191,11 @@
         loginDict[@"mobile"] = self.phoneTf.text;
         loginDict[@"smsCode"] =self.codeTf.text;
         [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
-            [MBManager showscuess:@"登陆l成功"];
+            [MBManager showscuess:@"登陆成功"];
             SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
             [LFAccountTool save:loginmodel];
             [MBManager hideAlert];
-            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            [LKControllerTool chooseRootViewController];
             
         }];
         
@@ -236,7 +236,7 @@
                 SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
                 [LFAccountTool save:loginmodel];
                 [MBManager hideAlert];
-                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                [LKControllerTool chooseRootViewController];
                 
             }];
         }];

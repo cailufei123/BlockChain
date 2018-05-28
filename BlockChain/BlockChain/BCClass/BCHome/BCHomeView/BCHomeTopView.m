@@ -8,6 +8,7 @@
 
 #import "BCHomeTopView.h"
 #import "BCVerticalBttton.h"
+#import "BCHomeModel.h"
 @interface BCHomeTopView()
 @property (weak, nonatomic) IBOutlet UIView *horseLampbgView;
 @property (weak, nonatomic) IBOutlet UIButton *purpleStoneBt;
@@ -39,7 +40,7 @@
     self.duration = 1.5;
     self.autoresizesSubviews = NO;
     self.autoresizingMask = NO;
-    [self createStone];
+   
    
     [self animateWithDuration];
      WeakSelf(weakSelf)
@@ -73,6 +74,10 @@
      [self.purpleStoneBt addTarget:self action:@selector(purpleStoneBtClick) forControlEvents:UIControlEventTouchUpInside];
      [self.tellowStoneBt addTarget:self action:@selector(tellowStoneBtClick) forControlEvents:UIControlEventTouchUpInside];
 
+}
+-(void)setCandyLists:(NSMutableArray *)candyLists{
+    _candyLists = candyLists;
+    [self createStone] ;
 }
 -(void)purpleStoneBtClick{
     if (self.purpleStone) {
@@ -165,17 +170,15 @@
     [self.buttons makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.buttons removeAllObjects];
     CGFloat buttonH = 50;
-    CGFloat buttonW = 30;
-    
-    for (int i = 0; i < 10; i++) {
-//        CGFloat buttonStartX = [self getRandomNumber:10 to:LFscreenW-30];
-//        CGFloat butttonStartY = [self getRandomNumber:10 to:150];;
-      
+    CGFloat buttonW = 35;
+
+    for (int i = 0; i < _candyLists.count; i++) {
+        HomeCandyListModel * candyListModel = _candyLists[i];
         BCVerticalBttton * bt = [[BCVerticalBttton alloc] init];
         bt.clf_width = buttonW;
         bt.clf_height = buttonH;
         [bt setImage:[UIImage imageNamed:@"home_mineral_icon"] forState:UIControlStateNormal];
-        [bt setTitle:@"0.001" forState:UIControlStateNormal];
+        [bt setTitle:candyListModel.cost forState:UIControlStateNormal];
         bt.titleLabel.font = [UIFont systemFontOfSize:10];
         bt.tag = i;
 //        [bt setTitleColor:bCwhiteColor forState:UIControlStateNormal];
@@ -202,11 +205,26 @@
                       30, 50);
 }
 -(void)clickBgBtClick:(UIButton*)bt{
-    [UIView animateWithDuration:self.duration animations:^{
-       bt.clf_y = -LFscreenH;
-    }completion:^(BOOL finished) {
-        [bt removeFromSuperview];
+   
+      HomeCandyListModel * candyListModel = _candyLists[bt.tag];
+    NSMutableDictionary *  candycainDict = diction;
+    candycainDict[@"token"] = loginToken;
+     candycainDict[@"candyId"] = candyListModel.candyId;
+    [YWRequestData candycainDict:candycainDict success:^(id responseObj) {
+        [UIView animateWithDuration:self.duration animations:^{
+            bt.clf_y = -LFscreenH;
+        }completion:^(BOOL finished) {
+            [self.buttons removeObject:bt];
+            [bt removeFromSuperview];
+            
+            if (self.buttons.count<=0) {
+                if ( self.refreshCandyList) {
+                    self.refreshCandyList();
+                }
+            }
+        }];
     }];
+    
     
 }
 - (BOOL)frameIntersects:(CGRect)frame {
