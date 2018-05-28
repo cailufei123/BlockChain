@@ -13,6 +13,8 @@
 @protocol BCMeInvitingFriendsViewDelegate <NSObject>
 @optional
 
+-(void)showShareView;
+
 @end
 
 @interface BCMeInvitingFriendsView : UIView

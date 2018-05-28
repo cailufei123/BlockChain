@@ -118,6 +118,8 @@
 #define  color5E5858 [SVGloble colorWithHexString:@"#5E5858"]
 #define  color9884AF [SVGloble colorWithHexString:@"#9884AF"]
 #define  color686868 [SVGloble colorWithHexString:@"#686868"]
+#define  color6237A6 [SVGloble colorWithHexString:@"#6237A6"]
+#define  color8D35D3 [SVGloble colorWithHexString:@"#8D35D3"]
 
 
 
@@ -191,6 +193,8 @@ blue:arc4random_uniform(256)/255.0 alpha:1.0]
 #define IS_IPHONE5 (([[UIScreen mainScreen] bounds].size.height == 568) ? YES : NO)
 #define IS_IPhone6 (667 == [[UIScreen mainScreen] bounds].size.height ? YES : NO)
 #define IS_IPhone6plus (736 == [[UIScreen mainScreen] bounds].size.height ? YES : NO)
+#define IS_IPhoneX (812 == [[UIScreen mainScreen] bounds].size.height ? YES : NO)
+
 #define SXRealValue(value) IS_IPHONE5 ? ((value)*0.85) : (IS_IPhone6 ? ((value)*1) : ((value)*1.1))
 #define SYRealValue(value) IS_IPHONE5 ? ((value)*(568/667.0f)) : (IS_IPhone6 ? ((value) * 1 ) : ((value)*(736/667.0f)))
 

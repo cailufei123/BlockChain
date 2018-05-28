@@ -13,6 +13,8 @@
 @interface BCSuanLiJiLuController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)BCSuanLiJiLuModel *model;
+@property(nonatomic,strong)SARefreshGifHeader *header;
+@property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
 @end
 
 @implementation BCSuanLiJiLuController
@@ -53,12 +55,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //添加上下拉加载
+    [self createRefresh];
     //设置导航栏
     [self setNaviTitle];
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //初始化转账与收款
     [self setUpBottomBtn];
+}
+- (void)createRefresh
+{
+    SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    [header beginRefreshing];
+    self.tableView.mj_header = header;
+    self.tableView.mj_footer = footer;
+    self.header =header;
+    self.footer =footer;
+    
+}
+//下拉加载
+-(void)loadNewData{
+    [self.header endRefreshing];
+    
+}
+//上拉加载
+-(void)loadMoreData{
+    [self.footer endRefreshing];
 }
 
 #pragma 底部转账与收款
