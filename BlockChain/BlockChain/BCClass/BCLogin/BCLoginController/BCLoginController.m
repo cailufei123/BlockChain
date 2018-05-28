@@ -164,42 +164,86 @@
     }else if(self.codeTf.text.length<=0){
         [MBManager showBriefAlert:@"验证码不能为空"];
         return;
+    }else if(self.nameTf.text.length<=0){
+        [MBManager showBriefAlert:@"名字不能为空"];
+        return;
+    }else if(self.nameTf.text.length<=0){
+        [MBManager showBriefAlert:@"名字不能为空"];
+        return;
     }
-//    NSMutableDictionary * dict = diction;
-//    dict[@"mobile"] = self.phoneTf.text;
-//    dict[@"smsCode"] = self.codeTf.text;
-//    dict[@"password"] =[self.passWordTf.text toMD5];
-//
-//    [YWRequestData registUserDict:dict success:^(id responseObj) {
-//        SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
-//        loginmodel.logPassWord =self.passWordTf.text;
-//        loginmodel.mobile =self.phoneTf.text;
-//        [LFAccountTool save:loginmodel];
-//        [MBManager showscuess:@"注册成功"];
-//        [self logingBtClick ];
-//    }];
+   
 }
 - (void)logingBtClick {
-    
-    self.invitationView.hidden = NO;
-    self.invitationLyout.constant = 200;
-//    NSMutableDictionary * dict = diction;
-//    dict[@"mobile"] = self.phoneTf.text;
-//    dict[@"password"] =[self.passWordTf.text toMD5];
-//    [YWRequestData userLoginDict:dict success:^(id responseObj) {
-//        [MBManager showscuess:@"注册成功"];
-//        SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
-//        loginmodel.logPassWord =self.passWordTf.text;
-//        [LFAccountTool save:loginmodel];
-//        [MBManager hideAlert];
-//        EMError * error1 = [[EMClient sharedClient] loginWithUsername:huanchatId password:huanchatId];
-//        if (!error1) {
-//            NSLog(@"登录成功");
-//        }
-//        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-//
-//    }];
-//
+    if (self.invitationLyout.constant <200) {
+        
+       
+      
+        if (self.phoneTf.text.length<=0) {
+            [MBManager showBriefAlert:@"手机号不能为空" ];
+            return;
+        }else if(self.codeTf.text.length<=0){
+            [MBManager showBriefAlert:@"验证码不能为空"];
+            return;
+        }
+       
+       
+        NSMutableDictionary * loginDict = diction;
+        loginDict[@"mobile"] = self.phoneTf.text;
+        loginDict[@"smsCode"] =self.codeTf.text;
+        [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
+            [MBManager showscuess:@"登陆l成功"];
+            SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
+            [LFAccountTool save:loginmodel];
+            [MBManager hideAlert];
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            
+        }];
+        
+    }else{
+        if (self.phoneTf.text.length<=0) {
+            [MBManager showBriefAlert:@"手机号不能为空" ];
+            return;
+        }else if(self.codeTf.text.length<=0){
+            [MBManager showBriefAlert:@"验证码不能为空"];
+            return;
+        }else if(self.nameTf.text.length<=0){
+            [MBManager showBriefAlert:@"名字不能为空"];
+            return;
+        }
+        if (!self.sureBt.selected) {
+            [MBManager showBriefAlert:@"同意协议才可注册"];
+            return;
+        }
+        NSMutableDictionary * registDict = diction;
+        registDict[@"mobile"] = self.phoneTf.text;
+        registDict[@"smsCode"] = self.codeTf.text;
+        registDict[@"name"] = self.nameTf.text;
+        registDict[@"code"] = self.invitationCodeTf.text;
+        
+        
+        [YWRequestData registUserDict:registDict success:^(id responseObj) {
+            SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
+            loginmodel.mobile =self.phoneTf.text;
+            [LFAccountTool save:loginmodel];
+            [MBManager showscuess:@"注册成功"];
+            
+            
+            NSMutableDictionary * loginDict = diction;
+            loginDict[@"mobile"] = self.phoneTf.text;
+            loginDict[@"smsCode"] =self.codeTf.text;
+            [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
+                [MBManager showscuess:@"登陆成功"];
+                SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
+                [LFAccountTool save:loginmodel];
+                [MBManager hideAlert];
+                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                
+            }];
+        }];
+    }
+
+   
+
 }
 
 -(void)timerFireMethod{
@@ -221,6 +265,12 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"mobile"] = self.phoneTf.text;
     [YWRequestData registUserSendcodeDict:dic success:^(id responseObject) {
+        if ([responseObject[@"status"] isEqual:@(19)]) {
+            self.invitationView.hidden = NO;
+            self.invitationLyout.constant = 200;
+            
+        }
+       
         [self.timer resumeTimer];
     }];
    

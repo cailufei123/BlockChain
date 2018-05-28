@@ -74,16 +74,42 @@ self.realNameSkipstr = @"1";
     
 }
 - (IBAction)loginOutClick:(id)sender {
+    [self outLogin];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)outLogin{
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    
+    dict[@"token"] = loginToken;
+    [MBManager showWaitingWithTitle:@"正在退出.."];
+    
+    [LFHttpTool post:USER_OUTLOGIN params:dict progress:^(id downloadProgress) {
+        
+    } success:^(id responseObj) {
+        
+        [MBManager hideAlert];
+        
+        if ([responseObj[@"status"]isEqual:@(0)]) {
+            [MBManager showBriefAlert:@"退出成功"];
+            
+            NSString* filename = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.data"];
+            
+            NSFileManager *defaultManager = [NSFileManager defaultManager];
+            if ([defaultManager isDeletableFileAtPath:filename]) {
+                [defaultManager removeItemAtPath:filename error:nil];
+            }
+            
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            SATabBarController * tabBarvc = [[SATabBarController alloc] init];
+            window.rootViewController = tabBarvc;
+            
+            
+        }
+    } failure:^(NSError *error) {
+        [MBManager hideAlert];
+        [MBManager showBriefAlert:@"网络不给力"];
+    }];
+    
+    
 }
-*/
-
 @end

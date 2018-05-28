@@ -16,7 +16,6 @@
 #define loginUid login.userId
 #define huanchatId login.huanId
 #define loginTokenlength loginToken.length
-#define loginTokenlength loginToken.length
 #define loginOpenId login.sUid
 
 

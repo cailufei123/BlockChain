@@ -24,9 +24,9 @@
     self.webView.UIDelegate = self;
       [MBManager showWaitingWithTitle:@"请稍后.."];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"btn_back_titlebar" selectImage:@"btn_back_titlebar" target:self action:@selector(goBackAction)];
-    if ([self.htmlurl isEqualToString:HELP_SERVER]) {
-        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" color:blackTextColor highlightColor:blackTextColor target:self action:@selector(backAction)];
-    }
+//    if ([self.htmlurl isEqualToString:HELP_SERVER]) {
+//        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" color:blackTextColor highlightColor:blackTextColor target:self action:@selector(backAction)];
+//    }
     
 }
 -(void)backAction{
