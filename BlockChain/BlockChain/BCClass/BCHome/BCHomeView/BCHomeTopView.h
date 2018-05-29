@@ -16,5 +16,12 @@
 @property(nonatomic,copy)void (^purpleStone)(void);
 @property(nonatomic,copy)void (^yellowStoneBt)(void);
 @property(nonatomic,copy)void (^refreshCandyList)(void);
+
+@property(nonatomic,copy)void (^screen)(NSString * );
 @property(nonatomic,strong)NSMutableArray * candyLists;
+@property(nonatomic,strong)NSMutableArray * lists;
+
+@property (weak, nonatomic) IBOutlet UIButton *purpleStoneBt;
+
+@property (weak, nonatomic) IBOutlet UIButton *tellowStoneBt;
 @end

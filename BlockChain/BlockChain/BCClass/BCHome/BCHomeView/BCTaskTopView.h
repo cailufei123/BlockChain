@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BCHomeModel.h"
 @interface BCTaskTopView : UIView
 +(instancetype)loadNameBCTaskTopViewViewXib ;
+@property(nonatomic,strong)NSMutableArray * platTaskLogModels;
+@property(nonatomic,strong)NSMutableArray * imgs;
+@property(nonatomic,copy)void (^skipPage)(PlatTaskLogModel * platTaskLogModel);
 @end

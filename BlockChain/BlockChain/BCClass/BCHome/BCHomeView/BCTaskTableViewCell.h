@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BCHomeModel.h"
 @interface BCTaskTableViewCell : UITableViewCell
-
+@property(nonatomic,strong)  TaskInfoModel *taskInfoModel;
 @end

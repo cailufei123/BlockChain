@@ -84,7 +84,7 @@
                                             <color key="textColor" red="0.49411764705882355" green="0.49411764705882355" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBy-iC-vEI">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBy-iC-vEI">
                                             <rect key="frame" x="10.5" y="76" width="78" height="22"/>
                                             <color key="backgroundColor" red="0.77647058823529413" green="0.5725490196078431" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -95,6 +95,9 @@
                                             <state key="normal" title="＋100算力">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <integer key="value" value="11"/>
@@ -103,6 +106,7 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="SBy-iC-vEI" firstAttribute="top" secondItem="Lgv-wc-XrZ" secondAttribute="bottom" constant="8" id="90F-N2-pod"/>
                                         <constraint firstItem="Lgv-wc-XrZ" firstAttribute="top" secondItem="ctX-AM-Iid" secondAttribute="bottom" id="AAt-pL-j9e"/>
@@ -115,6 +119,13 @@
                                         <constraint firstItem="S0W-q1-1Xg" firstAttribute="centerX" secondItem="NeH-58-Xuo" secondAttribute="centerX" id="mBh-Lx-mQy"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2R-Lu-0Mi">
+                                    <rect key="frame" x="-1" y="13" width="98" height="98"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <action selector="loginTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="VqS-WU-laD"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -156,7 +167,7 @@
                                             <color key="textColor" red="0.4941176471" green="0.4941176471" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trE-Fo-Y8B">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trE-Fo-Y8B">
                                             <rect key="frame" x="10.5" y="76" width="78" height="22"/>
                                             <color key="backgroundColor" red="0.77647058820000003" green="0.57254901960000004" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -167,6 +178,9 @@
                                             <state key="normal" title="＋100算力">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <integer key="value" value="11"/>
@@ -175,6 +189,7 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="7D2-hJ-xa8" firstAttribute="centerX" secondItem="y6F-be-02h" secondAttribute="centerX" id="4J0-We-P0A"/>
                                         <constraint firstItem="trE-Fo-Y8B" firstAttribute="top" secondItem="1VV-uF-lSd" secondAttribute="bottom" constant="8" id="7Bd-7i-tu7"/>
@@ -187,11 +202,21 @@
                                         <constraint firstItem="y6F-be-02h" firstAttribute="top" secondItem="Vr1-wt-cdf" secondAttribute="top" id="xVy-0G-MCQ"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZG-d7-DF6">
+                                    <rect key="frame" x="-0.5" y="0.0" width="98" height="125"/>
+                                    <connections>
+                                        <action selector="invirationTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="iWC-as-Vaz"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="HZG-d7-DF6" secondAttribute="bottom" id="JVK-57-J98"/>
+                                <constraint firstAttribute="trailing" secondItem="HZG-d7-DF6" secondAttribute="trailing" id="JXg-cD-sl8"/>
                                 <constraint firstItem="Vr1-wt-cdf" firstAttribute="leading" secondItem="bBw-cq-n13" secondAttribute="leading" id="PwG-TE-foP"/>
+                                <constraint firstItem="HZG-d7-DF6" firstAttribute="top" secondItem="bBw-cq-n13" secondAttribute="top" id="Rox-WZ-TaV"/>
                                 <constraint firstItem="Vr1-wt-cdf" firstAttribute="centerY" secondItem="bBw-cq-n13" secondAttribute="centerY" id="V2c-xN-Ibn"/>
+                                <constraint firstItem="HZG-d7-DF6" firstAttribute="leading" secondItem="bBw-cq-n13" secondAttribute="leading" id="Xpy-tp-b6o"/>
                                 <constraint firstAttribute="trailing" secondItem="Vr1-wt-cdf" secondAttribute="trailing" id="tgz-mP-4nb"/>
                             </constraints>
                         </view>
@@ -240,7 +265,7 @@
                                             <color key="textColor" red="0.4941176471" green="0.4941176471" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQa-ZI-I5f">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQa-ZI-I5f">
                                             <rect key="frame" x="9" y="76" width="78" height="22"/>
                                             <color key="backgroundColor" red="0.77647058820000003" green="0.57254901960000004" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -251,6 +276,9 @@
                                             <state key="normal" title="＋100算力">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <integer key="value" value="11"/>
@@ -259,6 +287,7 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="MKI-nM-Cu0" firstAttribute="top" secondItem="tyZ-Nc-fxb" secondAttribute="bottom" constant="6" id="9P0-Bb-q7H"/>
                                         <constraint firstItem="GgW-Pj-at4" firstAttribute="top" secondItem="MKI-nM-Cu0" secondAttribute="bottom" id="HNs-LE-Qp6"/>
@@ -271,18 +300,28 @@
                                         <constraint firstItem="tyZ-Nc-fxb" firstAttribute="top" secondItem="Oa1-vM-iud" secondAttribute="top" id="znY-ur-PFg"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-iO-jQp">
+                                    <rect key="frame" x="-0.5" y="0.0" width="98" height="125"/>
+                                    <connections>
+                                        <action selector="tbcTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="jBq-lz-dt0"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="bdM-iO-jQp" firstAttribute="top" secondItem="f13-De-tOM" secondAttribute="top" id="1tM-Kd-Xa1"/>
+                                <constraint firstAttribute="trailing" secondItem="bdM-iO-jQp" secondAttribute="trailing" id="76R-v4-So6"/>
                                 <constraint firstItem="Oa1-vM-iud" firstAttribute="centerY" secondItem="f13-De-tOM" secondAttribute="centerY" id="AfO-Lc-BD1"/>
                                 <constraint firstAttribute="trailing" secondItem="gUJ-f7-CiM" secondAttribute="trailing" id="C2v-5A-iQc"/>
                                 <constraint firstAttribute="bottom" secondItem="431-d2-hZw" secondAttribute="bottom" constant="20" id="JDx-T0-0ng"/>
                                 <constraint firstItem="431-d2-hZw" firstAttribute="top" secondItem="f13-De-tOM" secondAttribute="top" constant="20" id="Nv7-Hc-sh5"/>
                                 <constraint firstItem="gUJ-f7-CiM" firstAttribute="top" secondItem="f13-De-tOM" secondAttribute="top" constant="20" id="OFW-SH-zMG"/>
+                                <constraint firstItem="bdM-iO-jQp" firstAttribute="leading" secondItem="f13-De-tOM" secondAttribute="leading" id="XUr-Ny-yV1"/>
                                 <constraint firstItem="Oa1-vM-iud" firstAttribute="leading" secondItem="431-d2-hZw" secondAttribute="trailing" id="dkE-v5-W9L"/>
                                 <constraint firstAttribute="bottom" secondItem="gUJ-f7-CiM" secondAttribute="bottom" constant="20" id="gZt-SI-i84"/>
                                 <constraint firstItem="431-d2-hZw" firstAttribute="leading" secondItem="f13-De-tOM" secondAttribute="leading" id="qo3-GL-h6z"/>
                                 <constraint firstItem="gUJ-f7-CiM" firstAttribute="leading" secondItem="Oa1-vM-iud" secondAttribute="trailing" id="qpk-rR-xQi"/>
+                                <constraint firstAttribute="bottom" secondItem="bdM-iO-jQp" secondAttribute="bottom" id="uIb-Uv-Tga"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -354,7 +393,7 @@
                 <outlet property="imgView" destination="07c-zJ-iEO" id="qvv-yy-FxW"/>
                 <outlet property="invitationLb" destination="7D2-hJ-xa8" id="skB-1r-1Tt"/>
                 <outlet property="invitationStrenthBt" destination="trE-Fo-Y8B" id="riq-pr-QuZ"/>
-                <outlet property="invitationStrenthLb" destination="7D2-hJ-xa8" id="CJS-79-X5Y"/>
+                <outlet property="invitationStrenthLb" destination="1VV-uF-lSd" id="psu-zJ-bRo"/>
                 <outlet property="tbcLb" destination="MKI-nM-Cu0" id="4pw-fO-Wks"/>
                 <outlet property="tbcStrengthBt" destination="XQa-ZI-I5f" id="Qoc-DM-8fU"/>
                 <outlet property="tbcStrengthLb" destination="GgW-Pj-at4" id="8p7-o0-3Ri"/>

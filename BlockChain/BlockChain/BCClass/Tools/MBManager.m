@@ -116,7 +116,8 @@ BOOL isShowGloomy;//是否显示深色背景
         hud.label.text = title;
 //         hud.userInteractionEnabled = YES;
        hud.removeFromSuperViewOnHide = YES;
-        hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:1];
+        hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.95];
+        hud.label.textColor = [UIColor whiteColor];
         gloomyView.frame = view ? CGRectMake(0, 0, view.frame.size.width, view.frame.size.height):
         kDefaultRect;
         if (!isShowGloomy) {
