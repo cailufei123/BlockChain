@@ -18,6 +18,9 @@
 #import "BCTaskViewController.h"
 #import "BCTaskDetailViewController.h"
 #import "BCMeInvitingFriendsController.h"
+#import "BCRequestData.h"
+#import "BCTangGuoListMode.h"
+
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -84,7 +87,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     if (!_meHeaderView) {
         _meHeaderView = [[BCMeHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, HeaderViewHeight)];
         _meHeaderView.delegate=self;
-        _meHeaderView.model =self.meModel;
+//        _meHeaderView.model =self.meModel;
         _meHeaderView.backgroundColor =[UIColor redColor];
     }
     return _meHeaderView;
@@ -94,6 +97,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     [super viewDidLoad];
     //设置导航栏
     [self setNaviTitle];
+    //加载数据
+    [self loadNewData];
     //设置导航按钮
     [self setupUIBarButtonItem];
     //增加下拉刷新
@@ -107,19 +112,52 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 
 - (void)createRefresh
 {
-    SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-    [header beginRefreshing];
-    self.tableView.mj_header = header;
-    self.tableView.mj_footer = footer;
-    self.header =header;
-    self.footer =footer;
+//    SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+//    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+//    [header beginRefreshing];
+//    self.tableView.mj_header = header;
+//    self.tableView.mj_footer = footer;
+//    self.header =header;
+//    self.footer =footer;
 
 }
+
 //下拉加载
 -(void)loadNewData{
-    [self.header endRefreshing];
+    [self loadUpData];
+    [self loadListData];
+   
     
+}
+-(void)loadUpData{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
+        BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
+        self.meHeaderView.model =model;
+        [self.header endRefreshing];
+    } erorr:^(id error) {//请求失败
+        [self.header endRefreshing];
+    }];
+}
+
+-(void)loadListData{
+    //BCMeModel * meModel = [self.listArray lastObject];
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    [self.listArray removeAllObjects];
+    [BCRequestData get_Token_List_Dict:candyDict success:^(id responseObject) {
+        BCMeModel *model = [BCMeModel mj_objectWithKeyValues:responseObject[@"data"]];
+        self.meHeaderView.model =model;
+        
+        self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
+        [self.tableView reloadData];
+        [self.header endRefreshing];
+        
+    } erorr:^(id error) {
+        [self.header endRefreshing];
+    }];
+
 }
 //上拉加载
 -(void)loadMoreData{
@@ -185,7 +223,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return  10;
+    return  self.listArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -195,15 +233,16 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //添加事件
     BCMeTableViewCell *cell = [BCMeTableViewCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
-    //BCMeHeaderListMode *listMode = self.listArray[indexPath.section];
+    BCTangGuoListMode *listMode = self.listArray[indexPath.row];
     cell.delegate =self;
-    cell.model =self.meModel;
+    cell.model =listMode;
     return cell;
 }
 //进入PDC简介
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //BCMeHeaderListMode *listMode = self.listArray[indexPath.section];
+    BCTangGuoListMode *listMode = self.listArray[indexPath.row];
     BCMePDCListController *pdcListVc = [[BCMePDCListController alloc] init];
+    pdcListVc.code =listMode.code;//苹果id
     [self.navigationController pushViewController:pdcListVc animated:YES];
 }
 

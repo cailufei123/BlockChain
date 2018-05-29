@@ -87,3 +87,15 @@ UIKIT_EXTERN NSString  *const cheackVourcherLastTime;
 /**跳转到首页通知*/
 UIKIT_EXTERN NSString  *const skipHomeNotice;
 
+//请求
+/** 返回的code码 */
+#define REQUEST_CODE responseObject[@"code"]
+/** 返回的data */
+#define REQUEST_DATA responseObject[@"data"]
+/** 请求成功 */
+#define REQUEST_OK @"000000"
+/** 没有更多数据 */
+#define REQUEST_NOMORE_DATA @"000110"
+/** 返回的message */
+#define REQUEST_MESSAGE returnValue[@"message"]
+

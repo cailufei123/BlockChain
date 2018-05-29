@@ -102,7 +102,7 @@
 //领取糖果
  #define CANDY_GAIN [NSString stringWithFormat:@"%@%@",INFO_SERVICE,@"candy/user/gain"]  
 //糖果详情
- #define CANDY_DETAIL [NSString stringWithFormat:@"%@%@",INFO_SERVICE, @"candy/detail"]  
+ #define CANDY_DETAIL [NSString stringWithFormat:@"%@%@",INFO_SERVICE, @"candy/detail"]
 //算力 和记录
  #define COMPUTE_POWER [NSString stringWithFormat:@"%@%@",USER_SERVICE, @"compute/getComputeLogs"]  
 //TOKEN 详情页

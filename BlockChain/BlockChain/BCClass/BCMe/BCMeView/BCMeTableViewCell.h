@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class  BCMeModel;
+@class  BCTangGuoListMode;
 
 //协议
 @protocol BCMeTableViewCellDelegate <NSObject>
@@ -19,7 +19,7 @@
 
 @interface BCMeTableViewCell : UITableViewCell
 
-@property(nonatomic,strong)BCMeModel *model;
+@property(nonatomic,strong)BCTangGuoListMode *model;
 
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 @property (nonatomic, weak) id <BCMeTableViewCellDelegate> delegate;

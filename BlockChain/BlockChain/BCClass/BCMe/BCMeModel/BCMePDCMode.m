@@ -1,14 +1,14 @@
 //
-//  BCQRCodeMode.m
+//  BCMePDCMode.m
 //  BlockChain
 //
-//  Created by Mac on 2018/5/23.
+//  Created by Mac on 2018/5/28.
 //  Copyright © 2018年 蔡路飞. All rights reserved.
 //
 
-#import "BCQRCodeMode.h"
+#import "BCMePDCMode.h"
 
-@implementation BCQRCodeMode
+@implementation BCMePDCMode
 
 +(NSDictionary *)mj_replacedKeyFromPropertyName{
     
