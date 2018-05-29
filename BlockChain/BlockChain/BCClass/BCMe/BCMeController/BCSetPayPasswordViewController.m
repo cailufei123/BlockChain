@@ -7,6 +7,7 @@
 //
 
 #import "BCSetPayPasswordViewController.h"
+#import "DES3Util.h"
 #define timeCount 60
 @interface BCSetPayPasswordViewController ()<UITextFieldDelegate,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *passwordLb;
@@ -36,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"设置支付密码";
+    self.navigationItem.title = self.title;
     self.scrollow.delegate = self;
     self.surepasswordTf.borderStyle = self.passwordLb.borderStyle = self.codeTf.borderStyle  = UITextBorderStyleNone;
     self.surepasswordTf.delegate =  self.passwordLb.delegate =  self.codeTf.delegate =  self;
@@ -58,7 +59,60 @@
 
 -(void)sureBtClick:(UIButton * )bt{
    
+    if (self.passwordLb.text.length!=6) {
+        [MBManager showBriefAlert:@"密码为6位数字" ];
+        return;
+    }else if(self.surepasswordTf.text.length<=0){
+        [MBManager showBriefAlert:@"确认密码不能为空"];
+        return;
+    }else if(![self.surepasswordTf.text isEqualToString:self.passwordLb.text]){
+        [MBManager showBriefAlert:@"两次输入不一致"];
+        return;
+    }else if(self.codeTf.text.length<=0){
+        [MBManager showBriefAlert:@"验证码不能为空"];
+        return;
+    }
+
+    NSString *devicToken =  [ USER_DEFAULT objectForKey:userdevicToken];
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"token"] = loginToken;
+    dic[@"smsCode"] = self.codeTf.text;
+    dic[@"password"] =  [DES3Util encryptUseDES: self.passwordLb.text key:@"kQujxT^KYZXVGUFn"];
+    dic[@"deviceId"] = devicToken;
+  
     
+//      LFLog(@"%@",[DES3Util encryptUseDES: @"123456" key:@"axiapmsm"]);
+       LFLog(@"%@",dic);
+    
+    [YWRequestData forgetResetDict:dic success:^(id responseObj) {
+        
+        [MBManager showBriefAlert:@"重置成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+}
+const Byte iv1[] = {1,2,3,4,5,6,7,8};
+-(NSString *) encryptUseDES:(NSString *)plainText key:(NSString *)key
+{
+    NSString *ciphertext = nil;
+    NSData *textData = [plainText dataUsingEncoding:NSUTF8StringEncoding];
+    NSUInteger dataLength = [textData length];
+    unsigned char buffer[1024];
+    memset(buffer, 0, sizeof(char));
+    size_t numBytesEncrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, kCCAlgorithmDES,
+                                          kCCOptionPKCS7Padding,
+                                          [key UTF8String], kCCKeySizeDES,
+                                          iv1,
+                                          [textData bytes], dataLength,
+                                          buffer, 1024,
+                                          &numBytesEncrypted);
+    if (cryptStatus == kCCSuccess) {
+        NSData *data = [NSData dataWithBytes:buffer length:(NSUInteger)numBytesEncrypted];
+        //        ciphertext = [Base64 encode:data];
+        //       ciphertext =  [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        ciphertext = [data base64EncodedStringWithOptions:0];
+    }
+    return ciphertext;
 }
 
 
@@ -116,11 +170,29 @@
     }else if(self.surepasswordTf.text.length<=0){
         [MBManager showBriefAlert:@"确认密码不能为空"];
         return;
+    }else if(![self.surepasswordTf.text isEqualToString:self.passwordLb.text]){
+        [MBManager showBriefAlert:@"两次输入不一致"];
+        return;
     }else if(self.codeTf.text.length<=0){
         [MBManager showBriefAlert:@"验证码不能为空"];
         return;
     }
-   
+    
+        NSString *devicToken =  [ USER_DEFAULT objectForKey:userdevicToken];
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"token"] = loginToken;
+     dic[@"smsCode"] = self.codeTf.text;
+     dic[@"password"] = self.passwordLb.text;
+     dic[@"deviceId"] = devicToken;
+ 
+  
+
+  
+    [YWRequestData forgetResetDict:dic success:^(id responseObj) {
+       
+          [MBManager showBriefAlert:@"重置成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 
@@ -141,11 +213,11 @@
 -(void)getCodeBtCilck{
     self.count = timeCount;
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-//    dic[@"mobile"] = self.phoneTf.text;
-    //    [YWRequestData registUserSendcodeDict:dic success:^(id responseObject) {
-    //        [self.timer resumeTimer];
-    //    }];
-    [self.timer resumeTimer];
+   dic[@"token"] = loginToken;
+    [YWRequestData getpswdVcodeDict:dic success:^(id responseObj) {
+         [self.timer resumeTimer];
+    }];
+   
 }
 -(void)dealloc{
     [self.timer invalidate];

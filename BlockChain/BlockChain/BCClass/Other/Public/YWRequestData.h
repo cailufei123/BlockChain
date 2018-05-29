@@ -33,4 +33,8 @@
 + (void)userTaskListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 //普通任务列表
 + (void)taskListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+// 获取设置密码验证码
++ (void)getpswdVcodeDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+// 重置密码
++ (void)forgetResetDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 @end

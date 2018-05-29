@@ -163,7 +163,7 @@
             
             
         }else{
-            [MBManager showBriefAlert:responseObj[@"message"]];}
+            [MBManager showBriefAlert:responseObj[@"desc"]];}
     } failure:^(NSError *error) {
         [MBManager showBriefAlert:@"网络错误"];
         [MBManager hideAlert];
@@ -206,6 +206,43 @@
 //普通任务列表
 + (void)taskListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:TASK_LIST params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+// 获取设置密码验证码
+
++ (void)getpswdVcodeDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+    [LFHttpTool post:GET_PWD_VCODE params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+
+// 重置密码
+
++ (void)forgetResetDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+    [LFHttpTool post:FORGET_RESET params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         LFLog(@"%@",responseObj);
         [MBManager hideAlert];

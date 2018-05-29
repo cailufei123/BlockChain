@@ -61,7 +61,12 @@
     if (self.realNameTf.text.length<=0) {
         [MBManager showBriefAlert:@"姓名不能为空"];return;
     }else if (self.cardIDnumberTf.text.length<=0){
-         [MBManager showBriefAlert:@"姓名不能为空"];return;
+        
+         
+        if (![self.cardIDnumberTf.text simpleVerifyIdentityCardNum]) {
+             [MBManager showBriefAlert:@"身份证号不正确"];return;
+        }
+       
     }else if (self.idFrontImages.length<=0){
         [MBManager showBriefAlert:@"请上传身份证正面图片"];return;
     }else if (self.idBackImages.length<=0){

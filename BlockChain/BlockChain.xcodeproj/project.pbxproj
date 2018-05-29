@@ -152,6 +152,9 @@
 		ADACD07C20BBAE9C00EE21F6 /* BCRequestData.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD07B20BBAE9C00EE21F6 /* BCRequestData.m */; };
 		ADACD07F20BBB1AB00EE21F6 /* LKControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD07D20BBB1AA00EE21F6 /* LKControllerTool.m */; };
 		ADACD08220BBC9E200EE21F6 /* BCHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD08120BBC9E200EE21F6 /* BCHomeModel.m */; };
+		ADACD08B20BD65B000EE21F6 /* NSString+NSReplace.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD08720BD65AE00EE21F6 /* NSString+NSReplace.m */; };
+		ADACD08C20BD65B000EE21F6 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD08920BD65AE00EE21F6 /* GTMBase64.m */; };
+		ADACD08D20BD65B000EE21F6 /* DES3Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD08A20BD65AE00EE21F6 /* DES3Util.m */; };
 		ADD0896420B3B71900B3C4A4 /* BCLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0896220B3B71900B3C4A4 /* BCLoginController.m */; };
 		ADD0896520B3B71900B3C4A4 /* BCLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */; };
 		ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239620B2D67D00F6E172 /* Main.storyboard */; };
@@ -579,6 +582,13 @@
 		ADACD07E20BBB1AA00EE21F6 /* LKControllerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKControllerTool.h; sourceTree = "<group>"; };
 		ADACD08020BBC9E200EE21F6 /* BCHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeModel.h; sourceTree = "<group>"; };
 		ADACD08120BBC9E200EE21F6 /* BCHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeModel.m; sourceTree = "<group>"; };
+		ADACD08420BD65AE00EE21F6 /* NSString+NSReplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSReplace.h"; sourceTree = "<group>"; };
+		ADACD08520BD65AE00EE21F6 /* DES3Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DES3Util.h; sourceTree = "<group>"; };
+		ADACD08620BD65AE00EE21F6 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		ADACD08720BD65AE00EE21F6 /* NSString+NSReplace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSReplace.m"; sourceTree = "<group>"; };
+		ADACD08820BD65AE00EE21F6 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		ADACD08920BD65AE00EE21F6 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		ADACD08A20BD65AE00EE21F6 /* DES3Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DES3Util.m; sourceTree = "<group>"; };
 		ADD0896120B3B71900B3C4A4 /* BCLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCLoginController.h; sourceTree = "<group>"; };
 		ADD0896220B3B71900B3C4A4 /* BCLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCLoginController.m; sourceTree = "<group>"; };
 		ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCLoginController.xib; sourceTree = "<group>"; };
@@ -1401,6 +1411,20 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		ADACD08320BD65AE00EE21F6 /* 3DESiOS */ = {
+			isa = PBXGroup;
+			children = (
+				ADACD08420BD65AE00EE21F6 /* NSString+NSReplace.h */,
+				ADACD08520BD65AE00EE21F6 /* DES3Util.h */,
+				ADACD08620BD65AE00EE21F6 /* GTMBase64.h */,
+				ADACD08720BD65AE00EE21F6 /* NSString+NSReplace.m */,
+				ADACD08820BD65AE00EE21F6 /* GTMDefines.h */,
+				ADACD08920BD65AE00EE21F6 /* GTMBase64.m */,
+				ADACD08A20BD65AE00EE21F6 /* DES3Util.m */,
+			);
+			path = 3DESiOS;
+			sourceTree = "<group>";
+		};
 		ADE1238420B2D67D00F6E172 = {
 			isa = PBXGroup;
 			children = (
@@ -1913,6 +1937,7 @@
 		ADE1266F20B2E8D400F6E172 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				ADACD08320BD65AE00EE21F6 /* 3DESiOS */,
 				ADE1267020B2E91000F6E172 /* GKCover */,
 				AD23F71820B682130057E662 /* DWImagePicker */,
 				AD23F6DC20B569290057E662 /* SDCycleScrollView */,
@@ -2326,6 +2351,7 @@
 				ADE126DD20B2EB4F00F6E172 /* NSArray+decription.m in Sources */,
 				ADE125A020B2E84F00F6E172 /* FMDatabaseQueue.m in Sources */,
 				ADE1264B20B2E84F00F6E172 /* MJProperty.m in Sources */,
+				ADACD08C20BD65B000EE21F6 /* GTMBase64.m in Sources */,
 				ADE126D620B2EB4F00F6E172 /* UIView+WHView.m in Sources */,
 				AD23F6CE20B5126B0057E662 /* ATSkipTool.m in Sources */,
 				ADE126D320B2EB4F00F6E172 /* UIView+CLFExtension.m in Sources */,
@@ -2400,6 +2426,7 @@
 				ADE1265320B2E84F00F6E172 /* IQTextView.m in Sources */,
 				AD6EA45B20B43ED200F61B33 /* MJRefreshBackStateFooter.m in Sources */,
 				AD23F6F120B569290057E662 /* TAAnimatedDotView.m in Sources */,
+				ADACD08B20BD65B000EE21F6 /* NSString+NSReplace.m in Sources */,
 				AD23F70720B580800057E662 /* BCLevelBtton.m in Sources */,
 				ADE1270720B2ED4D00F6E172 /* AFSecurityPolicy.m in Sources */,
 				ADE1270520B2ED4D00F6E172 /* AFURLRequestSerialization.m in Sources */,
@@ -2409,6 +2436,7 @@
 				ADE1265B20B2E84F00F6E172 /* IQNSArray+Sort.m in Sources */,
 				AD23F75720B6A5FD0057E662 /* ATServiceAgreementController.m in Sources */,
 				ADE1271420B2F00B00F6E172 /* MBProgressHUD+Add.m in Sources */,
+				ADACD08D20BD65B000EE21F6 /* DES3Util.m in Sources */,
 				ADE126F220B2ECF100F6E172 /* LFHttpTool.m in Sources */,
 				ADE1265720B2E84F00F6E172 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				ADE126CE20B2EB4F00F6E172 /* NSDate+Category.m in Sources */,

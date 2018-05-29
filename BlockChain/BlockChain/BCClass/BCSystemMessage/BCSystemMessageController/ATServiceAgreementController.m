@@ -17,13 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = self.htmltitle;
-     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, kTabBarHeight, LFscreenW, LFscreenH  - kTabBarHeight)];
+     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH  - kTabBarHeight)];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.htmlurl]]];
     [self.view addSubview:self.webView];
     self.webView.navigationDelegate = self;
     self.webView.UIDelegate = self;
       [MBManager showWaitingWithTitle:@"请稍后.."];
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"btn_back_titlebar" selectImage:@"btn_back_titlebar" target:self action:@selector(goBackAction)];
+//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"btn_back_titlebar" selectImage:@"btn_back_titlebar" target:self action:@selector(goBackAction)];
 //    if ([self.htmlurl isEqualToString:HELP_SERVER]) {
 //        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"关闭" color:blackTextColor highlightColor:blackTextColor target:self action:@selector(backAction)];
 //    }

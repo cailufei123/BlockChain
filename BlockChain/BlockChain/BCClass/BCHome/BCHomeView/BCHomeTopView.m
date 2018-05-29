@@ -259,7 +259,16 @@
     
     // 领取紫钻的接口-----
     [YWRequestData gainPurpleStoneDict:candycainDict success:^(id responseObj) {
-        [self loadHomeCandyLis];
+        NSMutableDictionary * candyDict = diction;
+        candyDict[@"token"] = loginToken;
+        candyDict[@"size"] = @"1";
+        LFLog(@"%@",candyDict);
+        [YWRequestData homePageDict:candyDict success:^(id responseObj) {
+            
+            [self.purpleStoneBt setTitle:[NSString stringWithFormat:@"紫钻：%@",responseObj[@"data"][@"coin"]]forState:UIControlStateNormal];
+            [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
+            
+        }];
         [UIView animateWithDuration:self.duration animations:^{
             bt.clf_y = -LFscreenH;
         }completion:^(BOOL finished) {
@@ -338,7 +347,7 @@
     candyDict[@"size"] = @"1";
     LFLog(@"%@",candyDict);
     [YWRequestData homePageDict:candyDict success:^(id responseObj) {
-        self.candyLists = [HomeCandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"][@"drillGrantInfos"]];
+     
         [self.purpleStoneBt setTitle:[NSString stringWithFormat:@"紫钻：%@",responseObj[@"data"][@"coin"]]forState:UIControlStateNormal];
         [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
         
