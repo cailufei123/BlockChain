@@ -113,7 +113,7 @@ static NSString * const atmessageID = @"ATMessageCell";
     [self setTable];
     [self getmessageBageVlue];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getmessageBageVlu) name:pushRefresh object:nil];
-   [self creveBootomTabar];
+//   [self creveBootomTabar];
 
 }
 -(void)creveBootomTabar{

@@ -36,6 +36,14 @@
     
     self.realNameLb.attributedText = attribtStr;
 self.realNameSkipstr = @"1";
+ //   去认证 1.审核中 2.实名认证通过 3.实名认证失败
+    if ([self.meModel.isAuthed isEqualToString:@"1"]) {
+        
+    }else if ([self.meModel.isAuthed isEqualToString:@"2"]){
+        
+    }else if ([self.meModel.isAuthed isEqualToString:@"3"]){
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

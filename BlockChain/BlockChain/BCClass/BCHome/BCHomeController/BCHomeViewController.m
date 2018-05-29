@@ -250,6 +250,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
  
     [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
         self.userCandyLists =  [CandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+        [MBManager hideAlert];
         if (self.userCandyLists.count<10) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
@@ -282,6 +283,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     
     self.homeTopView.screen = ^(NSString * type) {
         weakSelf.type = type;
+        [MBManager showWaitingWithTitle:@"加载.."];
         [weakSelf loadNewData ];
     };
     self.homeTopView.refreshCandyList = ^{
@@ -306,6 +308,8 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     };
     self.homeTopView.purpleStone  = ^{
         BCMePDCListController *pdcV = [[BCMePDCListController alloc] init];
+        pdcV.code = @"TBC";
+        
         [weakSelf.navigationController pushViewController:pdcV animated:YES];
     };
     self.tableView.tableHeaderView =  self.homeTopView;
