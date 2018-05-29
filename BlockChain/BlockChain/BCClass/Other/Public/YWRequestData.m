@@ -64,6 +64,7 @@
          [MBManager hideAlert];
     }];
 }
+
 // - 首页糖果记录-----
 + (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     

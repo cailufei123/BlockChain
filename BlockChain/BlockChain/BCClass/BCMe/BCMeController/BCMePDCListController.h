@@ -10,4 +10,5 @@
 
 @interface BCMePDCListController : UIViewController
 
+@property(nonatomic,strong)NSString *code;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "BCMeTableViewCell.h"
-#import "BCMeModel.h"
+#import "BCTangGuoListMode.h"
 
 @interface BCMeTableViewCell()
 /** 充值icon*/
@@ -117,16 +117,13 @@
     }
     return self;
 }
--(void)setModel:(BCMeModel *)model{
+-(void)setModel:(BCTangGuoListMode *)model{
     _model =model;
     if (model!=nil) {
-        
-    }else{
-        //假数据
-        self.moneyImage.image =[UIImage imageNamed:@"金币-2"];
-        self.moneyName.text =@"TBC";
-        self.upPrice.text=[NSString stringWithFormat:@"%.4f",0.145346];
-        self.downPrice.text = [NSString stringWithFormat:@"≈¥%.1f",0.12];
+        [self.moneyImage sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:[UIImage imageNamed:@"金币-2"]];
+        self.moneyName.text =model.code;
+        self.upPrice.text=[NSString stringWithFormat:@"%@",model.coin];
+        self.downPrice.text = [NSString stringWithFormat:@"≈¥%.1f",[model.rmb floatValue]];
     }
 }
 

@@ -12,24 +12,68 @@
 
 #pragma mark - 糖果包详情-----
 
-+ (void)getRequestTangGuoBaoDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
-//#define USER_LOGIN [NSString stringWithFormat:@"%@%@",USER_SERVICE,@"login"]
-//#define MY_TOKEN_LIST [NSString stringWithFormat:@"%@%@",TOKEN_SERVICE,@"getUserCoin"]
-
-    [LFHttpTool post:USER_LOGIN params:dict progress:^(id downloadProgress) {
++(void)getUser_InfoDict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
+    
+    [LFHttpTool post:USER_INFO params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
-            
-            [MBManager showBriefAlert:@"登录成功"];
+            //[MBManager showBriefAlert:@"请求成功"];
         }else{
-            [MBManager showBriefAlert:responseObj[@"message"]];}
+            erorr(responseObj);
+            [MBManager showBriefAlert:responseObj[@"message"]];
+        }
     } failure:^(NSError *error) {
+        erorr(error);
         [MBManager showBriefAlert:@"网络错误"];
         [MBManager hideAlert];
     }];
 }
++(void)get_Token_List_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
+    
+    [LFHttpTool post:MY_TOKEN_LIST params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        
+        //[responseObj writeToFile:@"/Users/mac/Desktop/plist/abc.plist" atomically:YES];
+        LFLog(@"==%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            //[MBManager showBriefAlert:@"请求成功"];
+        }else{
+            erorr(responseObj);
+            [MBManager showBriefAlert:responseObj[@"message"]];
+        }
+    } failure:^(NSError *error) {
+        erorr(error);
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
++(void)get_candy_Detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
+    
+    [LFHttpTool post:TOKEN_DETAIL params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        
+        [responseObj writeToFile:@"/Users/mac/Desktop/plist/aaa.plist" atomically:YES];
+        LFLog(@"==%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            //[MBManager showBriefAlert:@"请求成功"];
+        }else{
+            erorr(responseObj);
+            [MBManager showBriefAlert:responseObj[@"message"]];
+        }
+    } failure:^(NSError *error) {
+        erorr(error);
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+
 
 @end

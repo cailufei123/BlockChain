@@ -147,6 +147,7 @@
         [_tangGuoBtn setBackgroundColor:colorB378D5];
         [_tangGuoBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
         [_tangGuoBtn addTarget:self action:@selector(tangGuoBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_tangGuoBtn setTitle:@"糖果记录" forState:UIControlStateNormal];
         [Util roundBorderView:SXRealValue(2) border:0 color:[UIColor blackColor] view:_tangGuoBtn];
     }
     return _tangGuoBtn;
@@ -160,6 +161,7 @@
         [_moreTangGuoBtn setBackgroundColor:naverTextColor];
         [_moreTangGuoBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
         [_moreTangGuoBtn addTarget:self action:@selector(moreTangGuoBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_moreTangGuoBtn setTitle:@"更多糖果" forState:UIControlStateNormal];
         [Util roundBorderView:SXRealValue(2) border:1 color:colorB378D5 view:_moreTangGuoBtn];
     }
     return _moreTangGuoBtn;
@@ -290,18 +292,16 @@
 -(void)setModel:(BCMeModel *)model{
     _model =model;
     if (model!=nil) {
-        
-    }else{
-        //假数据
-        self.myIcon.image = [UIImage imageNamed:@"usericon_placeholder"];
-        self.myName.text = @"我的名字";
-        self.myAddress.text= @"sadfasdfsdfasdfasdfasdf134124sdfasdfasdf2342342342342erqefasdfsadfasdfsdfasdfasdfasdf134124sdfasdfasdf2342342342342erqefasdf";
+        self.myName.text = model.name;
+        self.myAddress.text= model.token;
+        //self.myAddress.text = model.token ? model.token : @"0";
+        [self.myIcon sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:[UIImage imageNamed:@"usericon_placeholder"]];
         self.ziChanIcon.image =[UIImage imageNamed:@"wallet-iocn"];
         [self.QRCode setImage:[UIImage imageNamed:@"二维码"] forState:UIControlStateNormal];
         self.zongLable1.text =@"总资产≈";
-        self.zongLable2.text = [NSString stringWithFormat:@"%@%.2f",@"¥",0.1223];
-        [self.tangGuoBtn setTitle:@"糖果记录" forState:UIControlStateNormal];
-        [self.moreTangGuoBtn setTitle:@"更多糖果" forState:UIControlStateNormal];
+        self.zongLable2.text = [NSString stringWithFormat:@"%@%.2f",@"¥",[model.coin floatValue]];
+//        [self.tangGuoBtn setTitle:@"糖果记录" forState:UIControlStateNormal];
+//        [self.moreTangGuoBtn setTitle:@"更多糖果" forState:UIControlStateNormal];
     }
 }
 

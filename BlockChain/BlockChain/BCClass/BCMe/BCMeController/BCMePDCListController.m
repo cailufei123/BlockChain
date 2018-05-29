@@ -26,6 +26,8 @@
 
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
+@property(nonatomic,assign)NSInteger page;
+
 @end
 
 @implementation BCMePDCListController
@@ -129,6 +131,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _page =0;
     //设置导航栏
     [self setNaviTitle];
     //增加刷新
@@ -154,12 +157,32 @@
 }
 //下拉加载
 -(void)loadNewData{
-    [self.header endRefreshing];
-    
+    self.page=1;
+    [self loadData];
+
 }
 //上拉加载
 -(void)loadMoreData{
-    [self.footer endRefreshing];
+    self.page+=1;
+  [self loadData];
+}
+-(void)loadData{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    candyDict[@"code"] = self.code;//糖果id
+    candyDict[@"size"] = @20;//糖果id
+    candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
+    
+    [BCRequestData get_candy_Detail_Dict:candyDict success:^(id responseObject) {
+        //        BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
+        //        self.meHeaderView.model =model;
+        //        self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
+        //        [self.tableView reloadData];
+        [self.header endRefreshing];
+    } erorr:^(id error) {
+        [self.header endRefreshing];
+        
+    }];
 }
 
 #pragma mark -

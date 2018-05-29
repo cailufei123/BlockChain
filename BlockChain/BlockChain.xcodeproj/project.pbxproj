@@ -45,6 +45,8 @@
 		04B6320520B54E7700D063B8 /* BCMeTangGuoJiLuMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B631F520B54E7600D063B8 /* BCMeTangGuoJiLuMode.m */; };
 		04B6320820B58CC700D063B8 /* BCMePDCListAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */; };
 		04D3EA1B20BBA33D00F9A96D /* BCMeInvitingShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA1A20BBA33D00F9A96D /* BCMeInvitingShareView.m */; };
+		04D3EA1E20BBDAB900F9A96D /* BCTangGuoListMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA1D20BBDAB900F9A96D /* BCTangGuoListMode.m */; };
+		04D3EA2A20BC384C00F9A96D /* BCMePDCMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA2920BC384C00F9A96D /* BCMePDCMode.m */; };
 		04D88D8B20BA954B008570FE /* BCInvitingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8A20BA954B008570FE /* BCInvitingBtn.m */; };
 		04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */; };
 		0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472420B3BFC100F65C2A /* UIView+WBY.m */; };
@@ -377,6 +379,10 @@
 		04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCListAlertView.m; sourceTree = "<group>"; };
 		04D3EA1920BBA33D00F9A96D /* BCMeInvitingShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeInvitingShareView.h; sourceTree = "<group>"; };
 		04D3EA1A20BBA33D00F9A96D /* BCMeInvitingShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeInvitingShareView.m; sourceTree = "<group>"; };
+		04D3EA1C20BBDAB900F9A96D /* BCTangGuoListMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTangGuoListMode.h; sourceTree = "<group>"; };
+		04D3EA1D20BBDAB900F9A96D /* BCTangGuoListMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTangGuoListMode.m; sourceTree = "<group>"; };
+		04D3EA2820BC384C00F9A96D /* BCMePDCMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCMode.h; sourceTree = "<group>"; };
+		04D3EA2920BC384C00F9A96D /* BCMePDCMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCMode.m; sourceTree = "<group>"; };
 		04D88D8920BA954B008570FE /* BCInvitingBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCInvitingBtn.h; sourceTree = "<group>"; };
 		04D88D8A20BA954B008570FE /* BCInvitingBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCInvitingBtn.m; sourceTree = "<group>"; };
 		04D88D8C20BAA5C0008570FE /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
@@ -967,10 +973,14 @@
 			children = (
 				04B631EF20B54E7600D063B8 /* BCMeModel.h */,
 				04B631F420B54E7600D063B8 /* BCMeModel.m */,
+				04D3EA1C20BBDAB900F9A96D /* BCTangGuoListMode.h */,
+				04D3EA1D20BBDAB900F9A96D /* BCTangGuoListMode.m */,
 				04B631F220B54E7600D063B8 /* BCMeTangGuoJiLuMode.h */,
 				04B631F520B54E7600D063B8 /* BCMeTangGuoJiLuMode.m */,
 				04B631F320B54E7600D063B8 /* BCQRCodeMode.h */,
 				04B631F020B54E7600D063B8 /* BCQRCodeMode.m */,
+				04D3EA2820BC384C00F9A96D /* BCMePDCMode.h */,
+				04D3EA2920BC384C00F9A96D /* BCMePDCMode.m */,
 				04B631F620B54E7600D063B8 /* BCMePDCListMode.h */,
 				04B631F120B54E7600D063B8 /* BCMePDCListMode.m */,
 				0468FB8020B6887E00C83299 /* BCMeChangeMoneyMode.h */,
@@ -2431,6 +2441,7 @@
 				ADE125AB20B2E84F00F6E172 /* SDWebImageCodersManager.m in Sources */,
 				ADE125AE20B2E84F00F6E172 /* FLAnimatedImageView.m in Sources */,
 				AD6EA45920B43ED200F61B33 /* UIView+MJExtension.m in Sources */,
+				04D3EA2A20BC384C00F9A96D /* BCMePDCMode.m in Sources */,
 				ADE126EF20B2ECCC00F6E172 /* SALoginModel.m in Sources */,
 				ADE1265E20B2E84F00F6E172 /* IQUIView+Hierarchy.m in Sources */,
 				ADE1266B20B2E87D00F6E172 /* SATabBarController.m in Sources */,
@@ -2447,6 +2458,7 @@
 				ADE125A620B2E84F00F6E172 /* MKAnnotationView+WebCache.m in Sources */,
 				ADE126E620B2EB4F00F6E172 /* NSFileManager+WHFileManager.m in Sources */,
 				ADE1264D20B2E84F00F6E172 /* MJExtensionConst.m in Sources */,
+				04D3EA1E20BBDAB900F9A96D /* BCTangGuoListMode.m in Sources */,
 				AD23F73220B6981C0057E662 /* DataBase.m in Sources */,
 				ADE1269120B2EABD00F6E172 /* YWRequestData.m in Sources */,
 				AD23F71220B661B00057E662 /* BCReaNameController.m in Sources */,
