@@ -17,5 +17,20 @@
 + (void)userLoginDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 // - 首页糖果记录-----
 + (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+// - 领取糖果-----
 + (void)candycainDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+// - 实名认证-----
++ (void)realNameIDDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+// -首页bamner -----
++ (void)homePageDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+// 中奖人列表 -----
++ (void)winPeopleDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+// 领取紫钻的接口-----
++ (void)gainPurpleStoneDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+//算力 和记录
++ (void)computePowerDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+//原力任务列表
++ (void)userTaskListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+//普通任务列表
++ (void)taskListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 @end

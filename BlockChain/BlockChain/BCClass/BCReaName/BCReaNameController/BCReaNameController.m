@@ -24,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *handbt;
 
 @property (weak, nonatomic) IBOutlet UIButton *nextBt;
+
+@property (copy, nonatomic)NSString * idFrontImages;
+@property (copy, nonatomic)NSString * idBackImages;
+@property (copy, nonatomic)NSString * idPersonImages;
 @property(strong,nonatomic)UIButton * selectbt;
 @end
 
@@ -54,7 +58,29 @@
     [self updataImageBtC];
 }
 -(void)nextBtClick:(UIButton * )bt{
-  
+    if (self.realNameTf.text.length<=0) {
+        [MBManager showBriefAlert:@"姓名不能为空"];return;
+    }else if (self.cardIDnumberTf.text.length<=0){
+         [MBManager showBriefAlert:@"姓名不能为空"];return;
+    }else if (self.idFrontImages.length<=0){
+        [MBManager showBriefAlert:@"请上传身份证正面图片"];return;
+    }else if (self.idBackImages.length<=0){
+        [MBManager showBriefAlert:@"请上传身份证反面图片"];return;
+    }else if (self.idPersonImages.length<=0){
+        [MBManager showBriefAlert:@"请上传手持身份证图片"];return;
+    }
+    
+    NSMutableDictionary * realNameIDDict = diction;
+    realNameIDDict[@"token"] = loginToken;
+    realNameIDDict[@"realName"] =self.realNameTf.text;
+    realNameIDDict[@"idNo"] = self.cardIDnumberTf.text;
+    realNameIDDict[@"idFrontImages"] = self.idFrontImages;
+     realNameIDDict[@"idBackImages"] = self.idBackImages;
+     realNameIDDict[@"idPersonImages"] = self.idPersonImages;
+    [YWRequestData realNameIDDict:realNameIDDict success:^(id responseObj) {
+        [MBManager showBriefAlert:@"信息提交成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 -(void)updataImageBtC{
    
@@ -67,14 +93,7 @@
         NSLog(@"%@",pickerTypeStr);
         
     } pickerImagePic:^(UIImage *pickerImagePic) {
-        if ( self.selectbt == self.frontBt) {
-            self.frontImg.image = pickerImagePic;
-        }else if ( self.selectbt == self.backBt){
-               self.backImg.image = pickerImagePic;
-        }else if ( self.selectbt == self.handbt){
-               self.handImg.image = pickerImagePic;
-        }
-        
+       
         [self updataImage:pickerImagePic];
         
     }];
@@ -110,10 +129,24 @@
         //        //显示进度值
         //        [self.progressView setProgress:self.pictureProgress animated:NO];
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+        [MBManager hideAlert];
         
         NSLog(@"%@",responseObject);
         [self modifyImage:responseObject[@"data"]];
+        NSString * img = responseObject[@"data"];
+        
+       
+        
+        if ( self.selectbt == self.frontBt) {
+               self.frontImg.image = iconImage;
+            self.idFrontImages = img;
+        }else if ( self.selectbt == self.backBt){
+              self.backImg.image = iconImage;
+            self.idBackImages = img;
+        }else if ( self.selectbt == self.handbt){
+              self.handImg.image = iconImage;
+            self.idPersonImages = img;
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBManager hideAlert];
         [MBManager showBriefAlert:@"上传失败"];

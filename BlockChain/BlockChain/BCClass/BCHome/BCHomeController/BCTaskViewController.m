@@ -10,22 +10,30 @@
 #import "BCTaskTopView.h"
 #import "BCTaskTableViewCell.h"
 #import "BCTaskDetailViewController.h"
+#import "BCHomeModel.h"
+#import "BCMeInvitingFriendsController.h"
+
 @interface BCTaskViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)BCTaskTopView * taskTopView;
-
-@property(nonatomic,strong)SARefreshGifHeader *header;
-@property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
-@property(nonatomic,assign)NSInteger page;
-@property(nonatomic,assign)NSMutableArray *listArray;
-@property(nonatomic,assign)NSMutableArray *allListArray;
-
+@property(nonatomic,strong)NSMutableArray * platTaskLogModels;
+@property(nonatomic,strong)NSMutableArray * imgs;
+@property(nonatomic,strong)NSMutableArray * taskInfoModels;
 
 @end
 static NSString * const cellidenfder = @"BCTaskTableViewCell";
 @implementation BCTaskViewController
-
-
+-(NSMutableArray *)imgs{
+    
+    if (!_imgs) {
+        _imgs = [NSMutableArray array];
+    }
+    return _imgs;
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self loadNewData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"任务版";
@@ -37,48 +45,73 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
 {
     SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-    [header beginRefreshing];
-    self.tableView.mj_header = header;
     self.tableView.mj_footer = footer;
-    self.header =header;
-    self.footer =footer;
-    
+    self.tableView.mj_header = header;
+    [self.tableView.mj_header beginRefreshing];
 }
-//下拉加载
--(void)loadNewData{
-    self.page=1;
-    [self.allListArray removeAllObjects];
-    [self loadData];
-    
-}
-//上拉加载
 -(void)loadMoreData{
-    self.page+=1;
-    [self loadData];
+    TaskInfoModel *  taskInfoModel =   [self.taskInfoModels lastObject];
+    NSMutableDictionary * computePowerDict = diction;
+    computePowerDict[@"token"] =loginToken;
+    computePowerDict[@"lastId"] =taskInfoModel.ID;
+    computePowerDict[@"size"] =@"10";
+    
+    [YWRequestData taskListDict:computePowerDict success:^(id responseObj) {
+        NSMutableArray * arr =  [TaskInfoModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+        self.taskInfoModels = [TaskInfoModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+        
+        [self.taskInfoModels addObjectsFromArray:arr];
+        [self.tableView reloadData];
+        [self.tableView.mj_footer endRefreshing];
+        if (arr.count<=0) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        
+    }];
+    
 }
--(void)loadData{
-    NSMutableDictionary * candyDict = diction;
-    candyDict[@"token"] = loginToken;
-    //candyDict[@"code"] = self.code;//糖果id
-    candyDict[@"size"] = @100;//糖果id
-    candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
+-(void)loadNewData{
+    NSMutableDictionary * computePowerDict = diction;
+    computePowerDict[@"token"] =loginToken;
+    [self.imgs removeAllObjects];
+    [YWRequestData userTaskListDict:computePowerDict success:^(id responseObj) {
+        self.platTaskLogModels = [PlatTaskLogModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"][@"platTaskLogs"]];
+        [self.imgs addObject:responseObj[@"data"][@"bannerPic"]];
+        self.taskTopView.platTaskLogModels =  self.platTaskLogModels;
+        self.taskTopView.imgs =  self.imgs;
+        [self.tableView.mj_header endRefreshing];
+        
+        [self computePower];
+    }];
     
+}
+-(void)computePower{
+    NSMutableDictionary * computePowerDict = diction;
+    computePowerDict[@"token"] =loginToken;
+    //    computePowerDict[@"lastId"] =loginToken;
+    computePowerDict[@"size"] =@"10";
     
-    
-//    [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
-//        self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
-//        self.listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
-//        //[self.zonglistArray addObjectsFromArray:self.listArray];
-//        [self.tableView reloadData];
-//        [self.header endRefreshing];
-//    } erorr:^(id error) {
-//        [self.header endRefreshing];
-//
-//    }];
+    [YWRequestData taskListDict:computePowerDict success:^(id responseObj) {
+        self.taskInfoModels = [TaskInfoModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+        
+        [self.tableView reloadData];
+        if (  self.taskInfoModels.count<10) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        [self.tableView.mj_header endRefreshing];
+    }];
 }
 -(void)createTopView{
+    WeakSelf(weakSelf)
     self.taskTopView = [BCTaskTopView loadNameBCTaskTopViewViewXib];
-   
+    self.taskTopView .skipPage = ^(PlatTaskLogModel *platTaskLogModel) {
+        if ([platTaskLogModel.skipType isEqualToString:@"0"]) {
+            
+        }else{
+            BCMeInvitingFriendsController * meInvitingFriendsvc = [[BCMeInvitingFriendsController alloc] init];
+            [weakSelf.navigationController pushViewController:meInvitingFriendsvc animated:YES];
+        }
+    };
     self.tableView.tableHeaderView =  self.taskTopView;
     
 }
@@ -127,21 +160,30 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return     10;
+    return       self.taskInfoModels.count;
     
+}
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    {
+        return 70;
+    }
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return 200;
-    
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
 }
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    TaskInfoModel *taskInfoModel = self.taskInfoModels[indexPath.row];
     BCTaskTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellidenfder];
-    
+    cell. taskInfoModel = taskInfoModel;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

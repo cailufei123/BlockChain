@@ -22,7 +22,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29h-gh-EnZ">
                     <rect key="frame" x="0.0" y="20" width="352" height="83"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvt-dI-knM">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvt-dI-knM">
                             <rect key="frame" x="0.0" y="0.0" width="352" height="24"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-IW-myS">
@@ -66,7 +66,7 @@
                                         <constraint firstAttribute="height" constant="17" id="Tht-T4-OGn"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
-                                    <state key="normal" title="紫钻：3.7777" image="home_yellew_diamonds">
+                                    <state key="normal" title="算力：3.7777" image="home_yellew_diamonds">
                                         <color key="titleColor" red="0.4549019608" green="0.59999999999999998" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                 </button>

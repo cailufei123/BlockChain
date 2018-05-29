@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BCHomeModel.h"
 @interface BCHomeTableViewCell : UITableViewCell
-
+@property(nonatomic,strong) CandyListModel * candyListModel ;
+@property(nonatomic,copy)void (^receiveCandy)(UIButton * button);
 @end

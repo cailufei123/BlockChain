@@ -7,7 +7,14 @@
 //
 
 #import "BCHomeTableViewCell.h"
+@interface BCHomeTableViewCell()
+@property (weak, nonatomic) IBOutlet UIImageView *img;
+@property (weak, nonatomic) IBOutlet UILabel *nameLb;
+@property (weak, nonatomic) IBOutlet UILabel *contentLb;
+@property (weak, nonatomic) IBOutlet UIButton *statusBt;
 
+@property (weak, nonatomic) IBOutlet UILabel *atatusLb;
+@end
 @implementation BCHomeTableViewCell
 
 - (void)awakeFromNib {
@@ -15,10 +22,35 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setCandyListModel:(CandyListModel *)candyListModel{
+    [self.img sd_setImageWithURL:[NSURL URLWithString:candyListModel.icon] placeholderImage:nil];
+    self.nameLb.text = candyListModel.code;
+    self.contentLb.text = candyListModel.slogan;
+    if ([candyListModel.canGain isEqualToString:@"0"]) {
+        [self.statusBt setBackgroundColor:[UIColor grayColor]];
+        self.statusBt.userInteractionEnabled = NO;
+        [self.statusBt setTitle:@"已领取" forState:UIControlStateNormal];
+    }else if ([candyListModel.canGain isEqualToString:@"1"]){
+        [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#C8AACC"]];
+        self.statusBt.userInteractionEnabled = YES;
+        [self.statusBt setTitle:@"领取" forState:UIControlStateNormal];
+    }
+    
+    if ([candyListModel.status isEqualToString:@"1"]) {
+        self.atatusLb.text = @"进行中";
+    }else{
+        self.atatusLb.text = @"已结束";
+    }
+    [self.statusBt addTarget:self action:@selector(statusBtClick:) forControlEvents:UIControlEventTouchUpInside];
 }
-
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+}
+-(void)statusBtClick:(UIButton *)button{
+    
+    if (self.receiveCandy) {
+        self.receiveCandy(button);
+    }
+}
 @end

@@ -40,7 +40,7 @@
     //调整文字
     self.titleLabel.clf_x = 0;
     self.titleLabel.clf_y = self.imageView.clf_bottom;
-    self.titleLabel.clf_width = self.clf_width;
+    [self.titleLabel sizeToFit];
     self.titleLabel.clf_height = 20;
     self.titleLabel.clf_centerX = self.clf_width/2;
   

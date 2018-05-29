@@ -11,9 +11,7 @@
 #import "BCHomeModel.h"
 @interface BCHomeTopView()
 @property (weak, nonatomic) IBOutlet UIView *horseLampbgView;
-@property (weak, nonatomic) IBOutlet UIButton *purpleStoneBt;
 
-@property (weak, nonatomic) IBOutlet UIButton *tellowStoneBt;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *hideSquareBt;
@@ -75,6 +73,49 @@
      [self.tellowStoneBt addTarget:self action:@selector(tellowStoneBtClick) forControlEvents:UIControlEventTouchUpInside];
 
 }
+-(void)setLists:(NSMutableArray *)lists{
+    _lists = lists;
+    [self createCenterStone];
+}
+
+//创建按钮
+-(void)createCenterStone{
+   
+    [self.stoneBgView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.buttons removeAllObjects];
+    CGFloat buttonH = 50;
+    CGFloat buttonW = 35;
+    
+  
+        
+        
+       
+        
+        BCVerticalBttton * bt = [[BCVerticalBttton alloc] init];
+        bt.clf_width = buttonW;
+        bt.clf_height = buttonH;
+        [bt setImage:[UIImage imageNamed:@"home_mineral_icon"] forState:UIControlStateNormal];
+        [bt setTitle:@"在生长" forState:UIControlStateNormal];
+        bt.titleLabel.font = [UIFont systemFontOfSize:10];
+    
+        bt.clf_centerY = 180;
+       bt.clf_centerX = LFscreenW/2;
+     
+        [  self.stoneBgView  addSubview:bt];
+        
+        [bt addTarget:self action:@selector(clickB) forControlEvents:UIControlEventTouchUpInside];
+    
+        
+  
+}
+
+-(void)clickB{
+    if ( self.refreshCandyList) {
+        self.refreshCandyList();
+    }
+}
+
+
 -(void)setCandyLists:(NSMutableArray *)candyLists{
     _candyLists = candyLists;
     [self createStone] ;
@@ -134,9 +175,9 @@
    
     if (sender.selectedSegmentIndex == 0) {
        
-      
+        self.screen(@"1");
     }else if (sender.selectedSegmentIndex == 1){
-      
+        self.screen(@"0");
     }
 }
 
@@ -167,18 +208,21 @@
 //    UIView * bg = [[UIView alloc] init];
 //    self.stoneBgView.frame = CGRectMake(0, 0, LFscreenW, 180);
 //    [self.stoneBgView addSubview:bg];
-    [self.buttons makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.stoneBgView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.buttons removeAllObjects];
     CGFloat buttonH = 50;
     CGFloat buttonW = 35;
 
     for (int i = 0; i < _candyLists.count; i++) {
+       
+        
         HomeCandyListModel * candyListModel = _candyLists[i];
+       
         BCVerticalBttton * bt = [[BCVerticalBttton alloc] init];
         bt.clf_width = buttonW;
         bt.clf_height = buttonH;
         [bt setImage:[UIImage imageNamed:@"home_mineral_icon"] forState:UIControlStateNormal];
-        [bt setTitle:candyListModel.cost forState:UIControlStateNormal];
+        [bt setTitle:candyListModel.drill forState:UIControlStateNormal];
         bt.titleLabel.font = [UIFont systemFontOfSize:10];
         bt.tag = i;
 //        [bt setTitleColor:bCwhiteColor forState:UIControlStateNormal];
@@ -209,8 +253,13 @@
       HomeCandyListModel * candyListModel = _candyLists[bt.tag];
     NSMutableDictionary *  candycainDict = diction;
     candycainDict[@"token"] = loginToken;
-     candycainDict[@"candyId"] = candyListModel.candyId;
-    [YWRequestData candycainDict:candycainDict success:^(id responseObj) {
+     candycainDict[@"id"] = candyListModel.ID;
+ 
+    LFLog(@"%@ %@",CANDY_GAIN,candycainDict);
+    
+    // 领取紫钻的接口-----
+    [YWRequestData gainPurpleStoneDict:candycainDict success:^(id responseObj) {
+        [self loadHomeCandyLis];
         [UIView animateWithDuration:self.duration animations:^{
             bt.clf_y = -LFscreenH;
         }completion:^(BOOL finished) {
@@ -224,7 +273,76 @@
             }
         }];
     }];
+//    [YWRequestData candycainDict:candycainDict success:^(id responseObj) {
+//
+//    }];
+
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//
+//
+//    AFURLSessionManager *manager1 = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+//    //        NSString *requestUrlStr = PAY_WX;
+//    NSMutableURLRequest *req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:CANDY_GAIN parameters:candycainDict error:nil];
+//    // 设置postBody
+////    NSData *data =[self.wishPoolModel.vcMsg dataUsingEncoding:NSUTF8StringEncoding];
+////    [req setHTTPBody:data];
+//    [[manager1 dataTaskWithRequest:req uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+//
+//    } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
+//
+//    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//
+//        if (!error) {
+//            if (self.buttons.count<=0) {
+//                                if ( self.refreshCandyList) {
+//                                    self.refreshCandyList();
+//                                }
+//                            }
+//        }else{
+//            LFLog(@"%@",error);
+//        }
+//
+//    }]resume];
+//
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+-(void)loadHomeCandyLis{
+  
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    candyDict[@"size"] = @"1";
+    LFLog(@"%@",candyDict);
+    [YWRequestData homePageDict:candyDict success:^(id responseObj) {
+        self.candyLists = [HomeCandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"][@"drillGrantInfos"]];
+        [self.purpleStoneBt setTitle:[NSString stringWithFormat:@"紫钻：%@",responseObj[@"data"][@"coin"]]forState:UIControlStateNormal];
+        [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
+        
+    }];
     
 }
 - (BOOL)frameIntersects:(CGRect)frame {

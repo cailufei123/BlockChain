@@ -26,11 +26,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="1186"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1210"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i74-ca-01z">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="1186"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1210"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hX8-mY-WJL">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="1183"/>
@@ -344,7 +344,7 @@
                 <constraint firstItem="i74-ca-01z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="utz-7p-Td3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="33.5" y="313"/>
+            <point key="canvasLocation" x="-16.5" y="611"/>
         </view>
     </objects>
     <resources>
