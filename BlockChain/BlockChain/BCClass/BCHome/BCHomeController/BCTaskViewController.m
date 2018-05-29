@@ -13,6 +13,14 @@
 @interface BCTaskViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)BCTaskTopView * taskTopView;
+
+@property(nonatomic,strong)SARefreshGifHeader *header;
+@property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
+@property(nonatomic,assign)NSInteger page;
+@property(nonatomic,assign)NSMutableArray *listArray;
+@property(nonatomic,assign)NSMutableArray *allListArray;
+
+
 @end
 static NSString * const cellidenfder = @"BCTaskTableViewCell";
 @implementation BCTaskViewController
@@ -29,11 +37,44 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
 {
     SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    [header beginRefreshing];
+    self.tableView.mj_header = header;
     self.tableView.mj_footer = footer;
+    self.header =header;
+    self.footer =footer;
+    
 }
+//下拉加载
+-(void)loadNewData{
+    self.page=1;
+    [self.allListArray removeAllObjects];
+    [self loadData];
+    
+}
+//上拉加载
 -(void)loadMoreData{
+    self.page+=1;
+    [self loadData];
+}
+-(void)loadData{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    //candyDict[@"code"] = self.code;//糖果id
+    candyDict[@"size"] = @100;//糖果id
+    candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
     
     
+    
+//    [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
+//        self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
+//        self.listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
+//        //[self.zonglistArray addObjectsFromArray:self.listArray];
+//        [self.tableView reloadData];
+//        [self.header endRefreshing];
+//    } erorr:^(id error) {
+//        [self.header endRefreshing];
+//
+//    }];
 }
 -(void)createTopView{
     self.taskTopView = [BCTaskTopView loadNameBCTaskTopViewViewXib];

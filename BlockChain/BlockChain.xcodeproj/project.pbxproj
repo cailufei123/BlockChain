@@ -47,6 +47,8 @@
 		04D3EA1B20BBA33D00F9A96D /* BCMeInvitingShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA1A20BBA33D00F9A96D /* BCMeInvitingShareView.m */; };
 		04D3EA1E20BBDAB900F9A96D /* BCTangGuoListMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA1D20BBDAB900F9A96D /* BCTangGuoListMode.m */; };
 		04D3EA2A20BC384C00F9A96D /* BCMePDCMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA2920BC384C00F9A96D /* BCMePDCMode.m */; };
+		04D3EA2D20BCEE0100F9A96D /* BCMePDCUpMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA2C20BCEE0100F9A96D /* BCMePDCUpMode.m */; };
+		04D3EA3020BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA2F20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m */; };
 		04D88D8B20BA954B008570FE /* BCInvitingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8A20BA954B008570FE /* BCInvitingBtn.m */; };
 		04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */; };
 		0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472420B3BFC100F65C2A /* UIView+WBY.m */; };
@@ -383,6 +385,10 @@
 		04D3EA1D20BBDAB900F9A96D /* BCTangGuoListMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTangGuoListMode.m; sourceTree = "<group>"; };
 		04D3EA2820BC384C00F9A96D /* BCMePDCMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCMode.h; sourceTree = "<group>"; };
 		04D3EA2920BC384C00F9A96D /* BCMePDCMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCMode.m; sourceTree = "<group>"; };
+		04D3EA2B20BCEE0100F9A96D /* BCMePDCUpMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCUpMode.h; sourceTree = "<group>"; };
+		04D3EA2C20BCEE0100F9A96D /* BCMePDCUpMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCUpMode.m; sourceTree = "<group>"; };
+		04D3EA2E20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoJiLuUpCell.h; sourceTree = "<group>"; };
+		04D3EA2F20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeTangGuoJiLuUpCell.m; sourceTree = "<group>"; };
 		04D88D8920BA954B008570FE /* BCInvitingBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCInvitingBtn.h; sourceTree = "<group>"; };
 		04D88D8A20BA954B008570FE /* BCInvitingBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCInvitingBtn.m; sourceTree = "<group>"; };
 		04D88D8C20BAA5C0008570FE /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
@@ -925,6 +931,8 @@
 				04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */,
 				04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */,
 				04B631DF20B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.m */,
+				04D3EA2E20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.h */,
+				04D3EA2F20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m */,
 				04B631E420B54E7600D063B8 /* BCMeTangGuoJiLuCell.h */,
 				04B631DC20B54E7600D063B8 /* BCMeTangGuoJiLuCell.m */,
 				04B631E220B54E7600D063B8 /* BCVewForHeader.h */,
@@ -981,6 +989,8 @@
 				04B631F020B54E7600D063B8 /* BCQRCodeMode.m */,
 				04D3EA2820BC384C00F9A96D /* BCMePDCMode.h */,
 				04D3EA2920BC384C00F9A96D /* BCMePDCMode.m */,
+				04D3EA2B20BCEE0100F9A96D /* BCMePDCUpMode.h */,
+				04D3EA2C20BCEE0100F9A96D /* BCMePDCUpMode.m */,
 				04B631F620B54E7600D063B8 /* BCMePDCListMode.h */,
 				04B631F120B54E7600D063B8 /* BCMePDCListMode.m */,
 				0468FB8020B6887E00C83299 /* BCMeChangeMoneyMode.h */,
@@ -2420,6 +2430,7 @@
 				ADE125C320B2E84F00F6E172 /* UIButton+WebCache.m in Sources */,
 				04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */,
 				AD23F6D420B556AB0057E662 /* BCTaskTopView.m in Sources */,
+				04D3EA2D20BCEE0100F9A96D /* BCMePDCUpMode.m in Sources */,
 				ADE1267720B2E91000F6E172 /* UIView+GKExtension.m in Sources */,
 				ADACD07C20BBAE9C00EE21F6 /* BCRequestData.m in Sources */,
 				ADE126E120B2EB4F00F6E172 /* UIButton+WHButton.m in Sources */,
@@ -2449,6 +2460,7 @@
 				0487042820B7E821005C77DA /* BCHomeDetailViewController.m in Sources */,
 				ADE1266920B2E87D00F6E172 /* SALoginRegistNavController.m in Sources */,
 				ADE126E220B2EB4F00F6E172 /* UIScrollView+WHScrollView.m in Sources */,
+				04D3EA3020BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m in Sources */,
 				AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */,
 				04B631F920B54E7700D063B8 /* BCMeTangGuoJiLuCell.m in Sources */,
 				ADE1270D20B2EDED00F6E172 /* MBManager.m in Sources */,

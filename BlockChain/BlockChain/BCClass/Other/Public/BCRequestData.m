@@ -53,12 +53,34 @@
         [MBManager hideAlert];
     }];
 }
-+(void)get_candy_Detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
++(void)get_token_Detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
     
     [LFHttpTool post:TOKEN_DETAIL params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         
         [responseObj writeToFile:@"/Users/mac/Desktop/plist/aaa.plist" atomically:YES];
+        LFLog(@"==%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            //[MBManager showBriefAlert:@"请求成功"];
+        }else{
+            erorr(responseObj);
+            [MBManager showBriefAlert:responseObj[@"message"]];
+        }
+    } failure:^(NSError *error) {
+        erorr(error);
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+
++(void)get_candy_List_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
+    
+    [LFHttpTool post:CANDY_LIST params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        
+        [responseObj writeToFile:@"/Users/mac/Desktop/plist/kkk.plist" atomically:YES];
         LFLog(@"==%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {

@@ -9,6 +9,7 @@
 #import "BCMePDCListController.h"
 #import "BCMePDCListHeaderView.h"
 #import "BCMeTangGuoJiLuMode.h"
+#import "BCMePDCMode.h"
 #import "BCMePDCListMode.h"
 #import "BCMeTangGuoJiLuCell.h"
 #import "BCMePDCListAlertView.h"
@@ -16,8 +17,9 @@
 #import "BCSetViewController.h"
 #import "BCMeChangeMoneyController.h"
 #import "BCMeQRCodeController.h"
+#import "BCMeTangGuoJiLuUpCell.h"
 
-@interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListHeaderViewDelegate,BCMePDCListAlertViewDelegate,BCMeRealNameAlertViewDelegate>
+@interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMeTangGuoJiLuUpCellDelegate,BCMePDCListAlertViewDelegate,BCMeRealNameAlertViewDelegate>
 @property(nonatomic,strong)BCMePDCListHeaderView *headerView;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)BCMePDCListMode *model;
@@ -27,7 +29,10 @@
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
 @property(nonatomic,assign)NSInteger page;
+@property(nonatomic,strong)NSMutableArray *listArray;
+@property(nonatomic,strong)NSMutableArray *zonglistArray;
 
+@property(nonatomic,strong)BCMePDCMode *PDCmodel;
 @end
 
 @implementation BCMePDCListController
@@ -35,18 +40,29 @@
 
 #define HeaderViewHeight   ((SYRealValue(67+33+23))+kTopHeight+(SYRealValue(235)))  //顶部view高度
 //弹框
-#define alertViewWidth    (SXRealValue(343))
-#define alertViewHeight   (SYRealValue(467))
+#define alertViewWidth    SCREENWIDTH-2*(SXRealValue(16))
+#define alertViewHeight   (SCREENWIDTH-2*(SXRealValue(16)))*467/343)
 
 #define realWidth         (SXRealValue(343))
 #define realHeigth        (SXRealValue(211))
 
-
+-(NSMutableArray *)listArray{
+    if (!_listArray) {
+        _listArray= [NSMutableArray array];
+    }
+    return _listArray;
+}
+-(NSMutableArray *)zonglistArray{
+    if (!_zonglistArray) {
+        _zonglistArray= [NSMutableArray array];
+    }
+    return _zonglistArray;
+}
 /**表格**/
 -(UITableView *)tableView{
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
-        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-49) style:UITableViewStylePlain];
+        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-49) style:UITableViewStyleGrouped];
         NSLog(@"%f",kTopHeight);
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -66,25 +82,29 @@
 
 
 /**顶部view**/
--(BCMePDCListHeaderView *)headerView{
-    if (!_headerView) {
-        _headerView = [[BCMePDCListHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, HeaderViewHeight)];
-        _headerView.delegate =self;
-        _headerView.model=self.model;
-    }
-    return _headerView;
-}
+//-(BCMePDCListHeaderView *)headerView{
+//    if (!_headerView) {
+//        _headerView = [[BCMePDCListHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, HeaderViewHeight)];
+//        _headerView.delegate =self;
+////        _headerView.model=self.model;
+//    }
+//    return _headerView;
+//}
 /**顶部view**/
 -(BCMePDCListAlertView *)alertView{
     if (!_alertView) {
-        _alertView = [[BCMePDCListAlertView alloc] initWithFrame:CGRectMake(0, 0, alertViewWidth, alertViewHeight)];
+        _alertView = [[BCMePDCListAlertView alloc] initWithFrame:CGRectMake(SXRealValue(16), (SYRealValue(110)), alertViewWidth, alertViewHeight];
+        [Util roundBorderView:SXRealValue(3) border:0 color:[UIColor blackColor] view:_alertView];
         //_alertView.backgroundColor =[UIColor greenColor];
+//[_alertView.guanWangBtn addTarget:self action:@selector(abc) forControlEvents:UIControlEventTouchUpInside];
         _alertView.delegate =self;
-        _alertView.model=self.model;
     }
     return _alertView;
 }
-
+-(void)abc{
+    
+    
+}
 -(BCMeRealNameAlertView *)realNameAlertView{
     if (!_realNameAlertView) {
         _realNameAlertView = [[BCMeRealNameAlertView alloc] initWithFrame:CGRectMake(0, 0, realWidth, realHeigth)];
@@ -95,8 +115,9 @@
 }
 
 #pragma mark -BCMePDCListAlertViewDelegate 加载官网按钮
--(void)guanWangBtnClick:(BCMePDCListMode *)model{
-    NSLog(@"点击了官网");
+-(void)guanWangBtnClick:(BCMePDCMode *)model{
+    NSString *path = [NSString stringWithFormat:@"http://%@",model.partner.site];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path]];
 }
 #pragma mark -BCMePDCListAlertViewDelegate 知道了按钮点击
 -(void)sureBtnClick:(BCMePDCListMode *)model{
@@ -139,7 +160,7 @@
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //加载headerView
-    self.tableView.tableHeaderView =  self.headerView;
+//    self.tableView.tableHeaderView =  self.headerView;
     //初始化转账与收款
     [self setPayOrGetMoneyBtn];
     
@@ -147,17 +168,18 @@
 - (void)createRefresh
 {
     SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+//    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     [header beginRefreshing];
     self.tableView.mj_header = header;
-    self.tableView.mj_footer = footer;
+//    self.tableView.mj_footer = footer;
     self.header =header;
-    self.footer =footer;
+//    self.footer =footer;
     
 }
 //下拉加载
 -(void)loadNewData{
     self.page=1;
+    [self.zonglistArray removeAllObjects];
     [self loadData];
 
 }
@@ -170,14 +192,14 @@
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id
-    candyDict[@"size"] = @20;//糖果id
+    candyDict[@"size"] = @100;//糖果id
     candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
     
-    [BCRequestData get_candy_Detail_Dict:candyDict success:^(id responseObject) {
-        //        BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
-        //        self.meHeaderView.model =model;
-        //        self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
-        //        [self.tableView reloadData];
+    [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
+    self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
+    self.listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
+        //[self.zonglistArray addObjectsFromArray:self.listArray];
+        [self.tableView reloadData];
         [self.header endRefreshing];
     } erorr:^(id error) {
         [self.header endRefreshing];
@@ -185,13 +207,14 @@
     }];
 }
 
-#pragma mark -
--(void)xiaQingBtnClickWithModel:(BCMePDCListMode *)model{
+#pragma mark -点击详情按钮
+-(void)xiaQingBtnClickWithModel:(BCMePDCMode *)model{
     //BCCodeAlertView * codeAlertView  =[BCCodeAlertView loadNameBCCodeAlertViewXib];
-    //self.alertView.clf_size = CGSizeMake(LFscreenW-30, 270);
-    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.alertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
-
+    self.alertView.model=self.PDCmodel;
+    //self.alertView.clf_size = CGSizeMake(SXRealValue(343), SYRealValue(467));
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.alertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleCenter notClick:NO];
 }
+                                                                            
 #pragma 底部转账与收款
 -(void)setPayOrGetMoneyBtn{
     UIView *view = [[UIView alloc] init];
@@ -269,7 +292,7 @@
     NSLog(@"二维码");
 }
 -(void)setNaviTitle{
-    self.navigationItem.title=@"PDC总数";
+    self.navigationItem.title=[NSString stringWithFormat:@"%@总数",self.code];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(16)),
        NSForegroundColorAttributeName:naverTextColor}];
@@ -278,14 +301,23 @@
 
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return  (SYRealValue(54)) ;
+    if (section==0) {
+        return 0.01;
+    }else{
+        return  (SYRealValue(54)) ;
+    }
 }
+
 //返回高度
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section==0) {
+        return nil;
+    }else{
+        if (self.listArray.count<1) return nil;
     UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
     view.backgroundColor = naverTextColor;
     UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-    tangGuoJiLulable.text =@"糖果记录";
+    tangGuoJiLulable.text =@"收款记录";
     UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(0.6)))];
     lineView.backgroundColor = colorE5E7E9;
     [view addSubview:tangGuoJiLulable];
@@ -302,6 +334,7 @@
         make.height.mas_equalTo((SYRealValue(0.6)));
     }];
     return view;
+    }
 }
 //-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 //{
@@ -310,27 +343,47 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return  20;
-    
+    if (section==0) {
+        return 1;
+    }else{
+        return  self.listArray.count;
+    }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        return 300;
+    }else{
+       return (SYRealValue(54));
+    }
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return (SYRealValue(54));
+    if (indexPath.section==0) {
+        return UITableViewAutomaticDimension;
+    }else{
+        return (SYRealValue(54));
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //BCMeTangGuoJiLuMode *model = self.tangGuolistArray[indexPath.row];
-    BCMeTangGuoJiLuMode *model;
-    model.type=0;
-    //添加事件
-    BCMeTangGuoJiLuCell *cell = [BCMeTangGuoJiLuCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
-    cell.model =model;
-    return cell;
+    if (indexPath.section==0) {
+        //添加事件
+        BCMeTangGuoJiLuUpCell *cell = [BCMeTangGuoJiLuUpCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
+        cell.delegate =self;
+        cell.model =self.PDCmodel;
+        return cell;
+        
+    }else{
+        BCMePDCListMode *model = self.listArray[indexPath.row];
+        //添加事件
+        BCMeTangGuoJiLuCell *cell = [BCMeTangGuoJiLuCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
+        cell.model =model;
+        return cell;
+    }
 }
 
 

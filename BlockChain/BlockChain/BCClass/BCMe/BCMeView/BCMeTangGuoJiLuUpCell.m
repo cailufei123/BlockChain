@@ -1,17 +1,16 @@
 //
-//  BCMePDCListHeaderView.m
+//  BCMeTangGuoJiLuUpCell.m
 //  BlockChain
 //
-//  Created by Mac on 2018/5/23.
+//  Created by Mac on 2018/5/29.
 //  Copyright © 2018年 蔡路飞. All rights reserved.
 //
-//PDC总数view
-#import "BCMePDCListHeaderView.h"
-#import "BCMePDCUpMode.h"
+
+#import "BCMeTangGuoJiLuUpCell.h"
+#import "BCMePDCMode.h"
 
 
-@interface BCMePDCListHeaderView()
-
+@interface BCMeTangGuoJiLuUpCell()
 //@property (nonatomic, strong)UIView *upview1;
 //@property (nonatomic, strong)UIButton *backBtn;
 @property (nonatomic, strong)UIView *bigView;
@@ -37,19 +36,17 @@
 
 @end
 
-@implementation BCMePDCListHeaderView
+@implementation BCMeTangGuoJiLuUpCell
 //最大高度
 #define HeaderViewHeight   ((SYRealValue(67+33+23))+kTopHeight+(SYRealValue(235)))  //顶部view高度
 //顶部总体高度
 #define upBigViewHeight   ((SYRealValue(67+33+23)))
-//顶部总体高度
-
 
 -(UIView *)bigView{
     if (!_bigView) {
         _bigView = [[UIView alloc] init];
         //_upBigView.backgroundColor =[UIColor redColor];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_bigView];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_bigView];
     }
     return _bigView;
 }
@@ -58,7 +55,7 @@
         _upBigView = [[UIView alloc] init];
         
         //_upBigView.backgroundColor =[UIColor redColor];
-//          [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_upBigView];
+        //          [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_upBigView];
     }
     return _upBigView;
 }
@@ -66,7 +63,7 @@
 -(UILabel *)price{
     if (!_price) {
         _price =[UILabel LabelWithTextColor:naverTextColor textFont:FONT(@"PingFangSC-Medium", SXRealValue(47)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_price];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_price];
     }
     return _price;
 }
@@ -81,7 +78,6 @@
     if (!_smallBgView) {
         _smallBgView = [[UIView alloc] init];
         //_smallBgView.backgroundColor =colorB0ADFC;
-        _smallBgView.backgroundColor = [colorB0ADFC colorWithAlphaComponent:0.5];
         [Util roundBorderView:SXRealValue(3) border:0 color:[UIColor blackColor] view:_smallBgView];
     }
     return _smallBgView;
@@ -90,7 +86,7 @@
 -(UILabel *)yuePrice{
     if (!_yuePrice) {
         _yuePrice =[UILabel LabelWithTextColor:naverTextColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(19)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_yuePrice];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_yuePrice];
     }
     return _yuePrice;
 }
@@ -98,7 +94,7 @@
     if (!_downView) {
         _downView = [[UIView alloc] init];
         _downView.backgroundColor =naverTextColor;
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downView];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downView];
     }
     return _downView;
 }
@@ -106,14 +102,14 @@
 -(UILabel *)label1{
     if (!_label1) {
         _label1 =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label1];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label1];
     }
     return _label1;
 }
 -(UILabel *)label2{
     if (!_label2) {
         _label2 =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label2];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label2];
     }
     return _label2;
 }
@@ -121,14 +117,14 @@
 -(UILabel *)label3{
     if (!_label3) {
         _label3 =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label3];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label3];
     }
     return _label3;
 }
 -(UILabel *)label4{
     if (!_label4) {
         _label4 =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:0];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label4];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label4];
     }
     return _label4;
 }
@@ -142,32 +138,37 @@
         _xiaQingBtn.titleLabel.textColor =color2B73EE;
         //[_xiaQingBtn setBackgroundColor:color9164D6];
         [_xiaQingBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-        //给button添加下划线
-        NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"详情"];
-        NSRange titleRange = {0,[title length]};
-        [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
-        [_xiaQingBtn setAttributedTitle:title
-                                   forState:UIControlStateNormal];
-        [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
-        [_xiaQingBtn addTarget:self action:@selector(xiaQingBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_xiaQingBtn];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_xiaQingBtn];
     }
     return _xiaQingBtn;
 }
 
--(instancetype)initWithFrame:(CGRect)frame{
-    if (self =[super initWithFrame:frame]) {
++(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //初始化
+    static NSString * DetailArticleID = @"BCMeTangGuoJiLuUpCell";
+    BCMeTangGuoJiLuUpCell *cell = [tableView dequeueReusableCellWithIdentifier:DetailArticleID];
+    if (!cell) {
+        cell = [[BCMeTangGuoJiLuUpCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:DetailArticleID];
+        //选中颜色
+        //[Util selectCellBackgroundColor:cell];
+    };
+    
+    return cell;
+}
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         //顶部
-        self.bigView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-        [self.bigView gradientFreme:CGRectMake(0, 0, frame.size.width, frame.size.height) startColor:color5E4FC9 endColor:colorC483FB];    //初始化CAGradientlayer对象，使它的大小为UIView的大小
+//        self.bigView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         
-        self.upBigView.frame = CGRectMake(0, kTopHeight, SCREENWIDTH, upBigViewHeight);
+//        self.upBigView.frame = CGRectMake(0, kTopHeight, SCREENWIDTH, upBigViewHeight);
         [self.upBigView addSubview:self.price];
         [self.upBigView addSubview:self.smallBgView];
+        
         [self.smallBgView addSubview:self.yuePrice];
-        [self addSubview:self.bigView];
-        [self addSubview:self.upBigView];
-        [self addSubview:self.downView];
+        [self.contentView addSubview:self.bigView];
+        [self.contentView addSubview:self.upBigView];
+        [self.contentView addSubview:self.downView];
         [self.downView addSubview:self.label1];
         [self.downView addSubview:self.line];
         [self.downView addSubview:self.label2];
@@ -175,13 +176,24 @@
         [self.downView addSubview:self.label4];
         [self.downView addSubview:self.xiaQingBtn];
         
-
+        
+        
+        [self.bigView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(UIEdgeInsetsZero);
+        }];
+        [self.upBigView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.contentView.mas_top).with.offset(kTopHeight);
+            make.left.mas_equalTo(self.contentView.mas_left).with.offset(0);
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(0);
+            make.height.mas_equalTo(upBigViewHeight);
+        }];
         [self.price mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.upBigView.mas_top).with.offset(0);
             make.centerX.equalTo(self.upBigView.mas_centerX);
             make.width.mas_equalTo(SCREENWIDTH);
             make.height.mas_equalTo((SYRealValue(67)));
         }];
+        
         [self.smallBgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.price.mas_bottom).with.offset(0);
             make.centerX.equalTo(self.upBigView.mas_centerX);
@@ -194,10 +206,10 @@
             make.height.mas_equalTo((SYRealValue(28)));
         }];
         [self.downView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.mas_left).with.offset(0);
+            make.left.mas_equalTo(self.contentView.mas_left).with.offset(0);
             make.top.mas_equalTo(self.upBigView.mas_bottom).with.offset(0);
-            make.right.mas_equalTo(self.mas_right).with.offset(0);
-            make.bottom.mas_equalTo(self.mas_bottom).with.offset(0);
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(0);
+            make.bottom.mas_equalTo(self.contentView.mas_bottom).with.offset(0);
         }];
         
         [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -230,49 +242,64 @@
             make.top.mas_equalTo(self.label3.mas_bottom).with.offset((SYRealValue(15)));
         }];
         [self.xiaQingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.downView.mas_left).with.offset(SXRealValue(18));
+            make.left.mas_equalTo(self.downView.mas_left).with.offset(SXRealValue(12));
             make.top.mas_equalTo(self.label4.mas_bottom).with.offset((SYRealValue(5)));
             make.bottom.mas_equalTo(self.downView.mas_bottom).with.offset((SYRealValue(-2)));
             make.width.mas_equalTo((SYRealValue(40)));
             make.height.mas_equalTo((SYRealValue(20)));
         }];
-      
-        
-        
-//
+         //初始化CAGradientlayer对象，使它的大小为UIView的大小
     }
     return self;
 }
 
-
--(void)setModel:(BCMePDCUpMode *)model{
+-(void)setModel:(BCMePDCMode *)model{
     _model =model;
     if (model!=nil) {
-    self.price.text=[NSString stringWithFormat:@"%.1f",[model.coin floatValue]];
-    self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.rmb.floatValue];
-        self.label1.text=[NSString stringWithFormat:@"%@简介",model.projectName];
-    self.label2.text=[NSString stringWithFormat:@"项目名称:%@",model.projectName];
-    self.label3.text=[NSString stringWithFormat:@"标语:%@",model.slogan];
-    self.label4.text=[NSString stringWithFormat:@"项目介绍:%@",model.brief];
-    [self.xiaQingBtn setTitle:@"详情" forState:UIControlStateNormal];
-}
+        self.price.text=[NSString stringWithFormat:@"%.1f",[model.uci.coin floatValue]];
+        self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.uci.rmb.floatValue];
+        self.label1.text=[NSString stringWithFormat:@"%@简介",model.partner.code];
+        self.label2.text=[NSString stringWithFormat:@"项目名称:%@",model.partner.projectName];
+        self.label3.text=[NSString stringWithFormat:@"标语:%@",model.partner.slogan];
+        self.label4.text=[NSString stringWithFormat:@"项目介绍:%@",model.partner.brief];
+        [self.xiaQingBtn setTitle:@"详情" forState:UIControlStateNormal];
+        [self setlABLE];
+        [self.contentView layoutIfNeeded];
+        [self.bigView gradientFreme:CGRectMake(0, 0, SCREENWIDTH, self.bigView.xmg_height) startColor:color5E4FC9 endColor:colorC483FB];
+        self.smallBgView.backgroundColor = [colorB0ADFC colorWithAlphaComponent:0.5];
+    }
 }
 
-
+-(void)setlABLE{
+    //给button添加下划线
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"详情"];
+    NSRange titleRange = {0,[title length]};
+    [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
+    [_xiaQingBtn setAttributedTitle:title
+                           forState:UIControlStateNormal];
+    [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
+    [_xiaQingBtn addTarget:self action:@selector(xiaQingBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_xiaQingBtn];
+}
 #pragma 点击项目介绍详情
 -(void)xiaQingBtnClick{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(xiaQingBtnClickWithModel:)]) {
-            [self.delegate xiaQingBtnClickWithModel:self.model];
-        }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(xiaQingBtnClickWithModel:)]) {
+        [self.delegate xiaQingBtnClickWithModel:self.model];
+    }
 }
 
-#pragma 保存二维码到手机
-//-(void)moreTangGuoBtnClick:(UIButton *)button{
-    //    if (self.delegate && [self.delegate respondsToSelector:@selector(moreTangGuoBtnClick)]) {
-    //        [self.delegate moreTangGuoBtnClick];
-    //    }
-    
-//}
 
+
+//顶部总体高度
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
 
 @end

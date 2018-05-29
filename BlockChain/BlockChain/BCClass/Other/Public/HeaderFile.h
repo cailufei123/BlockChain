@@ -67,6 +67,6 @@
 
 
 #import "Util.h"
-
+#import "UIView+XMGExtension.h"
 
 #endif /* HeaderFile_h */

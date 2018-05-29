@@ -7,7 +7,7 @@
 //
 
 #import "BCMeTangGuoJiLuCell.h"
-#import "BCMeTangGuoJiLuMode.h"
+#import "BCMePDCListMode.h"
 
 @interface BCMeTangGuoJiLuCell()
 /** 日常领取*/
@@ -109,16 +109,14 @@
     }
     return self;
 }
--(void)setModel:(BCMeTangGuoJiLuMode *)model{
+-(void)setModel:(BCMePDCListMode *)model{
     _model =model;
     if (model!=nil) {
-
-    }else{
         //假数据
-        self.name.text = @"日常领取";
-        self.time.text= @"2018-14-15 14:22";
-        self.type.text =@"TBC";
-        self.price.text=[NSString stringWithFormat:@"%.6f",0.1111123123];
+        self.name.text = [NSString stringWithFormat:@"领取%@",model.name];
+        self.time.text= model.createTime;
+        self.type.text =model.code;
+        self.price.text=[NSString stringWithFormat:@"+%.1f",[model.price floatValue]];
     }
 }
 

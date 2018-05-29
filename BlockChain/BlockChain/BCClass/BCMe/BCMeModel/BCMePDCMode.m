@@ -10,8 +10,11 @@
 
 @implementation BCMePDCMode
 
-+(NSDictionary *)mj_replacedKeyFromPropertyName{
-    
-    return @{@"ID":@"id"};
++(NSDictionary *)objectClassInArray{
+    return @{@"partner":@"BCMePDCUpMode",
+             @"uci":@"BCMePDCUpMode"
+             };
 }
+
+
 @end
