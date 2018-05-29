@@ -17,7 +17,7 @@
     [LFHttpTool post:USER_INFO params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         
-        //LFLog(@"%@",responseObj);
+        //LFLog(@"====%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -74,13 +74,13 @@
         [MBManager hideAlert];
     }];
 }
-
+//糖果总数
 +(void)get_candy_List_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
     
-    [LFHttpTool post:CANDY_LIST params:dict progress:^(id downloadProgress) {
+    [LFHttpTool post:GET_CANDY_HISTORY params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         
-        [responseObj writeToFile:@"/Users/mac/Desktop/plist/kkk.plist" atomically:YES];
+        //[responseObj writeToFile:@"/Users/mac/Desktop/plist/kkk.plist" atomically:YES];
         LFLog(@"==%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {

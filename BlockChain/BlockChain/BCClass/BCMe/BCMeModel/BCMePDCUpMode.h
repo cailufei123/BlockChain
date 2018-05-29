@@ -10,28 +10,28 @@
 
 @interface BCMePDCUpMode : NSObject
 
-@property(nonatomic,strong)NSString * projectName;//名字
-@property(nonatomic,strong)NSString * brief;//介绍
-@property(nonatomic,strong)NSString * partnerId;
-@property(nonatomic,strong)NSString * mobile;
-@property(nonatomic,strong)NSString * contact;
-@property(nonatomic,strong)NSString * slogan;//标语
-@property(nonatomic,strong)NSString * code;//PDC详情
-@property(nonatomic,strong)NSString * price;//行价格
-@property(nonatomic,strong)NSString * icon;
-@property(nonatomic,strong)NSString * createTime;
-@property(nonatomic,strong)NSString * tel;
-@property(nonatomic,strong)NSString * site;//官网地址
-@property(nonatomic,strong)NSString * email;
-@property(nonatomic,strong)NSString * name;
-@property(nonatomic,strong)NSString * pubCount;//发行总量
+@property(nonatomic,copy)NSString * projectName;//名字
+@property(nonatomic,copy)NSString * brief;//介绍
+@property(nonatomic,copy)NSString * partnerId;
+@property(nonatomic,copy)NSString * mobile;
+@property(nonatomic,copy)NSString * contact;
+@property(nonatomic,copy)NSString * slogan;//标语
+@property(nonatomic,copy)NSString * code;//PDC详情
+@property(nonatomic,copy)NSString * price;//行价格
+@property(nonatomic,copy)NSString * icon;
+@property(nonatomic,copy)NSString * createTime;
+@property(nonatomic,copy)NSString * tel;
+@property(nonatomic,copy)NSString * site;//官网地址
+@property(nonatomic,copy)NSString * email;
+@property(nonatomic,copy)NSString * name;
+@property(nonatomic,copy)NSString * pubCount;//发行总量
 
 
-@property(nonatomic,strong)NSString * userId;
-@property(nonatomic,strong)NSString * ID;
-@property(nonatomic,strong)NSString * coin;
-@property(nonatomic,strong)NSString * rmb;
-@property(nonatomic,strong)NSString * type;
-@property(nonatomic,strong)NSString * ethCoinRatio;
+@property(nonatomic,copy)NSString * userId;
+@property(nonatomic,copy)NSString * ID;
+@property(nonatomic,copy)NSString * coin;
+@property(nonatomic,copy)NSString * rmb;
+@property(nonatomic,copy)NSString * type;
+@property(nonatomic,copy)NSString * ethCoinRatio;
 
 @end

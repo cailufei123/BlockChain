@@ -7,7 +7,7 @@
 //
 
 #import "BCMeTangGuoJiLuCell.h"
-#import "BCMePDCListMode.h"
+#import "BCMeTangGuoJiLuMode.h"
 
 @interface BCMeTangGuoJiLuCell()
 /** 日常领取*/
@@ -109,7 +109,7 @@
     }
     return self;
 }
--(void)setModel:(BCMePDCListMode *)model{
+-(void)setModel:(BCMeTangGuoJiLuMode *)model{
     _model =model;
     if (model!=nil) {
         //假数据

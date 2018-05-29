@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@class  BCMePDCListMode;
+@class  BCMeTangGuoJiLuMode;
 
 //协议
 @protocol BCMeTangGuoJiLuCellDelegate <NSObject>
@@ -20,7 +20,7 @@
 @end
 @interface BCMeTangGuoJiLuCell : UITableViewCell
 
-@property(nonatomic,strong)BCMePDCListMode *model;
+@property(nonatomic,strong)BCMeTangGuoJiLuMode *model;
 
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 @property (nonatomic, weak) id <BCMeTangGuoJiLuCellDelegate> delegate;
