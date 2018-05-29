@@ -11,15 +11,16 @@
 #import "BCMeTangGuoJiLuMode.h"
 #import "BCMePDCMode.h"
 #import "BCMePDCListMode.h"
-#import "BCMeTangGuoJiLuCell.h"
+
 #import "BCMePDCListAlertView.h"
 #import "BCMeRealNameAlertView.h"
 #import "BCSetViewController.h"
 #import "BCMeChangeMoneyController.h"
 #import "BCMeQRCodeController.h"
-#import "BCMeTangGuoJiLuUpCell.h"
+#import "BCMePDCListUpCell.h"
+#import "BCMePDCListDownCell.h"
 
-@interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMeTangGuoJiLuUpCellDelegate,BCMePDCListAlertViewDelegate,BCMeRealNameAlertViewDelegate>
+@interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListUpCellDelegate,BCMePDCListAlertViewDelegate,BCMeRealNameAlertViewDelegate>
 @property(nonatomic,strong)BCMePDCListHeaderView *headerView;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)BCMePDCListMode *model;
@@ -372,7 +373,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section==0) {
         //添加事件
-        BCMeTangGuoJiLuUpCell *cell = [BCMeTangGuoJiLuUpCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
+        BCMePDCListUpCell *cell = [BCMePDCListUpCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.delegate =self;
         cell.model =self.PDCmodel;
         return cell;
@@ -380,7 +381,7 @@
     }else{
         BCMePDCListMode *model = self.listArray[indexPath.row];
         //添加事件
-        BCMeTangGuoJiLuCell *cell = [BCMeTangGuoJiLuCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
+        BCMePDCListDownCell *cell = [BCMePDCListDownCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.model =model;
         return cell;
     }

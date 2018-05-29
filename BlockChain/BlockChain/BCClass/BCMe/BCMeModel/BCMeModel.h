@@ -6,7 +6,7 @@
 //  Copyright © 2018年 蔡路飞. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface BCMeModel : NSObject
 
@@ -52,5 +52,6 @@
 @property(nonatomic,strong)NSArray * list;
 @property(nonatomic,copy)NSString * logo;
 
+@property(nonatomic,strong)UIImage *Qimage;
 
 @end

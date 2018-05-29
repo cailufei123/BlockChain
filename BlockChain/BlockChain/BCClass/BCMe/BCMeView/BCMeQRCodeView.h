@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class BCQRCodeMode;
+@class BCMeModel;
 
 @interface BCMeQRCodeView : UIView
 
@@ -18,6 +18,6 @@
 /** 二维码下划线*/
 @property (nonatomic, strong)UIButton *QRCodeBtn2;
 
-@property (nonatomic, strong)BCQRCodeMode *model;
+@property (nonatomic, strong)BCMeModel *model;
 
 @end

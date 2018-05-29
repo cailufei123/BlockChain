@@ -1,15 +1,15 @@
 //
-//  BCMeTangGuoJiLuCell.m
+//  BCMePDCListCell.m
 //  BlockChain
 //
-//  Created by Mac on 2018/5/23.
+//  Created by Mac on 2018/5/29.
 //  Copyright © 2018年 蔡路飞. All rights reserved.
 //
 
-#import "BCMeTangGuoJiLuCell.h"
-#import "BCMeTangGuoJiLuMode.h"
+#import "BCMePDCListDownCell.h"
+#import "BCMePDCListMode.h"
 
-@interface BCMeTangGuoJiLuCell()
+@interface BCMePDCListDownCell()
 /** 日常领取*/
 @property (nonatomic, strong)UILabel *name;
 /** 时间*/
@@ -20,26 +20,26 @@
 @property (nonatomic, strong)UILabel *price;
 @property(nonatomic,strong)UIView *line;
 @end
-@implementation BCMeTangGuoJiLuCell
+@implementation BCMePDCListDownCell
 
 -(UILabel *)name{
     if (!_name) {
         _name =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_name];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_name];
     }
     return _name;
 }
 -(UILabel *)time{
     if (!_time) {
         _time =[UILabel LabelWithTextColor:color717171 textFont:FONT(@"PingFangSC-Regular", SXRealValue(9)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_time];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_time];
     }
     return _time;
 }
 -(UILabel *)type{
     if (!_type) {
         _type =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_type];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_type];
     }
     return _type;
 }
@@ -47,7 +47,7 @@
 -(UILabel *)price{
     if (!_price) {
         _price =[UILabel LabelWithTextColor:colorD35353 textFont:FONT(@"PingFangSC-Regular", SXRealValue(14)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_price];
+        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_price];
     }
     return _price;
 }
@@ -61,10 +61,10 @@
 
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //初始化
-    static NSString * DetailArticleID = @"BCMeTableViewCell";
-    BCMeTangGuoJiLuCell *cell = [tableView dequeueReusableCellWithIdentifier:DetailArticleID];
+    static NSString * DetailArticleID = @"BCMePDCListDownCell";
+    BCMePDCListDownCell *cell = [tableView dequeueReusableCellWithIdentifier:DetailArticleID];
     if (!cell) {
-        cell = [[BCMeTangGuoJiLuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:DetailArticleID];
+        cell = [[BCMePDCListDownCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:DetailArticleID];
         //选中颜色
         //[Util selectCellBackgroundColor:cell];
     };
@@ -74,6 +74,7 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.backgroundColor =bagColor;
         [self.contentView addSubview:self.name];
         [self.contentView addSubview:self.time];
         [self.contentView addSubview:self.type];
@@ -107,21 +108,16 @@
     }
     return self;
 }
-
--(void)setModel:(BCMeTangGuoJiLuMode *)model{
+-(void)setModel:(BCMePDCListMode *)model{
     _model =model;
     if (model!=nil) {
         //假数据
         self.name.text = [NSString stringWithFormat:@"领取%@",model.name];
-        NSArray *array = [model.createTime componentsSeparatedByString:@"."]; //从字符A中分隔成2个元素的数组
-        if (array.count==2) {
-            self.time.text= array[0];
-        }else{
-            self.time.text = model.createTime;
-        }
+        self.time.text= model.createTime;
         self.type.text =model.code;
         self.price.text=[NSString stringWithFormat:@"+%.1f",[model.price floatValue]];
         self.line.backgroundColor = colorE5E7E9;
+        self.backgroundColor =naverTextColor;
     }
 }
 
@@ -132,7 +128,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 

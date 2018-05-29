@@ -48,7 +48,9 @@
 		04D3EA1E20BBDAB900F9A96D /* BCTangGuoListMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA1D20BBDAB900F9A96D /* BCTangGuoListMode.m */; };
 		04D3EA2A20BC384C00F9A96D /* BCMePDCMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA2920BC384C00F9A96D /* BCMePDCMode.m */; };
 		04D3EA2D20BCEE0100F9A96D /* BCMePDCUpMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA2C20BCEE0100F9A96D /* BCMePDCUpMode.m */; };
-		04D3EA3020BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA2F20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m */; };
+		04D3EA3020BCF59500F9A96D /* BCMePDCListUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA2F20BCF59500F9A96D /* BCMePDCListUpCell.m */; };
+		04D3EA3320BD4BBD00F9A96D /* BCMePDCListDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA3220BD4BBD00F9A96D /* BCMePDCListDownCell.m */; };
+		04D3EA3620BD61A100F9A96D /* KMQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA3520BD61A100F9A96D /* KMQRCode.m */; };
 		04D88D8B20BA954B008570FE /* BCInvitingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8A20BA954B008570FE /* BCInvitingBtn.m */; };
 		04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */; };
 		0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472420B3BFC100F65C2A /* UIView+WBY.m */; };
@@ -387,8 +389,12 @@
 		04D3EA2920BC384C00F9A96D /* BCMePDCMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCMode.m; sourceTree = "<group>"; };
 		04D3EA2B20BCEE0100F9A96D /* BCMePDCUpMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCUpMode.h; sourceTree = "<group>"; };
 		04D3EA2C20BCEE0100F9A96D /* BCMePDCUpMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCUpMode.m; sourceTree = "<group>"; };
-		04D3EA2E20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeTangGuoJiLuUpCell.h; sourceTree = "<group>"; };
-		04D3EA2F20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeTangGuoJiLuUpCell.m; sourceTree = "<group>"; };
+		04D3EA2E20BCF59500F9A96D /* BCMePDCListUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCListUpCell.h; sourceTree = "<group>"; };
+		04D3EA2F20BCF59500F9A96D /* BCMePDCListUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCListUpCell.m; sourceTree = "<group>"; };
+		04D3EA3120BD4BBD00F9A96D /* BCMePDCListDownCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePDCListDownCell.h; sourceTree = "<group>"; };
+		04D3EA3220BD4BBD00F9A96D /* BCMePDCListDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCListDownCell.m; sourceTree = "<group>"; };
+		04D3EA3420BD61A100F9A96D /* KMQRCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMQRCode.h; sourceTree = "<group>"; };
+		04D3EA3520BD61A100F9A96D /* KMQRCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMQRCode.m; sourceTree = "<group>"; };
 		04D88D8920BA954B008570FE /* BCInvitingBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCInvitingBtn.h; sourceTree = "<group>"; };
 		04D88D8A20BA954B008570FE /* BCInvitingBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCInvitingBtn.m; sourceTree = "<group>"; };
 		04D88D8C20BAA5C0008570FE /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
@@ -931,8 +937,10 @@
 				04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */,
 				04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */,
 				04B631DF20B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.m */,
-				04D3EA2E20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.h */,
-				04D3EA2F20BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m */,
+				04D3EA2E20BCF59500F9A96D /* BCMePDCListUpCell.h */,
+				04D3EA2F20BCF59500F9A96D /* BCMePDCListUpCell.m */,
+				04D3EA3120BD4BBD00F9A96D /* BCMePDCListDownCell.h */,
+				04D3EA3220BD4BBD00F9A96D /* BCMePDCListDownCell.m */,
 				04B631E420B54E7600D063B8 /* BCMeTangGuoJiLuCell.h */,
 				04B631DC20B54E7600D063B8 /* BCMeTangGuoJiLuCell.m */,
 				04B631E220B54E7600D063B8 /* BCVewForHeader.h */,
@@ -995,6 +1003,8 @@
 				04B631F120B54E7600D063B8 /* BCMePDCListMode.m */,
 				0468FB8020B6887E00C83299 /* BCMeChangeMoneyMode.h */,
 				0468FB8120B6887E00C83299 /* BCMeChangeMoneyMode.m */,
+				04D3EA3420BD61A100F9A96D /* KMQRCode.h */,
+				04D3EA3520BD61A100F9A96D /* KMQRCode.m */,
 			);
 			path = BCMeModel;
 			sourceTree = "<group>";
@@ -2374,6 +2384,7 @@
 				ADE1264F20B2E84F00F6E172 /* NSObject+MJClass.m in Sources */,
 				ADE125A720B2E84F00F6E172 /* SDWebImageManager.m in Sources */,
 				AD23F75020B6A5BB0057E662 /* ATMessageCell.m in Sources */,
+				04D3EA3620BD61A100F9A96D /* KMQRCode.m in Sources */,
 				ADE126D020B2EB4F00F6E172 /* NSNumber+WHNumber.m in Sources */,
 				ADE125B120B2E84F00F6E172 /* UIImage+MultiFormat.m in Sources */,
 				ADE125B920B2E84F00F6E172 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -2412,6 +2423,7 @@
 				06ED21A120B436EC008F44FE /* MASViewAttribute.m in Sources */,
 				04AA067F20B90F5E007DEDB1 /* BCMeInvitingFriendsController.m in Sources */,
 				ADE126D520B2EB4F00F6E172 /* WHMethods.m in Sources */,
+				04D3EA3320BD4BBD00F9A96D /* BCMePDCListDownCell.m in Sources */,
 				04B631FD20B54E7700D063B8 /* BCMeHeaderView.m in Sources */,
 				AD23F6EF20B569290057E662 /* TADotView.m in Sources */,
 				04B631FE20B54E7700D063B8 /* BCMeViewController.m in Sources */,
@@ -2460,7 +2472,7 @@
 				0487042820B7E821005C77DA /* BCHomeDetailViewController.m in Sources */,
 				ADE1266920B2E87D00F6E172 /* SALoginRegistNavController.m in Sources */,
 				ADE126E220B2EB4F00F6E172 /* UIScrollView+WHScrollView.m in Sources */,
-				04D3EA3020BCF59500F9A96D /* BCMeTangGuoJiLuUpCell.m in Sources */,
+				04D3EA3020BCF59500F9A96D /* BCMePDCListUpCell.m in Sources */,
 				AD6EA3CC20B43B7100F61B33 /* BCHomeTableViewCell.m in Sources */,
 				04B631F920B54E7700D063B8 /* BCMeTangGuoJiLuCell.m in Sources */,
 				ADE1270D20B2EDED00F6E172 /* MBManager.m in Sources */,
