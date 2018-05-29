@@ -6,11 +6,11 @@
 //  Copyright © 2018年 蔡路飞. All rights reserved.
 //
 
-#import "BCMeTangGuoJiLuUpCell.h"
+#import "BCMePDCListUpCell.h"
 #import "BCMePDCMode.h"
 
 
-@interface BCMeTangGuoJiLuUpCell()
+@interface BCMePDCListUpCell()
 //@property (nonatomic, strong)UIView *upview1;
 //@property (nonatomic, strong)UIButton *backBtn;
 @property (nonatomic, strong)UIView *bigView;
@@ -36,7 +36,7 @@
 
 @end
 
-@implementation BCMeTangGuoJiLuUpCell
+@implementation BCMePDCListUpCell
 //最大高度
 #define HeaderViewHeight   ((SYRealValue(67+33+23))+kTopHeight+(SYRealValue(235)))  //顶部view高度
 //顶部总体高度
@@ -70,7 +70,6 @@
 -(UIView *)line{
     if (!_line) {
         _line= [[UIView alloc] init];
-        _line.backgroundColor = colorE5E7E9;
     }
     return _line;
 }
@@ -93,7 +92,7 @@
 -(UIView *)downView{
     if (!_downView) {
         _downView = [[UIView alloc] init];
-        _downView.backgroundColor =naverTextColor;
+    
         //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downView];
     }
     return _downView;
@@ -132,10 +131,10 @@
 -(UIButton *)xiaQingBtn{
     if (!_xiaQingBtn) {
         _xiaQingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
         _xiaQingBtn.titleLabel.font = FONT(@"PingFangSC-Medium", SXRealValue(12));
         _xiaQingBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        _xiaQingBtn.titleLabel.textColor =color2B73EE;
+        _xiaQingBtn.titleLabel.textColor=color2B73EE;
+        [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
         //[_xiaQingBtn setBackgroundColor:color9164D6];
         [_xiaQingBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
 //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_xiaQingBtn];
@@ -145,10 +144,10 @@
 
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //初始化
-    static NSString * DetailArticleID = @"BCMeTangGuoJiLuUpCell";
-    BCMeTangGuoJiLuUpCell *cell = [tableView dequeueReusableCellWithIdentifier:DetailArticleID];
+    static NSString * DetailArticleID = @"BCMePDCListUpCell";
+    BCMePDCListUpCell *cell = [tableView dequeueReusableCellWithIdentifier:DetailArticleID];
     if (!cell) {
-        cell = [[BCMeTangGuoJiLuUpCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:DetailArticleID];
+        cell = [[BCMePDCListUpCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:DetailArticleID];
         //选中颜色
         //[Util selectCellBackgroundColor:cell];
     };
@@ -158,9 +157,9 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.backgroundColor =bagColor;
         //顶部
 //        self.bigView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-        
 //        self.upBigView.frame = CGRectMake(0, kTopHeight, SCREENWIDTH, upBigViewHeight);
         [self.upBigView addSubview:self.price];
         [self.upBigView addSubview:self.smallBgView];
@@ -169,13 +168,13 @@
         [self.contentView addSubview:self.bigView];
         [self.contentView addSubview:self.upBigView];
         [self.contentView addSubview:self.downView];
+        [self.contentView insertSubview:self.downView aboveSubview:self.upBigView];
         [self.downView addSubview:self.label1];
         [self.downView addSubview:self.line];
         [self.downView addSubview:self.label2];
         [self.downView addSubview:self.label3];
         [self.downView addSubview:self.label4];
         [self.downView addSubview:self.xiaQingBtn];
-        
         
         
         [self.bigView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -267,6 +266,10 @@
         [self.contentView layoutIfNeeded];
         [self.bigView gradientFreme:CGRectMake(0, 0, SCREENWIDTH, self.bigView.xmg_height) startColor:color5E4FC9 endColor:colorC483FB];
         self.smallBgView.backgroundColor = [colorB0ADFC colorWithAlphaComponent:0.5];
+        self.line.backgroundColor = colorE5E7E9;
+        self.downView.backgroundColor =naverTextColor;
+//        _xiaQingBtn.titleLabel.textColor=color2B73EE;
+//        [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
     }
 }
 

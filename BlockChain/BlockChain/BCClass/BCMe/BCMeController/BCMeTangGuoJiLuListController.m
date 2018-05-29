@@ -20,7 +20,7 @@
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
 @property(nonatomic,assign)NSInteger page;
-@property(nonatomic,strong)NSMutableArray *listArray;//列表数据（矿场日常领取、糖果列表、任务板）
+//@property(nonatomic,strong)NSMutableArray *listArray;//列表数据（矿场日常领取、糖果列表、任务板）
 @property(nonatomic,strong)NSMutableArray *allListArray;
 
 @end
@@ -29,12 +29,6 @@
 
 #define HeaderViewHeight   (SYRealValue(140+8+54))  //顶部view高度
 
--(NSMutableArray *)listArray{
-    if (!_listArray) {
-        _listArray= [NSMutableArray array];
-    }
-    return _listArray;
-}
 -(NSMutableArray *)allListArray{
     if (!_allListArray) {
         _allListArray= [NSMutableArray array];
@@ -77,7 +71,7 @@
     //请求数据
     [self createRefresh];
     //设置导航按钮
-    [self setupUIBarButtonItem];
+    //[self setupUIBarButtonItem];
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //加载headerView
@@ -117,8 +111,8 @@
     candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
     
     [BCRequestData get_candy_List_Dict:candyDict success:^(id responseObject) {
-        self.listArray = [BCMeTangGuoJiLuMode mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [self.allListArray addObjectsFromArray:self.listArray];
+        NSArray* listArray = [BCMeTangGuoJiLuMode mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.allListArray addObjectsFromArray:listArray];
         [self.headerView setUpImage:[UIImage imageNamed:@"雷鹿财富logoc-2"]];
         [self.tableView reloadData];
         [self.header endRefreshing];
@@ -130,18 +124,6 @@
 }
 
 
-
-//右边边导航控制器右边item
-- (void)setupUIBarButtonItem {
-    UIBarButtonItem *rightItemButton =[UIBarButtonItem itemWithImage:@"me_set_icon" hightImage:nil target:self action:@selector(onNavButtonTapped:event:)];
-    self.navigationItem.rightBarButtonItem =rightItemButton;
-    // self.navigationController.automaticallyAdjustsScrollViewInsets = YES;
-}
-#pragma mark-右侧导航按钮item 点击事件
--(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
-{
-
-}
 //-(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 //{
 //    return  (SYRealValue(54)) ;

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BCMeModel;
 //二维码界面
 @interface BCMeQRCodeController : UIViewController
 
+@property(nonatomic,strong)BCMeModel *meModel;
 @end
