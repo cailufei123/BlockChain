@@ -13,6 +13,9 @@
 #import "BCRealNameReviewPassViewController.h"
 #import "SAMessageViewController.h"
 #import "BCSetPayPasswordViewController.h"
+#import "BCMeModel.h"
+#import "ATServiceAgreementController.h"
+
 @interface BCSetViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *acountLb;
 @property (weak, nonatomic) IBOutlet UILabel *realNameLb;
@@ -23,29 +26,61 @@
 @end
 
 @implementation BCSetViewController
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self loadUpData];
+}
+-(void)loadUpData{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
+        LFLog(@"%@",responseObject);
+        BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
+        self.model=model;
+        [self statusl];
+    } erorr:^(id error) {//请求失败
+      
+    }];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.navigationItem.title = @"设置";
     self.view.backgroundColor = bagColor;
+  
+    [self statusl];
+
+
+    
+  
+}
+-(void)statusl{
     NSString * agreementStr = @"去认证";
+    if ([self.model.authStatus isEqualToString:@"1"]) {
+        agreementStr = @"审核中";
+    }else if ([self.model.authStatus isEqualToString:@"2"]){
+        agreementStr = @"认证通过";
+    }else if ([self.model.authStatus isEqualToString:@"3"]){
+        agreementStr = @"认证失败";
+      
+    }else{
+        agreementStr = @"去认证";
+    }
+  
     NSRange agreement = [agreementStr rangeOfString:agreementStr];
     NSDictionary *attribtDic = @{NSUnderlineStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
     NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:agreementStr ];
     [attribtStr addAttributes:attribtDic range:agreement];
-    
     self.realNameLb.attributedText = attribtStr;
-self.realNameSkipstr = @"1";
- //   去认证 1.审核中 2.实名认证通过 3.实名认证失败
-    if ([self.meModel.isAuthed isEqualToString:@"1"]) {
+    
+    if ([self.model.isPayPassSet isEqualToString:@"0"]) {
         
-    }else if ([self.meModel.isAuthed isEqualToString:@"2"]){
-        
-    }else if ([self.meModel.isAuthed isEqualToString:@"3"]){
-        
+        self.payPasswordLb.text = @"设置支付密码";
+    }else if ([self.model.isAuthed isEqualToString:@"1"]){
+
+         self.payPasswordLb.text = @"重置支付密码";
     }
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,31 +90,45 @@ self.realNameSkipstr = @"1";
     [self.navigationController pushViewController:messageV animated:YES];
 }
 - (IBAction)realnameTap:(id)sender {
-    if ([self.realNameSkipstr isEqualToString:@"1"]) {
-        BCReaNameController * reaNamv = [[BCReaNameController alloc] init];
-        [self.navigationController pushViewController:reaNamv animated:YES];
-    }else if([self.realNameSkipstr isEqualToString:@"2"]) {
+    
+    if ([self.model.authStatus isEqualToString:@"1"]) {
         BCRealNameInReviewViewController * reaNamv = [[BCRealNameInReviewViewController alloc] init];
         [self.navigationController pushViewController:reaNamv animated:YES];
-    }else if([self.realNameSkipstr isEqualToString:@"3"]) {
+    }else if ([self.model.authStatus isEqualToString:@"2"]){
+        BCRealNameReviewPassViewController * reaNamv = [[BCRealNameReviewPassViewController alloc] init];
+        reaNamv.model = self.model;
+        [self.navigationController pushViewController:reaNamv animated:YES];
+    }else if ([self.model.authStatus isEqualToString:@"3"]){
         BCRealNameReviewFailureViewController * reaNamv = [[BCRealNameReviewFailureViewController alloc] init];
         [self.navigationController pushViewController:reaNamv animated:YES];
-    }else if([self.realNameSkipstr isEqualToString:@"4"]) {
-        BCRealNameReviewPassViewController * reaNamv = [[BCRealNameReviewPassViewController alloc] init];
+    }else{
+        BCReaNameController * reaNamv = [[BCReaNameController alloc] init];
         [self.navigationController pushViewController:reaNamv animated:YES];
     }
    
+   
 }
 - (IBAction)paypasswordTap:(id)sender {
-
-    BCSetPayPasswordViewController * reaNamv = [[BCSetPayPasswordViewController alloc] init];
-    [self.navigationController pushViewController:reaNamv animated:YES];
+    
+    if ([self.model.isPayPassSet isEqualToString:@"0"]) {
+        BCSetPayPasswordViewController * reaNamv = [[BCSetPayPasswordViewController alloc] init];
+        reaNamv.title = @"设置支付密码";
+        [self.navigationController pushViewController:reaNamv animated:YES];
+    }else if ([self.model.isAuthed isEqualToString:@"2"]){
+        BCSetPayPasswordViewController * reaNamv = [[BCSetPayPasswordViewController alloc] init];
+          reaNamv.title = @"重置支付密码";
+        [self.navigationController pushViewController:reaNamv animated:YES];
+    }
+   
 }
 - (IBAction)invitationFriendTap:(id)sender {
     
 }
 - (IBAction)aboutMeTap:(id)sender {
-    
+    ATServiceAgreementController * serviceAgreementVc = [[ATServiceAgreementController alloc] init];
+    serviceAgreementVc.htmlurl = ABOUT_US;
+    serviceAgreementVc.htmltitle = @"关于我们";
+    [self.navigationController pushViewController:serviceAgreementVc animated:YES];
 }
 - (IBAction)loginOutClick:(id)sender {
     [self outLogin];

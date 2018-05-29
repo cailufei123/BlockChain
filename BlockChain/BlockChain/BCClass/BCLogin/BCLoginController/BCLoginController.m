@@ -191,7 +191,7 @@
         loginDict[@"mobile"] = self.phoneTf.text;
         loginDict[@"smsCode"] =self.codeTf.text;
         [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
-            [MBManager showscuess:@"登陆成功"];
+            [MBManager showBriefAlert:@"登陆成功"];
             SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
             [LFAccountTool save:loginmodel];
             [MBManager hideAlert];
@@ -225,14 +225,14 @@
             SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
             loginmodel.mobile =self.phoneTf.text;
             [LFAccountTool save:loginmodel];
-            [MBManager showscuess:@"注册成功"];
+            [MBManager showBriefAlert:@"注册成功"];
             
             
             NSMutableDictionary * loginDict = diction;
             loginDict[@"mobile"] = self.phoneTf.text;
             loginDict[@"smsCode"] =self.codeTf.text;
             [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
-                [MBManager showscuess:@"登陆成功"];
+                [MBManager showBriefAlert:@"登陆成功"];
                 SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
                 [LFAccountTool save:loginmodel];
                 [MBManager hideAlert];

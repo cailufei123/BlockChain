@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BCMeModel.h"
 @interface BCRealNameReviewPassViewController : UIViewController
-
+@property(nonatomic,strong)BCMeModel*model;
 @end
