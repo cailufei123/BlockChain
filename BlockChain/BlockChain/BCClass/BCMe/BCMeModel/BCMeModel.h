@@ -31,26 +31,26 @@
 //    "shareCode" = jhpmx54y,
 
 
-@property(nonatomic,strong)NSString * isAuthed;
-@property(nonatomic,strong)NSString * realName;//真实名字
-@property(nonatomic,strong)NSString * mobile;//电话
-@property(nonatomic,strong)NSString * maxTask;
-@property(nonatomic,strong)NSString * isPayPassSet;
-@property(nonatomic,strong)NSString * userId;
-@property(nonatomic,strong)NSString * token;
-@property(nonatomic,strong)NSString * icon;
-@property(nonatomic,strong)NSString * compute;
-@property(nonatomic,strong)NSString * level;
-@property(nonatomic,strong)NSString * idNo;
-@property(nonatomic,strong)NSString * isFeng;
-@property(nonatomic,strong)NSString * lastInviteCount;
-@property(nonatomic,strong)NSString * authStatus;
-@property(nonatomic,strong)NSString * name;//名字
-@property(nonatomic,strong)NSString * shareCode;//code分享码
+@property(nonatomic,copy)NSString * isAuthed;
+@property(nonatomic,copy)NSString * realName;//真实名字
+@property(nonatomic,copy)NSString * mobile;//电话
+@property(nonatomic,copy)NSString * maxTask;
+@property(nonatomic,copy)NSString * isPayPassSet;
+@property(nonatomic,copy)NSString * userId;
+@property(nonatomic,copy)NSString * token;
+@property(nonatomic,copy)NSString * icon;
+@property(nonatomic,copy)NSString * compute;
+@property(nonatomic,copy)NSString * level;
+@property(nonatomic,copy)NSString * idNo;
+@property(nonatomic,copy)NSString * isFeng;
+@property(nonatomic,copy)NSString * lastInviteCount;
+@property(nonatomic,copy)NSString * authStatus;
+@property(nonatomic,copy)NSString * name;//名字
+@property(nonatomic,copy)NSString * shareCode;//code分享码
 
-@property(nonatomic,strong)NSString * coin;
+@property(nonatomic,copy)NSString * coin;
 @property(nonatomic,strong)NSArray * list;
-@property(nonatomic,strong)NSString * logo;
+@property(nonatomic,copy)NSString * logo;
 
 
 @end

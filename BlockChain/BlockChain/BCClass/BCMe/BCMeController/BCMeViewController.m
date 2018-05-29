@@ -134,6 +134,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     candyDict[@"token"] = loginToken;
     [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
+        self.meModel=model;
         self.meHeaderView.model =model;
         [self.header endRefreshing];
     } erorr:^(id error) {//请求失败
@@ -149,7 +150,6 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     [BCRequestData get_Token_List_Dict:candyDict success:^(id responseObject) {
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:responseObject[@"data"]];
         self.meHeaderView.model =model;
-        
         self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
         [self.tableView reloadData];
         [self.header endRefreshing];
@@ -183,6 +183,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 //    BCMeInvitingFriendsController *setVc =[[BCMeInvitingFriendsController alloc] init];
 //    [self.navigationController pushViewController:setVc animated:YES];
     BCSetViewController *setVc =[[BCSetViewController alloc] init];
+    setVc.model =self.meModel;
     [self.navigationController pushViewController:setVc animated:YES];
 }
 

@@ -42,34 +42,29 @@
 -(UIView *)upBigView{
     if (!_upBigView) {
         _upBigView= [[UIView alloc] init];
-        _upBigView.backgroundColor = naverTextColor;
     }
     return _upBigView;
 }
 -(UIView *)view{
     if (!_view) {
         _view= [[UIView alloc] init];
-        _view.backgroundColor = naverTextColor;
     }
     return _view;
 }
 -(UIView *)view1{
     if (!_view1) {
         _view1= [[UIView alloc] init];
-        _view1.backgroundColor = bagColor;
     }
     return _view1;
 }
 -(UIView *)line{
     if (!_line) {
         _line= [[UIView alloc] init];
-        _line.backgroundColor = colorE5E7E9;
     }
     return _line;
 }
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self =[super initWithFrame:frame]) {
-        self.backgroundColor = naverTextColor;
         //顶部
        
         [self.view addSubview:self.tangGuoJiLulable];
@@ -121,8 +116,13 @@
 
                                     
 -(void)setUpImage:(UIImage *)image{
-    self.liLuCaiFuIcon.image = image;
-    self.tangGuoJiLulable.text =@"糖果记录";
+    _liLuCaiFuIcon.image = image;
+    _tangGuoJiLulable.text =@"糖果记录";
+    self.backgroundColor = naverTextColor;
+    _line.backgroundColor = colorE5E7E9;
+    _view1.backgroundColor = bagColor;
+    _view.backgroundColor = naverTextColor;
+    _upBigView.backgroundColor = naverTextColor;
 }
 
 /*

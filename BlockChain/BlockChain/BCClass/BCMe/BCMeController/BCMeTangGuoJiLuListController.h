@@ -10,4 +10,5 @@
 
 @interface BCMeTangGuoJiLuListController : UIViewController
 
+@property(nonatomic,copy)NSString *code;
 @end

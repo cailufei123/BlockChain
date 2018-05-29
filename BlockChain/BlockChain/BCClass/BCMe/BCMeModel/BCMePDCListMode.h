@@ -25,18 +25,18 @@
 ////"relatedId" = 10,
 ////"name" = 糖果,
 //
-@property(nonatomic,strong)NSString * ID;
-@property(nonatomic,strong)NSString * opType;
-@property(nonatomic,strong)NSString * partnerId;
-@property(nonatomic,strong)NSString * code;
-@property(nonatomic,strong)NSString * createTime;
-@property(nonatomic,strong)NSString * price;
-@property(nonatomic,strong)NSString * userId;
-@property(nonatomic,strong)NSString * ethService;
-@property(nonatomic,strong)NSString * coinType;
-@property(nonatomic,strong)NSString * remark;
-@property(nonatomic,strong)NSString * relatedId;
-@property(nonatomic,strong)NSString * name;
+@property(nonatomic,copy)NSString * ID;
+@property(nonatomic,copy)NSString * opType;
+@property(nonatomic,copy)NSString * partnerId;
+@property(nonatomic,copy)NSString * code;
+@property(nonatomic,copy)NSString * createTime;
+@property(nonatomic,copy)NSString * price;
+@property(nonatomic,copy)NSString * userId;
+@property(nonatomic,copy)NSString * ethService;
+@property(nonatomic,copy)NSString * coinType;
+@property(nonatomic,copy)NSString * remark;
+@property(nonatomic,copy)NSString * relatedId;
+@property(nonatomic,copy)NSString * name;
 
 
 

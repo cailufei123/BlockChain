@@ -14,11 +14,14 @@
 
 @interface BCMeTangGuoJiLuListController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)NSMutableArray *tangGuolistArray;//列表数据（矿场日常领取、糖果列表、任务板）
-
 @property(nonatomic,strong)BCMeTangGuoJiLuHeaderView *headerView;
 @property(nonatomic,strong)BCMeTangGuoJiLuMode *listMode;//糖果记录mode
 
+@property(nonatomic,strong)SARefreshGifHeader *header;
+@property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
+@property(nonatomic,assign)NSInteger page;
+@property(nonatomic,strong)NSMutableArray *listArray;//列表数据（矿场日常领取、糖果列表、任务板）
+@property(nonatomic,strong)NSMutableArray *allListArray;
 
 @end
 
@@ -26,11 +29,17 @@
 
 #define HeaderViewHeight   (SYRealValue(140+8+54))  //顶部view高度
 
--(NSMutableArray *)tangGuolistArray{
-    if (!_tangGuolistArray) {
-        _tangGuolistArray= [NSMutableArray array];
+-(NSMutableArray *)listArray{
+    if (!_listArray) {
+        _listArray= [NSMutableArray array];
     }
-    return _tangGuolistArray;
+    return _listArray;
+}
+-(NSMutableArray *)allListArray{
+    if (!_allListArray) {
+        _allListArray= [NSMutableArray array];
+    }
+    return _allListArray;
 }
 
 /**表格**/
@@ -58,7 +67,6 @@
 -(BCMeTangGuoJiLuHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [[BCMeTangGuoJiLuHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, HeaderViewHeight)];
-        [_headerView setUpImage:[UIImage imageNamed:@"雷鹿财富logoc-2"]];
     }
     return _headerView;
 }
@@ -66,6 +74,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"糖果包";
+    //请求数据
+    [self createRefresh];
     //设置导航按钮
     [self setupUIBarButtonItem];
     //初始化tableivew
@@ -73,6 +83,53 @@
     //加载headerView
     self.tableView.tableHeaderView =  self.headerView;
 }
+
+- (void)createRefresh
+{
+    SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    [header beginRefreshing];
+    self.tableView.mj_header = header;
+    self.tableView.mj_footer = footer;
+    self.header =header;
+    self.footer =footer;
+    
+}
+//下拉加载
+-(void)loadNewData{
+    self.page=1;
+    if (self.allListArray.count>0) {
+         [self.allListArray removeAllObjects];
+    }
+    [self loadData];
+    
+}
+//上拉加载
+-(void)loadMoreData{
+    self.page+=1;
+    [self loadData];
+}
+-(void)loadData{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    //candyDict[@"code"] = self.code;//糖果id
+    candyDict[@"size"] = @20;//糖果id
+    candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
+    
+    [BCRequestData get_candy_List_Dict:candyDict success:^(id responseObject) {
+        self.listArray = [BCMeTangGuoJiLuMode mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.allListArray addObjectsFromArray:self.listArray];
+        [self.headerView setUpImage:[UIImage imageNamed:@"雷鹿财富logoc-2"]];
+        [self.tableView reloadData];
+        [self.header endRefreshing];
+        [self.footer endRefreshing];
+    } erorr:^(id error) {
+        [self.header endRefreshing];
+        [self.footer endRefreshing];
+    }];
+}
+
+
 
 //右边边导航控制器右边item
 - (void)setupUIBarButtonItem {
@@ -115,7 +172,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return  20;
+    return  self.allListArray.count;
     
 }
 
@@ -124,9 +181,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //BCMeTangGuoJiLuMode *model = self.tangGuolistArray[indexPath.row];
-    BCMeTangGuoJiLuMode *model;
-    model.type=0;
+    BCMeTangGuoJiLuMode *model = self.allListArray[indexPath.row];
         //添加事件
         BCMeTangGuoJiLuCell *cell = [BCMeTangGuoJiLuCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.model =model;

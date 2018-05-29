@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface BCTangGuoListMode : NSObject
-@property(nonatomic,strong)NSString * code;
-@property(nonatomic,strong)NSString * coin;
-@property(nonatomic,strong)NSString * ethCoinRatio;
-@property(nonatomic,strong)NSString * icon;
-@property(nonatomic,strong)NSString * ID;
-@property(nonatomic,strong)NSString * partnerId;
-@property(nonatomic,strong)NSString * rmb;
-@property(nonatomic,strong)NSString * type;
-@property(nonatomic,strong)NSString * userId;
+@property(nonatomic,copy)NSString * code;
+@property(nonatomic,copy)NSString * coin;
+@property(nonatomic,copy)NSString * ethCoinRatio;
+@property(nonatomic,copy)NSString * icon;
+@property(nonatomic,copy)NSString * ID;
+@property(nonatomic,copy)NSString * partnerId;
+@property(nonatomic,copy)NSString * rmb;
+@property(nonatomic,copy)NSString * type;
+@property(nonatomic,copy)NSString * userId;
 
     
 
