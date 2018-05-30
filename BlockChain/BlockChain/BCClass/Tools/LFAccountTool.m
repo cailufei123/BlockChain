@@ -7,6 +7,7 @@
 //
 #define LFAccountFilepath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.data"]
 #define messageFilepath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"baseMessage.data"]
+#define LFAccountFilepathMe [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"accountMe.data"]
 #import "LFAccountTool.h"
 
 @implementation LFAccountTool
@@ -50,4 +51,15 @@
 //  LKBasseDataModel *baseMessageModel = [NSKeyedUnarchiver unarchiveObjectWithFile:messageFilepath];
 //     return baseMessageModel;
 //}
+/**存储用户模型*/
++(void)saveMe:(BCMeModel *)accountMe{
+    // 归档
+    [NSKeyedArchiver archiveRootObject:accountMe toFile:LFAccountFilepathMe];
+ 
+}
+/**存储用户模型*/
++(BCMeModel *)accountMe{
+      BCMeModel *lfoauthModel = [NSKeyedUnarchiver unarchiveObjectWithFile:LFAccountFilepath];
+      return lfoauthModel;
+}
 @end

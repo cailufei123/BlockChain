@@ -9,46 +9,7 @@
 #import "SALoginModel.h"
 #import <objc/runtime.h>   
 @implementation SALoginModel
-/**
- *  从文件取出来调用这个方法
- *
- *  @param aDecoder 掉objct方法
- *
- *  @return 返回自己
- */
-//-(id)initWithCoder:(NSCoder *)aDecoder{
-//    if(self = [super init]){
-//
-//        self.logPassWordMd5 = [aDecoder decodeObjectForKey:@"logPassWordMd5"];
-//        self.loginName = [aDecoder decodeObjectForKey:@"loginName"];
-//        self.logPassWord = [aDecoder decodeObjectForKey:@"logPassWord"];
-//        self.token = [aDecoder decodeObjectForKey:@"token"];
-//        self.message = [aDecoder decodeObjectForKey:@"message"];
-//        self.userId = [aDecoder decodeObjectForKey:@"userId"];
-//        self.mobile = [aDecoder decodeObjectForKey:@"mobile"];
-//
-//
-//    }
-//    return self;
-//}
-//
-///**
-// *  从入文件时调用
-// *
-// *  @param encoder 调用objct方法
-// */
-//-(void)encodeWithCoder:(NSCoder *)encoder{
-//
-//    [encoder encodeObject:self.logPassWordMd5 forKey:@"logPassWordMd5"];
-//    [encoder encodeObject:self.loginName forKey:@"loginName"];
-//    [encoder encodeObject:self.logPassWord forKey:@"logPassWord"];
-//    [encoder encodeObject:self.token forKey:@"token"];
-//    [encoder encodeObject:self.message forKey:@"message"];
-//    [encoder encodeObject:self.userId forKey:@"userId"];
-//    [encoder encodeObject:self.mobile forKey:@"mobile"];
-//
-//
-//}
+
 
 -(void)encodeWithCoder:(NSCoder *)encoder{
     unsigned int count = 0;

@@ -58,7 +58,9 @@
 }
 
 -(void)sureBtClick:(UIButton * )bt{
-   
+     LFLog(@"%@",[self encryptUseDES: @"123456" key:@"kQujxT^KYZXVGUFn"]);
+      LFLog(@"%@",[self decryptUseDES: @"kPN5VW7gYww=" key:@"kQujxT^KYZXVGUFn"]);
+    
     if (self.passwordLb.text.length!=6) {
         [MBManager showBriefAlert:@"密码为6位数字" ];
         return;
@@ -81,7 +83,7 @@
     dic[@"deviceId"] = devicToken;
   
     
-//      LFLog(@"%@",[DES3Util encryptUseDES: @"123456" key:@"axiapmsm"]);
+     LFLog(@"%@",[self encryptUseDES: @"123456" key:@"kQujxT^KYZXVGUFn"]);
        LFLog(@"%@",dic);
     
     [YWRequestData forgetResetDict:dic success:^(id responseObj) {
@@ -91,6 +93,35 @@
     }];
 }
 const Byte iv1[] = {1,2,3,4,5,6,7,8};
+// const Byte iv1[] = {0,1,2,3,4,5,6,7};
+//NSString *testString = key;
+//NSData *testData = [testString dataUsingEncoding: NSUTF8StringEncoding];
+//Byte *iv = (Byte *)[testData bytes];
+
+-(NSString *)decryptUseDES:(NSString *)cipherText key:(NSString *)key
+{
+    NSString *plaintext = nil;
+    //    NSData *cipherdata = [Base64 decode:cipherText];
+    //    NSData *cipherdata = [Base64Data initWithBase64EncodedData:base64Data options:0];
+    NSData *cipherdata = [[NSData alloc] initWithBase64EncodedString:cipherText options:0];
+    //    NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+    unsigned char buffer[1024];
+    memset(buffer, 0, sizeof(char));
+    size_t numBytesDecrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmDES,
+                                          kCCOptionPKCS7Padding,
+                                          [key UTF8String], kCCKeySizeDES,
+                                          iv1,
+                                          [cipherdata bytes], [cipherdata length],
+                                          buffer, 1024,
+                                          &numBytesDecrypted);
+    if(cryptStatus == kCCSuccess) {
+        NSData *plaindata = [NSData dataWithBytes:buffer length:(NSUInteger)numBytesDecrypted];
+        plaintext = [[NSString alloc]initWithData:plaindata encoding:NSUTF8StringEncoding];
+    }
+    return plaintext;
+}
+
 -(NSString *) encryptUseDES:(NSString *)plainText key:(NSString *)key
 {
     NSString *ciphertext = nil;
@@ -114,6 +145,7 @@ const Byte iv1[] = {1,2,3,4,5,6,7,8};
     }
     return ciphertext;
 }
+
 
 
 #pragma mark - 键盘通知

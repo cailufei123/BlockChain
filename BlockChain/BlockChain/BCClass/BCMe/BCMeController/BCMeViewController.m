@@ -139,6 +139,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
         self.meModel=model;
+         [LFAccountTool saveMe:model];
         self.meHeaderView.model =model;
         [self.header endRefreshing];
     } erorr:^(id error) {//请求失败
