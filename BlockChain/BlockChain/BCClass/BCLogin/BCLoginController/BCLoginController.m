@@ -8,6 +8,8 @@
 
 #import "BCLoginController.h"
 #import "BCCodeAlertView.h"
+#import "BCMeModel.h"
+
 #define timeCount 60
 
 @interface BCLoginController ()<UITextFieldDelegate,UIScrollViewDelegate>
@@ -191,6 +193,7 @@
         loginDict[@"mobile"] = self.phoneTf.text;
         loginDict[@"smsCode"] =self.codeTf.text;
         [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
+              [self loadUpData];
             [MBManager showBriefAlert:@"登陆成功"];
             SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
             [LFAccountTool save:loginmodel];
@@ -232,6 +235,7 @@
             loginDict[@"mobile"] = self.phoneTf.text;
             loginDict[@"smsCode"] =self.codeTf.text;
             [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
+                [self loadUpData];
                 [MBManager showBriefAlert:@"登陆成功"];
                 SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
                 [LFAccountTool save:loginmodel];
@@ -245,7 +249,16 @@
    
 
 }
-
+-(void)loadUpData{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
+        BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
+        [LFAccountTool saveMe:model];
+    } erorr:^(id error) {//请求失败
+       
+    }];
+}
 -(void)timerFireMethod{
     if (self.count<=0){
         self.getCodeBt.userInteractionEnabled = YES;

@@ -17,7 +17,7 @@
 #define huanchatId login.huanId
 #define loginTokenlength loginToken.length
 #define loginOpenId login.sUid
-
+#define loginMe [LFAccountTool accountMe]
 
 #define ATSKIPTOOl [ATSkipTool sharedInstance]
 

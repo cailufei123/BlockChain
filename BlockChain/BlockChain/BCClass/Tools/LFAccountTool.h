@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SALoginModel.h"
+#import "BCMeModel.h"
 //#import "LKBasseDataModel.h"
 @interface LFAccountTool : NSObject
 /**存储用户模型*/
@@ -20,4 +21,9 @@
 //+(LKBasseDataModel*)baseMessage;
 +(NSString *)iosShengheUseds;
 +(void)saveIosShengheUseds:(NSString * )iosUrl;
+
+/**存储用户模型*/
++(void)saveMe:(BCMeModel *)accountMe;
+/**存储用户模型*/
++(BCMeModel *)accountMe;
 @end

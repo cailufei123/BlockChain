@@ -46,7 +46,7 @@
 @property(nonatomic,strong)NSString * source;//微信是2QQ是3
 @property(nonatomic,strong)NSString * huanId;
 @property(nonatomic,strong)NSString * sUid;
-
-
+@property(nonatomic,strong)NSString * taskStatusVo;
+@property(nonatomic,strong)NSString * isRegister;
 
 @end
