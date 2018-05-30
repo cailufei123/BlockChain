@@ -167,20 +167,21 @@
 
 -(void)setModel:(BCHomeDetailModel *)model{
     _model =model;
-    if (model!=nil) {
-        
+    //假数据
+    [self.BIcon sd_setImageWithURL:[NSURL URLWithString:model.candyProcess.icon] placeholderImage:nil] ;
+    self.numberLable.text = [NSString stringWithFormat:@"发放数量: %@  剩余: %ld",model.candyProcess.count,[model.candyProcess.count integerValue]-[model.candyProcess.getCount integerValue]];
+    self.timeLable.text = [NSString stringWithFormat:@"发放时间: %@",model.candyProcess.createTime];
+    if ([model.candyProcess.status isEqualToString:@"0"]) {
+        self.jiXingLable.text = @"进行中";
     }else{
-        //假数据
-        self.BIcon.image=[UIImage imageNamed:@"sugar_iocn"];
-        self.numberLable.text = [NSString stringWithFormat:@"发放数量: %@  剩余: %@",@"8000000",@"2222222"];
-        self.timeLable.text = [NSString stringWithFormat:@"发放时间: %@",@"2018-12-15 10:55"];
-        self.jiXingLable.text =@"进行中";
-        self.xiangMuLable.text =@"项目名称";
-        self.biTeLable.text =@"比特币";
-        self.jieShaoLable.text =@"项目介绍";
-        self.jieShao.text =@"如果我爱你如果我爱你如如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你如果我爱你";
-        
+        self.jiXingLable.text = @"已结束";
     }
+  
+    self.xiangMuLable.text =@"项目名称";
+    self.biTeLable.text =model.partnerInfo.projectName;
+    self.jieShaoLable.text =@"项目介绍";
+    self.jieShao.text =model.partnerInfo.brief;
+    
 }
 
 - (void)awakeFromNib {

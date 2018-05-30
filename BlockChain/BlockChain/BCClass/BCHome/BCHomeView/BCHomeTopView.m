@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLyout;
 @property (weak, nonatomic) IBOutlet UIButton *morebt;
 @property (strong, nonatomic)  NSMutableArray *buttons;
+@property (assign, nonatomic)  double  pleStone;
+
 @end
 @implementation BCHomeTopView
 - (NSMutableArray *)buttons{
@@ -63,7 +65,7 @@
 //
 //      self.samgent.layer.borderColor = [UIColor blackColor].CGColor; //     边框颜色
        [ self.samgent addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
-    
+  
     [self setButton];
     
     [self.hideSquareBt addTarget:self action:@selector(hideSquareBtClick) forControlEvents:UIControlEventTouchUpInside];
@@ -71,7 +73,7 @@
      [self.morebt addTarget:self action:@selector(moreBtClick) forControlEvents:UIControlEventTouchUpInside];
      [self.purpleStoneBt addTarget:self action:@selector(purpleStoneBtClick) forControlEvents:UIControlEventTouchUpInside];
      [self.tellowStoneBt addTarget:self action:@selector(tellowStoneBtClick) forControlEvents:UIControlEventTouchUpInside];
-
+    [self loadHomeCandyLis ];
 }
 -(void)setLists:(NSMutableArray *)lists{
     _lists = lists;
@@ -175,9 +177,9 @@
    
     if (sender.selectedSegmentIndex == 0) {
        
-        self.screen(@"1");
-    }else if (sender.selectedSegmentIndex == 1){
         self.screen(@"0");
+    }else if (sender.selectedSegmentIndex == 1){
+        self.screen(@"1");
     }
 }
 
@@ -255,23 +257,27 @@
     candycainDict[@"token"] = loginToken;
      candycainDict[@"id"] = candyListModel.ID;
  
-    LFLog(@"%@ %@",CANDY_GAIN,candycainDict);
-    
+    LFLog(@"%@ %@",GAIN_DIAMOND,candycainDict);
+      LFLog(@"%@ %@",GAIN_DIAMOND,candycainDict);
     // 领取紫钻的接口-----
     [YWRequestData gainPurpleStoneDict:candycainDict success:^(id responseObj) {
         NSMutableDictionary * candyDict = diction;
         candyDict[@"token"] = loginToken;
         candyDict[@"size"] = @"1";
         LFLog(@"%@",candyDict);
-        [YWRequestData homePageDict:candyDict success:^(id responseObj) {
-            
-            [self.purpleStoneBt setTitle:[NSString stringWithFormat:@"紫钻：%@",responseObj[@"data"][@"coin"]]forState:UIControlStateNormal];
-            [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
-            
-        }];
+        
+          [self.purpleStoneBt setTitle:[NSString stringWithFormat:@"紫钻：%lf",self.pleStone +=[candyListModel.drill doubleValue] ] forState:UIControlStateNormal];
+      
         [UIView animateWithDuration:self.duration animations:^{
             bt.clf_y = -LFscreenH;
         }completion:^(BOOL finished) {
+//            [YWRequestData homePageDict:candyDict success:^(id responseObj) {
+//                
+//             
+//                //            [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
+//                
+//            }];
+         
             [self.buttons removeObject:bt];
             [bt removeFromSuperview];
             
@@ -347,7 +353,8 @@
     candyDict[@"size"] = @"1";
     LFLog(@"%@",candyDict);
     [YWRequestData homePageDict:candyDict success:^(id responseObj) {
-     
+        NSString * pleStoneStr = [NSString stringWithFormat:@"%@",responseObj[@"data"][@"coin"] ] ;
+        self.pleStone = [pleStoneStr doubleValue];
         [self.purpleStoneBt setTitle:[NSString stringWithFormat:@"紫钻：%@",responseObj[@"data"][@"coin"]]forState:UIControlStateNormal];
         [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
         

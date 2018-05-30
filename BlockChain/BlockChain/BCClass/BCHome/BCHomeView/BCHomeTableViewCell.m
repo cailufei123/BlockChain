@@ -27,20 +27,39 @@
     self.nameLb.text = candyListModel.code;
     self.contentLb.text = candyListModel.slogan;
     if ([candyListModel.canGain isEqualToString:@"0"]) {
-        [self.statusBt setBackgroundColor:[UIColor grayColor]];
+        [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#9A9A9A"]];
         self.statusBt.userInteractionEnabled = NO;
         [self.statusBt setTitle:@"已领取" forState:UIControlStateNormal];
+        
+        if ([candyListModel.status isEqualToString:@"0"]) {
+            [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#9A9A9A"]];
+            self.statusBt.userInteractionEnabled = NO;
+            
+            self.atatusLb.text = @"进行中";
+        }else{
+            [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#9A9A9A"]];
+            self.statusBt.userInteractionEnabled = NO;
+            
+            self.atatusLb.text = @"已结束";
+        }
     }else if ([candyListModel.canGain isEqualToString:@"1"]){
         [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#C8AACC"]];
         self.statusBt.userInteractionEnabled = YES;
         [self.statusBt setTitle:@"领取" forState:UIControlStateNormal];
+        if ([candyListModel.status isEqualToString:@"0"]) {
+           [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#C8AACC"]];
+            self.statusBt.userInteractionEnabled = YES;
+            
+            self.atatusLb.text = @"进行中";
+        }else{
+            [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#9A9A9A"]];
+            self.statusBt.userInteractionEnabled = NO;
+            
+            self.atatusLb.text = @"已结束";
+        }
     }
     
-    if ([candyListModel.status isEqualToString:@"1"]) {
-        self.atatusLb.text = @"进行中";
-    }else{
-        self.atatusLb.text = @"已结束";
-    }
+   
     [self.statusBt addTarget:self action:@selector(statusBtClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

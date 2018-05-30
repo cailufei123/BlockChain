@@ -12,7 +12,7 @@
 #import "BCTaskDetailDownCell.h"
 @interface BCTaskDetailViewController ()<UITableViewDataSource,UITableViewDelegate,BCTaskDetailDownCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)BCTaskDetailModel *detailModel;
+@property(nonatomic,strong)BCTaskDetailModel *taskDetailModel;
 @end
 
 @implementation BCTaskDetailViewController
@@ -45,6 +45,15 @@
     [self setNaviTitle];
     //初始化tableivew
     [self.view addSubview:self.tableView];
+    NSMutableDictionary * taskeDetailDict =diction;
+ 
+    taskeDetailDict[@"token"] = loginToken;
+    taskeDetailDict[@"taskId"] = self.taskId;
+    [YWRequestData taskeDetailDict:taskeDetailDict success:^(id responseObj) {
+        BCTaskDetailModel * taskDetailModel = [BCTaskDetailModel mj_objectWithKeyValues:responseObj[@"data"]];
+        self.taskDetailModel = taskDetailModel;
+        [self.tableView reloadData];
+    }];
 }
 -(void)setNaviTitle{
     self.navigationItem.title=@"任务详情";
@@ -54,24 +63,7 @@
 }
 
 
-//返回高度
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    return nil;
-//}
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    if (section==0) {
-//        return 0.01;
-//    }else{
-//        return (SYRealValue(15));
-//    }
-//}
-//-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-//    if (section==0) {
-//        return nil;
-//    }else{
-//        return self.footerView;
-//    }
-//}
+
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section==0) {
@@ -109,22 +101,30 @@
 //}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //BCMeChangeMoneyMode *model = self.tangGuolistArray[indexPath.row];
-    BCTaskDetailModel *model;
+  
     if (indexPath.section==0) {
         BCTaskDetailUpCell *cell = [BCTaskDetailUpCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
-        cell.model =model;
+        cell.model =self.taskDetailModel;
         return cell;
     }else{
         BCTaskDetailDownCell *cell = [BCTaskDetailDownCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.delegate=self;
-        cell.model =model;
+       cell.model =self.taskDetailModel;
         return cell;
     }
 }
 #pragma mark -BCTaskDetailDownCellDelegate 分享按钮
 -(void)fenXiangBtnClick{
-    
+    [ATSKIPTOOl shareObjectWithTitle:self.taskDetailModel.taskInfo.name descr:self.taskDetailModel.taskInfo.taskDesc thumImage:self.taskDetailModel.partnerInfo.icon webpageUrl:self.taskDetailModel.shareUrl currentViewController:self success:^{
+        
+        NSMutableDictionary * taskeDetailDict =diction;
+        taskeDetailDict[@"token"] = loginToken;
+        taskeDetailDict[@"taskId"] = self.taskId;
+        [YWRequestData taskeDoonceDict:taskeDetailDict success:^(id responseObj) {
+            
+        }];
+        
+    }] ;
 }
 
 

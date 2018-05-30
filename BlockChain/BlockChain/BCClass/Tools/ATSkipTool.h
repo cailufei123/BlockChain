@@ -20,5 +20,6 @@
                       descr:(NSString *)descr
                   thumImage:(id)thumImage
                  webpageUrl:(NSString *)Url
-currentViewController:(id)currentViewController;
+currentViewController:(id)currentViewController
+                    success:(void (^) (void))sucess;
 @end

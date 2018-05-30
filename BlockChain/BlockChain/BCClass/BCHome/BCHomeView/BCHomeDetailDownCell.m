@@ -228,22 +228,30 @@
     return self;
 }
 -(void)setModel:(BCHomeDetailModel *)model{
-    _model =model;
-        if (model!=nil) {
+    _model = model;
+    self.biaoYuLable.text = @"标语";
+    self.biaoYu.text=  model.partnerInfo.slogan;
+    self.faXingLable.text= @"发行总量";
+    self.faXing.text= [NSString stringWithFormat:@"%@枚", model.partnerInfo.pubCount];
+    self.faXingPriceLable.text= @"发行价格";
+    self.faXingPrice.text= [NSString stringWithFormat:@"1ETH=%@%@",model.partnerInfo.price,model.partnerInfo.code];
+    self.guanWangLable.text= @"官方网站";
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",model.partnerInfo.site]];
+    NSRange titleRange = {0,[title length]};
+    [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
+    [self.guanWangBtn setAttributedTitle:title
+                            forState:UIControlStateNormal];
+    LFLog(@"%@",model.partnerInfo.site);
     
-        }else{
-            self.biaoYuLable.text = @"标语";
-            self.biaoYu.text= @"大发发啊水电费阿斯蒂芬打发的说法第三方";
-            self.faXingLable.text= @"发行总量";
-            self.faXing.text= [NSString stringWithFormat:@"%@枚",@"800"];
-            self.faXingPriceLable.text= @"发行价格";
-            self.faXingPrice.text= [NSString stringWithFormat:@"%@元",@"800"];
-            self.guanWangLable.text= @"官方网站";
-            [self.guanWangBtn setTitle:@"www.tangguoxiangqing.com" forState:UIControlStateNormal];
-        }
 }
 #pragma mark- 去官网
 -(void)guanWangBtnClick:(UIButton *)button{
+    NSString *urlText = _model.partnerInfo.site;
+     LFLog(@"%@",urlText);
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlText]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlText] options:@{UIApplicationOpenURLOptionUniversalLinksOnly: @NO} completionHandler:^(BOOL success) {
+        
+    }];
     if (self.delegate && [self.delegate respondsToSelector:@selector(gotoGuanWangBtnClick)]) {
         [self.delegate gotoGuanWangBtnClick];
     }

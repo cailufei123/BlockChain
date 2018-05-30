@@ -84,7 +84,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.type = @"1";
+    self.type = @"0";
     [self setTable];
     [self createTopView];
     [self createRefresh];
@@ -419,8 +419,18 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  
+    CandyListModel * candyListModel = self.userCandyLists[indexPath.row];
     BCHomeDetailViewController * taskVc = [[BCHomeDetailViewController alloc] init];
+    taskVc.indexpath1 = indexPath;
+    WeakSelf(weakSelf)
+    taskVc.refreshCandyLists = ^(NSIndexPath *indexpath1) {
+        CandyListModel * candyListModel = self.userCandyLists[indexpath1.row];
+        candyListModel.canGain = @"0";
+        [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    };
+   
+  
+    taskVc.candyId = candyListModel.candyId;
     [self.navigationController pushViewController:taskVc animated:YES];
 }
 @end

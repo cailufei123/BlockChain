@@ -131,7 +131,7 @@
         }else{
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {
-        [MBManager showBriefAlert:@"网络错误"];
+       
         [MBManager hideAlert];
     }];
 }
@@ -148,7 +148,7 @@
         }else{
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {
-        [MBManager showBriefAlert:@"网络错误"];
+//        [MBManager showBriefAlert:@"网络错误"];
         [MBManager hideAlert];
     }];
 }
@@ -254,6 +254,77 @@
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {
         [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+// //原力任务上报（每日app）
+
++ (void)taskeEveryDayDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+    [LFHttpTool post:USER_TASK_REPORT_EVERYDAY params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            
+        }else{
+//            [MBManager showBriefAlert:responseObj[@"message"]];
+            
+        }
+    } failure:^(NSError *error) {
+      
+        [MBManager hideAlert];
+    }];
+}
+//普通任务详情
++ (void)taskeDetailDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+    [LFHttpTool post:TASK_DETAIL params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        
+        [MBManager hideAlert];
+    }];
+}
+//普通任务上报（做了一次任务）
++ (void)taskeDoonceDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+    [LFHttpTool post:TASK_DO_ONCE params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        
+        [MBManager hideAlert];
+    }];
+}
+////糖果详情
++ (void)candy_detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+    [LFHttpTool post:CANDY_DETAIL params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        
         [MBManager hideAlert];
     }];
 }

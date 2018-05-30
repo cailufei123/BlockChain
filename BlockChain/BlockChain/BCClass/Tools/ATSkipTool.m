@@ -60,6 +60,8 @@ static id _instance;
                   thumImage:(id)thumImage
                  webpageUrl:(NSString *)Url
 currentViewController:(id)currentViewController
+                    success:(void (^) (void))sucess
+
 {
 //    Domain=UMSocialPlatformErrorDomain Code=2003 "(null)" UserInfo={message=传入的参数currentViewController应该是nil或者是继承UIViewController的子类}*********
 
@@ -83,7 +85,9 @@ currentViewController:(id)currentViewController
     [UMSocialShareUIConfig shareInstance].shareContainerConfig.isShareContainerHaveGradient = NO;
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         // 根据获取的platformType确定所选平台进行下一步操作
-        [self shareImageAndTextToPlatformType:platformType shareObjectWithTitle:title descr:descr thumImage:thumImage webpageUrl:Url currentViewController:currentViewController];
+        [self shareImageAndTextToPlatformType:platformType shareObjectWithTitle:title descr:descr thumImage:thumImage webpageUrl:Url currentViewController:currentViewController success:^{
+            sucess();
+        } ];
     }];
     
     
@@ -93,7 +97,7 @@ currentViewController:(id)currentViewController
                                    descr:(NSString *)descr
                                     thumImage:(id)thumImage
                                  webpageUrl:(NSString *)Url
-             currentViewController:(id)currentViewController
+             currentViewController:(id)currentViewController success:(void (^) (void))sucess
 {
     
     UIImage *image = nil;
@@ -107,8 +111,9 @@ currentViewController:(id)currentViewController
     if (!thumImage) {
         thumImage = image;
     }
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL  URLWithString:thumImage]];
     //创建网页内容对象
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle: title descr:descr thumImage:thumImage];//（UIImage或者NSData类型，或者image_url）
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle: title descr:descr thumImage:data];//（UIImage或者NSData类型，或者image_url）
     //设置网页地址
     shareObject.webpageUrl =Url;
     
@@ -120,6 +125,7 @@ currentViewController:(id)currentViewController
         if (error) {
             NSLog(@"************Share fail with error %@*********",error);
         }else{
+            sucess();
             NSLog(@"response data is %@",data);
         }
     }];

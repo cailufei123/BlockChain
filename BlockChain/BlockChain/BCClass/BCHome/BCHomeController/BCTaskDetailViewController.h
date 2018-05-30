@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BCTaskDetailViewController : UIViewController
-
+@property(nonatomic,strong)NSString * taskId;
 @end
