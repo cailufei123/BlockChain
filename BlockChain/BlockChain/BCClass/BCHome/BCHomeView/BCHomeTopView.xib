@@ -152,7 +152,7 @@
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="29h-gh-EnZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="6PG-S5-Vcd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0kc-68-DoD" secondAttribute="trailing" id="AIb-dH-hGu"/>

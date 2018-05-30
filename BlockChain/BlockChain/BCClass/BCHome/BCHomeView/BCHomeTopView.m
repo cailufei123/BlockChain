@@ -44,6 +44,7 @@
    
     [self animateWithDuration];
      WeakSelf(weakSelf)
+
     self.timer = [NSTimer wh_scheduledTimerWithTimeInterval:self.duration*2 repeats:YES callback:^(NSTimer *timer) {
         [weakSelf animateWithDuration];
     }];
