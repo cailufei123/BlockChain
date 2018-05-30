@@ -9,19 +9,21 @@
 #import "BCMeChangeMoneyUpCell.h"
 #import "BCMeChangeMoneyMode.h"
 
-@interface BCMeChangeMoneyUpCell()
+@interface BCMeChangeMoneyUpCell()<UITextFieldDelegate>
 
 @property (nonatomic, strong)UILabel *dizhiLable;//收款人地址
-@property (nonatomic, strong)UILabel *dizhi;
+@property (nonatomic, strong)UITextField *textField1;
+@property (nonatomic, strong)UILabel *priceLable;//转账金额
+
+@property (nonatomic, strong)UITextField *textField2;//收款金额
+@property (nonatomic, strong)UILabel *price;
+
+@property (nonatomic, strong)UILabel *beiZhuLable;
+@property (nonatomic, strong)UITextField *textField3;
+@property (nonatomic, strong)UIButton *moreBtn;
 @property (nonatomic, strong)UIView *line1;
 @property (nonatomic, strong)UIView *line2;
 @property (nonatomic, strong)UIView *line3;
-@property (nonatomic, strong)UILabel *priceLable;//收款金额
-@property (nonatomic, strong)UILabel *price;
-@property (nonatomic, strong)UILabel *beiZhuLable;
-@property (nonatomic, strong)UILabel *beiZhu;
-@property (nonatomic, strong)UIButton *moreBtn;
-
 @end
 
 @implementation BCMeChangeMoneyUpCell
@@ -33,12 +35,91 @@
     }
     return _dizhiLable;
 }
--(UILabel *)dizhi{
-    if (!_dizhi) {
-        _dizhi =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_dizhi];
+
+-(UITextField *)textField1{
+    if (!_textField1) {
+        _textField1 = [[UITextField alloc] init];
+        _textField1.font = FONT(@"PingFangSC-Regular", SXRealValue(13));
+        _textField1.textColor = blackTextColor;
+        _textField1.tag=1;
+        _textField1.placeholder = @"";
+        [_textField1 addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextViewTextDidChangeNotification object:nil];
+        _textField1.delegate = self;
+        //[_textField1 setValue:RGBCOLOR(159, 158, 163) forKeyPath:@"_placeholderLabel.textColor"];
+        // 提前在Xcode上设置图片中间拉伸
+        //_textField1.background = [UIImage imageWithColor:RGBCOLOR(238, 238, 238)];
+        _textField1.clearButtonMode = UITextFieldViewModeWhileEditing;
+        // 通过init初始化的控件大多都没有尺寸
+//        UIImageView *searchIcon = [[UIImageView alloc] init];
+//        searchIcon.image = [UIImage imageNamed:@"hz_home_searchIcon"];
+        // contentMode：default is UIViewContentModeScaleToFill，要设置为UIViewContentModeCenter：使图片居中，防止图片填充整个imageView
+//        searchIcon.contentMode = UIViewContentModeCenter;
+//        searchIcon.size = CGSizeMake(30, 30);
+//        self.leftView = searchIcon;
+        _textField1.leftViewMode = UITextFieldViewModeAlways;
+//        _dizhi =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_textField1];
     }
-    return _dizhi;
+    return _textField1;
+}
+
+-(UITextField *)textField2{
+    if (!_textField2) {
+        _textField2 = [[UITextField alloc] init];
+        _textField2.font = FONT(@"PingFangSC-Regular", SXRealValue(13));
+        _textField2.textColor = blackTextColor;
+        _textField2.placeholder = @"";
+        _textField2.tag=2;
+        _textField2.placeholder = @"";
+        [_textField2 addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextViewTextDidChangeNotification object:nil];
+        //[_textField1 setValue:RGBCOLOR(159, 158, 163) forKeyPath:@"_placeholderLabel.textColor"];
+        // 提前在Xcode上设置图片中间拉伸
+        //_textField1.background = [UIImage imageWithColor:RGBCOLOR(238, 238, 238)];
+        _textField2.clearButtonMode = UITextFieldViewModeWhileEditing;
+        // 通过init初始化的控件大多都没有尺寸
+        //        UIImageView *searchIcon = [[UIImageView alloc] init];
+        //        searchIcon.image = [UIImage imageNamed:@"hz_home_searchIcon"];
+        // contentMode：default is UIViewContentModeScaleToFill，要设置为UIViewContentModeCenter：使图片居中，防止图片填充整个imageView
+        //        searchIcon.contentMode = UIViewContentModeCenter;
+        //        searchIcon.size = CGSizeMake(30, 30);
+        //        self.leftView = searchIcon;
+        _textField2.leftViewMode = UITextFieldViewModeAlways;
+        //        _dizhi =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
+//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_textField2];
+    }
+    return _textField2;
+}
+-(UITextField *)textField3{
+    if (!_textField3) {
+        _textField3 = [[UITextField alloc] init];
+        _textField3.font = FONT(@"PingFangSC-Regular", SXRealValue(13));
+        _textField3.textColor = blackTextColor;
+        _textField3.placeholder = @"";
+        _textField3.tag=3;
+        _textField3.placeholder = @"";
+        [_textField3 addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextViewTextDidChangeNotification object:nil];
+        //[_textField3 setValue:RGBCOLOR(159, 158, 163) forKeyPath:@"_placeholderLabel.textColor"];
+        // 提前在Xcode上设置图片中间拉伸
+        //_textField1.background = [UIImage imageWithColor:RGBCOLOR(238, 238, 238)];
+        _textField3.clearButtonMode = UITextFieldViewModeWhileEditing;
+        // 通过init初始化的控件大多都没有尺寸
+        //        UIImageView *searchIcon = [[UIImageView alloc] init];
+        //        searchIcon.image = [UIImage imageNamed:@"hz_home_searchIcon"];
+        // contentMode：default is UIViewContentModeScaleToFill，要设置为UIViewContentModeCenter：使图片居中，防止图片填充整个imageView
+        //        searchIcon.contentMode = UIViewContentModeCenter;
+        //        searchIcon.size = CGSizeMake(30, 30);
+        //        self.leftView = searchIcon;
+        _textField3.leftViewMode = UITextFieldViewModeAlways;
+        //        _dizhi =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
+//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_textField3];
+    }
+    return _textField3;
 }
 
 -(UIView *)line1{
@@ -83,13 +164,13 @@
     }
     return _beiZhuLable;
 }
--(UILabel *)beiZhu{
-    if (!_beiZhu) {
-        _beiZhu =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentRight numberOfLines:1];
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_beiZhu];
-    }
-    return _beiZhu;
-}
+//-(UILabel *)beiZhu{
+//    if (!_beiZhu) {
+//        _beiZhu =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentRight numberOfLines:1];
+////        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_beiZhu];
+//    }
+//    return _beiZhu;
+//}
 
 -(UIButton *)moreBtn{
     if (!_moreBtn) {
@@ -118,15 +199,15 @@
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         [self.contentView addSubview:self.dizhiLable];
-        [self.contentView addSubview:self.dizhi];
+        [self.contentView addSubview:self.textField1];
+        [self.contentView addSubview:self.priceLable];
         [self.contentView addSubview:self.line1];
         [self.contentView addSubview:self.line2];
         [self.contentView addSubview:self.line3];
-        [self.contentView addSubview:self.priceLable];
-        [self.contentView addSubview:self.price];
+        [self.contentView addSubview:self.textField2];
+        [self.contentView addSubview:self.textField3];
         [self.contentView addSubview:self.beiZhuLable];
-        [self.contentView addSubview:self.beiZhu];
-        [self.contentView addSubview:self.moreBtn];
+//        [self.contentView addSubview:self.moreBtn];
         
         
         [self.dizhiLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -136,54 +217,57 @@
             make.height.mas_equalTo((SYRealValue(20)));
         }];
 
-        [self.dizhi mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.textField1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(15));
-            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-10));
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-15));
             make.top.mas_equalTo(self.dizhiLable.mas_bottom).with.offset((SYRealValue(17)));
             make.height.mas_equalTo((SYRealValue(20)));
         }];
         [self.line1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(15));
             make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-15));
-            make.top.mas_equalTo(self.dizhi.mas_bottom).with.offset((SYRealValue(17)));
+            make.top.mas_equalTo(self.textField1.mas_bottom).with.offset((SYRealValue(17)));
             make.height.mas_equalTo((SYRealValue(0.6)));
         }];
+        
         [self.priceLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(15));
-            make.right.mas_equalTo(self.price.mas_left).with.offset(SXRealValue(-10));
+            //make.right.mas_equalTo(self.price.mas_left).with.offset(SXRealValue(-15));
             make.top.mas_equalTo(self.line1.mas_bottom).with.offset((SYRealValue(12)));
-            make.width.mas_equalTo((SXRealValue(70)));
+            make.width.mas_equalTo((SXRealValue(60)));
             make.height.mas_equalTo((SYRealValue(20)));
         }];
-        [self.price mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-18));
-            make.centerY.mas_equalTo(self.priceLable.mas_centerY);
-            make.height.mas_equalTo((SYRealValue(22)));
+        [self.textField2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.priceLable.mas_right).with.offset(SXRealValue(8));
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-15));
+            make.top.mas_equalTo(self.line1.mas_bottom).with.offset((SYRealValue(12)));
+            make.height.mas_equalTo((SYRealValue(20)));
         }];
+
         [self.line2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(15));
             make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-15));
-            make.top.mas_equalTo(self.priceLable.mas_bottom).with.offset((SYRealValue(12)));
+            make.top.mas_equalTo(self.textField2.mas_bottom).with.offset((SYRealValue(12)));
             make.height.mas_equalTo((SYRealValue(0.6)));
         }];
         [self.beiZhuLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(15));
             make.top.mas_equalTo(self.line2.mas_bottom).with.offset((SYRealValue(13)));
-            make.width.mas_equalTo((SXRealValue(70)));
+            make.width.mas_equalTo((SXRealValue(30)));
             make.height.mas_equalTo((SYRealValue(20)));
         }];
-        [self.beiZhu mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.beiZhuLable.mas_right).with.offset(SXRealValue(10));
-            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-26));
+        [self.textField3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.beiZhuLable.mas_right).with.offset(SXRealValue(8));
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-15));
             make.centerY.mas_equalTo(self.beiZhuLable.mas_centerY);
             make.height.mas_equalTo((SYRealValue(20)));
         }];
-        [self.moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-13));
-            make.centerY.mas_equalTo(self.beiZhuLable.mas_centerY);
-            make.width.mas_equalTo((SXRealValue(10)));
-            make.height.mas_equalTo((SYRealValue(15)));
-        }];
+//        [self.moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-13));
+//            make.centerY.mas_equalTo(self.beiZhuLable.mas_centerY);
+//            make.width.mas_equalTo((SXRealValue(10)));
+//            make.height.mas_equalTo((SYRealValue(15)));
+//        }];
         [self.line3 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(15));
             make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-15));
@@ -200,13 +284,14 @@
         
     }else{
         //假数据
-        self.dizhiLable.text = @"收款人钱包地址";
-        self.dizhi.text= @"qwerqwerqfasdfasdf23rweqrwqerwqerqwerqwerqwerqwerqwer";
+        self.dizhiLable.text = @"收款人钱包";
         self.priceLable.text =@"转账金额";
-        self.price.text=[NSString stringWithFormat:@"¥ %.2f",55.1111123123];
+//        self.price.text=[NSString stringWithFormat:@"¥ %.2f",55.1111123123];
         self.beiZhuLable.text= @"备注";
-        self.beiZhu.text =@"八大速度发斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬";
+        //self.beiZhu.text =@"八大速度发斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬";
         [self.moreBtn setImage:[UIImage imageNamed:@"right_arrow"] forState:UIControlStateNormal];
+        [self.priceLable sizeToFit];
+        [self.beiZhuLable sizeToFit];
     }
 }
 #pragma mark -跟多按钮
@@ -214,6 +299,34 @@
     
     
 }
+
+#pragma mark - 搜索框的实时监听
+- (void)textValueChanged:(UITextField *)textField{
+    if (textField.tag==1) {
+        if (textField.markedTextRange == nil) {
+//                self.searchContentView.searchType = SearchContentTypeNone;
+//                self.searchContentView.searchText = textField.text;
+        }
+    }else if (textField.tag==2){
+        
+    }else{
+        
+    }
+   
+}
+- (void)textFieldChange:(UITextField *)textField{
+    if (textField.tag==1) {
+      
+    }else if (textField.tag==2){
+        
+    }else{
+        
+    }
+    //判断输入(不能输入特殊字符)
+//    [RestrictionInput restrictionInputTextField:self.homeSearchBar maxNumber:100 showView:self.view showErrorMessage:@"请输入正规字符"];
+}
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
