@@ -98,7 +98,7 @@
 }
 
 //获取剩额
-+(void)get_yuEr_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess passwordError:(void (^) (NSString * message))message erorr:(void(^)(id error))erorr {
++(void)get_yuEr_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess passwordError:(void (^) (NSString * message))message noYuEr:(void (^) (NSString * yuer))noYuEr erorr:(void(^)(id error))erorr {
     
     [LFHttpTool post:CASH_COIN params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
@@ -110,10 +110,34 @@
             if ([responseObj[@"message"] containsString:@"密码错误"]) {
                 [MBManager showBriefAlert:@"密码错误,请重新输入"];
                 message(responseObj[@"message"]);
-            }else{
+            }else if(([responseObj[@"message"] containsString:@"eth余额不够"])){
+                noYuEr(responseObj[@"message"]);
+            }else{//成功
                 sucess(responseObj);//成功
                 [MBManager showBriefAlert:@"转账成功"];
             }
+        }else{
+            erorr(responseObj);
+            [MBManager showBriefAlert:responseObj[@"message"]];
+        }
+    } failure:^(NSError *error) {
+        erorr(error);
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+//算力记录
++(void)get_suanLiJiLu_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
+    
+    [LFHttpTool post:COMPUTE_POWER params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        
+        //[responseObj writeToFile:@"/Users/mac/Desktop/plist/kkk.plist" atomically:YES];
+        LFLog(@"==%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            //[MBManager showBriefAlert:@"请求成功"];
         }else{
             erorr(responseObj);
             [MBManager showBriefAlert:responseObj[@"message"]];

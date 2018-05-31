@@ -94,6 +94,7 @@
     if (!_alertView) {
         _alertView = [[BCMePDCListAlertView alloc] initWithFrame:CGRectMake(SXRealValue(16), (SYRealValue(110)), alertViewWidth, alertViewHeight];
         [Util roundBorderView:SXRealValue(3) border:0 color:[UIColor blackColor] view:_alertView];
+    
         //_alertView.backgroundColor =[UIColor greenColor];
 //[_alertView.guanWangBtn addTarget:self action:@selector(abc) forControlEvents:UIControlEventTouchUpInside];
         _alertView.delegate =self;
@@ -144,8 +145,8 @@
     [self.view addSubview:self.tableView];
     //加载headerView
 //    self.tableView.tableHeaderView =  self.headerView;
-    //初始化转账与收款
-    [self setPayOrGetMoneyBtn];
+//    //初始化转账与收款
+//    [self setPayOrGetMoneyBtn];
     
 }
 - (void)createRefresh
@@ -170,8 +171,10 @@
 -(void)loadMoreData{
     self.page+=1;
   [self loadData];
+    
 }
 -(void)loadData{
+    WS(weakSelf);
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id
@@ -181,6 +184,11 @@
     [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
     self.listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
+       
+        if(self.PDCmodel!=nil){
+            //初始化转账与收款
+            [weakSelf setPayOrGetMoneyBtn];
+        }
         //[self.zonglistArray addObjectsFromArray:self.listArray];
         [self.tableView reloadData];
         [self.header endRefreshing];
@@ -200,18 +208,19 @@
                                                                             
 #pragma 底部转账与收款
 -(void)setPayOrGetMoneyBtn{
+    
     UIView *view = [[UIView alloc] init];
     view.backgroundColor =naverTextColor;
     UIButton *payBtn = [UIButton getButtonTitleColor:blackBColor titleFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) backGroundColor:naverTextColor target:self action:@selector(payBtnClick)];
     payBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [payBtn setTitle:@"转账" forState:UIControlStateNormal];
-    [payBtn setImage:[UIImage imageNamed:@"home_purple_diamonds"] forState:UIControlStateNormal];
+    [payBtn setTitle:@"转账  " forState:UIControlStateNormal];
+    [payBtn setImage:[UIImage imageNamed:@"转账"] forState:UIControlStateNormal];
     [payBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
 //    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:payBtn];
     UIButton *getBtn = [UIButton getButtonTitleColor:blackBColor titleFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) backGroundColor:naverTextColor target:self action:@selector(getBtnClick)];
     getBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [getBtn setTitle:@"收款" forState:UIControlStateNormal];
-    [getBtn setImage:[UIImage imageNamed:@"home_purple_diamonds"] forState:UIControlStateNormal];
+    [getBtn setTitle:@"收款  " forState:UIControlStateNormal];
+    [getBtn setImage:[UIImage imageNamed:@"收款"] forState:UIControlStateNormal];
     [getBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
 //    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:getBtn];
    //中线
@@ -268,6 +277,7 @@
 #pragma mark -收款按钮
 -(void)getBtnClick{
     BCMeQRCodeController *QRVc= [[BCMeQRCodeController alloc] init];
+    QRVc.isShouKuan =YES;
     [self.navigationController pushViewController:QRVc animated:YES];
     NSLog(@"二维码");
 }

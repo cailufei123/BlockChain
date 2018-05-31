@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class BCSuanLiJiLuModel;
+@class BCSuanLiJiLuListModel;
 
 @interface BCHomeSuanLiDownCell : UITableViewCell
-@property(nonatomic,strong)BCSuanLiJiLuModel *model;
+@property(nonatomic,strong)BCSuanLiJiLuListModel *model;
 
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 

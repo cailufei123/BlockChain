@@ -15,10 +15,16 @@
 
 //退出分享view
 -(void)closeShareView;
+
 @end
 
 @interface BCMeInvitingShareView : UIView
 @property(nonatomic,strong)BCMeInvitingFriendsModel *model;
+
+@property(nonatomic,copy)void (^weiXinBtnBlock)(void);
+@property(nonatomic,copy)void (^pengYouBtnBlock)(void);
+@property(nonatomic,copy)void (^QQBtnBlock)(void);
+
 @property (nonatomic, weak) id <BCMeInvitingShareViewDelegate> delegate;
 
 @end

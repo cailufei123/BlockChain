@@ -227,7 +227,7 @@
     //设置导航栏
     [self setNaviTitle];
     //设置导航按钮
-    [self setupUIBarButtonItem];
+    //[self setupUIBarButtonItem];
     //初始化tableivew
     [self.view addSubview:self.tableView];
 }
@@ -442,21 +442,30 @@
     candyDict[@"account"]  = self.moneyModel.dizhi;
     candyDict[@"code"]     = self.moneyModel.code;
     candyDict[@"ethPrice"] = self.moneyModel.tiXianPrice;
-    candyDict[@"password"] = self.moneyModel.passWord;
+//    candyDict[@"password"] = self.moneyModel.passWord;
+    candyDict[@"password"] = @"kPN5VW7gYww=";
     candyDict[@"remark"]   = self.moneyModel.beiZhu;
 
     WS(weakSelf);
+    
     [BCRequestData get_yuEr_Dict:candyDict success:^(id responseObject) {//成功
-//        NSArray* listArray = [BCMeTangGuoJiLuMode mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        // [self.allListArray addObjectsFromArray:listArray];
-        [weakSelf closePassView];
-        [weakSelf closeSurePayView];
+        [weakSelf hiddenTwoView];
     } passwordError:^(NSString *message) {//密码错误
         [weakSelf.passView  clearUpPassword];//清空密码
         NSLog(@"服务器===%@",message);
+    } noYuEr:^(NSString *yuer) {//额度不够
+        NSString *message =[NSString stringWithFormat:@"%@%@",self.moneyModel.code,@"余额不足"];
+        [MBManager showBriefAlert:message];
+        [weakSelf.passView  clearUpPassword];//清空密码
     } erorr:^(id error) {//网络错误，或者服务器错误
         
     }];
+}
+
+//隐藏支付界面和密码界面
+-(void)hiddenTwoView{
+    [self closePassView];
+    [self closeSurePayView];
 }
 
 //忘记密码

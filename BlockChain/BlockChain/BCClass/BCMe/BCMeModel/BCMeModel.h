@@ -54,4 +54,5 @@
 
 @property(nonatomic,strong)UIImage *Qimage;
 
+@property(nonatomic,assign)BOOL isShouKuan;
 @end

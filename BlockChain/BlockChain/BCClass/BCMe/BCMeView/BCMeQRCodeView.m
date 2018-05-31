@@ -160,13 +160,17 @@
 -(void)setModel:(BCMeModel *)model{
     _model =model;
     if (model!=nil) {
-             self.QRCode.text =model.token;   //传递code码
+            self.QRCode.text =[USER_DEFAULT valueForKey:@"token"];;   //传递code码
+        if (model.isShouKuan==YES) {
+            [self.QRCodeBtn1 setTitle:@"复制收款码" forState:UIControlStateNormal];
+            [self.QRCodeBtn2 setTitle:@"保存到手机" forState:UIControlStateNormal];
+        }else{
             [self.QRCodeBtn1 setTitle:@"复制收款地址" forState:UIControlStateNormal];
-//        self.QRImage.image =model.Qimage;
-        [self.QRCodeBtn2 setTitle:@"保存二维码到手机" forState:UIControlStateNormal];
+            [self.QRCodeBtn2 setTitle:@"保存二维码到手机" forState:UIControlStateNormal];
+        }
         self.message.text =@"温馨提示:改地址仅用于接收ETH和ERC20 Token,请不要向该地址发送不符合ERC20标准的Token";
         //生成二维码
-        [self colorQrcode];
+        self.QRImage.image =model.Qimage;
     }
 }
 
@@ -184,80 +188,10 @@
     //    }
 }
 
-//MARK:彩色的二维码
--(void)colorQrcode{
-    //二维码的实质是 字符串, 我们生产二维码,就是根据字符串去生产一张图片
-    //获取内建的所有过滤器.
-    // NSArray *filterArr = [CIFilter filterNamesInCategories:kCICategoryBuiltIn]; //也对
-    NSArray *filterArr = [CIFilter filterNamesInCategories:@[kCICategoryBuiltIn]];   //对
-    NSLog(@"%@",filterArr); //所有内建过滤器,找CR... 二维码的
-    //创建二维码过滤器
-    CIFilter * qrfilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    //设置默认属性(老油条)
-    [qrfilter setDefaults];
-    //我们需要给 二维码过期器 设置一下属性,给它一些东西,让它去生成图片吧,那些属性呢,跳进去看
-    NSLog(@"%@",qrfilter.inputKeys);
-    /*
-     inputMessage,            //二维码的信息
-     inputCorrectionLevel     //二维码的容错率 ()到达一定值后,就不能识别二维码了
-     */
-    //我们需要给 二维码 的 inputMessage 设置值,  这是私有属性,我们 使用KVC.给其私有属性赋值
-    //将字符串转为NSData,去获取图片
-    NSData * qrimgardata = [self.model.token dataUsingEncoding:NSUTF8StringEncoding];
-    //去获取对应的图片(因为测试,直接用字符串会崩溃)
-    [qrfilter setValue:qrimgardata forKey:@"inputMessage"];
-    //去获得对应图片 outPut
-    CIImage *qrImage = qrfilter.outputImage;
-    //图片不清除,打印知道其 大小 为 (27,27). 进入 CIImage,看属性,
-    qrImage = [qrImage imageByApplyingTransform:CGAffineTransformMakeScale(9, 9)];
-    
-    
-    //创建彩色过滤器   (彩色的用的不多)-----------------------------------------------------
-    CIFilter * colorFilter = [CIFilter filterWithName:@"CIFalseColor"];
-    //设置默认值
-    [colorFilter setDefaults];
-    
-    //同样打印这样的 输入属性  inputKeys
-    NSLog(@"%@",colorFilter.inputKeys);
-    /*
-     inputImage,   //输入的图片
-     inputColor0,  //前景色
-     inputColor1   //背景色
-     */
-    //KVC 给私有属性赋值
-    [colorFilter setValue:qrImage forKey:@"inputImage"];
-    
-    //需要使用 CIColor
-//    [colorFilter setValue:[CIColor colorWithRed:147 green:58 blue:226] forKey:@"inputColor1"];
-    [colorFilter setValue:[CIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1] forKey:@"inputColor0"];
-    [colorFilter setValue:[CIColor colorWithRed:129/255.0 green:0/255.0 blue:224/255.0 alpha:1] forKey:@"inputColor1"];
-    //设置输出
-    CIImage *colorImage = [colorFilter outputImage];
-    //但是图片 发现有的小 (27,27),我们需要放大..我们进去CIImage 内部看属性
-    //    colorImage = [qrImage imageByApplyingTransform:CGAffineTransformMakeScale(20, 20)];
-    //-----------------------------------------
-    UIImage *qrUIImage = [UIImage imageWithCIImage:colorImage];
-    //----------------给 二维码 中间增加一个 自定义图片----------------
-    //开启绘图,获取图形上下文  (上下文的大小,就是二维码的大小)
-    UIGraphicsBeginImageContext(qrUIImage.size);
-    
-    //把二维码图片画上去. (这里是以,图形上下文,左上角为 (0,0)点)
-    [qrUIImage drawInRect:CGRectMake(0, 0, qrUIImage.size.width, qrUIImage.size.height)];
-    //再把小图片画上去
-    UIImage *sImage = [UIImage imageNamed:@"1024px"];
-    
-    CGFloat sImageW = 50;
-    CGFloat sImageH= sImageW;
-    CGFloat sImageX = (qrUIImage.size.width - sImageW) * 0.5;
-    CGFloat sImgaeY = (qrUIImage.size.height - sImageH) * 0.5;
-    [sImage drawInRect:CGRectMake(sImageX, sImgaeY, sImageW, sImageH)];
-    //获取当前画得的这张图片
-    UIImage *finalyImage = UIGraphicsGetImageFromCurrentImageContext();
-    //关闭图形上下文
-    UIGraphicsEndImageContext();
-    self.QRImage.image =finalyImage;
-    
-}
+//[colorFilter setValue:[CIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1] forKey:@"inputColor0"];
+//[colorFilter setValue:[CIColor colorWithRed:129/255.0 green:0/255.0 blue:224/255.0 alpha:1] forKey:@"inputColor1"];
+
+
 
 
 

@@ -11,5 +11,6 @@
 //二维码界面
 @interface BCMeQRCodeController : UIViewController
 
+@property(nonatomic,assign)BOOL isShouKuan;//是否从收款界面跳转来的
 @property(nonatomic,strong)BCMeModel *meModel;
 @end

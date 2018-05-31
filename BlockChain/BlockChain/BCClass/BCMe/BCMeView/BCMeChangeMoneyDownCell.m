@@ -235,7 +235,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *value = [NSString stringWithFormat:@"%.6f",floatValue*value1];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.hongLable.text =value;
+                self.hongLable.text =[NSString stringWithFormat:@"%@%@",value,@"Ether"];
                 //获取slider数据
                 if (self.delegate && [self.delegate respondsToSelector:@selector(getSliderValue:)]) {
                     [self.delegate getSliderValue:value];

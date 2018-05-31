@@ -149,9 +149,8 @@
     if (!cell) {
         cell = [[BCMePDCListUpCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:DetailArticleID];
         //选中颜色
-        //[Util selectCellBackgroundColor:cell];
     };
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -255,21 +254,23 @@
 -(void)setModel:(BCMePDCMode *)model{
     _model =model;
     if (model!=nil) {
-        self.price.text=[NSString stringWithFormat:@"%.1f",[model.uci.coin floatValue]];
-        self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.uci.rmb.floatValue];
-        self.label1.text=[NSString stringWithFormat:@"%@简介",model.partner.code];
-        self.label2.text=[NSString stringWithFormat:@"项目名称:%@",model.partner.projectName];
-        self.label3.text=[NSString stringWithFormat:@"标语:%@",model.partner.slogan];
-        self.label4.text=[NSString stringWithFormat:@"项目介绍:%@",model.partner.brief];
-        [self.xiaQingBtn setTitle:@"详情" forState:UIControlStateNormal];
-        [self setlABLE];
-        [self.contentView layoutIfNeeded];
-        [self.bigView gradientFreme:CGRectMake(0, 0, SCREENWIDTH, self.bigView.xmg_height) startColor:color5E4FC9 endColor:colorC483FB];
-        self.smallBgView.backgroundColor = [colorB0ADFC colorWithAlphaComponent:0.5];
-        self.line.backgroundColor = colorE5E7E9;
-        self.downView.backgroundColor =naverTextColor;
-//        _xiaQingBtn.titleLabel.textColor=color2B73EE;
-//        [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
+        if (model.partner!=nil) {
+            self.price.text=[NSString stringWithFormat:@"%.1f",[model.uci.coin floatValue]];
+            self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.uci.rmb.floatValue];
+            self.label1.text=[NSString stringWithFormat:@"%@简介",model.partner.code];
+            self.label2.text=[NSString stringWithFormat:@"项目名称:%@",model.partner.projectName];
+            self.label3.text=[NSString stringWithFormat:@"标语:%@",model.partner.slogan];
+            self.label4.text=[NSString stringWithFormat:@"项目介绍:%@",model.partner.brief];
+            [self.xiaQingBtn setTitle:@"详情" forState:UIControlStateNormal];
+            //        _xiaQingBtn.titleLabel.textColor=color2B73EE;
+            //        [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
+            [self setlABLE];
+            [self.contentView layoutIfNeeded];
+            [self.bigView gradientFreme:CGRectMake(0, 0, SCREENWIDTH, self.bigView.xmg_height) startColor:color5E4FC9 endColor:colorC483FB];
+            self.smallBgView.backgroundColor = [colorB0ADFC colorWithAlphaComponent:0.5];
+            self.line.backgroundColor = colorE5E7E9;
+            self.downView.backgroundColor =naverTextColor;
+        }
     }
 }
 

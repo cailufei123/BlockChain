@@ -291,6 +291,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 //    self.tableView.tableHeaderView =  self.homeTopView;
       [self.tableView addSubview:self.homeTopView]  ;
 }
+
 -(void)setTable{
   
 //    self.automaticallyAdjustsScrollViewInsets = NO;

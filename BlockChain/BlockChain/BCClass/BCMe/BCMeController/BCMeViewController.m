@@ -99,6 +99,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
     //设置导航栏
     [self setNaviTitle];
     //加载数据
@@ -128,6 +129,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 
 //下拉加载
 -(void)loadNewData{
+    [MBManager showWaitingWithTitle:@"加载.."];
     [self loadUpData];
     [self loadListData];
    
@@ -137,8 +139,10 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
+        [MBManager hideAlert];
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
         self.meModel=model;
+        [USER_DEFAULT setObject:model.token forKey:@"token"];//存储token
          [LFAccountTool saveMe:model];
         self.meHeaderView.model =model;
         [self.header endRefreshing];
@@ -153,6 +157,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     candyDict[@"token"] = loginToken;
     [self.listArray removeAllObjects];
     [BCRequestData get_Token_List_Dict:candyDict success:^(id responseObject) {
+        [MBManager hideAlert];
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:responseObject[@"data"]];
         self.meHeaderView.model =model;
         self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
