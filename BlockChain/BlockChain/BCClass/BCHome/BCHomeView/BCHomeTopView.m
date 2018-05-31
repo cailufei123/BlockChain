@@ -101,7 +101,7 @@
         [bt setTitle:@"生长中" forState:UIControlStateNormal];
         bt.titleLabel.font = [UIFont systemFontOfSize:10];
     
-        bt.clf_centerY = 180;
+        bt.clf_centerY = 160;
        bt.clf_centerX = LFscreenW/2;
      
         [  self.stoneBgView  addSubview:bt];

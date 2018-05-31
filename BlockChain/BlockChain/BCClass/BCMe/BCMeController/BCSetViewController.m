@@ -15,6 +15,7 @@
 #import "BCSetPayPasswordViewController.h"
 #import "BCMeModel.h"
 #import "ATServiceAgreementController.h"
+#import "BCMeInvitingFriendsController.h"
 
 @interface BCSetViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *acountLb;
@@ -122,7 +123,10 @@
    
 }
 - (IBAction)invitationFriendTap:(id)sender {
-    
+   
+    BCMeInvitingFriendsController * serviceAgreementVc = [[BCMeInvitingFriendsController alloc] init];
+   
+    [self.navigationController pushViewController:serviceAgreementVc animated:YES];
 }
 - (IBAction)aboutMeTap:(id)sender {
     ATServiceAgreementController * serviceAgreementVc = [[ATServiceAgreementController alloc] init];

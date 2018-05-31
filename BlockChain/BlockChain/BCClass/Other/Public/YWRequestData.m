@@ -66,7 +66,7 @@
 }
 
 // - 首页糖果记录-----
-+ (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
++ (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess erorr:(void(^)(id error))erorr{
     
     [LFHttpTool post:CANDY_LIST params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
@@ -79,6 +79,7 @@
         }else{
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {
+           erorr(error);
         [MBManager showBriefAlert:@"网络错误"];
         [MBManager hideAlert];
     }];
@@ -314,6 +315,23 @@
 ////糖果详情
 + (void)candy_detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:CANDY_DETAIL params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            
+            
+        }else{
+            [MBManager showBriefAlert:responseObj[@"message"]];}
+    } failure:^(NSError *error) {
+        
+        [MBManager hideAlert];
+    }];
+}
+// 更新
++ (void)getplayDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
+    [LFHttpTool post:GET_LEPLAY params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         LFLog(@"%@",responseObj);
         [MBManager hideAlert];
