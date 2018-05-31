@@ -187,8 +187,9 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+     TaskInfoModel *taskInfoModel = self.taskInfoModels[indexPath.row];
     BCTaskDetailViewController  * taskVc = [[BCTaskDetailViewController  alloc] init];
+    taskVc.taskId = taskInfoModel.ID;
     [self.navigationController pushViewController:taskVc animated:YES];
 }
 @end

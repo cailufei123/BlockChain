@@ -84,7 +84,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.type = @"1";
+    self.type = @"0";
     [self setTable];
     [self createTopView];
     [self createRefresh];
@@ -93,34 +93,32 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
      [self loadHomeCandyLis];
      [self homePage];
     [self loadNewData];
+     [self winPeople];
     self.timer = [NSTimer wh_scheduledTimerWithTimeInterval:4 repeats:YES callback:^(NSTimer *timer) {
-        [self.titles removeAllObjects];
-        [YWRequestData winPeopleDict:nil success:^(id responseObj) {
-            self.wins = [WinPeopleModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
-            for (WinPeopleModel * winPeopleModel in self.wins) {
-                
-                [self.titles addObject:winPeopleModel.content];
-            }
-             self. cycleScrollView4.titlesGroup = self.titles;
-           timer.fireDate = [NSDate dateWithTimeInterval:self.wins.count*2 sinceDate:[NSDate date]];
-        }];
+       
+        [self winPeople];
+    }];
+//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+-(void)winPeople{
+     [self.titles removeAllObjects];
+    [YWRequestData winPeopleDict:nil success:^(id responseObj) {
+        self.wins = [WinPeopleModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+        for (WinPeopleModel * winPeopleModel in self.wins) {
+            
+            [self.titles addObject:winPeopleModel.content];
+        }
+        self. cycleScrollView4.titlesGroup = self.titles;
+        self.timer.fireDate = [NSDate dateWithTimeInterval:self.wins.count*2 sinceDate:[NSDate date]];
     }];
 }
 -(void)homePage{
-//    NSMutableDictionary *  homeCandyListDict = diction;
-//    homeCandyListDict[@"token"] = loginToken;
-////      homeCandyListDict[@"start"] = @;
-//
-//    [YWRequestData homePageDict:nil success:^(id responseObj) {
-//
-//    }];
+
    
 }
 -(void)loadHomeCandyLis{
-      LFLog(@"%@",loginToken);
-     LFLog(@"%@",CANDY_LIST);
+    
     [self.canCandyLists removeAllObjects];
-//    HomeCandyListModel * candyListModel = [self.candyLists lastObject];
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
   
@@ -149,7 +147,8 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 
 }
 -(void)createHorseLampbgView{
-    UIView * lampbgView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, LFscreenW, 24)];
+    UIView * lampbgView = [[UIView alloc] initWithFrame:CGRectMake(12, kStatusBarHeight, LFscreenW-24, 24)];
+    [lampbgView layercornerRadius:12];
     lampbgView.backgroundColor = [SVGloble colorWithHexString:@"#242424"];
     UIImageView * iconimg = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 14, 14)];
     iconimg.image= [UIImage imageNamed:@"广播"];
@@ -178,30 +177,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     cycleScrollView4.autoScrollTimeInterval = 2;// 自定义轮播时间间隔
     [lampbgView addSubview:cycleScrollView4];
     
-    
-  
-    
-  
-    
- 
-    
-//    NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"今天天气不错呀"];
-//
-//    [AttributedStr addAttribute:NSFontAttributeName
-//
-//                          value:[UIFont systemFontOfSize:12.0]
-//
-//                          range:NSMakeRange(2, 2)];
-//
-//    [AttributedStr addAttribute:NSForegroundColorAttributeName
-//
-//                          value:[UIColor redColor]
-//
-//                          range:NSMakeRange(2, 2)];
-//
-//    self.lampLable.attributedText = AttributedStr;
-    
-//    [lampbgView addSubview:self.lampLable];
+
 }
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
@@ -280,7 +256,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 -(void)createTopView{
     WeakSelf(weakSelf)
      self.homeTopView = [BCHomeTopView loadNameBCHomeTopViewXib];
-    
+    self.homeTopView.frame = CGRectMake(0, 0, LFscreenW, 490);
     self.homeTopView.screen = ^(NSString * type) {
         weakSelf.type = type;
         [MBManager showWaitingWithTitle:@"加载.."];
@@ -312,19 +288,19 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
         
         [weakSelf.navigationController pushViewController:pdcV animated:YES];
     };
-    self.tableView.tableHeaderView =  self.homeTopView;
-    
+//    self.tableView.tableHeaderView =  self.homeTopView;
+      [self.tableView addSubview:self.homeTopView]  ;
 }
 -(void)setTable{
   
 //    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, -1, LFscreenW, LFscreenH-kTabBarHeight) style:UITableViewStylePlain];
+    self.tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTabBarHeight) style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.backgroundColor  =bagColor;
+    self.tableView.backgroundColor  =[UIColor blackColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//       self.tableView.contentInset = UIEdgeInsetsMake(-kTopHeight, 0, 0, 0);
+//       self.tableView.contentInset = UIEdgeInsetsMake(490, 0, 0, 0);
     [self.tableView registerNib:[UINib nibWithNibName:cellidenfder bundle:nil] forCellReuseIdentifier:cellidenfder];
    
     if (@available(iOS 11.0, *)) {
@@ -334,6 +310,27 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
         self.tableView.estimatedSectionFooterHeight = 0;
     }
     
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LFscreenW, 490)];
+    self.tableView.tableHeaderView.clf_height = 490;
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+   
+        CGFloat offsetY = scrollView.contentOffset.y;
+    LFLog(@"%lf",offsetY);
+    if (offsetY<0) {
+        self.tableView.backgroundColor  =[UIColor blackColor];
+    }else{
+         self.tableView.backgroundColor  =bagColor;
+    }
+    if (offsetY>394-kTopHeight-20-34) {
+        self.homeTopView .clf_y =offsetY-(394-kTopHeight-20-34);
+    }else{
+        self.homeTopView .clf_y  = 0;
+//        self.homeTopView .clf_y = offsetY;
+//        self.tableView.backgroundColor  =bagColor;
+    }
+//      self.homeTopView .clf_y = -offsetY/2;
+  
 }
 
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
@@ -419,8 +416,18 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  
+    CandyListModel * candyListModel = self.userCandyLists[indexPath.row];
     BCHomeDetailViewController * taskVc = [[BCHomeDetailViewController alloc] init];
+    taskVc.indexpath1 = indexPath;
+    WeakSelf(weakSelf)
+    taskVc.refreshCandyLists = ^(NSIndexPath *indexpath1) {
+        CandyListModel * candyListModel = self.userCandyLists[indexpath1.row];
+        candyListModel.canGain = @"0";
+        [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    };
+   
+  
+    taskVc.candyId = candyListModel.candyId;
     [self.navigationController pushViewController:taskVc animated:YES];
 }
 @end

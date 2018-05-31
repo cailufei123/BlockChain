@@ -231,21 +231,31 @@
 
 -(void)setModel:(BCTaskDetailModel *)model{
     _model =model;
-    if (model!=nil) {
-        
-    }else{
-        //假数据
-        self.renWuLable.text = @"任务奖励: 5KFC";
-        self.lable1.text= @"当前算力";
-        self.lable2.text =@"可完成";
-        self.lable3.text =@"已完成";
-        self.number1.text= [NSString stringWithFormat:@"%@",@"102"];
-        self.number2.text= [NSString stringWithFormat:@"%@次",@"102"];
-        self.number3.text= [NSString stringWithFormat:@"%@次",@"102"];
-        [self.fenXiangBtn setTitle:@"分享" forState:UIControlStateNormal];
-        self.message.text= @"好友使用任务邀请码注册成功即可获得奖励";
-
-    }
+//    if (model!=nil) {
+//        
+//    }else{
+//        //假数据
+//        self.renWuLable.text =[NSString stringWithFormat:@"任务奖励:%@%@+%@算力",model.taskInfo.eachCoin,model.taskInfo.code,model.taskInfo.compute];
+//        self.lable1.text= @"当前算力";
+//        self.lable2.text =@"可完成";
+//        self.lable3.text =@"已完成";
+//        self.number1.text= [NSString stringWithFormat:@"%@",model.userInfo.compute];
+//        self.number2.text= [NSString stringWithFormat:@"%@次",model.taskInfo.max];
+//        self.number3.text= [NSString stringWithFormat:@"%@次",model.taskInfo.doneCount];
+//        [self.fenXiangBtn setTitle:@"分享" forState:UIControlStateNormal];
+//        self.message.text= @"好友使用任务邀请码注册成功即可获得奖励";
+//
+//    }
+    //假数据
+    self.renWuLable.text =[NSString stringWithFormat:@"任务奖励:%@%@+%@算力",model.taskInfo.eachCoin,model.taskInfo.code,model.taskInfo.compute];
+    self.lable1.text= @"当前算力";
+    self.lable2.text =@"可完成";
+    self.lable3.text =@"已完成";
+    self.number1.text= [NSString stringWithFormat:@"%@",model.userInfo.compute];
+    self.number2.text= [NSString stringWithFormat:@"%@次",model.taskInfo.max];
+    self.number3.text= [NSString stringWithFormat:@"%@次",model.taskInfo.doneCount];
+    [self.fenXiangBtn setTitle:@"分享" forState:UIControlStateNormal];
+    self.message.text= @"好友使用任务邀请码注册成功即可获得奖励";
 }
 
 #pragma mark -分享按钮

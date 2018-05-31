@@ -131,18 +131,25 @@
 }
 -(void)setModel:(BCTaskDetailModel *)model{
     _model =model;
-    if (model!=nil) {
-        
-        
-    }else{
-        //假数据
-        self.time.text = @"2018-12-4-12";
-        self.message.text= @"大沙发速度发斯蒂芬阿斯顿发送到发斯蒂芬斯蒂斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯芬";
-        self.jieShaoLable.text =@"项目介绍";
-        self.jieShao.text=@"项目介绍项目介绍项斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯目介绍";
-        self.lingQuLable.text= @"糖果领取流程";
-        self.lingQu.text =@"糖果领取流程糖果领斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯斯蒂芬阿斯顿发送到发斯蒂芬斯取流程糖";
-    }
+//    if (model!=nil) {
+//        
+//        
+//    }else{
+//        //假数据
+//        self.time.text = model.taskInfo.createTime;
+//        self.message.text=model.taskInfo.name;
+//        self.jieShaoLable.text =@"项目介绍";
+//        self.jieShao.text= model.taskInfo.taskDesc;
+//        self.lingQuLable.text= @"糖果领取流程";
+//        self.lingQu.text = model.partnerInfo.brief;
+//    }
+    //假数据
+    self.time.text = model.taskInfo.createTime;
+    self.message.text=model.taskInfo.name;
+    self.jieShaoLable.text =@"项目介绍";
+    self.jieShao.text= model.taskInfo.taskDesc;
+    self.lingQuLable.text= @"糖果领取流程";
+    self.lingQu.text = model.partnerInfo.brief;
 }
 #pragma mark -跟多按钮
 -(void)moreBtnClick:(UIButton *)button{

@@ -37,4 +37,13 @@
 + (void)getpswdVcodeDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 // 重置密码
 + (void)forgetResetDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+// //原力任务上报（每日app）
++ (void)taskeEveryDayDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+//普通任务详情
++ (void)taskeDetailDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+//普通任务上报（做了一次任务）
++ (void)taskeDoonceDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
+////糖果详情
++(void)candy_detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess  ;
+
 @end

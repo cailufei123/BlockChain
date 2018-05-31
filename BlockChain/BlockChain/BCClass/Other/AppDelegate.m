@@ -32,12 +32,19 @@
     
     [self configUSharePlatforms];//分享登陆
     [self uMessageNotificatiodidFinishLaunchingWithOptions:launchOptions];//友盟推送
-  
+    [self taskeEveryDay];
   
     
     return YES;
 }
-
+-(void)taskeEveryDay{
+    NSMutableDictionary * taskeEveryDayDict = diction;
+    taskeEveryDayDict[@"token"] = loginToken;
+    taskeEveryDayDict[@"taskId"] = @"1012";
+    [YWRequestData taskeEveryDayDict:taskeEveryDayDict success:^(id responseObj) {
+        
+    }];
+}
 
 - (void)configUSharePlatforms
 {
@@ -116,6 +123,16 @@
 
 
 
+
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
 
 
 
