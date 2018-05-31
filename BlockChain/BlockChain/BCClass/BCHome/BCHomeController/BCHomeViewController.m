@@ -429,6 +429,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 //    self.tableView.tableHeaderView =  self.homeTopView;
       [self.tableView addSubview:self.homeTopView]  ;
 }
+
 -(void)setTable{
   
 //    self.automaticallyAdjustsScrollViewInsets = NO;

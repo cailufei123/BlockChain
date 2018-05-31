@@ -9,14 +9,23 @@
 #import "BCMeInvitingFriendsController.h"
 #import "BCMeInvitingFriendsView.h"
 #import "BCMeInvitingShareView.h"
+#import "BCMeInvitingFriendsModel.h"
+
 @interface BCMeInvitingFriendsController ()<BCMeInvitingFriendsViewDelegate,BCMeInvitingShareViewDelegate>
 @property(nonatomic,strong)BCMeInvitingFriendsView *invitingView;
 @property(nonatomic,strong)BCMeInvitingShareView *shareView;
 @property(nonatomic,assign)BOOL isShow;
 @property(nonatomic,strong)UIView *BGView1;
+@property(nonatomic,strong)BCMeInvitingFriendsModel *model;
 @end
 
 @implementation BCMeInvitingFriendsController
+-(BCMeInvitingFriendsModel *)model{
+    if (!_model) {
+        _model = [[BCMeInvitingFriendsModel alloc] init];
+    }
+    return _model;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     //去掉背景图片
@@ -33,8 +42,10 @@
 -(BCMeInvitingFriendsView *)invitingView{
     if (!_invitingView) {
         _invitingView = [[BCMeInvitingFriendsView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
-        BCMeInvitingFriendsModel *model;
-        _invitingView.model =model;
+        self.model.token = @"adfasdfasdf";//码
+        NSString *code = @"adfasdfasdfsaf";//链接生成二维码图片
+        self.model.QImage =[Util getColorQrcodeWithToken:code SmallCenterImage:[UIImage imageNamed:@""] imageWidth:SXRealValue(50) color1:CI_RGBACOLOR(255, 255, 255, 0) color2:CI_RGBACOLOR(111, 111, 111, 1)];
+        _invitingView.model =self.model;
         _invitingView.delegate =self;
     }
     return _invitingView;
@@ -42,6 +53,7 @@
 
 
 -(BCMeInvitingShareView *)shareView{
+    WS(weakSelf);
     if (!_shareView) {
         CGFloat  showHeight;
         if (IS_IPhoneX) {
@@ -50,12 +62,32 @@
             showHeight=SCREENHEIGHT/2+(SYRealValue(84));
         }
         _shareView = [[BCMeInvitingShareView alloc] initWithFrame:CGRectMake(0, showHeight, SCREENWIDTH, SCREENHEIGHT)];
-        BCMeInvitingFriendsModel *model;
-        _shareView.model =model;
+        _shareView.model =self.model;
+        _shareView.weiXinBtnBlock = ^{//微信分享
+            NSLog(@"微信");
+            UIImage *image = [Util captureImageFromView:weakSelf.view];
+            [ATSKIPTOOl shareImageAndTextWithText:nil thumImage:nil shareImage:image shareType:UMShareType_WeiXinType currentViewController:weakSelf success:^{
+                NSLog(@"分享成功");
+            }];
+        };
+        _shareView.pengYouBtnBlock = ^{//朋友圈分享
+            UIImage *image = [Util captureImageFromView:weakSelf.view];
+            [ATSKIPTOOl shareImageAndTextWithText:nil thumImage:nil shareImage:image shareType:UMShareType_WeiXinPengyouQuan currentViewController:weakSelf success:^{
+                NSLog(@"分享成功");
+            }];
+        };
+        _shareView.QQBtnBlock = ^{// QQ分享
+            UIImage *image = [Util captureImageFromView:weakSelf.view];
+            [ATSKIPTOOl shareImageAndTextWithText:nil thumImage:nil shareImage:image shareType:UMShareType_QQ currentViewController:weakSelf success:^{
+                NSLog(@"分享成功");
+            }];
+        };
+            NSLog(@"QQ分享");
         _shareView.delegate =self;
-    }
+        };
     return _shareView;
 }
+
 -(UIView *)BGView1{
     if (!_BGView1) {
         _BGView1                 = [[UIView alloc] init];

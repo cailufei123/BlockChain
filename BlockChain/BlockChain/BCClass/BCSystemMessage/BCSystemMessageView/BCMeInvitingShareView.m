@@ -276,8 +276,6 @@
 -(void)setModel:(BCMeInvitingFriendsModel *)model{
     _model =model;
     if (model!=nil) {
-        
-    }else{
         //下部
         self.shengYuLable.text = [NSString stringWithFormat:@"剩余邀请次数%@次",@"8"];
         self.fenXiangLable.text =@"分享到";
@@ -287,31 +285,30 @@
         self.weiXinLable.text =@"微信";
         self.pengYouLable.text =@"朋友圈";
         self.QQLable.text =@"QQ";
-        
         self.huoDongLable.text =@"活动规则:";
         self.message1.text =@"1.新用户使用你的邀请码注册成功后双方均可获得10紫砖奖励";
         self.message2.text =@"2.每个邀请码最多使用10次";
     }
+    
 }
 
 
 #pragma mark -微信分享
 -(void)weiXinBtnClick:(UIButton *)button{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(closeShareView)]) {
-        [self.delegate closeShareView];
+    if (self.weiXinBtnBlock) {
+        self.weiXinBtnBlock();
     }
-    
 }
 #pragma mark -朋友圈分享
 -(void)pengYouBtnClick:(UIButton *)button{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(closeShareView)]) {
-        [self.delegate closeShareView];
+    if (self.pengYouBtnBlock) {
+        self.pengYouBtnBlock();
     }
 }
 #pragma mark -QQ分享
 -(void)QQBtnClick:(UIButton *)button{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(closeShareView)]) {
-        [self.delegate closeShareView];
+    if (self.QQBtnBlock) {
+        self.QQBtnBlock();
     }
 }
 

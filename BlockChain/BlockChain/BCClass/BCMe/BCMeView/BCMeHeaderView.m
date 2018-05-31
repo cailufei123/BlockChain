@@ -105,7 +105,7 @@
 }
 -(UILabel *)zongLable2{
     if (!_zongLable2) {
-        _zongLable2 =[UILabel LabelWithTextColor:orangebagColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(19)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+        _zongLable2 =[UILabel LabelWithTextColor:colorD35353 textFont:FONT(@"PingFangSC-Regular", SXRealValue(19)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
 //                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_zongLable2];
     }
     return _zongLable2;

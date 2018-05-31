@@ -10,16 +10,32 @@
 #import "BCSuanLiJiLuModel.h"
 #import "BCHomeSuanLiUpCell.h"
 #import "BCHomeSuanLiDownCell.h"
+#import "BCTaskViewController.h"
+
+
 @interface BCSuanLiJiLuController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)BCSuanLiJiLuModel *model;
+@property(nonatomic,strong)BCSuanLiJiLuListModel *listMode;
+
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
+@property(nonatomic,assign)NSInteger start;
+@property(nonatomic,strong)NSMutableArray *allListArray;
+
+
 @end
 
 @implementation BCSuanLiJiLuController
 
 #define JiaSuBtnViewHeight  (SYRealValue(95)) //底部加速算力view高度
+-(NSMutableArray *)allListArray{
+    if (!_allListArray) {
+        _allListArray = [NSMutableArray array];
+    }
+    return _allListArray;
+}
+
 /**表格**/
 -(UITableView *)tableView{
     if (!_tableView) {
@@ -64,6 +80,7 @@
     //初始化转账与收款
     [self setUpBottomBtn];
 }
+
 - (void)createRefresh
 {
     SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
@@ -77,13 +94,46 @@
 }
 //下拉加载
 -(void)loadNewData{
-    [self.header endRefreshing];
+    self.start=0;
+    if (self.allListArray.count>0) {
+        [self.allListArray removeAllObjects];
+    }
+    [self loadData];
     
 }
 //上拉加载
 -(void)loadMoreData{
-    [self.footer endRefreshing];
+    [self loadData];
 }
+-(void)loadData{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    candyDict[@"start"] =[NSString stringWithFormat:@"%ld",self.start];
+    
+//    candyDict[@"size"] = @20;//糖果id
+    //candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
+    [BCRequestData get_suanLiJiLu_Dict:candyDict success:^(id responseObject) {
+        self.model = [BCSuanLiJiLuModel mj_objectWithKeyValues:responseObject[@"data"]];
+        NSArray* listArray = [BCSuanLiJiLuListModel mj_objectArrayWithKeyValuesArray:self.model.computeLogs];
+        if (listArray.count>0) {
+            [self.allListArray addObjectsFromArray:listArray];
+            self.start = listArray.count;
+            [self.header endRefreshing];
+            [self.footer endRefreshing];
+        }
+        if (listArray.count==0) {
+             [self.footer endRefreshingWithNoMoreData];
+        }
+        [self.tableView reloadData];
+       
+    } erorr:^(id error) {
+        [self.header endRefreshing];
+        [self.footer endRefreshing];
+    }];
+    
+}
+
+
 
 #pragma 底部转账与收款
 -(void)setUpBottomBtn{
@@ -110,7 +160,8 @@
 }
 #pragma mark - 加速算力抢铜板按钮点击
 -(void)jiaSuBtnClick:(UIButton *)button{
-    
+    BCTaskViewController *taskVc= [[BCTaskViewController alloc] init];
+    [self.navigationController pushViewController:taskVc animated:YES];
 }
 
 -(void)setNaviTitle{
@@ -128,7 +179,7 @@
 //返回高度
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section==1) {
-//        return nil;
+        //        return nil;
         UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
         view.backgroundColor = naverTextColor;
         UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
@@ -175,7 +226,7 @@
     if (section==0) {
         return  1;
     }else{
-        return  20;
+        return  self.allListArray.count;
     }
 }
 
@@ -188,14 +239,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //BCSuanLiJiLuModel *model = self.tangGuolistArray[indexPath.row];
-     BCSuanLiJiLuModel *model;
     if (indexPath.section==0) {
         //添加事件
         BCHomeSuanLiUpCell *cell = [BCHomeSuanLiUpCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
-        cell.model =model;
+        cell.model =self.model;
         return cell;
     }else{
+        BCSuanLiJiLuListModel *model = self.allListArray[indexPath.row];
         //添加事件
         BCHomeSuanLiDownCell *cell = [BCHomeSuanLiDownCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.model =model;

@@ -10,4 +10,15 @@
 
 @implementation BCSuanLiJiLuModel
 
++(NSDictionary *)mj_replacedKeyFromPropertyName{
+    
+    return @{@"ID":@"id"};
+}
 @end
+
+
+@implementation BCSuanLiJiLuListModel
+
+
+@end
+

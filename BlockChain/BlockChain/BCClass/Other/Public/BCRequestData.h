@@ -19,7 +19,10 @@
 //查询消费记录
 +(void)get_candy_List_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr;
 //获取剩额
-+(void)get_yuEr_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess passwordError:(void (^) (NSString * message))message erorr:(void(^)(id error))erorr;
++(void)get_yuEr_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess passwordError:(void (^) (NSString * message))message noYuEr:(void (^) (NSString * yuer))noYuEr erorr:(void(^)(id error))erorr;
+//算力记录
++(void)get_suanLiJiLu_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr;
+
 
 @end
 

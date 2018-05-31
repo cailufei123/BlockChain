@@ -106,17 +106,22 @@
 -(void)loadData{
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
-    //candyDict[@"code"] = self.code;//糖果id
     candyDict[@"size"] = @20;//糖果id
     candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
     
     [BCRequestData get_candy_List_Dict:candyDict success:^(id responseObject) {
         NSArray* listArray = [BCMeTangGuoJiLuMode mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [self.allListArray addObjectsFromArray:listArray];
-        [self.headerView setUpImage:[UIImage imageNamed:@"雷鹿财富logoc-2"]];
+        if (listArray.count>0) {
+            [self.allListArray addObjectsFromArray:listArray];
+            [self.headerView setUpImage:[UIImage imageNamed:@"雷鹿财富logoc-2"]];
+            [self.header endRefreshing];
+            [self.footer endRefreshing];
+        }
+        if (listArray.count==0) {
+            [self.footer endRefreshingWithNoMoreData];
+        }
         [self.tableView reloadData];
-        [self.header endRefreshing];
-        [self.footer endRefreshing];
+      
     } erorr:^(id error) {
         [self.header endRefreshing];
         [self.footer endRefreshing];

@@ -133,4 +133,78 @@ currentViewController:(id)currentViewController
 
 
 
+
+//分享图片
+-(void)shareImageAndTextWithText:(NSString *)text
+                       thumImage:(id)thumImage
+                      shareImage:(id)shareImage
+                       shareType:(UMShareType)shareType
+                        currentViewController:(id )currentViewController
+                         success:(void (^) (void))sucess{
+    
+    if (shareType==UMShareType_WeiXinType) {//微信聊天
+        [self shareWithText:text thumImage:thumImage shareImage:shareImage ToPlatformType:UMSocialPlatformType_WechatSession currentViewController:currentViewController success:sucess];
+    }else if(shareType==UMShareType_WeiXinPengyouQuan){//微信朋友圈
+        [self shareWithText:text thumImage:thumImage shareImage:shareImage ToPlatformType:UMSocialPlatformType_WechatTimeLine currentViewController:currentViewController success:sucess];
+    }else if(shareType==UMShareType_QQ){//QQ聊天
+        [self shareWithText:text thumImage:thumImage shareImage:shareImage ToPlatformType:UMSocialPlatformType_QQ currentViewController:currentViewController success:sucess];
+    }
+}
+- (void)shareWithText:(NSString *)text
+   thumImage:(id )thumImage
+  shareImage:(id )image ToPlatformType:(UMSocialPlatformType)platformType currentViewController:(id)currentViewController success:(void (^) (void))sucess{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //设置文本
+    messageObject.text = text;
+    //创建图片内容对象
+    UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
+    //如果有缩略图，则设置缩略图
+    shareObject.thumbImage = thumImage;
+    [shareObject setShareImage:image];
+    
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+        //调用分享接口
+        [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:currentViewController completion:^(id data, NSError *error) {
+            if (error) {
+                NSLog(@"************Share fail with error %@*********",error);
+            }else{
+                NSLog(@"response data is %@",data);
+                sucess();
+            }
+        }];
+}
+
+    
+
+//
+//- (void)shareImageAndTextToPlatformType:(UMSocialPlatformType)platformType
+//{
+//    //创建分享消息对象
+//    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+//
+//    //设置文本
+//    messageObject.text = @"社会化组件UShare将各大社交平台接入您的应用，快速武装App。";
+//
+//    //创建图片内容对象
+//    UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
+//    //如果有缩略图，则设置缩略图
+//    shareObject.thumbImage = [UIImage imageNamed:@"icon"];
+//    [shareObject setShareImage:@"https://www.umeng.com/img/index/demo/1104.4b2f7dfe614bea70eea4c6071c72d7f5.jpg"];
+//
+//    //分享消息对象设置分享内容对象
+//    messageObject.shareObject = shareObject;
+//
+//    //调用分享接口
+//    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+//        if (error) {
+//            NSLog(@"************Share fail with error %@*********",error);
+//        }else{
+//            NSLog(@"response data is %@",data);
+//        }
+//    }];
+//}
+
+
 @end

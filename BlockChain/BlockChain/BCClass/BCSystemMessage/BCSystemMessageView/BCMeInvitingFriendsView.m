@@ -232,15 +232,13 @@
 -(void)setModel:(BCMeInvitingFriendsModel *)model{
     _model =model;
     if (model!=nil) {
-        
-    }else{
         //假数据
         self.bigImageView.image=[UIImage imageNamed:@"背景－2"];
         self.caiFuIcon.image=[UIImage imageNamed:@"雷鹿财富logo白-2"];
         self.yaoQingLable.text = @"我的邀请码";
-        self.yaoQing.text = @"40KDJFHCR2";
+        self.yaoQing.text = model.token;
         self.messageLable.text =@"赶快和我一起领糖果，使用邀请码注册更有惊喜大礼包等你来拿";
-        self.QcodeIcon.image=[UIImage imageNamed:@"二维码"];
+        self.QcodeIcon.image =model.QImage;
         self.changAnLable.text = @"长按识别二维码";
         [self.loadingBtn setTitle:@"下载唐人街" forState:UIControlStateNormal];
 

@@ -10,4 +10,7 @@
 
 @interface BCMeInvitingFriendsModel : NSObject
 
+@property(nonatomic,strong)UIImage *QImage;//根据token生成的二维码
+@property(nonatomic,copy)NSString *token;
+
 @end

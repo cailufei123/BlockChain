@@ -38,22 +38,22 @@
 -(UILabel *)dengLuLable{
     if (!_dengLuLable) {
         _dengLuLable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//                    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_dengLuLable];
+        //                    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_dengLuLable];
     }
     return _dengLuLable;
 }
 -(UILabel *)timeLable{
     if (!_timeLable) {
         _timeLable =[UILabel LabelWithTextColor:color717171 textFont:FONT(@"PingFangSC-Regular", SXRealValue(9)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//                    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_timeLable];
+        //                    [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_timeLable];
     }
     return _timeLable;
 }
 -(UILabel *)numberLable{
     if (!_numberLable) {
         _numberLable =[UILabel LabelWithTextColor:colorB23AF6 textFont:FONT(@"PingFangSC-Regular", SXRealValue(12)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-//                [Util roundBorderVi
-//    ew:0 border:1 color:[UIColor blackColor] view:_numberLable];
+        //                [Util roundBorderVi
+        //    ew:0 border:1 color:[UIColor blackColor] view:_numberLable];
     }
     return _numberLable;
 }
@@ -81,8 +81,8 @@
         [self.contentView addSubview:self.numberLable];
         [self.contentView addSubview:self.line1];
         [self.contentView addSubview:self.line2];
-
-
+        
+        
         [self.dengLuLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(16));
             make.bottom.mas_equalTo(self.contentView.mas_centerY).with.offset((SYRealValue(0)));
@@ -102,7 +102,7 @@
             make.bottom.mas_equalTo(self.contentView.mas_bottom).with.offset((SYRealValue(-0.6)));
             make.height.mas_equalTo((SYRealValue(0.6)));
         }];
-
+        
         [self.timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(16));
             make.top.mas_equalTo(self.contentView.mas_centerY).with.offset((SYRealValue(0)));
@@ -113,18 +113,16 @@
             make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-15));
             make.centerY.mas_equalTo(self.contentView.mas_centerY);
         }];
-      
+        
     }
     return self;
 }
--(void)setModel:(BCSuanLiJiLuModel *)model{
+-(void)setModel:(BCSuanLiJiLuListModel *)model{
     _model =model;
     if (model!=nil) {
-        
-    }else{
-                self.dengLuLable.text = @"标语";
-                self.timeLable.text= @"大发发啊水电费阿斯蒂芬打发的说法第三方";
-                self.numberLable.text= [NSString stringWithFormat:@"+%d",2];
+        self.dengLuLable.text = model.remark;
+        self.timeLable.text= model.createTime;
+        self.numberLable.text= [NSString stringWithFormat:@"+%@",model.compute];
     }
 }
 #pragma mark- 去官网

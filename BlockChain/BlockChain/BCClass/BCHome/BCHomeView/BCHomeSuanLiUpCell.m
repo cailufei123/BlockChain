@@ -199,15 +199,11 @@
 -(void)setModel:(BCSuanLiJiLuModel *)model{
     _model =model;
     if (model!=nil) {
-        
-    }else{
-        //self.bigIcon.image =[UIImage imageNamed:@"bt_bg"];
         self.suLiImage.image =[UIImage imageNamed:@"brokenline_bg"];
         self.suLiLable.text = @"当前算力";
-        self.suLiNumber.text= @"1024";
+        self.suLiNumber.text= [NSString stringWithFormat:@"%.1f",model.compute.floatValue];
         self.smLabel.text= @"什么是算力";
-        self.suLiMessage.text=@"打发的说法水电费阿斯蒂芬发的说法安抚大师傅";
-        self.suLiMessage.text= @"算力是阿斯顿发送到发斯蒂芬算力是阿斯顿发送到发斯蒂芬算力是阿斯顿发送到发斯蒂芬算力是阿斯顿发送到发斯蒂芬算力是阿斯顿发送到发斯蒂芬算力是阿斯顿发送到发斯蒂芬算力是阿斯顿发送到发斯蒂芬算力是阿斯顿发送到发斯蒂芬";
+        self.suLiMessage.text= @"算力是用户获取紫钻的影响因子，同一时间内算力越高，获得的紫钻越多，后续的版本中算力也将关系到用户等级以及相应的用户权限";
     }
 }
 

@@ -51,7 +51,7 @@
 }
 -(UILabel *)downPrice{
     if (!_downPrice) {
-        _downPrice =[UILabel LabelWithTextColor:color101010 textFont:FONT(@"PingFangSC-Regular", SXRealValue(11)) textAlignment:NSTextAlignmentRight numberOfLines:1];
+        _downPrice =[UILabel LabelWithTextColor:colorD35353 textFont:FONT(@"PingFangSC-Regular", SXRealValue(11)) textAlignment:NSTextAlignmentRight numberOfLines:1];
 //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downPrice];
     }
     return _downPrice;

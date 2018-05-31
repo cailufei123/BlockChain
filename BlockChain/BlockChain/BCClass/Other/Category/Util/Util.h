@@ -6,7 +6,7 @@
 //  Copyright © 2017年 SZ. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface Util : NSObject
@@ -32,4 +32,13 @@
  **/
 +(void)drawLineOfDashByCAShapeLayer:(UIView *)lineView lineLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor lineDirection:(BOOL)isHorizonal;
 
+#pragma mark--------保存图片到相册功能，ALAssetsLibraryiOS9.0 以后用photoliabary 替代，--
+//截屏保存到相册
++(void)savePhotoWithJiePingView:(UIView *)view;
+//得到截屏图片
++(UIImage *)captureImageFromView:(UIView *)view;
+
+//根据token生成带颜色的二维码
+//MARK:彩色的二维码
++(UIImage *)getColorQrcodeWithToken:(NSString *)token SmallCenterImage:(UIImage *)image imageWidth:(CGFloat)imageWidth color1:(CIColor*)color1 color2:(CIColor*)color2;
 @end
