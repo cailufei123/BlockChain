@@ -79,7 +79,9 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = loginToken;
     dic[@"smsCode"] = self.codeTf.text;
-    dic[@"password"] =  [DES3Util encryptUseDES: self.passwordLb.text key:@"kQujxT^KYZXVGUFn"];
+//    dic[@"password"] =  [DES3Util encryptUseDES: self.passwordLb.text key:@"kQujxT^KYZXVGUFn"];
+     dic[@"password"] =  @"kPN5VW7gYww=";
+   
     dic[@"deviceId"] = devicToken;
   
     

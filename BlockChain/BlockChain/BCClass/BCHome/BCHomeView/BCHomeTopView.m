@@ -98,7 +98,7 @@
         bt.clf_width = buttonW;
         bt.clf_height = buttonH;
         [bt setImage:[UIImage imageNamed:@"home_mineral_icon"] forState:UIControlStateNormal];
-        [bt setTitle:@"在生长" forState:UIControlStateNormal];
+        [bt setTitle:@"生长中" forState:UIControlStateNormal];
         bt.titleLabel.font = [UIFont systemFontOfSize:10];
     
         bt.clf_centerY = 180;

@@ -59,7 +59,7 @@
 }
 /**存储用户模型*/
 +(BCMeModel *)accountMe{
-      BCMeModel *lfoauthModel = [NSKeyedUnarchiver unarchiveObjectWithFile:LFAccountFilepath];
+      BCMeModel *lfoauthModel = [NSKeyedUnarchiver unarchiveObjectWithFile:LFAccountFilepathMe];
       return lfoauthModel;
 }
 @end

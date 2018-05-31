@@ -184,10 +184,13 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 #pragma mark-右侧导航按钮item 点击事件
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
+    
+    LFLog(@"%@",loginMe.authStatus);
 //    BCMeInvitingFriendsController *setVc =[[BCMeInvitingFriendsController alloc] init];
 //    [self.navigationController pushViewController:setVc animated:YES];
     BCSetViewController *setVc =[[BCSetViewController alloc] init];
     setVc.model =self.meModel;
+    
     [self.navigationController pushViewController:setVc animated:YES];
 }
 
