@@ -158,6 +158,18 @@
 		ADACD08B20BD65B000EE21F6 /* NSString+NSReplace.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD08720BD65AE00EE21F6 /* NSString+NSReplace.m */; };
 		ADACD08C20BD65B000EE21F6 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD08920BD65AE00EE21F6 /* GTMBase64.m */; };
 		ADACD08D20BD65B000EE21F6 /* DES3Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD08A20BD65AE00EE21F6 /* DES3Util.m */; };
+		ADACD09020BFA9D700EE21F6 /* CMVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD08F20BFA9D400EE21F6 /* CMVersion.m */; };
+		ADACD09420BFCC8B00EE21F6 /* SAVourcherHeartView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD09120BFCC8900EE21F6 /* SAVourcherHeartView.m */; };
+		ADACD09520BFCC8B00EE21F6 /* SAVourcherHeartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADACD09220BFCC8900EE21F6 /* SAVourcherHeartView.xib */; };
+		ADACD09920BFCDD700EE21F6 /* BCNotMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD09720BFCDD700EE21F6 /* BCNotMessageCell.m */; };
+		ADACD09A20BFCDD700EE21F6 /* BCNotMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADACD09820BFCDD700EE21F6 /* BCNotMessageCell.xib */; };
+		ADACD0A520BFE59400EE21F6 /* UITableView+Gzw.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD09E20BFE59200EE21F6 /* UITableView+Gzw.m */; };
+		ADACD0B420BFEC7C00EE21F6 /* YYLRefreshRequestErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD0A920BFEC7C00EE21F6 /* YYLRefreshRequestErrorView.m */; };
+		ADACD0B520BFEC7C00EE21F6 /* YYLRefreshNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD0AA20BFEC7C00EE21F6 /* YYLRefreshNoDataView.m */; };
+		ADACD0B620BFEC7C00EE21F6 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD0AC20BFEC7C00EE21F6 /* UIScrollView+Refresh.m */; };
+		ADACD0B720BFEC7C00EE21F6 /* YYLRefreshNoNetworkView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADACD0AD20BFEC7C00EE21F6 /* YYLRefreshNoNetworkView.m */; };
+		ADACD0B820BFEC7C00EE21F6 /* RefreshTableView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ADACD0B220BFEC7C00EE21F6 /* RefreshTableView.bundle */; };
+		ADACD0B920BFEC7C00EE21F6 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = ADACD0B320BFEC7C00EE21F6 /* .gitkeep */; };
 		ADD0896420B3B71900B3C4A4 /* BCLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD0896220B3B71900B3C4A4 /* BCLoginController.m */; };
 		ADD0896520B3B71900B3C4A4 /* BCLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */; };
 		ADE1239820B2D67D00F6E172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1239620B2D67D00F6E172 /* Main.storyboard */; };
@@ -598,6 +610,27 @@
 		ADACD08820BD65AE00EE21F6 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		ADACD08920BD65AE00EE21F6 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		ADACD08A20BD65AE00EE21F6 /* DES3Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DES3Util.m; sourceTree = "<group>"; };
+		ADACD08E20BFA9D300EE21F6 /* CMVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMVersion.h; sourceTree = "<group>"; };
+		ADACD08F20BFA9D400EE21F6 /* CMVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMVersion.m; sourceTree = "<group>"; };
+		ADACD09120BFCC8900EE21F6 /* SAVourcherHeartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAVourcherHeartView.m; sourceTree = "<group>"; };
+		ADACD09220BFCC8900EE21F6 /* SAVourcherHeartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAVourcherHeartView.xib; sourceTree = "<group>"; };
+		ADACD09320BFCC8A00EE21F6 /* SAVourcherHeartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAVourcherHeartView.h; sourceTree = "<group>"; };
+		ADACD09620BFCDD700EE21F6 /* BCNotMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCNotMessageCell.h; sourceTree = "<group>"; };
+		ADACD09720BFCDD700EE21F6 /* BCNotMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCNotMessageCell.m; sourceTree = "<group>"; };
+		ADACD09820BFCDD700EE21F6 /* BCNotMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCNotMessageCell.xib; sourceTree = "<group>"; };
+		ADACD09E20BFE59200EE21F6 /* UITableView+Gzw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Gzw.m"; sourceTree = "<group>"; };
+		ADACD09F20BFE59200EE21F6 /* GzwScrollViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GzwScrollViewExtension.h; sourceTree = "<group>"; };
+		ADACD0A020BFE59200EE21F6 /* UITableView+Gzw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Gzw.h"; sourceTree = "<group>"; };
+		ADACD0A920BFEC7C00EE21F6 /* YYLRefreshRequestErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLRefreshRequestErrorView.m; sourceTree = "<group>"; };
+		ADACD0AA20BFEC7C00EE21F6 /* YYLRefreshNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLRefreshNoDataView.m; sourceTree = "<group>"; };
+		ADACD0AB20BFEC7C00EE21F6 /* YYLRefreshNoNetworkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLRefreshNoNetworkView.h; sourceTree = "<group>"; };
+		ADACD0AC20BFEC7C00EE21F6 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
+		ADACD0AD20BFEC7C00EE21F6 /* YYLRefreshNoNetworkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLRefreshNoNetworkView.m; sourceTree = "<group>"; };
+		ADACD0AE20BFEC7C00EE21F6 /* YYLRefreshNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLRefreshNoDataView.h; sourceTree = "<group>"; };
+		ADACD0AF20BFEC7C00EE21F6 /* YYLRefreshRequestErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLRefreshRequestErrorView.h; sourceTree = "<group>"; };
+		ADACD0B020BFEC7C00EE21F6 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
+		ADACD0B220BFEC7C00EE21F6 /* RefreshTableView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RefreshTableView.bundle; sourceTree = "<group>"; };
+		ADACD0B320BFEC7C00EE21F6 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		ADD0896120B3B71900B3C4A4 /* BCLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCLoginController.h; sourceTree = "<group>"; };
 		ADD0896220B3B71900B3C4A4 /* BCLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCLoginController.m; sourceTree = "<group>"; };
 		ADD0896320B3B71900B3C4A4 /* BCLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCLoginController.xib; sourceTree = "<group>"; };
@@ -916,6 +949,8 @@
 		0468FB8C20B6D5CB00C83299 /* BCHomeModel */ = {
 			isa = PBXGroup;
 			children = (
+				ADACD08E20BFA9D300EE21F6 /* CMVersion.h */,
+				ADACD08F20BFA9D400EE21F6 /* CMVersion.m */,
 				0468FB8D20B6D5E200C83299 /* BCTaskDetailModel.h */,
 				0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */,
 				0487042920B7E8A5005C77DA /* BCHomeDetailModel.h */,
@@ -1310,6 +1345,12 @@
 				0468FB8720B6D54A00C83299 /* BCTaskDetailUpCell.m */,
 				0468FB8920B6D55A00C83299 /* BCTaskDetailDownCell.h */,
 				0468FB8A20B6D55A00C83299 /* BCTaskDetailDownCell.m */,
+				ADACD09320BFCC8A00EE21F6 /* SAVourcherHeartView.h */,
+				ADACD09120BFCC8900EE21F6 /* SAVourcherHeartView.m */,
+				ADACD09220BFCC8900EE21F6 /* SAVourcherHeartView.xib */,
+				ADACD09620BFCDD700EE21F6 /* BCNotMessageCell.h */,
+				ADACD09720BFCDD700EE21F6 /* BCNotMessageCell.m */,
+				ADACD09820BFCDD700EE21F6 /* BCNotMessageCell.xib */,
 			);
 			path = BCHomeView;
 			sourceTree = "<group>";
@@ -1438,6 +1479,49 @@
 				ADACD08A20BD65AE00EE21F6 /* DES3Util.m */,
 			);
 			path = 3DESiOS;
+			sourceTree = "<group>";
+		};
+		ADACD09B20BFE59200EE21F6 /* GzwScrollViewExtension */ = {
+			isa = PBXGroup;
+			children = (
+				ADACD09E20BFE59200EE21F6 /* UITableView+Gzw.m */,
+				ADACD09F20BFE59200EE21F6 /* GzwScrollViewExtension.h */,
+				ADACD0A020BFE59200EE21F6 /* UITableView+Gzw.h */,
+			);
+			path = GzwScrollViewExtension;
+			sourceTree = "<group>";
+		};
+		ADACD0A720BFEC7C00EE21F6 /* YYLrefresh */ = {
+			isa = PBXGroup;
+			children = (
+				ADACD0A820BFEC7C00EE21F6 /* Classes */,
+				ADACD0B120BFEC7C00EE21F6 /* Assets */,
+			);
+			path = YYLrefresh;
+			sourceTree = "<group>";
+		};
+		ADACD0A820BFEC7C00EE21F6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				ADACD0A920BFEC7C00EE21F6 /* YYLRefreshRequestErrorView.m */,
+				ADACD0AA20BFEC7C00EE21F6 /* YYLRefreshNoDataView.m */,
+				ADACD0AB20BFEC7C00EE21F6 /* YYLRefreshNoNetworkView.h */,
+				ADACD0AC20BFEC7C00EE21F6 /* UIScrollView+Refresh.m */,
+				ADACD0AD20BFEC7C00EE21F6 /* YYLRefreshNoNetworkView.m */,
+				ADACD0AE20BFEC7C00EE21F6 /* YYLRefreshNoDataView.h */,
+				ADACD0AF20BFEC7C00EE21F6 /* YYLRefreshRequestErrorView.h */,
+				ADACD0B020BFEC7C00EE21F6 /* UIScrollView+Refresh.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		ADACD0B120BFEC7C00EE21F6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ADACD0B220BFEC7C00EE21F6 /* RefreshTableView.bundle */,
+				ADACD0B320BFEC7C00EE21F6 /* .gitkeep */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		ADE1238420B2D67D00F6E172 = {
@@ -1952,6 +2036,8 @@
 		ADE1266F20B2E8D400F6E172 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				ADACD0A720BFEC7C00EE21F6 /* YYLrefresh */,
+				ADACD09B20BFE59200EE21F6 /* GzwScrollViewExtension */,
 				ADACD08320BD65AE00EE21F6 /* 3DESiOS */,
 				ADE1267020B2E91000F6E172 /* GKCover */,
 				AD23F71820B682130057E662 /* DWImagePicker */,
@@ -2263,8 +2349,10 @@
 				ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */,
 				ADE1264320B2E84F00F6E172 /* UMSocialSDKResources.bundle in Resources */,
 				AD23F70420B5767A0057E662 /* BCCodeAlertView.xib in Resources */,
+				ADACD09520BFCC8B00EE21F6 /* SAVourcherHeartView.xib in Resources */,
 				AD23F74E20B6A5BB0057E662 /* YWCustomMessageCell.xib in Resources */,
 				AD23F72F20B689E70057E662 /* BCRealNameReviewPassViewController.xib in Resources */,
+				ADACD09A20BFCDD700EE21F6 /* BCNotMessageCell.xib in Resources */,
 				AD23F71320B661B00057E662 /* BCReaNameController.xib in Resources */,
 				AD23F77520B8139A0057E662 /* BCSetPayPasswordViewController.xib in Resources */,
 				AD6EA45620B43ED200F61B33 /* MJRefresh.bundle in Resources */,
@@ -2275,9 +2363,11 @@
 				AD23F72520B689990057E662 /* BCRealNameReviewFailureViewController.xib in Resources */,
 				AD23F6DB20B5575A0057E662 /* BCTaskTableViewCell.xib in Resources */,
 				AD23F70C20B59C0C0057E662 /* BCSetViewController.xib in Resources */,
+				ADACD0B820BFEC7C00EE21F6 /* RefreshTableView.bundle in Resources */,
 				AD23F72020B6895D0057E662 /* BCRealNameInReviewViewController.xib in Resources */,
 				AD6EA3CB20B43B7100F61B33 /* BCHomeTopView.xib in Resources */,
 				AD23F6D620B556BA0057E662 /* BCTaskTopView.xib in Resources */,
+				ADACD0B920BFEC7C00EE21F6 /* .gitkeep in Resources */,
 				AD23F75320B6A5BB0057E662 /* ATMessageContentViewCell.xib in Resources */,
 				ADE1265920B2E84F00F6E172 /* IQKeyboardManager.bundle in Resources */,
 			);
@@ -2314,10 +2404,12 @@
 				AD23F6D120B5562B0057E662 /* BCTaskViewController.m in Sources */,
 				ADE125A320B2E84F00F6E172 /* FMDatabasePool.m in Sources */,
 				0468FB7620B6694900C83299 /* BCMeRealNameAlertView.m in Sources */,
+				ADACD0B420BFEC7C00EE21F6 /* YYLRefreshRequestErrorView.m in Sources */,
 				0652473020B3C04900F65C2A /* UIButton+LWB.m in Sources */,
 				AD23F6ED20B569290057E662 /* UIView+SDExtension.m in Sources */,
 				ADACD08220BBC9E200EE21F6 /* BCHomeModel.m in Sources */,
 				0652473820B3C08500F65C2A /* UILabel+LWB.m in Sources */,
+				ADACD0B520BFEC7C00EE21F6 /* YYLRefreshNoDataView.m in Sources */,
 				ADE126DB20B2EB4F00F6E172 /* NSArray+WHArray.m in Sources */,
 				04B6320420B54E7700D063B8 /* BCMeModel.m in Sources */,
 				AD6EA46220B43ED200F61B33 /* MJRefreshGifHeader.m in Sources */,
@@ -2357,6 +2449,7 @@
 				ADE125A520B2E84F00F6E172 /* UIImage+WebP.m in Sources */,
 				04B631FA20B54E7700D063B8 /* BCMeTangGuoJiLuHeaderView.m in Sources */,
 				ADE1265120B2E84F00F6E172 /* MJPropertyKey.m in Sources */,
+				ADACD0B620BFEC7C00EE21F6 /* UIScrollView+Refresh.m in Sources */,
 				AD6EA45C20B43ED200F61B33 /* MJRefreshBackNormalFooter.m in Sources */,
 				ADE1267820B2E91000F6E172 /* GKCover.m in Sources */,
 				AD6EA45F20B43ED200F61B33 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -2412,10 +2505,12 @@
 				ADE126DA20B2EB4F00F6E172 /* NSDate+WHDate.m in Sources */,
 				ADE126DC20B2EB4F00F6E172 /* UIImageView+PlayGIF.m in Sources */,
 				ADE125BC20B2E84F00F6E172 /* UIImageView+WebCache.m in Sources */,
+				ADACD09020BFA9D700EE21F6 /* CMVersion.m in Sources */,
 				ADE125C020B2E84F00F6E172 /* UIView+WebCacheOperation.m in Sources */,
 				04B6320820B58CC700D063B8 /* BCMePDCListAlertView.m in Sources */,
 				ADE1264A20B2E84F00F6E172 /* NSObject+MJKeyValue.m in Sources */,
 				ADE125A220B2E84F00F6E172 /* FMDatabase.m in Sources */,
+				ADACD09420BFCC8B00EE21F6 /* SAVourcherHeartView.m in Sources */,
 				ADE1270420B2ED4D00F6E172 /* AFURLSessionManager.m in Sources */,
 				04AA068520B95255007DEDB1 /* BCMeInvitingFriendsModel.m in Sources */,
 				ADE1265420B2E84F00F6E172 /* IQToolbar.m in Sources */,
@@ -2444,6 +2539,7 @@
 				AD6EA45B20B43ED200F61B33 /* MJRefreshBackStateFooter.m in Sources */,
 				AD23F6F120B569290057E662 /* TAAnimatedDotView.m in Sources */,
 				ADACD08B20BD65B000EE21F6 /* NSString+NSReplace.m in Sources */,
+				ADACD09920BFCDD700EE21F6 /* BCNotMessageCell.m in Sources */,
 				AD23F70720B580800057E662 /* BCLevelBtton.m in Sources */,
 				ADE1270720B2ED4D00F6E172 /* AFSecurityPolicy.m in Sources */,
 				ADE1270520B2ED4D00F6E172 /* AFURLRequestSerialization.m in Sources */,
@@ -2465,6 +2561,7 @@
 				ADE1269020B2EABD00F6E172 /* SVGloble.m in Sources */,
 				AD6EA42320B43E4500F61B33 /* SARefreshGifHeader.m in Sources */,
 				ADE1265620B2E84F00F6E172 /* IQBarButtonItem.m in Sources */,
+				ADACD0B720BFEC7C00EE21F6 /* YYLRefreshNoNetworkView.m in Sources */,
 				06ED21A120B436EC008F44FE /* MASViewAttribute.m in Sources */,
 				04AA067F20B90F5E007DEDB1 /* BCMeInvitingFriendsController.m in Sources */,
 				ADE126D520B2EB4F00F6E172 /* WHMethods.m in Sources */,
@@ -2476,6 +2573,7 @@
 				ADE126E320B2EB4F00F6E172 /* NSDateFormatter+Category.m in Sources */,
 				ADE126E420B2EB4F00F6E172 /* UIBarButtonItem+Item.m in Sources */,
 				04B6320220B54E7700D063B8 /* BCQRCodeMode.m in Sources */,
+				ADACD0A520BFE59400EE21F6 /* UITableView+Gzw.m in Sources */,
 				ADE125A120B2E84F00F6E172 /* FMDatabaseAdditions.m in Sources */,
 				ADE126D420B2EB4F00F6E172 /* NSDictionary+WHDictionary.m in Sources */,
 				04B631FC20B54E7700D063B8 /* BCMeQRCodeView.m in Sources */,

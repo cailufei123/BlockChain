@@ -166,6 +166,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         
     } erorr:^(id error) {
         [self.header endRefreshing];
+          self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
     }];
 
 }

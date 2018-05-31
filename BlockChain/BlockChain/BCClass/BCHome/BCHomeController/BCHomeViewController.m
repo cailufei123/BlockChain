@@ -16,6 +16,9 @@
 #import "BCSuanLiJiLuController.h"
 #import "BCHomeModel.h"
 #import "SDCycleScrollView.h"
+#import "CMVersion.h"
+#import "SAVourcherHeartView.h"
+#import "BCNotMessageCell.h"
 
 @interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate,SDCycleScrollViewDelegate>
 @property(nonatomic,strong)UITableView * tableView;
@@ -30,8 +33,11 @@
 @property(nonatomic,strong)NSString *type;
 @property(nonatomic,strong)NSMutableArray * userCandyLists;
 @property (nonatomic, strong) NSMutableDictionary *heightAtIndexPath;//缓存高度
+@property (nonatomic, strong) BCLevelBtton * button;
+@property (nonatomic, assign) BOOL  isHaveData;
 @end
 static NSString * const cellidenfder = @"BCHomeTableViewCell";
+static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 @implementation BCHomeViewController
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -85,6 +91,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.type = @"0";
+    self.isHaveData = YES;
     [self setTable];
     [self createTopView];
     [self createRefresh];
@@ -99,6 +106,110 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
         [self winPeople];
     }];
 //    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    [self updataVison];
+    // 配置参数
+    self.tableView.buttonText = @"再次请求";
+    self.tableView.buttonNormalColor = [UIColor redColor];
+    self.tableView.buttonHighlightColor = [UIColor yellowColor];
+    self.tableView.loadedImageName = @"网络异常";
+    self.tableView.descriptionText = @"破网络，你还是再请求一次吧";
+    self.tableView.dataVerticalOffset = 200;
+    
+}
+-(void)updataVison{
+    NSString *oldVersion = [self getAppVersion];
+    NSString * oldVersionNmb = [oldVersion stringByReplacingOccurrencesOfString:@"." withString:@""];
+    NSMutableDictionary * dictCont = [NSMutableDictionary dictionary];
+    dictCont[@"appVer"] =@([oldVersionNmb doubleValue]);
+    
+    dictCont[@"channel"] =@"0";
+    dictCont[@"type"] =@"1";
+    
+     LFLog(@"%@",dictCont);
+    [YWRequestData getplayDict:dictCont success:^(id responseObj) {
+        LFLog(@"%@",responseObj);
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            CMVersion * version = [CMVersion mj_objectWithKeyValues:responseObj[@"data"]];
+            NSUserDefaults *prosionDate =  [NSUserDefaults standardUserDefaults];
+            
+            [prosionDate setObject:version.version forKey:@"comeVesion"];
+            [prosionDate setObject:version.url forKey:downUrl];
+            if ([version.isForceUpdate isEqualToString:@"1"]) {//1：强更；0不强制
+                
+                //                if (version.versionCode.length)
+                //                {
+                UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"升级提示" message:version.briefDesc preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"去升级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [self jumpToAppStore:version];//跳转appstore
+                }];
+                [alertController addAction:alertAction];
+                [self.navigationController presentViewController:alertController animated:YES completion:nil];
+                
+                //                }
+                
+                
+            }else if ([version.isForceUpdate isEqualToString:@"0"]){
+                
+                UIAlertController * alertVc = [UIAlertController alertControllerWithTitle:@"升级提示" message:version.briefDesc preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"立即体验" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [self jumpToAppStore:version];//跳转appstore
+                }];
+                
+                
+                UIAlertAction * alertAction1 = [UIAlertAction actionWithTitle:@"默默忽略" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"下次再说" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                
+                [alertVc addAction:resetAction];
+                [alertVc addAction:alertAction1];
+                [alertVc addAction:sureAction];
+                [self.navigationController presentViewController:alertVc animated:YES completion:nil];
+                
+                
+                
+            }
+            
+            
+        }else{
+            
+            
+        }
+        
+        
+    }];
+}
+#pragma mark 跳转appstore
+-(void)jumpToAppStore:(CMVersion *)version
+{
+    LFLog(@"%@",version.url);
+    NSString *urlStr = version.url;
+    NSURL *url = [NSURL URLWithString:urlStr];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        [[UIApplication sharedApplication] openURL:url];
+    }else
+    {
+        NSLog(@"can not open");
+    }
+    
+    
+    
+    //     [[UIApplication sharedApplication] openURL:url];
+    //
+    //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/come/id1173766551?l=zh&ls=1&mt=8"]];
+    //
+    //  https://itunes.apple.com/us/app/come/id1173766551?l=zh&ls=1&mt=8
+}
+
+#pragma mark 获取版本信息
+- (NSString *)getAppVersion {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    return minorVersion;
 }
 -(void)winPeople{
      [self.titles removeAllObjects];
@@ -186,6 +297,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 -(void)createHideBt{
     
     BCLevelBtton * button = [[BCLevelBtton alloc] init];
+    self.button = button;
     [button setImage:[UIImage imageNamed:@"右"] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"左"] forState:UIControlStateSelected];
     [button setTitle:@"隐藏矿场" forState:UIControlStateNormal];
@@ -222,16 +334,28 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     candyDict[@"token"] = loginToken;
     candyDict[@"type"] =self.type;
     candyDict[@"size"] = @"10";
-    
- 
+   
+    // 只需一行代码，我来解放你的代码
     [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
         self.userCandyLists =  [CandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
         [MBManager hideAlert];
         if (self.userCandyLists.count<10) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
+           self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
+        if (self.userCandyLists.count>0) {
+              self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
+        }
+        
+        
+        self.isHaveData =  self.userCandyLists.count<=0?NO:YES;
         [self.tableView reloadData];
+        self.tableView.mj_footer.hidden = self.userCandyLists.count>0?NO:YES;
+    } erorr:^(id error) {
+         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
+
+   
 }
 -(void)loadMoreData{
      CandyListModel * candyListModel = [self.userCandyLists lastObject];
@@ -242,16 +366,30 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
      candyDict[@"size"] = @"10";
    
     LFLog(@"%@",candyDict);
-        [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
-            NSMutableArray * arr =  [CandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
-            
-            [self.tableView.mj_footer endRefreshing];
-            [self.userCandyLists addObjectsFromArray:arr];
-            [self.tableView reloadData];
-            if (arr.count<=0) {
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];
-            }
-        }];
+    // 只需一行代码，我来解放你的代码
+    [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
+        NSMutableArray * arr =  [CandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+        
+        [self.tableView.mj_footer endRefreshing];
+        [self.userCandyLists addObjectsFromArray:arr];
+        [self.tableView reloadData];
+        if (arr.count<=0) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+    } erorr:^(id error) {
+        self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
+    }];
+    
+//        [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
+//            NSMutableArray * arr =  [CandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+//            
+//            [self.tableView.mj_footer endRefreshing];
+//            [self.userCandyLists addObjectsFromArray:arr];
+//            [self.tableView reloadData];
+//            if (arr.count<=0) {
+//                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+//            }
+//        }];
 }
 -(void)createTopView{
     WeakSelf(weakSelf)
@@ -295,7 +433,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 -(void)setTable{
   
 //    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTabBarHeight) style:UITableViewStylePlain];
+    self.tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTabBarHeight) style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -303,6 +441,7 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //       self.tableView.contentInset = UIEdgeInsetsMake(490, 0, 0, 0);
     [self.tableView registerNib:[UINib nibWithNibName:cellidenfder bundle:nil] forCellReuseIdentifier:cellidenfder];
+     [self.tableView registerNib:[UINib nibWithNibName:notMessageCellidenfder bundle:nil] forCellReuseIdentifier:notMessageCellidenfder];
    
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -310,7 +449,16 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
-    
+    __weak typeof(self) weakSelf = self;
+     self.tableView.headerRefreshingBlock = ^{
+         [weakSelf loadHomeCandyLis];
+           [weakSelf loadNewData];
+         
+    };
+     self.tableView.footerRefreshingBlock = ^{
+        //请求数据
+//        [weakSelf loadData];
+    };
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LFscreenW, 490)];
     self.tableView.tableHeaderView.clf_height = 490;
 }
@@ -325,7 +473,9 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     }
     if (offsetY>394-kTopHeight-20-34) {
         self.homeTopView .clf_y =offsetY-(394-kTopHeight-20-34);
+          self.button.selected = YES;
     }else{
+           self.button.selected = NO;
         self.homeTopView .clf_y  = 0;
 //        self.homeTopView .clf_y = offsetY;
 //        self.tableView.backgroundColor  =bagColor;
@@ -358,8 +508,8 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return     self.userCandyLists.count;
+     
+           return   self.isHaveData?self.userCandyLists.count:1;
     
 }
 #pragma mark - UITableViewDelegate
@@ -370,11 +520,12 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     NSNumber *height = [self.heightAtIndexPath objectForKey:indexPath];
     if(height)
     {
+         
         return height.floatValue;
     }
     else
     {
-        return 70;
+         return   self.isHaveData?70:200;
     }
 }
 
@@ -398,23 +549,32 @@ static NSString * const cellidenfder = @"BCHomeTableViewCell";
     return _heightAtIndexPath;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
-   CandyListModel * candyListModel = self.userCandyLists[indexPath.row];
-    BCHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellidenfder];
-    cell.receiveCandy = ^(UIButton *button) {
-        NSMutableDictionary *  candycainDict = diction;
-        candycainDict[@"token"] = loginToken;
-        candycainDict[@"candyId"] = candyListModel.candyId;
-        LFLog(@"%@ %@",CANDY_GAIN,candycainDict);
-        [YWRequestData candycainDict:candycainDict success:^(id responseObj) {
-            candyListModel.canGain = @"0";
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        }];
+   
     
-    };
-    cell.candyListModel = candyListModel;
-    return cell;
+    if (self.isHaveData) {
+        CandyListModel * candyListModel = self.userCandyLists[indexPath.row];
+        BCHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellidenfder];
+        cell.receiveCandy = ^(UIButton *button) {
+            NSMutableDictionary *  candycainDict = diction;
+            candycainDict[@"token"] = loginToken;
+            candycainDict[@"candyId"] = candyListModel.candyId;
+            LFLog(@"%@ %@",CANDY_GAIN,candycainDict);
+            [YWRequestData candycainDict:candycainDict success:^(id responseObj) {
+                candyListModel.canGain = @"0";
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }];
+            
+        };
+        cell.candyListModel = candyListModel;
+          return cell;
+    }else{
+           BCNotMessageCell * cell = [tableView dequeueReusableCellWithIdentifier:notMessageCellidenfder];
+        return cell;
+    }
+  
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     CandyListModel * candyListModel = self.userCandyLists[indexPath.row];

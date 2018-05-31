@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SAVourcherHeartView">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="199"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7X-uM-rv5">
+                    <rect key="frame" x="0.0" y="0.0" width="354" height="199"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="失效代金券" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6S-7x-8gy">
+                            <rect key="frame" x="142" y="91.5" width="71.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAh-S0-fCe">
+                            <rect key="frame" x="100" y="99.5" width="32" height="1"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Rem-gD-tl8"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Im-Js-Zd5">
+                            <rect key="frame" x="223.5" y="99.5" width="30.5" height="1"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Qgv-vO-hUj"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Y6S-7x-8gy" firstAttribute="centerY" secondItem="L7X-uM-rv5" secondAttribute="centerY" id="3tW-WT-oKk"/>
+                        <constraint firstItem="tAh-S0-fCe" firstAttribute="leading" secondItem="L7X-uM-rv5" secondAttribute="leading" constant="100" id="601-GM-wjz"/>
+                        <constraint firstItem="7Im-Js-Zd5" firstAttribute="centerY" secondItem="Y6S-7x-8gy" secondAttribute="centerY" id="F1S-Cp-VOQ"/>
+                        <constraint firstItem="7Im-Js-Zd5" firstAttribute="leading" secondItem="Y6S-7x-8gy" secondAttribute="trailing" constant="10" id="cH2-go-aXm"/>
+                        <constraint firstItem="Y6S-7x-8gy" firstAttribute="leading" secondItem="tAh-S0-fCe" secondAttribute="trailing" constant="10" id="hrw-Rv-fhM"/>
+                        <constraint firstAttribute="trailing" secondItem="7Im-Js-Zd5" secondAttribute="trailing" constant="100" id="iNY-hL-dXo"/>
+                        <constraint firstItem="tAh-S0-fCe" firstAttribute="centerY" secondItem="Y6S-7x-8gy" secondAttribute="centerY" id="mfR-FB-RSS"/>
+                        <constraint firstItem="Y6S-7x-8gy" firstAttribute="centerX" secondItem="L7X-uM-rv5" secondAttribute="centerX" id="not-XY-QLF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="L7X-uM-rv5" secondAttribute="bottom" id="7nR-7p-Jc5"/>
+                <constraint firstItem="L7X-uM-rv5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DC2-0I-eSO"/>
+                <constraint firstAttribute="trailing" secondItem="L7X-uM-rv5" secondAttribute="trailing" id="MTW-Wp-tw1"/>
+                <constraint firstItem="L7X-uM-rv5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QAK-xb-mVR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titlelable" destination="Y6S-7x-8gy" id="dgq-kS-LxU"/>
+            </connections>
+            <point key="canvasLocation" x="-101" y="-19.5"/>
+        </view>
+    </objects>
+</document>

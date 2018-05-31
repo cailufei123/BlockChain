@@ -16,7 +16,8 @@
 // - 用户登录-----
 + (void)userLoginDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 // - 首页糖果记录-----
-+ (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
++ (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess erorr:(void(^)(id error))erorr;
+
 // - 领取糖果-----
 + (void)candycainDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 // - 实名认证-----
@@ -45,5 +46,6 @@
 + (void)taskeDoonceDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 ////糖果详情
 +(void)candy_detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess  ;
-
+// 更新
++ (void)getplayDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 @end

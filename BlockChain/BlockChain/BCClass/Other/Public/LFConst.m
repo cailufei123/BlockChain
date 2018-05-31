@@ -52,7 +52,8 @@ NSString * const enterForegroundRoom = @"enterForegroundRoom";
 
 
 
-
+/**下载地址*/
+NSString * const downUrl = @"downUrl";
 /**环信参数*/
 NSString * const infotype = @"infotype";
 /**启动*/

@@ -86,6 +86,9 @@ UIKIT_EXTERN NSString  *const masterReportPlayGame;
 UIKIT_EXTERN NSString  *const cheackVourcherLastTime;
 /**跳转到首页通知*/
 UIKIT_EXTERN NSString  *const skipHomeNotice;
+/**下载地址*/
+UIKIT_EXTERN NSString  *const downUrl;
+
 
 //请求
 /** 返回的code码 */
