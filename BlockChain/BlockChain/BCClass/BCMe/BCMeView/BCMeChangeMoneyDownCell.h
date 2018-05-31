@@ -13,7 +13,10 @@
 @protocol BCMeChangeMoneyDownCellDelegate <NSObject>
 @optional
 //-(void)goBtnClick;
-//-(void)cancelBtnClick;
+
+-(void)nextBtnClick;
+-(void)getSliderValue:(NSString* )sliderValue;
+
 @end
 @interface BCMeChangeMoneyDownCell : UITableViewCell
 

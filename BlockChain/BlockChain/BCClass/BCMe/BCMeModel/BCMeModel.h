@@ -35,7 +35,7 @@
 @property(nonatomic,copy)NSString * realName;//真实名字
 @property(nonatomic,copy)NSString * mobile;//电话
 @property(nonatomic,copy)NSString * maxTask;
-@property(nonatomic,copy)NSString * isPayPassSet;
+@property(nonatomic,copy)NSString * isPayPassSet;//是否密码授权
 @property(nonatomic,copy)NSString * userId;
 @property(nonatomic,copy)NSString * token;
 @property(nonatomic,copy)NSString * icon;
@@ -44,7 +44,7 @@
 @property(nonatomic,copy)NSString * idNo;
 @property(nonatomic,copy)NSString * isFeng;
 @property(nonatomic,copy)NSString * lastInviteCount;
-@property(nonatomic,copy)NSString * authStatus;
+@property(nonatomic,copy)NSString * authStatus;//授权
 @property(nonatomic,copy)NSString * name;//名字
 @property(nonatomic,copy)NSString * shareCode;//code分享码
 

@@ -13,19 +13,18 @@
 #import "BCMePDCListMode.h"
 
 #import "BCMePDCListAlertView.h"
-#import "BCMeRealNameAlertView.h"
+
 #import "BCSetViewController.h"
 #import "BCMeChangeMoneyController.h"
 #import "BCMeQRCodeController.h"
 #import "BCMePDCListUpCell.h"
 #import "BCMePDCListDownCell.h"
 
-@interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListUpCellDelegate,BCMePDCListAlertViewDelegate,BCMeRealNameAlertViewDelegate>
+@interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListUpCellDelegate,BCMePDCListAlertViewDelegate>
 @property(nonatomic,strong)BCMePDCListHeaderView *headerView;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)BCMePDCListMode *model;
 @property(nonatomic,strong)BCMePDCListAlertView *alertView;//弹框
-@property(nonatomic,strong)BCMeRealNameAlertView *realNameAlertView;//弹框
 
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
@@ -44,8 +43,7 @@
 #define alertViewWidth    SCREENWIDTH-2*(SXRealValue(16))
 #define alertViewHeight   (SCREENWIDTH-2*(SXRealValue(16)))*467/343)
 
-#define realWidth         (SXRealValue(343))
-#define realHeigth        (SXRealValue(211))
+
 
 -(NSMutableArray *)listArray{
     if (!_listArray) {
@@ -106,14 +104,7 @@
     
     
 }
--(BCMeRealNameAlertView *)realNameAlertView{
-    if (!_realNameAlertView) {
-        _realNameAlertView = [[BCMeRealNameAlertView alloc] initWithFrame:CGRectMake(0, 0, realWidth, realHeigth)];
-        [_realNameAlertView setUpMessage];//设置数据
-        _realNameAlertView.delegate =self;
-    }
-    return _realNameAlertView;
-}
+
 
 #pragma mark -BCMePDCListAlertViewDelegate 加载官网按钮
 -(void)guanWangBtnClick:(BCMePDCMode *)model{
@@ -125,16 +116,7 @@
     NSLog(@"点击了确定按钮");
     [GKCover hide];
 }
-#pragma mark -BCMeRealNameAlertViewDelegate 去认证
--(void)goBtnClick{
-    [GKCover hide];
-    BCSetViewController *setVc =[[BCSetViewController alloc] init];
-    [self.navigationController pushViewController:setVc animated:YES];
-}
-#pragma mark -BCMeRealNameAlertViewDelegate 取消认证
--(void)cancelBtnClick{
-    [GKCover hide];
-}
+
 
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -278,12 +260,9 @@
 
 #pragma mark - 转账按钮
 -(void)payBtnClick{
-    //用户点击"转账"时验证其身份认证状态和支付密码状态，身份未认证或者未设置支付密码时提示“请先完成实名认证并设置支付密码才可进行转账操作”
-
-    //未进行实名认证
-//       [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.realNameAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
     //已进行实名认证
     BCMeChangeMoneyController *moneyVc = [[BCMeChangeMoneyController alloc] init];
+    moneyVc.code =self.code;
     [self.navigationController pushViewController:moneyVc animated:YES];
 }
 #pragma mark -收款按钮

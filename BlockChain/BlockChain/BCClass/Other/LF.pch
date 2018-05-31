@@ -212,7 +212,8 @@ blue:arc4random_uniform(256)/255.0 alpha:1.0]
 
 //弹框
 #define SHOW_ALERT(_msg_)  [[[UIAlertView alloc] initWithTitle:@"提示" message:_msg_ delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil]show];\
-
+//字符串是否为空
+#define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO )
 
 
 
