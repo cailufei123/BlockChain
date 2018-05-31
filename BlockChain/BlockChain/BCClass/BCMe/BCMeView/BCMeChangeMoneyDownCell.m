@@ -29,8 +29,8 @@
 -(UISlider *)slider{
     if (!_slider) {
         _slider =[[UISlider alloc] init];
-        _slider.minimumValue = 0.0;
-        _slider.maximumValue = 100.0;
+        _slider.minimumValue = 1;
+        _slider.maximumValue = 100;
         _slider.value = 50;
         [_slider setContinuous:YES];
         //滑块条最小值处设置的图片，默认为nil
@@ -211,14 +211,15 @@
         self.tiXianLable.text = @"提现费用";
         self.leftLable.text= @"慢";
         self.rightLable.text =@"快";
-        self.hongLable.text=[NSString stringWithFormat:@"%.7f Ether",0.1111123123];
+        self.hongLable.text=[NSString stringWithFormat:@"%.6f Ether",0.005000];
         [self.nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
 //    }
 }
 #pragma mark- 下一步按钮点击
 -(void)nextBtnClick:(UIButton *)button{
-    
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(nextBtnClick)]) {
+        [self.delegate nextBtnClick];
+    }
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -226,7 +227,21 @@
 }
 
 -(void)sliderValueChanged:(UISlider *)slider{
-    NSLog(@"slider value%f",slider.value);
+  
+     NSString *str = [NSString stringWithFormat:@"%.0f",slider.value];
+    NSInteger value1 = [str integerValue];
+    CGFloat floatValue =0.000100;
+//    NSLog(@"value1====%ld",value1);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *value = [NSString stringWithFormat:@"%.6f",floatValue*value1];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.hongLable.text =value;
+                //获取slider数据
+                if (self.delegate && [self.delegate respondsToSelector:@selector(getSliderValue:)]) {
+                    [self.delegate getSliderValue:value];
+                }
+            });
+    });
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -55,23 +55,21 @@
         [self addSubview:self.goBtn];
         [self addSubview:self.cancelBtn];
         
-        
         [self.message mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.mas_top).with.offset((SYRealValue(58)));
             make.left.mas_equalTo(self.mas_left).with.offset(SXRealValue(44));
             make.right.mas_equalTo(self.mas_right).with.offset(SXRealValue(-44));
-//            make.centerX.mas_equalTo(self.mas_centerX);
             make.height.mas_equalTo((SYRealValue(46)));
         }];
         [self.goBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(self.mas_centerX).with.offset(SXRealValue(-1));
-            make.width.mas_equalTo(SXRealValue(156));
+            make.width.mas_equalTo((self.xmg_width-2*(SXRealValue(14)))/2);
             make.height.mas_equalTo((SYRealValue(40)));
             make.bottom.mas_equalTo(self.mas_bottom).with.offset((SYRealValue(-16)));
         }];
         [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_centerX).with.offset(SXRealValue(1));
-            make.width.mas_equalTo(SXRealValue(156));
+            make.width.mas_equalTo((self.xmg_width-2*(SXRealValue(14)))/2);
             make.height.mas_equalTo((SYRealValue(40)));
             make.bottom.mas_equalTo(self.mas_bottom).with.offset((SYRealValue(-16)));
         }];

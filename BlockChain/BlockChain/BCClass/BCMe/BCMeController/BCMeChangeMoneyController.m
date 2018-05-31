@@ -11,24 +11,56 @@
 #import "BCMeChangeMoneyMode.h"
 #import "BCMeChangeMoneyUpCell.h"
 #import "BCMeChangeMoneyDownCell.h"
-@interface BCMeChangeMoneyController ()<UITableViewDataSource,UITableViewDelegate>
+#import "BCSetViewController.h"
+#import "BCMeRealNameAlertView.h"
+#import "BCMeSurePayView.h"
+#import "SYPasswordView.h"
+#import "BCMePassWordController.h"
+#import "BCSetViewController.h"
+#import "BCSetPayPasswordViewController.h"
+
+@interface BCMeChangeMoneyController ()<UITableViewDataSource,UITableViewDelegate,BCMeChangeMoneyDownCellDelegate,BCMeChangeMoneyUpCellDelegate,BCMeRealNameAlertViewDelegate,BCMeSurePayViewDelegate,SYPasswordViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)BCMeChangeMoneyMode *changeMoneyModel;
+@property(nonatomic,strong)BCMeChangeMoneyMode *moneyModel;
 @property(nonatomic,strong)UIView *footerView;
+@property(nonatomic,strong)BCMeRealNameAlertView *realNameAlertView;//弹框
+@property(nonatomic,strong)BCMeSurePayView *surePayView;//确认支付界面
+@property (nonatomic, strong) SYPasswordView *passView;//输入密码框
+
+@property(nonatomic,strong)UIView *BGView1;
+@property(nonatomic,strong)UIView *BGView2;
+
+@property(nonatomic,assign)BOOL isShow;
+
 
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
+@property(nonatomic,copy)NSString *text1;
+@property(nonatomic,copy)NSString *text2;
+@property(nonatomic,copy)NSString *text3;
+@property(nonatomic,assign)CGFloat value;
 
 @end
 
 @implementation BCMeChangeMoneyController
 
 
+
+#define realWidth         (SCREEN_WIDTH-2*(SXRealValue(16)))
+#define realHeigth        ((SCREEN_WIDTH-(SXRealValue(32)))*211/343)
+
+-(BCMeChangeMoneyMode *)moneyModel{
+    if (!_moneyModel) {
+        _moneyModel =[[BCMeChangeMoneyMode alloc] init];
+    }
+    return _moneyModel;
+}
 /**表格**/
 -(UITableView *)tableView{
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
         _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-49) style:UITableViewStyleGrouped];
+        
         NSLog(@"%f",kTopHeight);
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -45,10 +77,151 @@
     }
     return _tableView;
 }
+-(BCMeRealNameAlertView *)realNameAlertView{
+    if (!_realNameAlertView) {
+        _realNameAlertView = [[BCMeRealNameAlertView alloc] initWithFrame:CGRectMake(0, 0, realWidth, realHeigth)];
+        [Util roundBorderView:SXRealValue(3) border:0 color:[UIColor blackColor] view:_realNameAlertView];
+        [_realNameAlertView setUpMessage];//设置数据
+        _realNameAlertView.delegate =self;
+    }
+    return _realNameAlertView;
+}
+-(BCMeSurePayView *)surePayView{
+    if (!_surePayView) {
+        CGFloat  showHeight;
+        if (IS_IPhoneX) {
+            showHeight =(SYRealValue(100));
+        }else{
+            showHeight=(SYRealValue(100));
+        }
+        _surePayView = [[BCMeSurePayView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
+        _surePayView.delegate =self;
+        _surePayView.model =self.moneyModel;
+    }
+    return _surePayView;
+}
+
+-(SYPasswordView *)passView{
+    if (!_passView) {
+        CGFloat  showHeight;
+        if (IS_IPhoneX) {
+            showHeight =(SYRealValue(200));
+        }else{
+            showHeight=(SYRealValue(200));
+        }
+        _passView = [[SYPasswordView alloc] initWithFrame:CGRectMake(0, showHeight, SCREENWIDTH, SCREEN_HEIGHT-showHeight)];
+        _passView.delegate=self;
+    }
+    return _passView;
+}
+//    [self.pasView clearUpPassword];
+
+
+-(UIView *)BGView1{
+    if (!_BGView1) {
+        _BGView1                 = [[UIView alloc] init];
+        _BGView1.frame           = [[UIScreen mainScreen] bounds];
+        _BGView1.tag             = 102;
+        _BGView1.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
+        _BGView1.opaque = NO;
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeShareView)];
+//        tap.numberOfTapsRequired = 1;
+//        tap.cancelsTouchesInView = NO;
+//        [_BGView1 addGestureRecognizer:tap];
+    }
+    return _BGView1;
+}
+-(UIView *)BGView2{
+    if (!_BGView2) {
+        _BGView2                 = [[UIView alloc] init];
+        _BGView2.frame           = [[UIScreen mainScreen] bounds];
+        _BGView2.tag             = 102;
+        _BGView2.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
+        _BGView2.opaque = NO;
+    }
+    return _BGView2;
+}
+
+-(void)showSurePayView{
+    if (_isShow==NO) {
+        _isShow=YES;
+        //--UIWindow的优先级最高，Window包含了所有视图，在这之上添加视图，可以保证添加在最上面
+        UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
+        [appWindow addSubview:self.BGView1];
+        [appWindow addSubview:self.surePayView];
+        
+        // ------View出现动画
+        self.surePayView.transform = CGAffineTransformMakeTranslation(0.01, SCREENHEIGHT);
+        [UIView animateWithDuration:0.3 animations:^{
+            self.surePayView.transform = CGAffineTransformMakeTranslation(0.01, 0.01);
+        }];
+    }else{
+        _isShow=NO;
+        [self closeSurePayView];
+    }
+}
+
+#pragma mark - 关闭语音view
+-(void)closeSurePayView{
+    WS(weakSelf);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.surePayView.transform = CGAffineTransformMakeTranslation(0.01, SCREENHEIGHT);
+        //self.voiceView.alpha = 0.2;
+        //self.BGView1.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.surePayView removeFromSuperview];
+        [self.BGView1 removeFromSuperview];
+        self.surePayView=nil;
+        self.BGView1=nil;
+        weakSelf.isShow=NO;
+    }];
+}
+//==================================
+-(void)showPassView{
+        //--UIWindow的优先级最高，Window包含了所有视图，在这之上添加视图，可以保证添加在最上面
+        UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
+        [appWindow addSubview:self.BGView2];
+        [appWindow addSubview:self.passView];
+        
+        // ------View出现动画
+        self.passView.transform = CGAffineTransformMakeTranslation(0.01, SCREENHEIGHT);
+        [UIView animateWithDuration:0.3 animations:^{
+            self.passView.transform = CGAffineTransformMakeTranslation(0.01, 0.01);
+        }];
+}
+
+#pragma mark - 关闭语音view
+-(void)closePassView{
+    //WS(weakSelf);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.passView.transform = CGAffineTransformMakeTranslation(0.01, SCREENHEIGHT);
+        //self.voiceView.alpha = 0.2;
+        //self.BGView1.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.passView removeFromSuperview];
+        [self.BGView2 removeFromSuperview];
+        self.passView=nil;
+        self.BGView2=nil;
+        //weakSelf.isShow=NO;
+    }];
+}
+//=========================================
+
+-(void)changeHeight:(CGFloat)height{
+    CGFloat  payViewToTop;
+    if (IS_IPhoneX) {
+        payViewToTop =SCREENHEIGHT-height-(SYRealValue(30));
+    }else{
+        payViewToTop =SCREENHEIGHT-height-(SYRealValue(10));
+    }
+    self.surePayView.frame =CGRectMake(0, payViewToTop, SCREENWIDTH, SCREENHEIGHT);
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.moneyModel.code =self.code;
+    self.moneyModel.tiXianPrice =@"0.005000";//默认
     //添加上下拉刷新
     [self createRefresh];
     //设置导航栏
@@ -68,8 +241,8 @@
 //    self.tableView.mj_footer = footer;
     self.header =header;
     self.footer =footer;
-    
 }
+
 //下拉加载
 -(void)loadNewData{
     [self.header endRefreshing];
@@ -82,7 +255,7 @@
 
 
 -(void)setNaviTitle{
-    self.navigationItem.title=@"TBC转账";
+    self.navigationItem.title=@"转账";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(17)),
        NSForegroundColorAttributeName:naverTextColor}];
@@ -175,13 +348,140 @@
     if (indexPath.section==0) {
         BCMeChangeMoneyUpCell *cell = [BCMeChangeMoneyUpCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.model =model;
+        cell.delegate=self;
         return cell;
     }else{
         BCMeChangeMoneyDownCell *cell = [BCMeChangeMoneyDownCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.model =model;
+        cell.delegate=self;
         return cell;
     }
 }
+//收款钱包
+-(void)changeValue1:(NSString *)chageValue1{
+    self.text1 =chageValue1;
+    self.moneyModel.dizhi =chageValue1;
+}
+//转账金额
+-(void)changeValue2:(NSString *)chageValue2{
+    self.text2 =chageValue2;
+    self.moneyModel.zhuanZhangPrice = chageValue2;
+}
+//备注
+-(void)changeValue3:(NSString *)chageValue3{
+    self.text3 =chageValue3;
+    self.moneyModel.beiZhu=chageValue3;
+}
+
+//体现费用
+-(void)getSliderValue:(NSString *)sliderValue{
+    self.value =[sliderValue floatValue];
+    self.moneyModel.tiXianPrice = sliderValue;
+    //NSLog(@"slider==%.6f",self.value);
+}
+//下一步
+-(void)nextBtnClick{
+    if (kStringIsEmpty(self.text1)) {//收款钱包为空
+        [MBManager showBriefAlert:@"钱包地址不能为空"];
+    }else if (kStringIsEmpty(self.text2)){
+        [MBManager showBriefAlert:@"请输入转账金额"];
+    }else{
+        //发送请求接口
+        [self requestPay];
+    }
+}
+
+#pragma mark - 立刻支付
+-(void)requestPay{
+    //判断是否已经认证身份
+    LFLog(@"==%@",CASH_COIN);
+
+    //NSLog(@"%@",loginMe.authStatus);
+//    if ([loginMe.authStatus isEqualToString:@"2"]) {//弹出支付界面
+        [self showSurePayView];
+//    }else{
+        //未进行去设置中实名认证 用户点击"转账"时验证其身份认证状态和支付密码状态，身份未认证或者未设置支付密码时提示“请先完成实名认证并设置支付密码才可进行转账操作”
+//        [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.realNameAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
+//    }
+}
+
+#pragma mark -BCMeRealNameAlertViewDelegate 点击去认证
+-(void)goBtnClick{
+    [GKCover hide];
+    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+    [self.navigationController pushViewController:setVc animated:YES];
+}
+
+#pragma mark -BCMeRealNameAlertViewDelegate 取消认证
+-(void)cancelBtnClick{
+    [GKCover hide];
+}
+
+#pragma mark - BCMeSurePayViewDelegate 去支付密码界面转账
+-(void)maskToPay{
+    //[self closeSurePayView];
+    [self showPassView];
+//    BCMePassWordController *passVc =[[BCMePassWordController alloc] init];
+//    [self.navigationController pushViewController:passVc animated:YES];
+}
+
+-(void)backClick{
+    [self closeSurePayView];
+}
+
+#pragma mark -PCMePassWordDelegate 输入密码完成，请求接口
+-(void)getPassWord:(NSString *)passWord{
+    self.moneyModel.passWord =passWord;
+    NSLog(@"password===%@",passWord);
+    [self loadData];
+}
+
+-(void)loadData{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"]    = loginToken;//本地存储
+    candyDict[@"price"]    = self.moneyModel.zhuanZhangPrice;
+    candyDict[@"account"]  = self.moneyModel.dizhi;
+    candyDict[@"code"]     = self.moneyModel.code;
+    candyDict[@"ethPrice"] = self.moneyModel.tiXianPrice;
+    candyDict[@"password"] = self.moneyModel.passWord;
+    candyDict[@"remark"]   = self.moneyModel.beiZhu;
+
+    WS(weakSelf);
+    [BCRequestData get_yuEr_Dict:candyDict success:^(id responseObject) {//成功
+//        NSArray* listArray = [BCMeTangGuoJiLuMode mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        // [self.allListArray addObjectsFromArray:listArray];
+        [weakSelf closePassView];
+        [weakSelf closeSurePayView];
+    } passwordError:^(NSString *message) {//密码错误
+        [weakSelf.passView  clearUpPassword];//清空密码
+        NSLog(@"服务器===%@",message);
+    } erorr:^(id error) {//网络错误，或者服务器错误
+        
+    }];
+}
+
+//忘记密码
+-(void)forgetBtnClick{
+        [self closeSurePayView];
+        [self closePassView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        BCSetPayPasswordViewController *setVc =[[BCSetPayPasswordViewController alloc] init];
+        setVc.title =@"重置支付密码";
+        [self.navigationController pushViewController:setVc animated:YES];
+    });
+}
+//返回
+-(void)backBtnClick{
+    [self closePassView];
+}
+
+//未认证去设置界面
+-(void)gotoSetingController{
+    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+    [self.navigationController pushViewController:setVc animated:YES];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

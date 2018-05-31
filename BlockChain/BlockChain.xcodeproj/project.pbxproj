@@ -51,6 +51,9 @@
 		04D3EA3020BCF59500F9A96D /* BCMePDCListUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA2F20BCF59500F9A96D /* BCMePDCListUpCell.m */; };
 		04D3EA3320BD4BBD00F9A96D /* BCMePDCListDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA3220BD4BBD00F9A96D /* BCMePDCListDownCell.m */; };
 		04D3EA3620BD61A100F9A96D /* KMQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA3520BD61A100F9A96D /* KMQRCode.m */; };
+		04D3EA3920BE804500F9A96D /* BCMeSurePayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA3820BE804500F9A96D /* BCMeSurePayView.m */; };
+		04D3EA3C20BEAF0800F9A96D /* SYPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA3A20BEAF0800F9A96D /* SYPasswordView.m */; };
+		04D3EA3F20BEB09B00F9A96D /* BCMePassWordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA3E20BEB09B00F9A96D /* BCMePassWordController.m */; };
 		04D88D8B20BA954B008570FE /* BCInvitingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8A20BA954B008570FE /* BCInvitingBtn.m */; };
 		04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */; };
 		0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472420B3BFC100F65C2A /* UIView+WBY.m */; };
@@ -398,6 +401,12 @@
 		04D3EA3220BD4BBD00F9A96D /* BCMePDCListDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePDCListDownCell.m; sourceTree = "<group>"; };
 		04D3EA3420BD61A100F9A96D /* KMQRCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMQRCode.h; sourceTree = "<group>"; };
 		04D3EA3520BD61A100F9A96D /* KMQRCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMQRCode.m; sourceTree = "<group>"; };
+		04D3EA3720BE804500F9A96D /* BCMeSurePayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeSurePayView.h; sourceTree = "<group>"; };
+		04D3EA3820BE804500F9A96D /* BCMeSurePayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeSurePayView.m; sourceTree = "<group>"; };
+		04D3EA3A20BEAF0800F9A96D /* SYPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYPasswordView.m; sourceTree = "<group>"; };
+		04D3EA3B20BEAF0800F9A96D /* SYPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYPasswordView.h; sourceTree = "<group>"; };
+		04D3EA3D20BEB09B00F9A96D /* BCMePassWordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMePassWordController.h; sourceTree = "<group>"; };
+		04D3EA3E20BEB09B00F9A96D /* BCMePassWordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMePassWordController.m; sourceTree = "<group>"; };
 		04D88D8920BA954B008570FE /* BCInvitingBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCInvitingBtn.h; sourceTree = "<group>"; };
 		04D88D8A20BA954B008570FE /* BCInvitingBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCInvitingBtn.m; sourceTree = "<group>"; };
 		04D88D8C20BAA5C0008570FE /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
@@ -963,6 +972,10 @@
 				04B6320720B58CC700D063B8 /* BCMePDCListAlertView.m */,
 				0468FB7420B6694900C83299 /* BCMeRealNameAlertView.h */,
 				0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */,
+				04D3EA3720BE804500F9A96D /* BCMeSurePayView.h */,
+				04D3EA3820BE804500F9A96D /* BCMeSurePayView.m */,
+				04D3EA3B20BEAF0800F9A96D /* SYPasswordView.h */,
+				04D3EA3A20BEAF0800F9A96D /* SYPasswordView.m */,
 				0468FB7A20B687E900C83299 /* BCMeChangeMoneyUpCell.h */,
 				0468FB7B20B687E900C83299 /* BCMeChangeMoneyUpCell.m */,
 				0468FB7D20B687F600C83299 /* BCMeChangeMoneyDownCell.h */,
@@ -984,6 +997,8 @@
 				04B631EB20B54E7600D063B8 /* BCMePDCListController.m */,
 				0468FB7720B6857000C83299 /* BCMeChangeMoneyController.h */,
 				0468FB7820B6857000C83299 /* BCMeChangeMoneyController.m */,
+				04D3EA3D20BEB09B00F9A96D /* BCMePassWordController.h */,
+				04D3EA3E20BEB09B00F9A96D /* BCMePassWordController.m */,
 				AD23F70820B59C0C0057E662 /* BCSetViewController.h */,
 				AD23F70920B59C0C0057E662 /* BCSetViewController.m */,
 				AD23F70A20B59C0C0057E662 /* BCSetViewController.xib */,
@@ -2291,6 +2306,7 @@
 			files = (
 				ADE1265A20B2E84F00F6E172 /* IQKeyboardManager.m in Sources */,
 				AD6EA45E20B43ED200F61B33 /* MJRefreshAutoGifFooter.m in Sources */,
+				04D3EA3920BE804500F9A96D /* BCMeSurePayView.m in Sources */,
 				AD6EA45820B43ED200F61B33 /* NSBundle+MJRefresh.m in Sources */,
 				ADE123CA20B2E80300F6E172 /* AppDelegate.m in Sources */,
 				0487043A20B80C3F005C77DA /* BCSuanLiJiLuModel.m in Sources */,
@@ -2307,6 +2323,7 @@
 				AD6EA46220B43ED200F61B33 /* MJRefreshGifHeader.m in Sources */,
 				04AA068220B951F9007DEDB1 /* BCMeInvitingFriendsView.m in Sources */,
 				ADACD07F20BBB1AB00EE21F6 /* LKControllerTool.m in Sources */,
+				04D3EA3C20BEAF0800F9A96D /* SYPasswordView.m in Sources */,
 				0652472F20B3C04900F65C2A /* UIButton+Extensions.m in Sources */,
 				ADE126DE20B2EB4F00F6E172 /* UIColor+WHColor.m in Sources */,
 				ADE1264920B2E84F00F6E172 /* MJPropertyType.m in Sources */,
@@ -2521,6 +2538,7 @@
 				AD6EA46320B43ED200F61B33 /* MJRefreshFooter.m in Sources */,
 				AD6EA46020B43ED200F61B33 /* MJRefreshNormalHeader.m in Sources */,
 				AD6EA3CD20B43B7100F61B33 /* BCVerticalBttton.m in Sources */,
+				04D3EA3F20BEB09B00F9A96D /* BCMePassWordController.m in Sources */,
 				04B6320520B54E7700D063B8 /* BCMeTangGuoJiLuMode.m in Sources */,
 				ADE125AA20B2E84F00F6E172 /* UIImage+ForceDecode.m in Sources */,
 				0487043120B7E940005C77DA /* BCHomeDetailDownCell.m in Sources */,

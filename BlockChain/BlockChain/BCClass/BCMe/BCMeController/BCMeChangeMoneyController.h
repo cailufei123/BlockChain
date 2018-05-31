@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BCMeChangeMoneyController : UIViewController
-
+@property(nonatomic,strong)NSString *code;
 @end

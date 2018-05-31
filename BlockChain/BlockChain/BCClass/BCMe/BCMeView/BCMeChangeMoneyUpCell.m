@@ -9,7 +9,7 @@
 #import "BCMeChangeMoneyUpCell.h"
 #import "BCMeChangeMoneyMode.h"
 
-@interface BCMeChangeMoneyUpCell()<UITextFieldDelegate>
+@interface BCMeChangeMoneyUpCell()<UITextFieldDelegate,UITextViewDelegate>
 
 @property (nonatomic, strong)UILabel *dizhiLable;//收款人地址
 @property (nonatomic, strong)UITextField *textField1;
@@ -24,6 +24,8 @@
 @property (nonatomic, strong)UIView *line1;
 @property (nonatomic, strong)UIView *line2;
 @property (nonatomic, strong)UIView *line3;
+
+
 @end
 
 @implementation BCMeChangeMoneyUpCell
@@ -36,6 +38,19 @@
     return _dizhiLable;
 }
 
+//-(UITextView *)textField1{
+//    if (!_textField1) {
+//        _textField1 = [[UITextView alloc]init];
+//        _textField1.font = FONT(@"PingFangSC-Regular", SXRealValue(13));
+//        _textField1.delegate = self;
+//        _textField1.textAlignment = NSTextAlignmentLeft;
+//        //ViewBorderRadius(_textView, 6, 0.5, RGBCOLOR(204, 204, 204));
+//        _textField1.returnKeyType =  UIReturnKeySend;
+//
+//    }
+//    return _textField1;
+//}
+
 -(UITextField *)textField1{
     if (!_textField1) {
         _textField1 = [[UITextField alloc] init];
@@ -43,6 +58,7 @@
         _textField1.textColor = blackTextColor;
         _textField1.tag=1;
         _textField1.placeholder = @"";
+        _textField1.keyboardType = UIKeyboardTypeDefault;
         [_textField1 addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextViewTextDidChangeNotification object:nil];
@@ -69,13 +85,15 @@
     if (!_textField2) {
         _textField2 = [[UITextField alloc] init];
         _textField2.font = FONT(@"PingFangSC-Regular", SXRealValue(13));
-        _textField2.textColor = blackTextColor;
-        _textField2.placeholder = @"";
+        _textField2.textColor = colorD35353;
+        _textField2.placeholder = @"5 HOC";
         _textField2.tag=2;
-        _textField2.placeholder = @"";
+//        _textField2.keyboardType = UIKeyboardTypeDefault;
+        _textField2.keyboardType = UIKeyboardTypeNumberPad;
         [_textField2 addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextViewTextDidChangeNotification object:nil];
+        _textField2.delegate = self;
         //[_textField1 setValue:RGBCOLOR(159, 158, 163) forKeyPath:@"_placeholderLabel.textColor"];
         // 提前在Xcode上设置图片中间拉伸
         //_textField1.background = [UIImage imageWithColor:RGBCOLOR(238, 238, 238)];
@@ -98,12 +116,13 @@
         _textField3 = [[UITextField alloc] init];
         _textField3.font = FONT(@"PingFangSC-Regular", SXRealValue(13));
         _textField3.textColor = blackTextColor;
-        _textField3.placeholder = @"";
         _textField3.tag=3;
         _textField3.placeholder = @"";
+        _textField3.keyboardType = UIKeyboardTypeDefault;
         [_textField3 addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextViewTextDidChangeNotification object:nil];
+        _textField3.delegate = self;
         //[_textField3 setValue:RGBCOLOR(159, 158, 163) forKeyPath:@"_placeholderLabel.textColor"];
         // 提前在Xcode上设置图片中间拉伸
         //_textField1.background = [UIImage imageWithColor:RGBCOLOR(238, 238, 238)];
@@ -143,6 +162,7 @@
     }
     return _line3;
 }
+
 -(UILabel *)priceLable{
     if (!_priceLable) {
         _priceLable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
@@ -302,25 +322,39 @@
 
 #pragma mark - 搜索框的实时监听
 - (void)textValueChanged:(UITextField *)textField{
-    if (textField.tag==1) {
-        if (textField.markedTextRange == nil) {
-//                self.searchContentView.searchType = SearchContentTypeNone;
-//                self.searchContentView.searchText = textField.text;
+    if (textField==self.textField1) {
+        if (textField.markedTextRange == nil) {//收款人钱包
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(changeValue1:)]) {
+                [self.delegate changeValue1:textField.text];
+            }
         }
-    }else if (textField.tag==2){
-        
-    }else{
-        
+    }else if (textField==self.textField2){//转账金额
+        if (kStringIsEmpty(textField.text)) {
+            self.textField2.placeholder = @"5 HOC";
+        }else{
+            self.textField2.placeholder = @"";
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(changeValue2:)]) {
+            [self.delegate changeValue2:textField.text];
+        }
+    }else{//备注
+        if (self.delegate && [self.delegate respondsToSelector:@selector(changeValue3:)]) {
+            [self.delegate changeValue3:textField.text];
+        }
     }
    
 }
+//键盘弹起收起监听
 - (void)textFieldChange:(UITextField *)textField{
-    if (textField.tag==1) {
-      
-    }else if (textField.tag==2){
+    if (textField==self.textField1) {
+        
+        
+    }else if (textField==self.textField2){
+
         
     }else{
-        
+
     }
     //判断输入(不能输入特殊字符)
 //    [RestrictionInput restrictionInputTextField:self.homeSearchBar maxNumber:100 showView:self.view showErrorMessage:@"请输入正规字符"];

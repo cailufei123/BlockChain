@@ -97,6 +97,34 @@
     }];
 }
 
+//获取剩额
++(void)get_yuEr_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess passwordError:(void (^) (NSString * message))message erorr:(void(^)(id error))erorr {
+    
+    [LFHttpTool post:CASH_COIN params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+
+        //[responseObj writeToFile:@"/Users/mac/Desktop/plist/kkk.plist" atomically:YES];
+        LFLog(@"==%@",responseObj);
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            if ([responseObj[@"message"] containsString:@"密码错误"]) {
+                [MBManager showBriefAlert:@"密码错误,请重新输入"];
+                message(responseObj[@"message"]);
+            }else{
+                sucess(responseObj);//成功
+                [MBManager showBriefAlert:@"转账成功"];
+            }
+        }else{
+            erorr(responseObj);
+            [MBManager showBriefAlert:responseObj[@"message"]];
+        }
+    } failure:^(NSError *error) {
+        erorr(error);
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+
 
 
 
