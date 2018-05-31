@@ -38,20 +38,21 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
 }
-
+//邀请码view
 -(BCMeInvitingFriendsView *)invitingView{
     if (!_invitingView) {
         _invitingView = [[BCMeInvitingFriendsView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
-        self.model.token = @"adfasdfasdf";//码
-        NSString *code = @"adfasdfasdfsaf";//链接生成二维码图片
-        self.model.QImage =[Util getColorQrcodeWithToken:code SmallCenterImage:[UIImage imageNamed:@""] imageWidth:SXRealValue(50) color1:CI_RGBACOLOR(255, 255, 255, 0) color2:CI_RGBACOLOR(111, 111, 111, 1)];
+        self.model.token = loginMe.shareCode;//码
+        NSLog(@"lastInviteCount===%@",loginMe.shareCode);
+        NSString *path = [USER_DEFAULT valueForKey:@"downUrl"];
+        self.model.QImage =[Util getColorQrcodeWithToken:path SmallCenterImage:[UIImage imageNamed:@""] imageWidth:SXRealValue(50) color1:CI_RGBACOLOR(255, 255, 255, 0) color2:CI_RGBACOLOR(111, 111, 111, 1)];
         _invitingView.model =self.model;
         _invitingView.delegate =self;
     }
     return _invitingView;
 }
 
-
+//弹出分享view
 -(BCMeInvitingShareView *)shareView{
     WS(weakSelf);
     if (!_shareView) {
@@ -62,6 +63,7 @@
             showHeight=SCREENHEIGHT/2+(SYRealValue(84));
         }
         _shareView = [[BCMeInvitingShareView alloc] initWithFrame:CGRectMake(0, showHeight, SCREENWIDTH, SCREENHEIGHT)];
+        
         _shareView.model =self.model;
         _shareView.weiXinBtnBlock = ^{//微信分享
             NSLog(@"微信");
