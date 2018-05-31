@@ -244,7 +244,7 @@
     //把二维码图片画上去. (这里是以,图形上下文,左上角为 (0,0)点)
     [qrUIImage drawInRect:CGRectMake(0, 0, qrUIImage.size.width, qrUIImage.size.height)];
     //再把小图片画上去
-    UIImage *sImage = [UIImage imageNamed:@"home_purple_diamonds"];
+    UIImage *sImage = [UIImage imageNamed:@"1024px"];
     
     CGFloat sImageW = 50;
     CGFloat sImageH= sImageW;

@@ -395,14 +395,13 @@
 -(void)requestPay{
     //判断是否已经认证身份
     LFLog(@"==%@",CASH_COIN);
-
-    //NSLog(@"%@",loginMe.authStatus);
-//    if ([loginMe.authStatus isEqualToString:@"2"]) {//弹出支付界面
+    NSLog(@"%@",loginMe.authStatus);
+    if ([loginMe.authStatus isEqualToString:@"2"]) {//弹出支付界面
         [self showSurePayView];
-//    }else{
+    }else{
         //未进行去设置中实名认证 用户点击"转账"时验证其身份认证状态和支付密码状态，身份未认证或者未设置支付密码时提示“请先完成实名认证并设置支付密码才可进行转账操作”
-//        [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.realNameAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
-//    }
+        [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.realNameAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
+    }
 }
 
 #pragma mark -BCMeRealNameAlertViewDelegate 点击去认证
