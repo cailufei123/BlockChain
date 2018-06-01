@@ -50,9 +50,9 @@
 {
     [[UMSocialManager defaultManager] setUmSocialAppkey:@"5b0780deb27b0a78c6000016"];
     /* 设置微信的appKey和appSecret */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx4811a06dcdcd581b" appSecret:@"389aca7ab30fc23e5ebc127c494ca6b6" redirectURL:@"http://mobile.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxcf53e783eaf0ad8e" appSecret:@"7e2b7905372f75f77d68084d4ade2922" redirectURL:@"http://mobile.umeng.com/social"];
     /* 设置微信的appKey和appSecret */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1106722445" appSecret:@"g6jxiREGYnXlZth6" redirectURL:@"http://mobile.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1106856175" appSecret:@"JNy7nIlVr7EimLS3" redirectURL:@"http://mobile.umeng.com/social"];
 }
 #pragma mark-------------友盟推送--------
 -(void)uMessageNotificatiodidFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
