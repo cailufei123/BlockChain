@@ -140,7 +140,19 @@
 //    self.tableView.tableHeaderView =  self.headerView;
 //    //初始化转账与收款
 //    [self setPayOrGetMoneyBtn];
+    [self addGainRefresh];
     
+}
+                                                                            
+#pragma mark -增加重新加载监听
+-(void)addGainRefresh{
+    WS(weakSelf);
+    //点击从新加载回到
+    self.tableView.headerRefreshingBlock = ^{
+        [weakSelf loadNewData];
+    };
+    self.tableView.footerRefreshingBlock = ^{
+    };
 }
 - (void)createRefresh
 {
@@ -181,8 +193,14 @@
     NSMutableArray* listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
        
         if(self.PDCmodel.partner!=nil){
+            //判断是否有网络
+            self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
             //初始化转账与收款
             [weakSelf setPayOrGetMoneyBtn];
+        }else{ //无数据
+                self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
+            //改变导航栏的颜色
+            [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
         }
         if(listArray.count>0){
             [self.zonglistArray addObjectsFromArray:listArray];
@@ -199,7 +217,7 @@
     } erorr:^(id error) {
         [self.header endRefreshing];
         [self.footer endRefreshing];
-        
+        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
 }
 
