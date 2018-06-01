@@ -124,8 +124,7 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        //顶部
-        [self.bigView gradientFreme:CGRectMake(0, 0, SCREENWIDTH, upBigViewHeight+kTopHeight) startColor:color5E4FC9 endColor:colorC483FB];
+       
         //初始化CAGradientlayer对象，使它的大小为UIView的大小
         [self.contentView addSubview:self.bigView];
         [self.contentView addSubview:self.upBigView];
@@ -204,6 +203,8 @@
         self.suLiNumber.text= [NSString stringWithFormat:@"%.1f",model.compute.floatValue];
         self.smLabel.text= @"什么是算力";
         self.suLiMessage.text= @"算力是用户获取紫钻的影响因子，同一时间内算力越高，获得的紫钻越多，后续的版本中算力也将关系到用户等级以及相应的用户权限";
+        //顶部
+        [self.bigView gradientFreme:CGRectMake(0, 0, SCREENWIDTH, upBigViewHeight+kTopHeight) startColor:color5E4FC9 endColor:colorC483FB];
     }
 }
 

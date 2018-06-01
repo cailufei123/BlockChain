@@ -117,7 +117,7 @@
         NSArray* listArray = [BCSuanLiJiLuListModel mj_objectArrayWithKeyValuesArray:self.model.computeLogs];
         if (listArray.count>0) {
             [self.allListArray addObjectsFromArray:listArray];
-            self.start = listArray.count;
+            self.start += listArray.count;
             [self.header endRefreshing];
             [self.footer endRefreshing];
         }
@@ -125,7 +125,6 @@
              [self.footer endRefreshingWithNoMoreData];
         }
         [self.tableView reloadData];
-       
     } erorr:^(id error) {
         [self.header endRefreshing];
         [self.footer endRefreshing];
@@ -176,30 +175,31 @@
 //{
 //    return  (SYRealValue(54)) ;
 //}
+
 //返回高度
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section==1) {
-        //        return nil;
-        UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
-        view.backgroundColor = naverTextColor;
-        UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-        tangGuoJiLulable.text =@"收支记录";
-        UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(0.6)))];
-        lineView.backgroundColor = colorE5E7E9;
-        [view addSubview:tangGuoJiLulable];
-        [view addSubview:lineView];
-        [tangGuoJiLulable mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(view.mas_left).with.offset(SXRealValue(16));
-            make.right.mas_equalTo(view.mas_right).with.offset(SXRealValue(-20));
-            make.centerY.equalTo(view.mas_centerY);
-        }];
-        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(view.mas_left).with.offset(0);
-            make.right.mas_equalTo(view.mas_right).with.offset(0);
-            make.bottom.mas_equalTo(view.mas_bottom).with.offset((SYRealValue(-0.6)));
-            make.height.mas_equalTo((SYRealValue(0.6)));
-        }];
-        return view;
+        if (self.allListArray.count<1) return nil;
+            UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
+            view.backgroundColor = naverTextColor;
+            UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+            tangGuoJiLulable.text =@"收支记录";
+//            UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(0.6)))];
+//            lineView.backgroundColor = colorE5E7E9;
+            [view addSubview:tangGuoJiLulable];
+//            [view addSubview:lineView];
+            [tangGuoJiLulable mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(view.mas_left).with.offset(SXRealValue(16));
+                make.right.mas_equalTo(view.mas_right).with.offset(SXRealValue(-20));
+                make.centerY.equalTo(view.mas_centerY);
+            }];
+//            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.left.mas_equalTo(view.mas_left).with.offset(0);
+//                make.right.mas_equalTo(view.mas_right).with.offset(0);
+//                make.bottom.mas_equalTo(view.mas_bottom).with.offset((SYRealValue(-0.6)));
+//                make.height.mas_equalTo((SYRealValue(0.6)));
+//            }];
+            return view;
     }else{
         return nil;
     }

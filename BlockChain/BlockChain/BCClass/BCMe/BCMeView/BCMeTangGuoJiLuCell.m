@@ -68,7 +68,8 @@
         //选中颜色
         //[Util selectCellBackgroundColor:cell];
     };
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return cell;
 }
 

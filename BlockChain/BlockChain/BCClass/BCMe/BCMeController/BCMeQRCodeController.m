@@ -34,7 +34,9 @@
         [_qRcodeView.QRCodeBtn1 addTarget:self action:@selector(QRCodeBtn1Click) forControlEvents:UIControlEventTouchUpInside];
         [_qRcodeView.QRCodeBtn2 addTarget:self action:@selector(QRCodeBtn2Click) forControlEvents:UIControlEventTouchUpInside];
         //生成一张二维码的图片
-        self.meModel.Qimage =[Util getColorQrcodeWithToken:[USER_DEFAULT valueForKey:@"token"] SmallCenterImage:[UIImage imageNamed:@"lg"] imageWidth:SXRealValue(50) color1:CI_RGBACOLOR(255, 255, 255, 1) color2:CI_RGBACOLOR(129, 0, 244, 1)];;
+//        self.meModel.Qimage =[Util getColorQrcodeWithToken:[USER_DEFAULT valueForKey:@"token"] SmallCenterImage:[UIImage imageNamed:@"lg"] imageWidth:SXRealValue(50) color1:CI_RGBACOLOR(129, 0, 244, 1)  color2:CI_RGBACOLOR(255, 255, 255, 1)];
+         UIImage*Qimage=[Util getColorQimageWithPath:[USER_DEFAULT valueForKey:@"token"] withImageView:nil WithSize:500 withCenterIcon:[UIImage imageNamed:@"lg"] centerIconWidth:SXRealValue(80) withRed:129.0f andGreen:0.0f andBlue:224.0f];
+        self.meModel.Qimage=Qimage;
         _qRcodeView.model =self.meModel;
     }
     return _qRcodeView;

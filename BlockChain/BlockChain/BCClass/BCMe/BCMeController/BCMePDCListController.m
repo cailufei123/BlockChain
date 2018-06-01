@@ -152,18 +152,20 @@
 - (void)createRefresh
 {
     SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-//    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     [header beginRefreshing];
     self.tableView.mj_header = header;
-//    self.tableView.mj_footer = footer;
+    self.tableView.mj_footer = footer;
     self.header =header;
-//    self.footer =footer;
+    self.footer =footer;
     
 }
 //下拉加载
 -(void)loadNewData{
     self.page=1;
-    [self.zonglistArray removeAllObjects];
+    if(self.zonglistArray.count>0){
+        [self.zonglistArray removeAllObjects];
+    }
     [self loadData];
 
 }
@@ -185,15 +187,24 @@
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
     self.listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
        
-        if(self.PDCmodel!=nil){
+        if(self.PDCmodel.partner!=nil){
             //初始化转账与收款
             [weakSelf setPayOrGetMoneyBtn];
         }
-        //[self.zonglistArray addObjectsFromArray:self.listArray];
+        if(self.listArray.count>0){
+            [self.zonglistArray addObjectsFromArray:self.listArray];
+            [self.footer endRefreshing];
+            [self.header endRefreshing];
+        }
+        if(self.listArray.count==0){
+            [self.footer endRefreshingWithNoMoreData];
+        }
         [self.tableView reloadData];
+        [self.footer endRefreshing];
         [self.header endRefreshing];
     } erorr:^(id error) {
         [self.header endRefreshing];
+        [self.footer endRefreshing];
         
     }];
 }
@@ -340,7 +351,7 @@
     if (section==0) {
         return 1;
     }else{
-        return  self.listArray.count;
+        return  self.zonglistArray  .count;
     }
 }
 
@@ -368,7 +379,7 @@
         return cell;
         
     }else{
-        BCMePDCListMode *model = self.listArray[indexPath.row];
+        BCMePDCListMode *model = self.zonglistArray [indexPath.row];
         //添加事件
         BCMePDCListDownCell *cell = [BCMePDCListDownCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.model =model;

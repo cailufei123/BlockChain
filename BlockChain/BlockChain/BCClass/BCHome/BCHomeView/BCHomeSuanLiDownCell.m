@@ -27,12 +27,12 @@
     }
     return _line1;
 }
--(UIView *)line2{
-    if (!_line2) {
-        _line2 = [UIView getViewUserEnabled:NO backGroundColor:colorE5E7E9 tag:0 target:nil action:nil];
-    }
-    return _line2;
-}
+//-(UIView *)line2{
+//    if (!_line2) {
+//        _line2 = [UIView getViewUserEnabled:NO backGroundColor:colorE5E7E9 tag:0 target:nil action:nil];
+//    }
+//    return _line2;
+//}
 
 
 -(UILabel *)dengLuLable{
@@ -80,7 +80,7 @@
         [self.contentView addSubview:self.timeLable];
         [self.contentView addSubview:self.numberLable];
         [self.contentView addSubview:self.line1];
-        [self.contentView addSubview:self.line2];
+//        [self.contentView addSubview:self.line2];
         
         
         [self.dengLuLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,12 +96,12 @@
             make.top.mas_equalTo(self.contentView.mas_top).with.offset((SYRealValue(0)));
             make.height.mas_equalTo((SYRealValue(0.6)));
         }];
-        [self.line2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(10));
-            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-10));
-            make.bottom.mas_equalTo(self.contentView.mas_bottom).with.offset((SYRealValue(-0.6)));
-            make.height.mas_equalTo((SYRealValue(0.6)));
-        }];
+//        [self.line2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(10));
+//            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-10));
+//            make.bottom.mas_equalTo(self.contentView.mas_bottom).with.offset((SYRealValue(-0.6)));
+//            make.height.mas_equalTo((SYRealValue(0.6)));
+//        }];
         
         [self.timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(16));
@@ -122,7 +122,7 @@
     if (model!=nil) {
         self.dengLuLable.text = model.remark;
         self.timeLable.text= model.createTime;
-        self.numberLable.text= [NSString stringWithFormat:@"+%@",model.compute];
+        self.numberLable.text= [NSString stringWithFormat:@"+%.1f",model.compute.floatValue];
     }
 }
 #pragma mark- 去官网

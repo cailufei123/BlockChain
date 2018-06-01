@@ -131,18 +131,7 @@
 }
 -(void)setModel:(BCTaskDetailModel *)model{
     _model =model;
-//    if (model!=nil) {
-//        
-//        
-//    }else{
-//        //假数据
-//        self.time.text = model.taskInfo.createTime;
-//        self.message.text=model.taskInfo.name;
-//        self.jieShaoLable.text =@"项目介绍";
-//        self.jieShao.text= model.taskInfo.taskDesc;
-//        self.lingQuLable.text= @"糖果领取流程";
-//        self.lingQu.text = model.partnerInfo.brief;
-//    }
+    if (model!=nil) {
     //假数据
     self.time.text = model.taskInfo.createTime;
     self.message.text=model.taskInfo.name;
@@ -150,12 +139,9 @@
     self.jieShao.text= model.taskInfo.taskDesc;
     self.lingQuLable.text= @"糖果领取流程";
     self.lingQu.text = model.partnerInfo.brief;
+    }
 }
-#pragma mark -跟多按钮
--(void)moreBtnClick:(UIButton *)button{
-    
-    
-}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
