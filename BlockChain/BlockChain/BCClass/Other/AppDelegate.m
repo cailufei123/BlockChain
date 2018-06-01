@@ -33,7 +33,7 @@
     [self configUSharePlatforms];//分享登陆
     [self uMessageNotificatiodidFinishLaunchingWithOptions:launchOptions];//友盟推送
     [self taskeEveryDay];
-  
+ 
     
     return YES;
 }
