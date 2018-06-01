@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0400764920C15AC200EF21DC /* WBAudioPlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400764720C15AC200EF21DC /* WBAudioPlayerHelper.m */; };
 		0468FB7620B6694900C83299 /* BCMeRealNameAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */; };
 		0468FB7920B6857000C83299 /* BCMeChangeMoneyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7820B6857000C83299 /* BCMeChangeMoneyController.m */; };
 		0468FB7C20B687E900C83299 /* BCMeChangeMoneyUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7B20B687E900C83299 /* BCMeChangeMoneyUpCell.m */; };
@@ -325,6 +326,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0400764720C15AC200EF21DC /* WBAudioPlayerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAudioPlayerHelper.m; sourceTree = "<group>"; };
+		0400764820C15AC200EF21DC /* WBAudioPlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAudioPlayerHelper.h; sourceTree = "<group>"; };
 		0468FB7420B6694900C83299 /* BCMeRealNameAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeRealNameAlertView.h; sourceTree = "<group>"; };
 		0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeRealNameAlertView.m; sourceTree = "<group>"; };
 		0468FB7720B6857000C83299 /* BCMeChangeMoneyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeChangeMoneyController.h; sourceTree = "<group>"; };
@@ -946,6 +949,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0400764620C15A5100EF21DC /* WBAudioPlayerHelper */ = {
+			isa = PBXGroup;
+			children = (
+				0400764820C15AC200EF21DC /* WBAudioPlayerHelper.h */,
+				0400764720C15AC200EF21DC /* WBAudioPlayerHelper.m */,
+			);
+			path = WBAudioPlayerHelper;
+			sourceTree = "<group>";
+		};
 		0468FB8C20B6D5CB00C83299 /* BCHomeModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2036,6 +2048,7 @@
 		ADE1266F20B2E8D400F6E172 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0400764620C15A5100EF21DC /* WBAudioPlayerHelper */,
 				ADACD0A720BFEC7C00EE21F6 /* YYLrefresh */,
 				ADACD09B20BFE59200EE21F6 /* GzwScrollViewExtension */,
 				ADACD08320BD65AE00EE21F6 /* 3DESiOS */,
@@ -2442,6 +2455,7 @@
 				AD6EA3CF20B43B7100F61B33 /* BCHomeViewController.m in Sources */,
 				AD23F75120B6A5BB0057E662 /* LFBadgeView.m in Sources */,
 				06ED21A220B436EC008F44FE /* MASViewConstraint.m in Sources */,
+				0400764920C15AC200EF21DC /* WBAudioPlayerHelper.m in Sources */,
 				ADE126E520B2EB4F00F6E172 /* UIBarButtonItem+LFExtension.m in Sources */,
 				ADE125BF20B2E84F00F6E172 /* SDImageCacheConfig.m in Sources */,
 				ADE125B620B2E84F00F6E172 /* NSButton+WebCache.m in Sources */,

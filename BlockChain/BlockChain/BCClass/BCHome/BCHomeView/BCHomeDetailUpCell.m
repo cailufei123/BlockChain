@@ -10,7 +10,10 @@
 #import "BCHomeDetailModel.h"
 
 @interface BCHomeDetailUpCell()
-//顶部
+//WSDC
+@property (nonatomic, strong)UILabel *codeLable;
+@property (nonatomic, strong)UIView *line;
+
 /** 我的图片*/
 @property (nonatomic, strong)UIImageView *BIcon;
 /** 数量*/
@@ -31,11 +34,26 @@
 @end
 @implementation BCHomeDetailUpCell
 
+
+-(UILabel *)codeLable{
+    if (!_codeLable) {
+        _codeLable =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Semibold", SXRealValue(24)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
+//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_codeLable];
+    }
+    return _codeLable;
+}
+-(UIView *)line{
+    if (!_line) {
+        _line = [UIView getViewUserEnabled:NO backGroundColor:nil tag:0 target:nil action:nil];
+        //[Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_line1];
+    }
+    return _line;
+}
 -(UIImageView *)BIcon{
     if (!_BIcon) {
         _BIcon = [[UIImageView alloc] init];
         //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
-//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_BIcon];
+        [Util roundBorderView:SXRealValue(74/2) border:0 color:[UIColor blackColor] view:_BIcon];
     }
     return _BIcon;
 }
@@ -108,6 +126,8 @@
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.backgroundColor = naverTextColor;
         //顶部
+        [self.contentView addSubview:self.codeLable];
+        [self.contentView addSubview:self.line];
         [self.contentView addSubview:self.BIcon];
         [self.contentView addSubview:self.numberLable];
         [self.contentView addSubview:self.timeLable];
@@ -117,8 +137,19 @@
         [self.contentView addSubview:self.jieShaoLable];
         [self.contentView addSubview:self.jieShao];
         
+        [self.codeLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.contentView.mas_top).with.offset((SYRealValue(6)));
+            make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(0));
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(0));
+        }];
+        [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.codeLable.mas_bottom).with.offset((SYRealValue(7)));
+            make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(0));
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(0));
+            make.height.mas_equalTo((SYRealValue(0.6)));
+        }];
         [self.BIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.contentView.mas_top).with.offset((SYRealValue(0)));
+            make.top.mas_equalTo(self.line.mas_bottom).with.offset((SYRealValue(0)));
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(10));
             make.width.mas_equalTo((SXRealValue(74)));
             make.height.mas_equalTo((SXRealValue(74)));
@@ -167,21 +198,25 @@
 
 -(void)setModel:(BCHomeDetailModel *)model{
     _model =model;
-    //假数据
-    [self.BIcon sd_setImageWithURL:[NSURL URLWithString:model.candyProcess.icon] placeholderImage:nil] ;
-    self.numberLable.text = [NSString stringWithFormat:@"发放数量: %@  剩余: %ld",model.candyProcess.count,[model.candyProcess.count integerValue]-[model.candyProcess.getCount integerValue]];
-    self.timeLable.text = [NSString stringWithFormat:@"发放时间: %@",model.candyProcess.createTime];
-    if ([model.candyProcess.status isEqualToString:@"0"]) {
-        self.jiXingLable.text = @"进行中";
-    }else{
-        self.jiXingLable.text = @"已结束";
+    if (_model!=nil) {
+        self.codeLable.text =model.candyProcess.code;
+        //假数据
+        [self.BIcon sd_setImageWithURL:[NSURL URLWithString:model.candyProcess.icon] placeholderImage:nil] ;
+        self.numberLable.text = [NSString stringWithFormat:@"发放数量: %@  剩余: %ld",model.candyProcess.count,[model.candyProcess.count integerValue]-[model.candyProcess.getCount integerValue]];
+        self.timeLable.text = [NSString stringWithFormat:@"发放时间: %@",model.candyProcess.createTime];
+        if ([model.candyProcess.status isEqualToString:@"0"]) {
+            self.jiXingLable.text = @"进行中";
+        }else{
+            self.jiXingLable.text = @"已结束";
+        }
+        
+        self.xiangMuLable.text =@"项目名称";
+        self.biTeLable.text =model.partnerInfo.projectName;
+        self.jieShaoLable.text =@"项目介绍";
+        self.jieShao.text =model.partnerInfo.brief;
+        _line.backgroundColor =colorE5E7E9;
+
     }
-  
-    self.xiangMuLable.text =@"项目名称";
-    self.biTeLable.text =model.partnerInfo.projectName;
-    self.jieShaoLable.text =@"项目介绍";
-    self.jieShao.text =model.partnerInfo.brief;
-    
 }
 
 - (void)awakeFromNib {
