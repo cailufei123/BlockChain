@@ -56,12 +56,12 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     }
     return _listArray;
 }
-//-(BCMeModel *)meModel{
-//    if (!_meModel) {
-//        _meModel = [[BCMeModel alloc] init];
-//    }
-//    return _meModel;
-//}
+-(BCMeModel *)meModel{
+    if (!_meModel) {
+        _meModel = [[BCMeModel alloc] init];
+    }
+    return _meModel;
+}
 //kTopHeight
 
 /**表格**/
