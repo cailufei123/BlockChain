@@ -102,7 +102,7 @@
  */
 - (void)managerAudioWithLocalPath:(NSString *)localPath playOrPause:(BOOL)isPlaying{
     if (isPlaying) {
-        [self playAudioWithPath:localPath whiteStype:WBAudioFileTyle_Network];
+        [self playAudioWithPath:localPath whiteStype:WBAudioFileTyle_Local];
     } else {
         [self pausePlayingAudio];
     }
@@ -147,6 +147,16 @@
  */
 - (void)playAudio {
     if (_audioPlayer) {
+        //
+        //    UInt32 sessionCategory = kAudioSessionCategory_MediaPlayback;
+        //    //外放
+        //
+        //    AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
+        //
+        //    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;//话筒
+        //
+        //    AudioSessionSetProperty (kAudioSessionProperty_OverrideCategoryDefaultToSpeaker,sizeof (audioRouteOverride),&audioRouteOverride);
+        //
         [_audioPlayer play];
 //        [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
         if ([self.delegate respondsToSelector:@selector(didAudioPlayerBeginPlay:)]) {
@@ -258,7 +268,8 @@
                 
                 fileURL = [NSURL fileURLWithPath:filePath];
             }else if (type == WBAudioFileTyle_Local){
-                fileURL = [NSURL URLWithString:path];
+                fileURL =  [[NSBundle mainBundle]URLForResource:path withExtension:@""];
+               
             }
             //通知主线程刷新
             dispatch_async(dispatch_get_main_queue(), ^{

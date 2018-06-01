@@ -56,7 +56,7 @@
 #import "UIButton+LWB.h"
 #import "Util.h"
 #import "UIView+WBY.h"
-
+#import "WBAudioPlayerHelper.h"
 #import "Masonry.h"
 #import "BCRefreshAutoGifFooter.h"
 #import "SARefreshGifHeader.h"
