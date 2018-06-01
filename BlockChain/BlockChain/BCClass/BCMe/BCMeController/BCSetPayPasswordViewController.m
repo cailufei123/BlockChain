@@ -58,9 +58,9 @@
 }
 
 -(void)sureBtClick:(UIButton * )bt{
-     LFLog(@"%@",[self encryptUseDES: @"123456" key:@"kQujxT^KYZXVGUFn"]);
-      LFLog(@"%@",[self decryptUseDES: @"kPN5VW7gYww=" key:@"kQujxT^KYZXVGUFn"]);
-    
+//     LFLog(@"%@",[self encryptUseDES: @"123456" key:@"kQujxT^KYZXVGUFn"]);
+//      LFLog(@"%@",[self decryptUseDES: @"kPN5VW7gYww=" key:@"kQujxT^KYZXVGUFn"]);
+//
     if (self.passwordLb.text.length!=6) {
         [MBManager showBriefAlert:@"密码为6位数字" ];
         return;
@@ -79,13 +79,9 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = loginToken;
     dic[@"smsCode"] = self.codeTf.text;
-//    dic[@"password"] =  [DES3Util encryptUseDES: self.passwordLb.text key:@"kQujxT^KYZXVGUFn"];
-     dic[@"password"] =  @"kPN5VW7gYww=";
-   
+    dic[@"password"] =  [DES3Util encryptUseDES: self.passwordLb.text key:@"llcfbcap"];
     dic[@"deviceId"] = devicToken;
-  
-    
-     LFLog(@"%@",[self encryptUseDES: @"123456" key:@"kQujxT^KYZXVGUFn"]);
+
        LFLog(@"%@",dic);
     
     [YWRequestData forgetResetDict:dic success:^(id responseObj) {
