@@ -269,14 +269,9 @@
 }
 #pragma mark- 去官网
 -(void)guanWangBtnClick{
-
-       NSString *path = [NSString stringWithFormat:@"http://%@",_model.partnerInfo.site];
-
+    NSString *path = [NSString stringWithFormat:@"http://%@",_model.partnerInfo.site];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path] options:@{UIApplicationOpenURLOptionUniversalLinksOnly: @NO} completionHandler:^(BOOL success) {
-        
     }];
-
- 
     if (self.delegate && [self.delegate respondsToSelector:@selector(gotoGuanWangBtnClick)]) {
         [self.delegate gotoGuanWangBtnClick];
     }
