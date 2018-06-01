@@ -193,13 +193,13 @@
         loginDict[@"mobile"] = self.phoneTf.text;
         loginDict[@"smsCode"] =self.codeTf.text;
         [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
-              [self loadUpData];
+            
             [MBManager showBriefAlert:@"登陆成功"];
             SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
             [LFAccountTool save:loginmodel];
             [MBManager hideAlert];
             [LKControllerTool chooseRootViewController];
-            
+             [self loadUpData];
         }];
         
     }else{
@@ -235,13 +235,13 @@
             loginDict[@"mobile"] = self.phoneTf.text;
             loginDict[@"smsCode"] =self.codeTf.text;
             [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
-                [self loadUpData];
+               
                 [MBManager showBriefAlert:@"登陆成功"];
                 SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
                 [LFAccountTool save:loginmodel];
                 [MBManager hideAlert];
                 [LKControllerTool chooseRootViewController];
-                
+                 [self loadUpData];
             }];
         }];
     }

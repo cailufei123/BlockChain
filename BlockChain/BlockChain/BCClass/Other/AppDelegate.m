@@ -90,6 +90,7 @@
         
     } success:^(id responseObj) {
     } failure:^(NSError *error) {
+        
     }];
     
     
@@ -143,15 +144,17 @@
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
     NSDictionary * userInfo = notification.request.content.userInfo;
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        
+//        {"msg_title":"糖果任务","msg_content":"糖果邀请码由为用户邀请码 AD7VPP+糖果ID 001组成，可以多次分享但糖果邀请码的使用次数和奖励领取次数（即每个任务的完成次数）与用户算力有关，详见《算力收益参数表》","msg_type":"0","msg_tag":"0","skip_type":"0","skip_id":"0"}
         //应用处于前台时的远程推送接受
         [UMessage setAutoAlert:NO];
         //必须加这句代码
         [UMessage didReceiveRemoteNotification:userInfo];
         LFLog(@"%@",userInfo);
         LFLog(@"%@",[userInfo[@"custom"] mj_JSONObject ]);
-        
-        SAMessageModel * messageModel = [SAMessageModel mj_objectWithKeyValues:[userInfo[@"custom"] mj_JSONObject ]];
+   NSString * msg_id = [self currentTimeStr];
+        SAMessageModel * messageModel = [SAMessageModel mj_objectWithKeyValues:[userInfo[@"aps"][@"custom"] mj_JSONObject ]];
+        messageModel.bageVlue = @"0";
+           messageModel.msg_id = msg_id;
         NSDate * data  =[NSDate date];
         NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
         fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
@@ -168,7 +171,12 @@
     //当应用处于前台时提示设置，需要哪个可以设置哪一个
     completionHandler(UNNotificationPresentationOptionSound|UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionAlert);
 }
-
+- (NSString *)currentTimeStr{
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval time=[date timeIntervalSince1970]*1000;// *1000 是精确到毫秒，不乘就是精确到秒
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
+    return timeString;
+}
 //iOS10新增：处理后台点击通知的代理方法
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler{
     NSDictionary * userInfo = response.notification.request.content.userInfo;
@@ -180,9 +188,9 @@
         if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {//应用处于前台
             
             SATabBarController * tabar =  (SATabBarController * )self.window.rootViewController;
-            tabar.selectedIndex = 2;
+            tabar.selectedIndex = 0;
         }else{
-            
+            LFLog(@"%@",userInfo);
             SAMessageModel * messageModel = [SAMessageModel mj_objectWithKeyValues:[userInfo[@"custom"] mj_JSONObject ]];
             
             NSArray * allarray = [[DataBase sharedDataBase] getAllMessage];

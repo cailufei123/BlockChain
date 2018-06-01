@@ -60,7 +60,7 @@
         }else{
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {
-        [MBManager showBriefAlert:@"网络错误"];
+//        [MBManager showBriefAlert:@"网络错误"];
          [MBManager hideAlert];
     }];
 }
@@ -140,7 +140,7 @@
 + (void)winPeopleDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:PRODUCT_WINS params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+//        LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
