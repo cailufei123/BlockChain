@@ -359,7 +359,21 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
          self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
 
-   
+    NSUserDefaults * userdevice = [NSUserDefaults standardUserDefaults];
+  NSString * devicToken=  [userdevice  objectForKey:userdevicToken];
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"deviceId"] = devicToken;
+    dict[@"token"] = loginToken;
+    dict[@"type"] = @"1";
+  
+    [LFHttpTool post:PUSH_DEVICEID params:dict progress:^(id downloadProgress) {
+        
+    } success:^(id responseObj) {
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    
 }
 -(void)loadMoreData{
      CandyListModel * candyListModel = [self.userCandyLists lastObject];
@@ -453,6 +467,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
+      self.tableView.backgroundColor  =bagColor;
     __weak typeof(self) weakSelf = self;
      self.tableView.headerRefreshingBlock = ^{
          [weakSelf loadHomeCandyLis];

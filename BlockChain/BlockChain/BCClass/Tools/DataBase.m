@@ -187,7 +187,9 @@ static DataBase *_DBCtl = nil;
           messageModel.bageVlue = [res stringForColumn:@"bageVlue"];
         
         [dataArray addObject:messageModel];
-        
+        NSArray* reversedArray = [[dataArray reverseObjectEnumerator] allObjects];
+        [dataArray removeAllObjects];
+        [dataArray addObjectsFromArray:reversedArray];
     }
     
     [_db close];
@@ -246,7 +248,8 @@ static DataBase *_DBCtl = nil;
          messageModel.bageVlue = [res stringForColumn:@"bageVlue"];
         
         [array addObject:messageModel];
-        
+        //2.倒序的数组
+      
     }
     
     
