@@ -32,25 +32,25 @@
 
 -(UIView *)line1{
     if (!_line1) {
-        _line1 = [UIView getViewUserEnabled:NO backGroundColor:colorE5E7E9 tag:0 target:nil action:nil];
+        _line1 = [UIView getViewUserEnabled:NO backGroundColor:nil tag:0 target:nil action:nil];
     }
     return _line1;
 }
 -(UIView *)line2{
     if (!_line2) {
-        _line2 = [UIView getViewUserEnabled:NO backGroundColor:colorE5E7E9 tag:0 target:nil action:nil];
+        _line2 = [UIView getViewUserEnabled:NO backGroundColor:nil tag:0 target:nil action:nil];
     }
     return _line2;
 }
 -(UIView *)line3{
     if (!_line3) {
-        _line3 = [UIView getViewUserEnabled:NO backGroundColor:colorE5E7E9 tag:0 target:nil action:nil];
+        _line3 = [UIView getViewUserEnabled:NO backGroundColor:nil tag:0 target:nil action:nil];
     }
     return _line3;
 }
 -(UIView *)line4{
     if (!_line4) {
-        _line4 = [UIView getViewUserEnabled:NO backGroundColor:colorE5E7E9 tag:0 target:nil action:nil];
+        _line4 = [UIView getViewUserEnabled:NO backGroundColor:nil tag:0 target:nil action:nil];
     }
     return _line4;
 }
@@ -250,14 +250,20 @@
 }
 -(void)setModel:(BCHomeDetailModel *)model{
     _model = model;
-    self.biaoYuLable.text = @"标语";
-    self.biaoYu.text=  model.partnerInfo.slogan;
-    self.faXingLable.text= @"发行总量";
-    self.faXing.text= [NSString stringWithFormat:@"%@枚", model.partnerInfo.pubCount];
-    self.faXingPriceLable.text= @"发行价格";
-    self.faXingPrice.text= [NSString stringWithFormat:@"1ETH=%@%@",model.partnerInfo.price,model.partnerInfo.code];
-    self.guanWangLable.text= @"官方网站";
-    self.guanWang.text =model.partnerInfo.site;
+    if (_model!=nil) {
+        self.biaoYuLable.text = @"标语";
+        self.biaoYu.text=  model.partnerInfo.slogan;
+        self.faXingLable.text= @"发行总量";
+        self.faXing.text= [NSString stringWithFormat:@"%@枚", model.partnerInfo.pubCount];
+        self.faXingPriceLable.text= @"发行价格";
+        self.faXingPrice.text= [NSString stringWithFormat:@"1ETH=%@%@",model.partnerInfo.price,model.partnerInfo.code];
+        self.guanWangLable.text= @"官方网站";
+        self.guanWang.text =model.partnerInfo.site;
+        _line1.backgroundColor =colorE5E7E9;
+        _line2.backgroundColor =colorE5E7E9;
+        _line3.backgroundColor =colorE5E7E9;
+        _line4.backgroundColor =colorE5E7E9;
+    }
 //    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",model.partnerInfo.site]];
 //    NSRange titleRange = {0,[title length]};
 //    [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];

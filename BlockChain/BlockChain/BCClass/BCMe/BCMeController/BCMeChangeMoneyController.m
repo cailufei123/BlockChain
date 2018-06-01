@@ -455,9 +455,10 @@
         [weakSelf.passView  clearUpPassword];//清空密码
         NSLog(@"服务器===%@",message);
     } noYuEr:^(NSString *yuer) {//额度不够
+        [weakSelf.passView  clearUpPassword];//清空密码
+        [weakSelf hiddenTwoView];
         NSString *message =[NSString stringWithFormat:@"%@%@",self.moneyModel.code,@"余额不足"];
         [MBManager showBriefAlert:message];
-        [weakSelf.passView  clearUpPassword];//清空密码
     } erorr:^(id error) {//网络错误，或者服务器错误
         
     }];

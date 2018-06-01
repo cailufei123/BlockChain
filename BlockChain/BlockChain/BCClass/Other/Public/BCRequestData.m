@@ -102,7 +102,6 @@
     
     [LFHttpTool post:CASH_COIN params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-
         //[responseObj writeToFile:@"/Users/mac/Desktop/plist/kkk.plist" atomically:YES];
         LFLog(@"==%@",responseObj);
         [MBManager hideAlert];
