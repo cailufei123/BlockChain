@@ -41,4 +41,15 @@
 //根据token生成带颜色的二维码
 //MARK:彩色的二维码
 +(UIImage *)getColorQrcodeWithToken:(NSString *)token SmallCenterImage:(UIImage *)image imageWidth:(CGFloat)imageWidth color1:(CIColor*)color1 color2:(CIColor*)color2;
+
+//MARK:彩色的二维码
+/*
+ *red   r   //129.0f
+ *green g   // 0.0f
+ *blue  b   // 224.0f
+ *centerIconWidth //中间宽度
+ *centerIcon      //中间图片
+ *imageView       //imageView 不用阴影可传递nil
+ */
++(UIImage *)getColorQimageWithPath:(NSString *)path withImageView:(UIImageView *)imageView WithSize:(CGFloat)size withCenterIcon:(UIImage *)centerIcon centerIconWidth:(CGFloat)centerIconWidth withRed:(CGFloat)red andGreen:(CGFloat)green andBlue:(CGFloat)blue;
 @end

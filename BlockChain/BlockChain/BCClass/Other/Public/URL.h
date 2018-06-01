@@ -113,6 +113,7 @@
 //中奖公告
  #define PRODUCT_WINS [NSString stringWithFormat:@"%@%@",INFO_SERVICE, @"notice/list"]  
 
+
 //用户协议
  #define COMSTUM_SERVER [NSString stringWithFormat:@"%@%@",HTML_SERVICE,@"user_agreement.html"]  
 //玩法攻

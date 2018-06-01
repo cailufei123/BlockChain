@@ -241,9 +241,14 @@
         self.QcodeIcon.image =model.QImage;
         self.changAnLable.text = @"长按识别二维码";
         [self.loadingBtn setTitle:@"下载唐人街" forState:UIControlStateNormal];
-
     }
 }
+//
+
+
+    
+ 
+    
 
 
 

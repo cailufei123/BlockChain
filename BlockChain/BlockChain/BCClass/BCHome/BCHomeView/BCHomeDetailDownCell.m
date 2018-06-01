@@ -19,7 +19,9 @@
 @property (nonatomic, strong)UILabel *faXingPriceLable;
 @property (nonatomic, strong)UILabel *faXingPrice;
 @property (nonatomic, strong)UILabel *guanWangLable;
-@property (nonatomic, strong)UIButton *guanWangBtn;
+//@property (nonatomic, strong)UIButton *guanWangBtn;
+@property (nonatomic, strong)UILabel *guanWang;
+
 @property(nonatomic,strong)UIView *line1;
 @property(nonatomic,strong)UIView *line2;
 @property(nonatomic,strong)UIView *line3;
@@ -102,22 +104,34 @@
     }
     return _guanWangLable;
 }
-
--(UIButton *)guanWangBtn{
-    if (!_guanWangBtn) {
-        _guanWangBtn = [UIButton getButtonTitleColor:color506CCD titleFont:FONT(@"PingFangSC-Medium", SXRealValue(12)) backGroundColor:nil target:self action:@selector(guanWangBtnClick:)];
-        _guanWangBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-        [_guanWangBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-        //给button添加下划线
-        NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"www.tangguoxiangqing.com"];
-        NSRange titleRange = {0,[title length]};
-        [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
-        [_guanWangBtn setAttributedTitle:title
-                               forState:UIControlStateNormal];
-        [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_guanWangBtn];
+-(UILabel *)guanWang{
+    if (!_guanWang) {
+        _guanWang =[UILabel LabelWithTextColor:color506CCD textFont:FONT(@"PingFangSC-Regular", SXRealValue(12)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_guanWang];
+        _guanWang.userInteractionEnabled =YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(guanWangBtnClick)];
+        [_guanWang addGestureRecognizer:tap];
     }
-    return _guanWangBtn;
+    return _guanWang;
 }
+
+
+//-(UIButton *)guanWangBtn{
+//    if (!_guanWangBtn) {
+//        _guanWangBtn = [UIButton getButtonTitleColor:color506CCD titleFont:FONT(@"PingFangSC-Medium", SXRealValue(12)) backGroundColor:nil target:self action:@selector(guanWangBtnClick:)];
+//        _guanWangBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+//        [_guanWangBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
+//        //给button添加下划线
+//        NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"www.tangguoxiangqing.com"];
+//        NSRange titleRange = {0,[title length]};
+//        [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
+//        [_guanWangBtn setAttributedTitle:title
+//                               forState:UIControlStateNormal];
+//        [Util roundBorderView:SXRealValue(2) border:1 color:color2B73EE view:_guanWangBtn];
+//    }
+//    return _guanWangBtn;
+//}
+
 
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //初始化
@@ -143,7 +157,8 @@
         [self.contentView addSubview:self.faXingPriceLable];
         [self.contentView addSubview:self.faXingPrice];
         [self.contentView addSubview:self.guanWangLable];
-        [self.contentView addSubview:self.guanWangBtn];
+//        [self.contentView addSubview:self.guanWangBtn];
+        [self.contentView addSubview:self.guanWang];
         
         [self.contentView addSubview:self.line1];
         [self.contentView addSubview:self.line2];
@@ -210,10 +225,16 @@
             make.width.mas_equalTo((SXRealValue(65)));
             make.height.mas_equalTo((SYRealValue(22)));
         }];
-        [self.guanWangBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.guanWangLable.mas_right).with.offset(SXRealValue(20));
+//        [self.guanWangBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(self.guanWangLable.mas_right).with.offset(SXRealValue(20));
+//            make.centerY.mas_equalTo(self.guanWangLable.mas_centerY);
+//            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-50));
+//            make.height.mas_equalTo((SYRealValue(20)));
+//        }];
+        [self.guanWang mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.guanWangLable.mas_right).with.offset(SXRealValue(28));
             make.centerY.mas_equalTo(self.guanWangLable.mas_centerY);
-            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-50));
+            make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(-20));
             make.height.mas_equalTo((SYRealValue(20)));
         }];
         [self.line4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -236,24 +257,21 @@
     self.faXingPriceLable.text= @"发行价格";
     self.faXingPrice.text= [NSString stringWithFormat:@"1ETH=%@%@",model.partnerInfo.price,model.partnerInfo.code];
     self.guanWangLable.text= @"官方网站";
-    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",model.partnerInfo.site]];
-    NSRange titleRange = {0,[title length]};
-    [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
-    [self.guanWangBtn setAttributedTitle:title
-                            forState:UIControlStateNormal];
-    LFLog(@"%@",model.partnerInfo.site);
+    self.guanWang.text =model.partnerInfo.site;
+//    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",model.partnerInfo.site]];
+//    NSRange titleRange = {0,[title length]};
+//    [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
+    
+    //[self.guanWangBtn setAttributedTitle:title
+//                            forState:UIControlStateNormal];
+    //LFLog(@"%@",model.partnerInfo.site);
     
 }
 #pragma mark- 去官网
--(void)guanWangBtnClick:(UIButton *)button{
-
-       NSString *path = [NSString stringWithFormat:@"http://%@",_model.partnerInfo.site];
-
+-(void)guanWangBtnClick{
+    NSString *path = [NSString stringWithFormat:@"http://%@",_model.partnerInfo.site];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path] options:@{UIApplicationOpenURLOptionUniversalLinksOnly: @NO} completionHandler:^(BOOL success) {
-        
     }];
-
- 
     if (self.delegate && [self.delegate respondsToSelector:@selector(gotoGuanWangBtnClick)]) {
         [self.delegate gotoGuanWangBtnClick];
     }

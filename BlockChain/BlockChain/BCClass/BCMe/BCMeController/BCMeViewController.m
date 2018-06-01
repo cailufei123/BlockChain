@@ -225,6 +225,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     self.meModel.Qimage =self.Qiamge;
     
     BCMeQRCodeController *QRVc= [[BCMeQRCodeController alloc] init];
+    QRVc.isShouKuan =NO;
     QRVc.meModel  = self.meModel;
     [self.navigationController pushViewController:QRVc animated:YES];
     NSLog(@"二维码");

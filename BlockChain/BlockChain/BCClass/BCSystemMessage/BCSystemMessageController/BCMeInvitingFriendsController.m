@@ -44,8 +44,13 @@
         _invitingView = [[BCMeInvitingFriendsView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
         self.model.token = loginMe.shareCode;//码
         NSLog(@"lastInviteCount===%@",loginMe.shareCode);
-        NSString *path = [USER_DEFAULT valueForKey:@"downUrl"];
-        self.model.QImage =[Util getColorQrcodeWithToken:path SmallCenterImage:[UIImage imageNamed:@""] imageWidth:SXRealValue(50) color1:CI_RGBACOLOR(255, 255, 255, 0) color2:CI_RGBACOLOR(111, 111, 111, 1)];
+        
+
+//        NSString *path = [USER_DEFAULT valueForKey:@"downUrl"];
+//        self.model.QImage =[Util getColorQrcodeWithToken:path SmallCenterImage:[UIImage imageNamed:@"lg"] imageWidth:SXRealValue(60) color1:CI_RGBACOLOR(129, 0, 244, 1)  color2:CI_RGBACOLOR(255, 255, 255, 0)];
+        // 获取对应颜色的二维码
+        UIImage*Qimage=[Util getColorQimageWithPath:[USER_DEFAULT valueForKey:@"downUrl"] withImageView:nil WithSize:500 withCenterIcon:[UIImage imageNamed:@"lg"] centerIconWidth:SXRealValue(80) withRed:129.0f andGreen:0.0f andBlue:224.0f];
+        self.model.QImage =Qimage;
         _invitingView.model =self.model;
         _invitingView.delegate =self;
     }

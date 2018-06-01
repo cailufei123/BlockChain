@@ -30,7 +30,7 @@
     if (!_moneyImage) {
         _moneyImage = [[UIImageView alloc] init];
         //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
-        //[Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_moneyImage];
+        [Util roundBorderView:SXRealValue(23/2) border:0 color:nil view:_moneyImage];
 //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_moneyImage];
     }
     return _moneyImage;
@@ -74,7 +74,7 @@
         //选中颜色
         //[Util selectCellBackgroundColor:cell];
     };
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

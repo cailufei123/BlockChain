@@ -29,7 +29,7 @@
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
 @property(nonatomic,assign)NSInteger page;
-@property(nonatomic,strong)NSMutableArray *listArray;
+
 @property(nonatomic,strong)NSMutableArray *zonglistArray;
 
 @property(nonatomic,strong)BCMePDCMode *PDCmodel;
@@ -44,13 +44,6 @@
 #define alertViewHeight   (SCREENWIDTH-2*(SXRealValue(16)))*467/343)
 
 
-
--(NSMutableArray *)listArray{
-    if (!_listArray) {
-        _listArray= [NSMutableArray array];
-    }
-    return _listArray;
-}
 -(NSMutableArray *)zonglistArray{
     if (!_zonglistArray) {
         _zonglistArray= [NSMutableArray array];
@@ -152,18 +145,20 @@
 - (void)createRefresh
 {
     SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-//    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     [header beginRefreshing];
     self.tableView.mj_header = header;
-//    self.tableView.mj_footer = footer;
+    self.tableView.mj_footer = footer;
     self.header =header;
-//    self.footer =footer;
+    self.footer =footer;
     
 }
 //下拉加载
 -(void)loadNewData{
     self.page=1;
-    [self.zonglistArray removeAllObjects];
+    if(self.zonglistArray.count>0){
+        [self.zonglistArray removeAllObjects];
+    }
     [self loadData];
 
 }
@@ -178,22 +173,32 @@
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id
-    candyDict[@"size"] = @100;//糖果id
+    candyDict[@"size"] = @20;//糖果id
     candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
     
     [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
-    self.listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
+    NSMutableArray* listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
        
-        if(self.PDCmodel!=nil){
+        if(self.PDCmodel.partner!=nil){
             //初始化转账与收款
             [weakSelf setPayOrGetMoneyBtn];
         }
-        //[self.zonglistArray addObjectsFromArray:self.listArray];
+        if(listArray.count>0){
+            [self.zonglistArray addObjectsFromArray:listArray];
+            [self.footer endRefreshing];
+            [self.header endRefreshing];
+        }
         [self.tableView reloadData];
+        [self.footer endRefreshing];
         [self.header endRefreshing];
+        if(listArray.count==0){
+            [self.footer endRefreshingWithNoMoreData];
+        }
+       
     } erorr:^(id error) {
         [self.header endRefreshing];
+        [self.footer endRefreshing];
         
     }];
 }
@@ -303,11 +308,11 @@
     if (section==0) {
         return nil;
     }else{
-        if (self.listArray.count<1) return nil;
+        if (self.zonglistArray.count<1) return nil;
     UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
     view.backgroundColor = naverTextColor;
     UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
-    tangGuoJiLulable.text =@"收款记录";
+    tangGuoJiLulable.text =@"糖果记录";
     UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(0.6)))];
     lineView.backgroundColor = colorE5E7E9;
     [view addSubview:tangGuoJiLulable];
@@ -340,7 +345,7 @@
     if (section==0) {
         return 1;
     }else{
-        return  self.listArray.count;
+        return  self.zonglistArray  .count;
     }
 }
 
@@ -368,7 +373,7 @@
         return cell;
         
     }else{
-        BCMePDCListMode *model = self.listArray[indexPath.row];
+        BCMePDCListMode *model = self.zonglistArray [indexPath.row];
         //添加事件
         BCMePDCListDownCell *cell = [BCMePDCListDownCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.model =model;
