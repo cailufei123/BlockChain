@@ -73,6 +73,7 @@
 		06ED21A420B436EC008F44FE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219620B436EC008F44FE /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		06ED21A520B436EC008F44FE /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219820B436EC008F44FE /* View+MASAdditions.m */; };
 		06ED21A620B436EC008F44FE /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */; };
+		AD116F5620C1591B0000975C /* diamond.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AD116F5520C1591B0000975C /* diamond.mp3 */; };
 		AD23F6CE20B5126B0057E662 /* ATSkipTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CD20B5126B0057E662 /* ATSkipTool.m */; };
 		AD23F6D120B5562B0057E662 /* BCTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6D020B5562B0057E662 /* BCTaskViewController.m */; };
 		AD23F6D420B556AB0057E662 /* BCTaskTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6D320B556AB0057E662 /* BCTaskTopView.m */; };
@@ -461,6 +462,7 @@
 		06ED219920B436EC008F44FE /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		06ED219A20B436EC008F44FE /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		AD116F5520C1591B0000975C /* diamond.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = diamond.mp3; sourceTree = "<group>"; };
 		AD23F6CC20B5126A0057E662 /* ATSkipTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSkipTool.h; sourceTree = "<group>"; };
 		AD23F6CD20B5126B0057E662 /* ATSkipTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSkipTool.m; sourceTree = "<group>"; };
 		AD23F6CF20B5562B0057E662 /* BCTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCTaskViewController.h; sourceTree = "<group>"; };
@@ -1613,6 +1615,7 @@
 		ADE123C420B2E80200F6E172 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				AD116F5520C1591B0000975C /* diamond.mp3 */,
 				ADE1269220B2EB4F00F6E172 /* Category */,
 				ADE1268520B2EABD00F6E172 /* Public */,
 				ADE123C520B2E80200F6E172 /* AppDelegate.h */,
@@ -2347,6 +2350,7 @@
 				AD23F75420B6A5BB0057E662 /* ATMessageCell.xib in Resources */,
 				ADE1239D20B2D67E00F6E172 /* LaunchScreen.storyboard in Resources */,
 				ADE1239A20B2D67E00F6E172 /* Assets.xcassets in Resources */,
+				AD116F5620C1591B0000975C /* diamond.mp3 in Resources */,
 				ADE1264320B2E84F00F6E172 /* UMSocialSDKResources.bundle in Resources */,
 				AD23F70420B5767A0057E662 /* BCCodeAlertView.xib in Resources */,
 				ADACD09520BFCC8B00EE21F6 /* SAVourcherHeartView.xib in Resources */,
