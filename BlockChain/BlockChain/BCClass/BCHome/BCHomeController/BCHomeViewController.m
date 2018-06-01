@@ -134,6 +134,10 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
             
             [prosionDate setObject:version.version forKey:@"comeVesion"];
             [prosionDate setObject:version.url forKey:downUrl];
+            if ([oldVersion integerValue]>=[version.version integerValue]) {
+                return ;
+            }
+            
             if ([version.isForceUpdate isEqualToString:@"1"]) {//1：强更；0不强制
                 
                 //                if (version.versionCode.length)
