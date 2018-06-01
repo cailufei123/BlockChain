@@ -277,7 +277,7 @@
     _model =model;
     if (model!=nil) {
         //下部
-        self.shengYuLable.text = [NSString stringWithFormat:@"剩余邀请次数%@次",@"8"];
+        self.shengYuLable.text = [NSString stringWithFormat:@"剩余邀请次数%@次",model.lastInviteCount];
         self.fenXiangLable.text =@"分享到";
         [self.weiXinBtn setImage:[UIImage imageNamed:@"wx_iocn"] forState:UIControlStateNormal];
         [self.pengYouBtn setImage:[UIImage imageNamed:@"friendcircle_iocn"] forState:UIControlStateNormal];

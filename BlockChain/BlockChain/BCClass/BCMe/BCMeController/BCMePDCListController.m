@@ -302,7 +302,15 @@
         return  (SYRealValue(54)) ;
     }
 }
-
+                                                                            
+-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section==0) {
+             return 0.01;
+    }else{
+             return  0.01 ;
+    }
+}
 //返回高度
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section==0) {
@@ -345,7 +353,7 @@
     if (section==0) {
         return 1;
     }else{
-        return  self.zonglistArray  .count;
+        return  self.zonglistArray.count;
     }
 }
 

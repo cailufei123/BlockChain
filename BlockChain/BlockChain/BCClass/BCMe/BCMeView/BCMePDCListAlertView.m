@@ -113,13 +113,23 @@
     }
     return _guanWangLable;
 }
--(UIButton *)guanWangBtn{
+//-(UIButton *)guanWangBtn{
+//    if (!_guanWangBtn) {
+//        _guanWangBtn = [UIButton getButtonTitleColor:color2B73EE titleFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) backGroundColor:naverTextColor target:self action:@selector(guanWangBtnClick:)];
+//        _guanWangBtn.userInteractionEnabled= YES;
+//        _guanWangBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+//        [_guanWangBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
+//        [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_guanWangBtn];
+//    }
+//    return _guanWangBtn;
+//}
+-(UILabel *)guanWangBtn{
     if (!_guanWangBtn) {
-        _guanWangBtn = [UIButton getButtonTitleColor:color2B73EE titleFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) backGroundColor:naverTextColor target:self action:@selector(guanWangBtnClick:)];
-        _guanWangBtn.userInteractionEnabled= YES;
-        _guanWangBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-        [_guanWangBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-        [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_guanWangBtn];
+        _guanWangBtn =[UILabel LabelWithTextColor:color2B73EE textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+        //                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_guanWang];
+        _guanWangBtn.userInteractionEnabled =YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(guanWangBtnClick)];
+        [_guanWangBtn addGestureRecognizer:tap];
     }
     return _guanWangBtn;
 }
@@ -212,11 +222,17 @@
             make.height.mas_equalTo((SYRealValue(25)));
             make.bottom.mas_equalTo(self.downView.mas_bottom).with.offset(0);
         }];
+//        [self.guanWangBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(self.guanWangLable.mas_right).with.offset(SXRealValue(0));
+//            make.centerY.equalTo(self.guanWangLable.mas_centerY);
+//            make.width.mas_equalTo((SXRealValue(130)));
+//            make.height.mas_equalTo((SYRealValue(25)));
+//            //make.bottom.mas_equalTo(self.bigScrollView.mas_bo).with.offset((SYRealValue(26)));
+//        }];
         [self.guanWangBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.guanWangLable.mas_right).with.offset(SXRealValue(5));
+            make.left.mas_equalTo(self.guanWangLable.mas_right).with.offset(SXRealValue(7));
+            make.right.mas_equalTo(self.mas_right).with.offset(SXRealValue(-10));
             make.centerY.equalTo(self.guanWangLable.mas_centerY);
-            make.width.mas_equalTo((SXRealValue(130)));
-            make.height.mas_equalTo((SYRealValue(25)));
             //make.bottom.mas_equalTo(self.bigScrollView.mas_bo).with.offset((SYRealValue(26)));
         }];
         [self.sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -239,8 +255,9 @@
     self.jieShaoLable.text=[NSString stringWithFormat:@"项目介绍: %@",model.partner.brief];
     self.faXingLable.text =[NSString stringWithFormat:@"发行总量: %@",model.partner.pubCount];
     self.faXingPriceLable.text =[NSString stringWithFormat:@"发行价格: 1ETH=%.1f%@",model.partner.price.floatValue,model.partner.code];
-    self.guanWangLable.text=@"官网:";
-    [self.guanWangBtn setTitle:model.partner.site forState:UIControlStateNormal];
+    self.guanWangLable.text=@"官方网站:";
+    self.guanWangBtn.text =model.partner.site;
+    //[self.guanWangBtn setTitle:model.partner.site forState:UIControlStateNormal];
     [self.sureBtn setTitle:@"知道了" forState:UIControlStateNormal];
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -254,7 +271,12 @@
 }
 
 #pragma mark - 官网加载按钮
--(void)guanWangBtnClick:(UIButton *)button{
+//-(void)guanWangBtnClick:(UIButton *)button{
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(guanWangBtnClick:)]) {
+//        [self.delegate guanWangBtnClick:self.model];
+//    }
+//}
+-(void)guanWangBtnClick{
     if (self.delegate && [self.delegate respondsToSelector:@selector(guanWangBtnClick:)]) {
         [self.delegate guanWangBtnClick:self.model];
     }

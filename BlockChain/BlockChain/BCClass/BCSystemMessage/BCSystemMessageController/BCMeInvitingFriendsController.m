@@ -44,12 +44,9 @@
         _invitingView = [[BCMeInvitingFriendsView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
         self.model.token = loginMe.shareCode;//码
         NSLog(@"lastInviteCount===%@",loginMe.shareCode);
-        
-
-//        NSString *path = [USER_DEFAULT valueForKey:@"downUrl"];
-//        self.model.QImage =[Util getColorQrcodeWithToken:path SmallCenterImage:[UIImage imageNamed:@"lg"] imageWidth:SXRealValue(60) color1:CI_RGBACOLOR(129, 0, 244, 1)  color2:CI_RGBACOLOR(255, 255, 255, 0)];
+        NSString *path = [USER_DEFAULT valueForKey:@"downUrl"];
         // 获取对应颜色的二维码
-        UIImage*Qimage=[Util getColorQimageWithPath:[USER_DEFAULT valueForKey:@"downUrl"] withImageView:nil WithSize:500 withCenterIcon:[UIImage imageNamed:@"lg"] centerIconWidth:SXRealValue(80) withRed:129.0f andGreen:0.0f andBlue:224.0f];
+        UIImage*Qimage=[Util getColorQimageWithPath:path withImageView:nil WithSize:500 withCenterIcon:[UIImage imageNamed:@"lg"] centerIconWidth:SXRealValue(80) withRed:129.0f andGreen:0.0f andBlue:224.0f];
         self.model.QImage =Qimage;
         _invitingView.model =self.model;
         _invitingView.delegate =self;
@@ -57,18 +54,25 @@
     return _invitingView;
 }
 
+#pragma mark -下载App
+-(void)loadingBtnClick{
+//    NSString *path =[USER_DEFAULT valueForKey:@"downUrl"];
+    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:path]];
+}
 //弹出分享view
 -(BCMeInvitingShareView *)shareView{
     WS(weakSelf);
     if (!_shareView) {
         CGFloat  showHeight;
         if (IS_IPhoneX) {
-            showHeight =SCREENHEIGHT/2+(SYRealValue(63));
+            showHeight =SCREENHEIGHT/2+(SYRealValue(63));//让出tabbar
         }else{
             showHeight=SCREENHEIGHT/2+(SYRealValue(84));
         }
         _shareView = [[BCMeInvitingShareView alloc] initWithFrame:CGRectMake(0, showHeight, SCREENWIDTH, SCREENHEIGHT)];
-        
+        self.model.lastInviteCount =loginMe.lastInviteCount;
+        NSLog(@"分享次数==%@",loginMe.lastInviteCount
+              );
         _shareView.model =self.model;
         _shareView.weiXinBtnBlock = ^{//微信分享
             NSLog(@"微信");

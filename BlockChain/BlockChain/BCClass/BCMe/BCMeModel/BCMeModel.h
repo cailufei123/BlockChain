@@ -43,16 +43,23 @@
 @property(nonatomic,copy)NSString * level;
 @property(nonatomic,copy)NSString * idNo;
 @property(nonatomic,copy)NSString * isFeng;
-@property(nonatomic,copy)NSString * lastInviteCount;
+@property(nonatomic,copy)NSString * lastInviteCount;//分享次数
 @property(nonatomic,copy)NSString * authStatus;//授权
 @property(nonatomic,copy)NSString * name;//名字
 @property(nonatomic,copy)NSString * shareCode;//code分享码
+@property(nonatomic,assign)BOOL isShouKuan;
 
 @property(nonatomic,copy)NSString * coin;
 @property(nonatomic,strong)NSArray * list;
 @property(nonatomic,copy)NSString * logo;
-
 @property(nonatomic,strong)UIImage *Qimage;
 
-@property(nonatomic,assign)BOOL isShouKuan;
+@end
+
+@interface BCMeDownModel : NSObject
+
+@property(nonatomic,copy)NSString * coin;
+@property(nonatomic,strong)NSArray * list;
+@property(nonatomic,copy)NSString * logo;
+@property(nonatomic,strong)UIImage *Qimage;
 @end

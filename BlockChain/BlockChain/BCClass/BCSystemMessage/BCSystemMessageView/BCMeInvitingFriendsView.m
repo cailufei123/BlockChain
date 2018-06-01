@@ -79,7 +79,7 @@
 }
 -(UILabel *)yaoQing{
     if (!_yaoQing) {
-        _yaoQing =[UILabel LabelWithTextColor:color8D35D3 textFont:FONT(@"PingFangSC-Medium", SXRealValue(37)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
+        _yaoQing =[UILabel LabelWithTextColor:color8D35D3 textFont:FONT(@"PingFangSC-Medium", SXRealValue(33)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
         // [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_yaoQingLable];
     }
     return _yaoQing;
@@ -189,7 +189,7 @@
             make.top.mas_equalTo(self.yaoQingLable.mas_bottom).with.offset((SYRealValue(0)));
             make.left.mas_equalTo(self.middleView.mas_left).with.offset(SXRealValue(0));
             make.right.mas_equalTo(self.middleView.mas_right).with.offset(SXRealValue(0));
-            make.height.mas_equalTo((SYRealValue(66)));
+            make.height.mas_equalTo((SYRealValue(64)));
         }];
         [self.messageLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.yaoQing.mas_bottom).with.offset((SYRealValue(0)));
@@ -254,15 +254,15 @@
 
 #pragma mark -下载唐人街
 -(void)loadingBtnClick:(UIButton *)button{
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(sureBtnClick:)]) {
-//        [self.delegate sureBtnClick:self.model];
-//    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(loadingBtnClick)]) {
+        [self.delegate loadingBtnClick];
+    }
 }
 #pragma mark-长按识别二维码
 - (void) handleLongPressGestures:(UILongPressGestureRecognizer *)paramSender{
-    //    if (self.delegate && [self.delegate respondsToSelector:@selector(sureBtnClick:)]) {
-    //        [self.delegate sureBtnClick:self.model];
-    //    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(showShareView)]) {
+        [self.delegate showShareView];
+    }
 }
 //点击显示分享
 -(void)tapGesture{
