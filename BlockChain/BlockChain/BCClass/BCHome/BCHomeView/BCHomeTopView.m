@@ -9,7 +9,8 @@
 #import "BCHomeTopView.h"
 #import "BCVerticalBttton.h"
 #import "BCHomeModel.h"
-@interface BCHomeTopView()
+#import <AVFoundation/AVFoundation.h>
+@interface BCHomeTopView()<AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *horseLampbgView;
 
 
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *morebt;
 @property (strong, nonatomic)  NSMutableArray *buttons;
 @property (assign, nonatomic)  double  pleStone;
+@property (strong, nonatomic)  AVAudioPlayer * player;
 
 @end
 @implementation BCHomeTopView
@@ -251,8 +253,64 @@
     return CGRectMake( [self getRandomNumber:10 to:LFscreenW-30], [self getRandomNumber:10 to:150],
                       30, 50);
 }
+-(AVAudioPlayer *)player{
+    
+    if (_player == nil) {
+        
+        NSError *error = nil;
+          NSURL *fileURL = [[NSBundle mainBundle]URLForResource:@"diamond" withExtension:@".mp3"];
+        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
+        
+        _player.volume = 1.0;
+        
+        _player.delegate = self;
+        
+        if (error) {
+            
+            NSLog(@"player error:%@",error);
+            
+        }
+        
+    }
+    
+    NSLog(@"play");
+    
+    return _player;
+    
+}
+
+
+
+
 -(void)clickBgBtClick:(UIButton*)bt{
    
+//    
+//    // 1.获取要播放音频文件的URL
+//    NSURL *fileURL = [[NSBundle mainBundle]URLForResource:@"王力宏-流泪手心" withExtension:@".mp3"];
+//    // 2.创建 AVAudioPlayer 对象
+//    self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:fileURL error:nil];
+//    // 3.打印歌曲信息
+//    NSString *msg = [NSString stringWithFormat:@"音频文件声道数:%ld\n 音频文件持续时间:%g",self.audioPlayer.numberOfChannels,self.audioPlayer.duration];
+//    NSLog(@"%@",msg);
+//    // 4.设置循环播放
+//    self.audioPlayer.numberOfLoops = -1;
+//    self.audioPlayer.delegate = self;
+//    // 5.开始播放
+//    [self.audioplayer play];
+    
+    UInt32 sessionCategory = kAudioSessionCategory_MediaPlayback;
+    //外放
+    
+    AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
+    
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;//话筒
+    
+    AudioSessionSetProperty (kAudioSessionProperty_OverrideCategoryDefaultToSpeaker,sizeof (audioRouteOverride),&audioRouteOverride);
+    
+    [self.player play];
+    
+    
+    
       HomeCandyListModel * candyListModel = _candyLists[bt.tag];
     NSMutableDictionary *  candycainDict = diction;
     candycainDict[@"token"] = loginToken;
