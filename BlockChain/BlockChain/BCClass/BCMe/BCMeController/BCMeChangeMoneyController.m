@@ -18,6 +18,7 @@
 #import "BCMePassWordController.h"
 #import "BCSetViewController.h"
 #import "BCSetPayPasswordViewController.h"
+#import "DES3Util.h"//加密mode
 
 @interface BCMeChangeMoneyController ()<UITableViewDataSource,UITableViewDelegate,BCMeChangeMoneyDownCellDelegate,BCMeChangeMoneyUpCellDelegate,BCMeRealNameAlertViewDelegate,BCMeSurePayViewDelegate,SYPasswordViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -428,7 +429,7 @@
     [self closeSurePayView];
 }
 
-#pragma mark -PCMePassWordDelegate 输入密码完成，请求接口
+#pragma mark -PCMePassWordDelegate 输入密码完成，请求支付接口
 -(void)getPassWord:(NSString *)passWord{
     self.moneyModel.passWord =passWord;
     NSLog(@"password===%@",passWord);
@@ -442,8 +443,8 @@
     candyDict[@"account"]  = self.moneyModel.dizhi;
     candyDict[@"code"]     = self.moneyModel.code;
     candyDict[@"ethPrice"] = self.moneyModel.tiXianPrice;
-//    candyDict[@"password"] = self.moneyModel.passWord;
-    candyDict[@"password"] = @"kPN5VW7gYww=";
+    candyDict[@"password"] = [DES3Util encryptUseDES: self.moneyModel.passWord key:@"llcfbcap"];
+//    candyDict[@"password"] = @"kPN5VW7gYww=";
     candyDict[@"remark"]   = self.moneyModel.beiZhu;
 
     WS(weakSelf);

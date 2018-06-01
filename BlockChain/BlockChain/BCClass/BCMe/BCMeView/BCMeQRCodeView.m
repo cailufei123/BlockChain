@@ -154,7 +154,7 @@
 -(void)setModel:(BCMeModel *)model{
     _model =model;
     if (model!=nil) {
-            self.QRCode.text =[USER_DEFAULT valueForKey:@"token"];;   //传递code码
+            self.QRCode.text =loginMe.token;   //传递code码
         if (model.isShouKuan==YES) {
             [self.QRCodeBtn1 setTitle:@"复制收款码" forState:UIControlStateNormal];
             [self.QRCodeBtn2 setTitle:@"保存到手机" forState:UIControlStateNormal];

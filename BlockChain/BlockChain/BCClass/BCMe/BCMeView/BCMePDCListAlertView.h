@@ -29,7 +29,8 @@
 /**知道了按钮*/
 @property(nonatomic,strong)UIButton *sureBtn;
 /** 跳转官网*/
-@property (nonatomic, strong)UIButton *guanWangBtn;
+//@property (nonatomic, strong)UIButton *guanWangBtn;
+@property (nonatomic, strong)UILabel *guanWangBtn;
 
 @property (nonatomic, weak) id <BCMePDCListAlertViewDelegate> delegate;
 

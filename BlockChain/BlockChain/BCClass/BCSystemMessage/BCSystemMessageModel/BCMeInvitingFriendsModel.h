@@ -13,4 +13,7 @@
 @property(nonatomic,strong)UIImage *QImage;//根据token生成的二维码
 @property(nonatomic,copy)NSString *token;
 
+@property(nonatomic,copy)NSString *lastInviteCount;//分享次数
+
+
 @end

@@ -15,6 +15,8 @@
 
 -(void)showShareView;
 
+//下载网址
+-(void)loadingBtnClick;
 @end
 
 @interface BCMeInvitingFriendsView : UIView

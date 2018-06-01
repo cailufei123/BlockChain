@@ -49,7 +49,7 @@
 -(UIButton *)backBtn{
     if (!_backBtn) {
         _backBtn = [UIButton getButtonTitleColor:blackBColor titleFont:FONT(@"PingFangSC-Semibold", SXRealValue(12)) backGroundColor:nil target:self action:@selector(backBtnClick)];
-        [_backBtn setImage:[UIImage imageNamed:@"我的-点击"] forState:UIControlStateNormal];
+        [_backBtn setImage:[UIImage imageNamed:@"alertview_close"] forState:UIControlStateNormal];
         [_backBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
         // [Util roundBorderView:0 border:1 color:blackBColor view:_moreBtn];
     }
@@ -57,7 +57,7 @@
 }
 -(UIButton *)forgetBtn{
     if (!_forgetBtn) {
-        _forgetBtn = [UIButton getButtonTitleColor:blackBColor titleFont:FONT(@"PingFangSC-Semibold", SXRealValue(11)) backGroundColor:nil target:self action:@selector(forgetBtnClick)];
+        _forgetBtn = [UIButton getButtonTitleColor:color4DAFEA titleFont:FONT(@"PingFangSC-Semibold", SXRealValue(11)) backGroundColor:nil target:self action:@selector(forgetBtnClick)];
         _forgetBtn.titleLabel.textAlignment =NSTextAlignmentRight;
         [_forgetBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
         [_forgetBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域

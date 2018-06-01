@@ -306,7 +306,7 @@
 -(void)setModel:(BCMeChangeMoneyMode *)model{
     _model =model;
 //    [self layoutIfNeeded];
-    [self.backBtn setImage:[UIImage imageNamed:@"我的-点击"] forState:UIControlStateNormal];
+    [self.backBtn setImage:[UIImage imageNamed:@"alertview_close"] forState:UIControlStateNormal];
     self.sureLable.text=@"确认付款";
     self.dizhiLable.text=@"收款地址";
     self.dizhi.text=[NSString stringWithFormat:@"%@",model.dizhi];

@@ -56,12 +56,12 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     }
     return _listArray;
 }
-//-(BCMeModel *)meModel{
-//    if (!_meModel) {
-//        _meModel = [[BCMeModel alloc] init];
-//    }
-//    return _meModel;
-//}
+-(BCMeModel *)meModel{
+    if (!_meModel) {
+        _meModel = [[BCMeModel alloc] init];
+    }
+    return _meModel;
+}
 //kTopHeight
 
 /**表格**/
@@ -102,29 +102,29 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
  
     //设置导航栏
     [self setNaviTitle];
+    //增加下拉刷新
+    //[self createRefresh];
     //加载数据
     [self loadNewData];
     //设置导航按钮
     [self setupUIBarButtonItem];
-    //增加下拉刷新
-    [self createRefresh];
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //加载headerView
      self.tableView.tableHeaderView =  self.meHeaderView;
-
+    //增加重新加载监听
+    [self addGainRefresh];
+    
 }
-
-- (void)createRefresh
-{
-//    SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-//    BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-//    [header beginRefreshing];
-//    self.tableView.mj_header = header;
-//    self.tableView.mj_footer = footer;
-//    self.header =header;
-//    self.footer =footer;
-
+#pragma mark -增加重新加载监听
+-(void)addGainRefresh{
+    WS(weakSelf);
+    //点击从新加载回到
+    self.tableView.headerRefreshingBlock = ^{
+        [weakSelf loadNewData];
+    };
+    self.tableView.footerRefreshingBlock = ^{
+    };
 }
 
 //下拉加载
@@ -132,22 +132,25 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     [MBManager showWaitingWithTitle:@"加载.."];
     [self loadUpData];
     [self loadListData];
-   
-    
 }
+
 -(void)loadUpData{
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
         [MBManager hideAlert];
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
+        //判断是否有网络
+        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
+        if (model!=nil) {
+            self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
+        }
         self.meModel=model;
-        [USER_DEFAULT setObject:model.token forKey:@"token"];//存储token
          [LFAccountTool saveMe:model];
         self.meHeaderView.model =model;
         [self.header endRefreshing];
     } erorr:^(id error) {//请求失败
-        [self.header endRefreshing];
+        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
 }
 
@@ -158,15 +161,18 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     [self.listArray removeAllObjects];
     [BCRequestData get_Token_List_Dict:candyDict success:^(id responseObject) {
         [MBManager hideAlert];
-        BCMeModel *model = [BCMeModel mj_objectWithKeyValues:responseObject[@"data"]];
-        self.meHeaderView.model =model;
+        BCMeDownModel *model = [BCMeDownModel mj_objectWithKeyValues:responseObject[@"data"]];
+        self.meModel.coin = model.coin;
+        self.meHeaderView.model =self.meModel;
         self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
+        //判断网络
+        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
+        if (self.listArray.count>0) {
+            self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
+        }
         [self.tableView reloadData];
-        [self.header endRefreshing];
-        
     } erorr:^(id error) {
-        [self.header endRefreshing];
-          self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
+        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
 
 }
