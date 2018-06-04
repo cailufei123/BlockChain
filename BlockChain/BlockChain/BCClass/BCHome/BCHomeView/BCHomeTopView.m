@@ -9,8 +9,8 @@
 #import "BCHomeTopView.h"
 #import "BCVerticalBttton.h"
 #import "BCHomeModel.h"
-#import <AVFoundation/AVFoundation.h>
-@interface BCHomeTopView()<AVAudioPlayerDelegate,WBAudioPlayerHelperDelegate>
+//#import <AVFoundation/AVFoundation.h>
+@interface BCHomeTopView()<WBAudioPlayerHelperDelegate>
 @property (weak, nonatomic) IBOutlet UIView *horseLampbgView;
 
 
@@ -27,6 +27,7 @@
 @property (strong, nonatomic)  NSMutableArray *buttons;
 @property (assign, nonatomic)  double  pleStone;
 @property (strong, nonatomic)  AVAudioPlayer * player;
+
 
 @end
 @implementation BCHomeTopView
@@ -253,33 +254,33 @@
     return CGRectMake( [self getRandomNumber:10 to:LFscreenW-30], [self getRandomNumber:10 to:150],
                       30, 50);
 }
--(AVAudioPlayer *)player{
-    
-    if (_player == nil) {
-        
-        NSError *error = nil;
-          NSURL *fileURL = [[NSBundle mainBundle]URLForResource:@"diamond" withExtension:@".mp3"];
-        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
-        
-        _player.volume = 1.0;
-        
-        _player.delegate = self;
-        
-        if (error) {
-            
-            NSLog(@"player error:%@",error);
-            
-        }
-        
-    }
-    
-    NSLog(@"play");
-    
-    return _player;
-    
-}
-
-
+//-(AVAudioPlayer *)player{
+//    
+//    if (_player == nil) {
+//        
+//        NSError *error = nil;
+//          NSURL *fileURL = [[NSBundle mainBundle]URLForResource:@"diamond" withExtension:@".mp3"];
+//        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
+//        
+//        _player.volume = 1.0;
+//        
+//        _player.delegate = self;
+//        
+//        if (error) {
+//            
+//            NSLog(@"player error:%@",error);
+//            
+//        }
+//        
+//    }
+//    
+//    NSLog(@"play");
+//    
+//    return _player;
+//    
+//}
+//
+//
 
 
 -(void)clickBgBtClick:(UIButton*)bt{

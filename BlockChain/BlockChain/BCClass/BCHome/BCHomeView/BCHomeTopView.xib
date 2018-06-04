@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -151,16 +151,22 @@
                         <color key="titleColor" red="0.47843137254901957" green="0.84313725490196079" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naj-FF-uKn">
+                    <rect key="frame" x="94" y="293" width="228" height="101"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="0kc-68-DoD" firstAttribute="top" secondItem="Naj-FF-uKn" secondAttribute="bottom" id="0M4-00-MhY"/>
                 <constraint firstItem="29h-gh-EnZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="6PG-S5-Vcd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0kc-68-DoD" secondAttribute="trailing" id="AIb-dH-hGu"/>
                 <constraint firstItem="0r2-wU-RHM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="CWx-mz-nQb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Naj-FF-uKn" secondAttribute="trailing" constant="30" id="HuU-ss-SGx"/>
                 <constraint firstItem="0kc-68-DoD" firstAttribute="top" secondItem="0r2-wU-RHM" secondAttribute="bottom" id="PNp-6v-oRq"/>
                 <constraint firstItem="ntA-ld-lSh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="RKS-hu-Cy8"/>
                 <constraint firstItem="0kc-68-DoD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VZA-Ho-sSd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="29h-gh-EnZ" secondAttribute="trailing" id="Vyr-4Q-9fB"/>
+                <constraint firstItem="Naj-FF-uKn" firstAttribute="leading" secondItem="ydI-up-tAu" secondAttribute="trailing" constant="30" id="bgv-AD-OFc"/>
                 <constraint firstItem="0kc-68-DoD" firstAttribute="top" secondItem="ydI-up-tAu" secondAttribute="bottom" constant="10" id="d2u-kl-WlN"/>
                 <constraint firstItem="29h-gh-EnZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eAk-It-E23"/>
                 <constraint firstAttribute="bottom" secondItem="0kc-68-DoD" secondAttribute="bottom" id="eUV-vG-cwq"/>
@@ -169,6 +175,7 @@
                 <constraint firstItem="0r2-wU-RHM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wI8-XG-Hmr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0r2-wU-RHM" secondAttribute="trailing" id="yQF-9c-VfM"/>
                 <constraint firstItem="ntA-ld-lSh" firstAttribute="top" secondItem="29h-gh-EnZ" secondAttribute="bottom" id="yhg-NQ-0Rk"/>
+                <constraint firstItem="Naj-FF-uKn" firstAttribute="top" secondItem="ntA-ld-lSh" secondAttribute="bottom" constant="10" id="zCc-6C-Ia1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -176,6 +183,7 @@
                 <outlet property="calculationBt" destination="ydI-up-tAu" id="0zW-dm-f3A"/>
                 <outlet property="horseLampbgView" destination="Jvt-dI-knM" id="gsS-de-wAj"/>
                 <outlet property="morebt" destination="b2a-5o-7aX" id="dCl-V5-ztp"/>
+                <outlet property="playMethodBt" destination="Naj-FF-uKn" id="Jn8-Je-beO"/>
                 <outlet property="purpleStoneBt" destination="i2z-It-cl5" id="gMd-XX-onZ"/>
                 <outlet property="samgent" destination="lhW-ak-Vdj" id="bBD-zT-vRa"/>
                 <outlet property="stoneBgView" destination="ntA-ld-lSh" id="zyb-Qm-whB"/>

@@ -19,6 +19,7 @@
 #import "CMVersion.h"
 #import "SAVourcherHeartView.h"
 #import "BCNotMessageCell.h"
+#import "BCGamePlayController.h"
 
 @interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate,SDCycleScrollViewDelegate>
 @property(nonatomic,strong)UITableView * tableView;
@@ -412,6 +413,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 -(void)createTopView{
     WeakSelf(weakSelf)
      self.homeTopView = [BCHomeTopView loadNameBCHomeTopViewXib];
+    [self.homeTopView.playMethodBt addTarget:self action:@selector(playMethodBtClick) forControlEvents:UIControlEventTouchUpInside];
     self.homeTopView.frame = CGRectMake(0, 0, LFscreenW, 490);
     self.homeTopView.screen = ^(NSString * type) {
         weakSelf.type = type;
@@ -447,7 +449,10 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 //    self.tableView.tableHeaderView =  self.homeTopView;
       [self.tableView addSubview:self.homeTopView]  ;
 }
-
+-(void)playMethodBtClick{
+       BCGamePlayController *vc = [[BCGamePlayController alloc] init];
+      [self.navigationController pushViewController:vc animated:YES];
+}
 -(void)setTable{
   
 //    self.automaticallyAdjustsScrollViewInsets = NO;

@@ -22,6 +22,6 @@
 @property(nonatomic,strong)NSMutableArray * lists;
 
 @property (weak, nonatomic) IBOutlet UIButton *purpleStoneBt;
-
+@property (weak, nonatomic) IBOutlet UIButton *playMethodBt;
 @property (weak, nonatomic) IBOutlet UIButton *tellowStoneBt;
 @end
