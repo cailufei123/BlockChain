@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0400764920C15AC200EF21DC /* WBAudioPlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400764720C15AC200EF21DC /* WBAudioPlayerHelper.m */; };
+		042D1A1220C4D05800663054 /* BCGamePlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1120C4D05800663054 /* BCGamePlayController.m */; };
+		042D1A1820C4D22E00663054 /* BCGamePlayUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1720C4D22E00663054 /* BCGamePlayUpCell.m */; };
+		042D1A1B20C4D24100663054 /* BCGamePlayDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1A20C4D24100663054 /* BCGamePlayDownCell.m */; };
+		042D1A1E20C4D45400663054 /* BCGamePlayMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1D20C4D45400663054 /* BCGamePlayMode.m */; };
 		0468FB7620B6694900C83299 /* BCMeRealNameAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */; };
 		0468FB7920B6857000C83299 /* BCMeChangeMoneyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7820B6857000C83299 /* BCMeChangeMoneyController.m */; };
 		0468FB7C20B687E900C83299 /* BCMeChangeMoneyUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7B20B687E900C83299 /* BCMeChangeMoneyUpCell.m */; };
@@ -329,6 +333,14 @@
 /* Begin PBXFileReference section */
 		0400764720C15AC200EF21DC /* WBAudioPlayerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAudioPlayerHelper.m; sourceTree = "<group>"; };
 		0400764820C15AC200EF21DC /* WBAudioPlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAudioPlayerHelper.h; sourceTree = "<group>"; };
+		042D1A1020C4D05800663054 /* BCGamePlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCGamePlayController.h; sourceTree = "<group>"; };
+		042D1A1120C4D05800663054 /* BCGamePlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCGamePlayController.m; sourceTree = "<group>"; };
+		042D1A1620C4D22E00663054 /* BCGamePlayUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCGamePlayUpCell.h; sourceTree = "<group>"; };
+		042D1A1720C4D22E00663054 /* BCGamePlayUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCGamePlayUpCell.m; sourceTree = "<group>"; };
+		042D1A1920C4D24100663054 /* BCGamePlayDownCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCGamePlayDownCell.h; sourceTree = "<group>"; };
+		042D1A1A20C4D24100663054 /* BCGamePlayDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCGamePlayDownCell.m; sourceTree = "<group>"; };
+		042D1A1C20C4D45400663054 /* BCGamePlayMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCGamePlayMode.h; sourceTree = "<group>"; };
+		042D1A1D20C4D45400663054 /* BCGamePlayMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCGamePlayMode.m; sourceTree = "<group>"; };
 		0468FB7420B6694900C83299 /* BCMeRealNameAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeRealNameAlertView.h; sourceTree = "<group>"; };
 		0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeRealNameAlertView.m; sourceTree = "<group>"; };
 		0468FB7720B6857000C83299 /* BCMeChangeMoneyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeChangeMoneyController.h; sourceTree = "<group>"; };
@@ -973,6 +985,8 @@
 				0487043920B80C3F005C77DA /* BCSuanLiJiLuModel.m */,
 				ADACD08020BBC9E200EE21F6 /* BCHomeModel.h */,
 				ADACD08120BBC9E200EE21F6 /* BCHomeModel.m */,
+				042D1A1C20C4D45400663054 /* BCGamePlayMode.h */,
+				042D1A1D20C4D45400663054 /* BCGamePlayMode.m */,
 			);
 			path = BCHomeModel;
 			sourceTree = "<group>";
@@ -1331,6 +1345,10 @@
 		AD6EA3BE20B43B7100F61B33 /* BCHomeView */ = {
 			isa = PBXGroup;
 			children = (
+				042D1A1620C4D22E00663054 /* BCGamePlayUpCell.h */,
+				042D1A1720C4D22E00663054 /* BCGamePlayUpCell.m */,
+				042D1A1920C4D24100663054 /* BCGamePlayDownCell.h */,
+				042D1A1A20C4D24100663054 /* BCGamePlayDownCell.m */,
 				AD6EA3C220B43B7100F61B33 /* BCHomeTopView.h */,
 				AD6EA3C620B43B7100F61B33 /* BCHomeTopView.m */,
 				AD6EA3C020B43B7100F61B33 /* BCHomeTopView.xib */,
@@ -1382,6 +1400,8 @@
 				0468FB8420B6D51400C83299 /* BCTaskDetailViewController.m */,
 				0487043520B80BD6005C77DA /* BCSuanLiJiLuController.h */,
 				0487043620B80BD6005C77DA /* BCSuanLiJiLuController.m */,
+				042D1A1020C4D05800663054 /* BCGamePlayController.h */,
+				042D1A1120C4D05800663054 /* BCGamePlayController.m */,
 			);
 			path = BCHomeController;
 			sourceTree = "<group>";
@@ -2449,6 +2469,7 @@
 				ADE125A420B2E84F00F6E172 /* FMResultSet.m in Sources */,
 				06ED21A020B436EC008F44FE /* MASLayoutConstraint.m in Sources */,
 				ADE126D720B2EB4F00F6E172 /* UIImageView+WHImageView.m in Sources */,
+				042D1A1220C4D05800663054 /* BCGamePlayController.m in Sources */,
 				0468FB7920B6857000C83299 /* BCMeChangeMoneyController.m in Sources */,
 				AD23F76620B6E3AB0057E662 /* BCMessageDetailsViewController.m in Sources */,
 				ADE126DF20B2EB4F00F6E172 /* UINavigationController+WHNavigationController.m in Sources */,
@@ -2480,6 +2501,7 @@
 				ADE125A020B2E84F00F6E172 /* FMDatabaseQueue.m in Sources */,
 				ADE1264B20B2E84F00F6E172 /* MJProperty.m in Sources */,
 				ADACD08C20BD65B000EE21F6 /* GTMBase64.m in Sources */,
+				042D1A1820C4D22E00663054 /* BCGamePlayUpCell.m in Sources */,
 				ADE126D620B2EB4F00F6E172 /* UIView+WHView.m in Sources */,
 				AD23F6CE20B5126B0057E662 /* ATSkipTool.m in Sources */,
 				ADE126D320B2EB4F00F6E172 /* UIView+CLFExtension.m in Sources */,
@@ -2552,6 +2574,7 @@
 				ADE125C220B2E84F00F6E172 /* SDWebImageImageIOCoder.m in Sources */,
 				ADE1264E20B2E84F00F6E172 /* NSObject+MJProperty.m in Sources */,
 				ADE1265C20B2E84F00F6E172 /* IQUITextFieldView+Additions.m in Sources */,
+				042D1A1B20C4D24100663054 /* BCGamePlayDownCell.m in Sources */,
 				04B6320120B54E7700D063B8 /* BCMePDCListController.m in Sources */,
 				ADE1265320B2E84F00F6E172 /* IQTextView.m in Sources */,
 				AD6EA45B20B43ED200F61B33 /* MJRefreshBackStateFooter.m in Sources */,
@@ -2624,6 +2647,7 @@
 				AD6EA42420B43E4500F61B33 /* BCRefreshAutoGifFooter.m in Sources */,
 				ADE125AB20B2E84F00F6E172 /* SDWebImageCodersManager.m in Sources */,
 				ADE125AE20B2E84F00F6E172 /* FLAnimatedImageView.m in Sources */,
+				042D1A1E20C4D45400663054 /* BCGamePlayMode.m in Sources */,
 				AD6EA45920B43ED200F61B33 /* UIView+MJExtension.m in Sources */,
 				04D3EA2A20BC384C00F9A96D /* BCMePDCMode.m in Sources */,
 				ADE126EF20B2ECCC00F6E172 /* SALoginModel.m in Sources */,
