@@ -21,7 +21,7 @@
 #import "BCRequestData.h"
 #import "BCTangGuoListMode.h"
 #import "KMQRCode.h"
-
+#import "BCGamePlayController.h"
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;

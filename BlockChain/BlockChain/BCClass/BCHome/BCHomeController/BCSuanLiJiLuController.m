@@ -85,6 +85,8 @@
 {
     SARefreshGifHeader *header = [SARefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     BCRefreshAutoGifFooter *footer = [BCRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    //设置底部footer文字
+    [footer setTitle:@"我已经到底啦" forState:MJRefreshStateNoMoreData];
     [header beginRefreshing];
     self.tableView.mj_header = header;
     self.tableView.mj_footer = footer;
@@ -108,7 +110,7 @@
 -(void)loadData{
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
-    candyDict[@"start"] =[NSString stringWithFormat:@"%ld",self.start];
+    candyDict[@"start"] =[NSString stringWithFormat:@"%zd",self.start];
     
 //    candyDict[@"size"] = @20;//糖果id
     //candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
@@ -140,7 +142,7 @@
     jiaSuView.backgroundColor =bagColor;
     UIButton *jiaSuBtn = [UIButton getButtonTitleColor:naverTextColor titleFont:FONT(@"PingFangSC-Semibold", SXRealValue(15)) backGroundColor:colorB378D5 target:self action:@selector(jiaSuBtnClick:)];
     jiaSuBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [jiaSuBtn setTitle:@"加速算力抢铜板" forState:UIControlStateNormal];
+    [jiaSuBtn setTitle:@"加速算力" forState:UIControlStateNormal];
     [jiaSuBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
     [jiaSuView addSubview:jiaSuBtn];
     [self.view addSubview:jiaSuView];
