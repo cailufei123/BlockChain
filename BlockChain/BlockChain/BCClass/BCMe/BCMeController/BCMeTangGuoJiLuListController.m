@@ -70,12 +70,22 @@
     self.navigationItem.title=@"糖果包";
     //请求数据
     [self createRefresh];
-    //设置导航按钮
-    //[self setupUIBarButtonItem];
     //初始化tableivew
     [self.view addSubview:self.tableView];
     //加载headerView
     self.tableView.tableHeaderView =  self.headerView;
+    //添加无网络点击按钮重新健在
+    [self addGainRefresh];
+}
+#pragma mark -增加重新加载监听
+-(void)addGainRefresh{
+    WS(weakSelf);
+    //点击从新加载回到
+    self.tableView.headerRefreshingBlock = ^{
+        [weakSelf loadNewData];
+    };
+    self.tableView.footerRefreshingBlock = ^{
+    };
 }
 
 - (void)createRefresh
@@ -111,11 +121,16 @@
     
     [BCRequestData get_candy_List_Dict:candyDict success:^(id responseObject) {
         NSArray* listArray = [BCMeTangGuoJiLuMode mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        if (listArray.count>0) {
+        if (listArray.count>0) {//有网有数据
+            //判断是否有网络
+            self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
             [self.allListArray addObjectsFromArray:listArray];
             [self.headerView setUpImage:[UIImage imageNamed:@"雷鹿财富logoc-2"]];
             [self.header endRefreshing];
             [self.footer endRefreshing];
+        }
+        if (self.allListArray.count<1) {//有网无数据
+            self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
         }
         if (listArray.count==0) {
             [self.footer endRefreshingWithNoMoreData];
@@ -125,6 +140,8 @@
     } erorr:^(id error) {
         [self.header endRefreshing];
         [self.footer endRefreshing];
+        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
+
     }];
 }
 

@@ -181,6 +181,7 @@
         }];
         [self.upBigView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.contentView.mas_top).with.offset(kTopHeight);
+            NSLog(@"kTopHeight===%f",kTopHeight);
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(0);
             make.right.mas_equalTo(self.contentView.mas_right).with.offset(0);
             make.height.mas_equalTo(upBigViewHeight);

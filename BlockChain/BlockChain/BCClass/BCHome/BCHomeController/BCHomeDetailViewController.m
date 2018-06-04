@@ -16,6 +16,7 @@
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)BCHomeDetailModel *detailModel;
  @property(nonatomic,strong)UIButton * statusBt;
+@property(nonatomic,strong)UIView * bottomView;
 @end
 
 @implementation BCHomeDetailViewController
@@ -51,30 +52,66 @@
     [self setNaviTitle];
     //初始化tableivew
     [self.view addSubview:self.tableView];
-    NSMutableDictionary * candydetailDict = diction;
-    candydetailDict[@"token"] = loginToken;
-     candydetailDict[@"candyId"] = self.candyId;
-    [YWRequestData candy_detail_Dict:candydetailDict success:^(id responseObject) {
-        BCHomeDetailModel * homeDetailModel = [BCHomeDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
-        self.detailModel = homeDetailModel;
-        [self lingquStatus];
-       
-        [self.tableView reloadData];
-    }];
+    //增加重新加载监听
+    [self addGainRefresh];
+    //获取网络监听
+    [self getRefresh];
+    //设置底部导航按钮
+    [self setUpBottomView];
+  
     
+}
+-(void)setUpBottomView{
     UIView * bottomView =  [[UIView alloc] initWithFrame:CGRectMake(0, LFscreenH-56-kTopHeight, LFscreenW, 56)];
+    self.bottomView =bottomView;
+    bottomView.hidden =YES;
     bottomView.backgroundColor = bagColor;
     [self.view addSubview:bottomView];
     UIButton * lingquBt = [[UIButton alloc] initWithFrame:CGRectMake(16, 0, LFscreenW-32, 40)];
     self.statusBt = lingquBt;
     [lingquBt addTarget:self action:@selector(lingquBtClick) forControlEvents:UIControlEventTouchUpInside];
-//    [lingquBt setTitle:@"领取" forState:UIControlStateNormal];
+    //    [lingquBt setTitle:@"领取" forState:UIControlStateNormal];
     lingquBt.titleLabel.font  = [UIFont systemFontOfSize:16];
-//    lingquBt.backgroundColor = [SVGloble colorWithHexString:@"#B378D5"];
+    //    lingquBt.backgroundColor = [SVGloble colorWithHexString:@"#B378D5"];
     [bottomView addSubview:lingquBt];
     [lingquBt layercornerRadius:5];
-    
 }
+
+-(void)getRefresh{
+    NSMutableDictionary * candydetailDict = diction;
+    candydetailDict[@"token"] = loginToken;
+    candydetailDict[@"candyId"] = self.candyId;
+    
+    [YWRequestData candy_detail_Dict:candydetailDict success:^(id responseObject) {
+        BCHomeDetailModel * homeDetailModel = [BCHomeDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
+        self.detailModel = homeDetailModel;
+        //有数据
+        if (self.detailModel!=nil) {//有网络有数据
+            self.bottomView.hidden=NO;
+            //判断是否有网络
+            self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
+            [self lingquStatus];
+            [self.tableView reloadData];
+        }else{//有网络无数据
+            self.bottomView.hidden=YES;
+            self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
+        }
+    } erorr:^(id error) {//无网络
+        //设置导航栏颜色
+        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
+    }];
+}
+#pragma mark -增加重新加载监听
+-(void)addGainRefresh{
+    WS(weakSelf);
+    //点击从新加载回到
+    self.tableView.headerRefreshingBlock = ^{
+        [weakSelf getRefresh];
+    };
+    self.tableView.footerRefreshingBlock = ^{
+    };
+}
+
 -(void)lingquStatus{
     if ([self.detailModel.candyProcess.canGain isEqualToString:@"0"]) {
         [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#9A9A9A"]];

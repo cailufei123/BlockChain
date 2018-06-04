@@ -55,6 +55,7 @@
         _moneyModel =[[BCMeChangeMoneyMode alloc] init];
     }
     return _moneyModel;
+    
 }
 /**表格**/
 -(UITableView *)tableView{

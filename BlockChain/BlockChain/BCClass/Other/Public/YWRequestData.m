@@ -313,7 +313,7 @@
     }];
 }
 ////糖果详情
-+ (void)candy_detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
++ (void)candy_detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess erorr:(void(^)(id error))erorr{
     [LFHttpTool post:CANDY_DETAIL params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         LFLog(@"%@",responseObj);
@@ -321,11 +321,11 @@
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
             
-            
+
         }else{
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {
-        
+        erorr(error);
         [MBManager hideAlert];
     }];
 }

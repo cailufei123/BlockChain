@@ -22,6 +22,7 @@
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
 @property(nonatomic,assign)NSInteger start;
 @property(nonatomic,strong)NSMutableArray *allListArray;
+@property(nonatomic,strong)UIView *jiaSuView;
 
 
 @end
@@ -59,13 +60,24 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    //设置透明图片
+    [self setNaviTouMingImage];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    //设置图片
+    [self setNaviImage];
+}
+
+//设置导航图片为透明
+-(void)setNaviTouMingImage{
     //去掉背景图片
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     //去掉底部线条
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }
-
-- (void)viewWillDisappear:(BOOL)animated {
+//设置导航图片
+-(void)setNaviImage{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
 }
 
@@ -79,6 +91,19 @@
     [self.view addSubview:self.tableView];
     //初始化转账与收款
     [self setUpBottomBtn];
+    //添加无网络点击按钮重新健在
+    [self addGainRefresh];
+}
+
+#pragma mark -增加重新加载监听
+-(void)addGainRefresh{
+    WS(weakSelf);
+    //点击从新加载回到
+    self.tableView.headerRefreshingBlock = ^{
+        [weakSelf loadNewData];
+    };
+    self.tableView.footerRefreshingBlock = ^{
+    };
 }
 
 - (void)createRefresh
@@ -108,54 +133,98 @@
     [self loadData];
 }
 -(void)loadData{
+    
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     candyDict[@"start"] =[NSString stringWithFormat:@"%zd",self.start];
-    
-//    candyDict[@"size"] = @20;//糖果id
+    //candyDict[@"size"] = @20;//糖果id
     //candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
+    
     [BCRequestData get_suanLiJiLu_Dict:candyDict success:^(id responseObject) {
         self.model = [BCSuanLiJiLuModel mj_objectWithKeyValues:responseObject[@"data"]];
         NSArray* listArray = [BCSuanLiJiLuListModel mj_objectArrayWithKeyValuesArray:self.model.computeLogs];
-        if (listArray.count>0) {
+        if (listArray.count>0) {//有数据
+            [self setNaviBarHidden:YES setTouMingImage:NO];
+            self.jiaSuView.hidden =NO;
+            //判断是否有网络
+            self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
             [self.allListArray addObjectsFromArray:listArray];
             self.start += listArray.count;
             [self.header endRefreshing];
             [self.footer endRefreshing];
+            [self.tableView reloadData];
+            [self setNaviBarHidden:NO setTouMingImage:YES];
+        }
+        if(self.allListArray.count<1){//无数据
+                self.jiaSuView.hidden =YES;
+                //改变导航栏的颜色
+                [self setNaviImage];
+                self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
+                [self.footer endRefreshing];
+                [self.header endRefreshing];
+                [self.tableView reloadData];
         }
         if (listArray.count==0) {
              [self.footer endRefreshingWithNoMoreData];
         }
-        [self.tableView reloadData];
+        
     } erorr:^(id error) {
         [self.header endRefreshing];
         [self.footer endRefreshing];
+        //设置导航栏图片
+        [self setNaviImage];
+        //设置导航栏颜色
+        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
+        self.jiaSuView.hidden =YES;
+      
     }];
     
 }
 
+//无网络有网络切换，显示或者异常导航栏，适合进入无导航栏切换网络问题
+-(void)setNaviBarHidden:(BOOL)isHidden setTouMingImage:(BOOL)isTouMing{
+    if(isHidden==YES){
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+    }else{
+        //刷新之后重新设置导航栏
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
+        //在设置导航栏的图片
+        if(isTouMing==YES){
+            [self setNaviTouMingImage];//设置透明图片
+        }else{
+            //[self setNaviImage];//设置图片
+        }
+    }
+}
 
+-(UIView *)jiaSuView{
+    if (!_jiaSuView) {
+        _jiaSuView = [[UIView alloc] init];
+        _jiaSuView.backgroundColor =bagColor;
+        _jiaSuView.hidden =YES;
+    }
+    return _jiaSuView;
+}
 
 #pragma 底部转账与收款
 -(void)setUpBottomBtn{
-    UIView *jiaSuView = [[UIView alloc] init];
-    jiaSuView.backgroundColor =bagColor;
+    
     UIButton *jiaSuBtn = [UIButton getButtonTitleColor:naverTextColor titleFont:FONT(@"PingFangSC-Semibold", SXRealValue(15)) backGroundColor:colorB378D5 target:self action:@selector(jiaSuBtnClick:)];
     jiaSuBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [jiaSuBtn setTitle:@"加速算力" forState:UIControlStateNormal];
     [jiaSuBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-    [jiaSuView addSubview:jiaSuBtn];
-    [self.view addSubview:jiaSuView];
-    [jiaSuView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.jiaSuView addSubview:jiaSuBtn];
+    [self.view addSubview:self.jiaSuView];
+    [self.jiaSuView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).with.offset(0);
         make.right.mas_equalTo(self.view.mas_right).with.offset(0);
         make.bottom.mas_equalTo(self.view.mas_bottom).with.offset(0);
         make.height.mas_equalTo(JiaSuBtnViewHeight);
     }];
     [jiaSuBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(jiaSuView.mas_left).with.offset(SXRealValue(15));
-        make.right.mas_equalTo(jiaSuView.mas_right).with.offset(SXRealValue(-15));
-        make.centerY.mas_equalTo(jiaSuView.mas_centerY);
+        make.left.mas_equalTo(self.jiaSuView.mas_left).with.offset(SXRealValue(15));
+        make.right.mas_equalTo(self.jiaSuView.mas_right).with.offset(SXRealValue(-15));
+        make.centerY.mas_equalTo(self.jiaSuView.mas_centerY);
         make.height.mas_equalTo((SCREENWIDTH-2*(SXRealValue(15)))*40/346);
     }];
 }

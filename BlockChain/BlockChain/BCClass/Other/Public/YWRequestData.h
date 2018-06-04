@@ -45,7 +45,7 @@
 //普通任务上报（做了一次任务）
 + (void)taskeDoonceDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 ////糖果详情
-+(void)candy_detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess  ;
++(void)candy_detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr ;
 // 更新
 + (void)getplayDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 @end

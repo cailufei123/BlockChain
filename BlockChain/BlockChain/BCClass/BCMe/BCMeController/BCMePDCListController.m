@@ -112,34 +112,47 @@
 }
 
 
-
 - (void)viewWillAppear:(BOOL)animated {
-//去掉背景图片
-[self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//去掉底部线条
-[self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    [super viewWillAppear:animated];
+    [self setNaviImageHidden];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    
- [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
+    [super viewWillDisappear:animated];
+    [self setNaviImage];
 }
 
-
-
+//设置导航图片为透明
+-(void)setNaviImageHidden{
+    //去掉背景图片
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    //去掉底部线条
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+}
+//设置导航图片
+-(void)setNaviImage{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
+}
+ 
+                                                                            
+-(void)abcd{
+    //去掉背景图片
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
+    //去掉底部线条
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+}
+                                                                            
 - (void)viewDidLoad {
     [super viewDidLoad];
     _page =0;
     //设置导航栏
-    [self setNaviTitle];
+    [self setNaviTitle:self.code];
     //增加刷新
     [self createRefresh];
     //初始化tableivew
     [self.view addSubview:self.tableView];
-    //加载headerView
-//    self.tableView.tableHeaderView =  self.headerView;
-//    //初始化转账与收款
-//    [self setPayOrGetMoneyBtn];
+    //初始化转账与收款
+    //[self setPayOrGetMoneyBtn];
     [self addGainRefresh];
     
 }
@@ -193,34 +206,61 @@
     NSMutableArray* listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
        
         if(self.PDCmodel.partner!=nil){
+            [self setNaviTitle:self.PDCmodel.partner.code];
+            [self setNaviBarHidden:YES setTouMingImage:NO];
             //判断是否有网络
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
             //初始化转账与收款
             [weakSelf setPayOrGetMoneyBtn];
+            [self.tableView reloadData];
+            [self.footer endRefreshing];
+            [self.header endRefreshing];
+            //显示导航栏
+            [self setNaviBarHidden:NO setTouMingImage:YES];
         }else{ //无数据
-                self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
             //改变导航栏的颜色
-            [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
+            [self setNaviImage];
+             self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
+            [self.tableView reloadData];
+            [self.footer endRefreshing];
+            [self.header endRefreshing];
         }
         if(listArray.count>0){
             [self.zonglistArray addObjectsFromArray:listArray];
             [self.footer endRefreshing];
             [self.header endRefreshing];
+            [self.tableView reloadData];
         }
-        [self.tableView reloadData];
-        [self.footer endRefreshing];
-        [self.header endRefreshing];
         if(listArray.count==0){
             [self.footer endRefreshingWithNoMoreData];
         }
-       
-    } erorr:^(id error) {
+    } erorr:^(id error) {//无网络
         [self.header endRefreshing];
         [self.footer endRefreshing];
+        [self setNaviTitle:@"TBC"];
+        [self setNaviImage];
+
+        //设置导航栏颜色
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
 }
 
+//无网络有网络切换，显示或者异常导航栏，适合进入无导航栏切换网络问题
+-(void)setNaviBarHidden:(BOOL)isHidden setTouMingImage:(BOOL)isTouMing{
+    if(isHidden==YES){
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+    }else{
+        //刷新之后重新设置导航栏
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
+        //在设置导航栏的图片
+        if(isTouMing==YES){
+            [self setNaviImageHidden];//设置透明图片
+        }else{
+            //[self setNaviImage];//设置图片
+        }
+    }
+}
+                                                                            
 #pragma mark -点击详情按钮
 -(void)xiaQingBtnClickWithModel:(BCMePDCMode *)model{
     //BCCodeAlertView * codeAlertView  =[BCCodeAlertView loadNameBCCodeAlertViewXib];
@@ -304,8 +344,8 @@
     [self.navigationController pushViewController:QRVc animated:YES];
     NSLog(@"二维码");
 }
--(void)setNaviTitle{
-    self.navigationItem.title=[NSString stringWithFormat:@"%@总数",self.code];
+-(void)setNaviTitle:(NSString *)naviTitle{
+    self.navigationItem.title=[NSString stringWithFormat:@"%@总数",naviTitle];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(16)),
        NSForegroundColorAttributeName:naverTextColor}];
@@ -369,7 +409,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section==0) {
-        return 1;
+            return 1;
     }else{
         return  self.zonglistArray.count;
     }

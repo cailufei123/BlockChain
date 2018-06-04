@@ -131,7 +131,6 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 -(void)loadNewData{
     [MBManager showWaitingWithTitle:@"加载.."];
     [self loadUpData];
-    [self loadListData];
 }
 
 -(void)loadUpData{
@@ -146,8 +145,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
         }
         self.meModel=model;
+        [self loadListData];//请求list数据
          [LFAccountTool saveMe:model];
-        self.meHeaderView.model =model;
         [self.header endRefreshing];
     } erorr:^(id error) {//请求失败
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
@@ -163,7 +162,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         [MBManager hideAlert];
         BCMeDownModel *model = [BCMeDownModel mj_objectWithKeyValues:responseObject[@"data"]];
         self.meModel.coin = model.coin;
-        self.meHeaderView.model =self.meModel;
+        self.meHeaderView.model =self.meModel;//传递数据
         self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
         //判断网络
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
