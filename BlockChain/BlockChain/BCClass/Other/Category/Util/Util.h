@@ -52,4 +52,7 @@
  *imageView       //imageView 不用阴影可传递nil
  */
 +(UIImage *)getColorQimageWithPath:(NSString *)path withImageView:(UIImageView *)imageView WithSize:(CGFloat)size withCenterIcon:(UIImage *)centerIcon centerIconWidth:(CGFloat)centerIconWidth withRed:(CGFloat)red andGreen:(CGFloat)green andBlue:(CGFloat)blue;
+
+//隐藏系统完成按钮
++(UIToolbar *)getNoWanChengBtn;
 @end

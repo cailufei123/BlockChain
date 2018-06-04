@@ -107,9 +107,9 @@
     if (!_passView) {
         CGFloat  showHeight;
         if (IS_IPhoneX) {
-            showHeight =(SYRealValue(200));
+            showHeight =(SYRealValue(240));
         }else{
-            showHeight=(SYRealValue(200));
+            showHeight=(SYRealValue(220));
         }
         _passView = [[SYPasswordView alloc] initWithFrame:CGRectMake(0, showHeight, SCREENWIDTH, SCREEN_HEIGHT-showHeight)];
         _passView.delegate=self;

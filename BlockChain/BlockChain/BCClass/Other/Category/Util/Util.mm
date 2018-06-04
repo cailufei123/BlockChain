@@ -372,4 +372,15 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
 
 
 
++(UIToolbar *)getNoWanChengBtn{
+    UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0, SCREEN_WIDTH,44)];
+    bar.userInteractionEnabled=YES;
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 60, 7,50, 30)];
+    [button setTitle:@"" forState:UIControlStateNormal];
+    [button setTitleColor:blackBColor forState:UIControlStateNormal];
+    [bar addSubview:button];
+    return bar;
+}
+
+
 @end

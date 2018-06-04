@@ -203,10 +203,15 @@
         _textField.layer.borderWidth = 1;
         [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         [self addSubview:_textField];
+        //替换完成按钮
+        //[Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_textField];
+        _textField.inputAccessoryView = [Util getNoWanChengBtn];
     }
     return _textField;
 }
-
+-(void)wanChengBtnClick{
+    
+}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
     return YES;

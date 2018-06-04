@@ -12,6 +12,7 @@
 		042D1A1820C4D22E00663054 /* BCGamePlayUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1720C4D22E00663054 /* BCGamePlayUpCell.m */; };
 		042D1A1B20C4D24100663054 /* BCGamePlayDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1A20C4D24100663054 /* BCGamePlayDownCell.m */; };
 		042D1A1E20C4D45400663054 /* BCGamePlayMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1D20C4D45400663054 /* BCGamePlayMode.m */; };
+		042D1A2520C540CA00663054 /* UITextField+WBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A2420C540CA00663054 /* UITextField+WBTextField.m */; };
 		0468FB7620B6694900C83299 /* BCMeRealNameAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */; };
 		0468FB7920B6857000C83299 /* BCMeChangeMoneyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7820B6857000C83299 /* BCMeChangeMoneyController.m */; };
 		0468FB7C20B687E900C83299 /* BCMeChangeMoneyUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB7B20B687E900C83299 /* BCMeChangeMoneyUpCell.m */; };
@@ -341,6 +342,8 @@
 		042D1A1A20C4D24100663054 /* BCGamePlayDownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCGamePlayDownCell.m; sourceTree = "<group>"; };
 		042D1A1C20C4D45400663054 /* BCGamePlayMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCGamePlayMode.h; sourceTree = "<group>"; };
 		042D1A1D20C4D45400663054 /* BCGamePlayMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCGamePlayMode.m; sourceTree = "<group>"; };
+		042D1A2320C540CA00663054 /* UITextField+WBTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+WBTextField.h"; sourceTree = "<group>"; };
+		042D1A2420C540CA00663054 /* UITextField+WBTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WBTextField.m"; sourceTree = "<group>"; };
 		0468FB7420B6694900C83299 /* BCMeRealNameAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeRealNameAlertView.h; sourceTree = "<group>"; };
 		0468FB7520B6694900C83299 /* BCMeRealNameAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeRealNameAlertView.m; sourceTree = "<group>"; };
 		0468FB7720B6857000C83299 /* BCMeChangeMoneyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeChangeMoneyController.h; sourceTree = "<group>"; };
@@ -970,6 +973,15 @@
 				0400764720C15AC200EF21DC /* WBAudioPlayerHelper.m */,
 			);
 			path = WBAudioPlayerHelper;
+			sourceTree = "<group>";
+		};
+		042D1A2220C53FC100663054 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				042D1A2320C540CA00663054 /* UITextField+WBTextField.h */,
+				042D1A2420C540CA00663054 /* UITextField+WBTextField.m */,
+			);
+			path = UITextField;
 			sourceTree = "<group>";
 		};
 		0468FB8C20B6D5CB00C83299 /* BCHomeModel */ = {
@@ -2138,6 +2150,7 @@
 		ADE1269220B2EB4F00F6E172 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				042D1A2220C53FC100663054 /* UITextField */,
 				04B631D120B54B6500D063B8 /* UIBarButtonItem_ZZExtension */,
 				0652473520B3C08500F65C2A /* UILabel_Extension */,
 				0652473120B3C06800F65C2A /* UIImageView_Extension */,
@@ -2473,6 +2486,7 @@
 				0468FB7920B6857000C83299 /* BCMeChangeMoneyController.m in Sources */,
 				AD23F76620B6E3AB0057E662 /* BCMessageDetailsViewController.m in Sources */,
 				ADE126DF20B2EB4F00F6E172 /* UINavigationController+WHNavigationController.m in Sources */,
+				042D1A2520C540CA00663054 /* UITextField+WBTextField.m in Sources */,
 				ADE1265220B2E84F00F6E172 /* MJFoundation.m in Sources */,
 				ADE125A920B2E84F00F6E172 /* SDWebImageFrame.m in Sources */,
 				0487044020B81107005C77DA /* BCHomeSuanLiDownCell.m in Sources */,

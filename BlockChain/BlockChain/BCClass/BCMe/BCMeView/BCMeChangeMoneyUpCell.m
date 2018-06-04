@@ -9,6 +9,7 @@
 #import "BCMeChangeMoneyUpCell.h"
 #import "BCMeChangeMoneyMode.h"
 
+
 @interface BCMeChangeMoneyUpCell()<UITextFieldDelegate,UITextViewDelegate>
 
 @property (nonatomic, strong)UILabel *dizhiLable;//收款人地址
@@ -16,6 +17,9 @@
 @property (nonatomic, strong)UILabel *priceLable;//转账金额
 
 @property (nonatomic, strong)UITextField *textField2;//收款金额
+
+
+
 @property (nonatomic, strong)UILabel *price;
 
 @property (nonatomic, strong)UILabel *beiZhuLable;
@@ -81,6 +85,38 @@
     return _textField1;
 }
 
+//-(UITextField *)textField2{
+//    if (!_textField2) {
+//        _textField2 = [[UITextField alloc] init];
+//        _textField2.font = FONT(@"PingFangSC-Regular", SXRealValue(13));
+//        _textField2.textColor = colorD35353;
+//        _textField2.placeholder = @"5 HOC";
+//        _textField2.tag=2;
+////        _textField2.keyboardType = UIKeyboardTypeDefault;
+//        _textField2.keyboardType = UIKeyboardTypeNumberPad;
+//        [_textField2 addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextViewTextDidChangeNotification object:nil];
+//        _textField2.delegate = self;
+//        //[_textField1 setValue:RGBCOLOR(159, 158, 163) forKeyPath:@"_placeholderLabel.textColor"];
+//        // 提前在Xcode上设置图片中间拉伸
+//        //_textField1.background = [UIImage imageWithColor:RGBCOLOR(238, 238, 238)];
+//        _textField2.clearButtonMode = UITextFieldViewModeWhileEditing;
+//        // 通过init初始化的控件大多都没有尺寸
+//        //        UIImageView *searchIcon = [[UIImageView alloc] init];
+//        //        searchIcon.image = [UIImage imageNamed:@"hz_home_searchIcon"];
+//        // contentMode：default is UIViewContentModeScaleToFill，要设置为UIViewContentModeCenter：使图片居中，防止图片填充整个imageView
+//        //        searchIcon.contentMode = UIViewContentModeCenter;
+//        //        searchIcon.size = CGSizeMake(30, 30);
+//        //        self.leftView = searchIcon;
+//        _textField2.leftViewMode = UITextFieldViewModeAlways;
+//        //        _dizhi =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
+////                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_textField2];
+//    }
+//    return _textField2;
+//}
+
+
 -(UITextField *)textField2{
     if (!_textField2) {
         _textField2 = [[UITextField alloc] init];
@@ -107,9 +143,20 @@
         //        self.leftView = searchIcon;
         _textField2.leftViewMode = UITextFieldViewModeAlways;
         //        _dizhi =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
-//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_textField2];
+//        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_textField2];   UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0, SCREEN_WIDTH,44)];
+//        bar.backgroundColor =[UIColor yellowColor];
+//        bar.userInteractionEnabled=YES;
+//        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 60, 7,50, 30)];
+//        [button setTitle:@"完成"forState:UIControlStateNormal];
+//        [button setTitleColor:blackBColor forState:UIControlStateNormal];
+//        [button addTarget:self action:@selector(wanChengBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//        [bar addSubview:button];
+//        _textField2.inputAccessoryView = bar;
     }
     return _textField2;
+}
+-(void)wanChengBtnClick{
+    
 }
 -(UITextField *)textField3{
     if (!_textField3) {

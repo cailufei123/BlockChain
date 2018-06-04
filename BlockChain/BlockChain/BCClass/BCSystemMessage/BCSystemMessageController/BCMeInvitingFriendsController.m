@@ -157,10 +157,12 @@
     //设置导航栏
     [self setNaviTitle];
     [self.view addSubview:self.invitingView];
+    //显示分享二维码
+    [self showShareView];
 }
 
 -(void)setNaviTitle{
-    self.navigationItem.title=@"邀请好友";
+    self.navigationItem.title=@"分享到";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(16)),
        NSForegroundColorAttributeName:naverTextColor}];

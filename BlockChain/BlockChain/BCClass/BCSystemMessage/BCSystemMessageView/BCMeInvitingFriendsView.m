@@ -240,7 +240,7 @@
         self.messageLable.text =@"赶快和我一起领糖果，使用邀请码注册更有惊喜大礼包等你来拿";
         self.QcodeIcon.image =model.QImage;
         self.changAnLable.text = @"长按识别二维码";
-        [self.loadingBtn setTitle:@"下载唐人街" forState:UIControlStateNormal];
+        [self.loadingBtn setTitle:@"下载雷鹿财富" forState:UIControlStateNormal];
     }
 }
 //
