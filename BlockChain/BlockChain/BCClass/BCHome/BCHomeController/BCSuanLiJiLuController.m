@@ -169,6 +169,8 @@
         }
         
     } erorr:^(id error) {
+        [self.allListArray removeAllObjects];
+        [self.tableView reloadData];
         [self.header endRefreshing];
         [self.footer endRefreshing];
         //设置导航栏图片

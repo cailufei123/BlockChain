@@ -138,6 +138,8 @@
         [self.tableView reloadData];
       
     } erorr:^(id error) {
+        [self.allListArray removeAllObjects];
+        [self.tableView reloadData];
         [self.header endRefreshing];
         [self.footer endRefreshing];
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
