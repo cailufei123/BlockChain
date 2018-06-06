@@ -53,7 +53,7 @@
     if (!_BIcon) {
         _BIcon = [[UIImageView alloc] init];
         //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
-        [Util roundBorderView:SXRealValue(74/2) border:0 color:[UIColor blackColor] view:_BIcon];
+        [Util roundBorderView:SXRealValue(66/2) border:0 color:[UIColor blackColor] view:_BIcon];
     }
     return _BIcon;
 }
@@ -149,10 +149,10 @@
             make.height.mas_equalTo((SYRealValue(0.6)));
         }];
         [self.BIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.line.mas_bottom).with.offset((SYRealValue(0)));
+            make.top.mas_equalTo(self.line.mas_bottom).with.offset((SYRealValue(8)));
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(10));
-            make.width.mas_equalTo((SXRealValue(74)));
-            make.height.mas_equalTo((SXRealValue(74)));
+            make.width.mas_equalTo((SXRealValue(66)));
+            make.height.mas_equalTo((SXRealValue(66)));
         }];
         [self.numberLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(self.BIcon.mas_centerY).with.offset((SYRealValue(-1)));
