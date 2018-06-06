@@ -284,7 +284,7 @@
             self.label3.text=[NSString stringWithFormat:@"标语:%@",model.partner.slogan];
             
             NSString *foreMessage =[NSString stringWithFormat:@"%@  ",model.partner.brief];//前面的数据
-            NSString *colorMessage =@"详情";//后添加变色数据
+            NSString *colorMessage =@"详情 ";//后添加变色数据
             self.label4.text = [NSString stringWithFormat:@"%@%@",foreMessage,colorMessage];
           //设置lable中部分文字变色，并可点击
             [self addFuWenBenDidselectWithforeMessage:foreMessage colorMessage:colorMessage];
@@ -306,6 +306,7 @@
     //设置行间距
     //[Util wby_setLableLineSpacing:10 withAlignment:NSTextAlignmentLeft with:attStr withRange:NSMakeRange(0, self.label4.text.length)];
     self.label4.attributedText = attStr;
+    
     [self.label4 yb_addAttributeTapActionWithStrings:@[colorMessage] delegate:self];
 }
 

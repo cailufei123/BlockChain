@@ -34,6 +34,8 @@
 
 @property(nonatomic,strong)BCMePDCMode *PDCmodel;
 @property(nonatomic,strong)UIView *bottomView;
+
+@property(nonatomic,assign)BOOL isFirstRefresh;//第一次加载
 @end
 
 @implementation BCMePDCListController
@@ -69,6 +71,7 @@
             _tableView.estimatedSectionHeaderHeight = 0;
             _tableView.estimatedSectionFooterHeight = 0;
         }
+        _isFirstRefresh=YES;
     }
     return _tableView;
 }
@@ -221,6 +224,14 @@
             [self.zonglistArray addObjectsFromArray:listArray];
             [self.footer endRefreshing];
             [self.header endRefreshing];
+            
+            if(self.isFirstRefresh){//只执行一次
+                //第一次加载
+                if(listArray.count<20){
+                    [self.footer endRefreshingWithNoMoreData];
+                }
+                self.isFirstRefresh=NO;
+            }
             [self.tableView reloadData];
         }
         if(listArray.count==0){
