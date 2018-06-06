@@ -84,13 +84,13 @@
     [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
     // 选中状态下的文字属性
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-    selectedAttrs[NSForegroundColorAttributeName] = [SVGloble colorWithHexString:@"#474747"];
+    selectedAttrs[NSForegroundColorAttributeName] = [SVGloble colorWithHexString:@"#B378D5"];
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
 }
 -(void)setupChildViewControllers{
-    [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCHomeViewController alloc] init]]  title:@"房间" image:@"糖豆" selectedImage:@"糖豆－点击"];
-      [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCMeViewController alloc] init]]  title:@"我的" image:@"我的" selectedImage:@"我的-点击"];
+    [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCHomeViewController alloc] init]]  title:@"糖果屋" image:@"糖豆" selectedImage:@"糖豆－点击"];
+      [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCMeViewController alloc] init]]  title:@"我的糖果屋" image:@"我的" selectedImage:@"我的-点击"];
 
    
 
