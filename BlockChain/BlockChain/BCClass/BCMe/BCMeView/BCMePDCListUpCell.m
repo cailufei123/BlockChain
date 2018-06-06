@@ -8,6 +8,7 @@
 
 #import "BCMePDCListUpCell.h"
 #import "BCMePDCMode.h"
+#import "NSString+WBStringExtension.h"
 
 
 @interface BCMePDCListUpCell()
@@ -256,15 +257,22 @@
     _model =model;
     if (model!=nil) {
         if (model.partner!=nil) {
-            self.price.text=[NSString stringWithFormat:@"%.1f",[model.uci.coin floatValue]];
-            self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.uci.rmb.floatValue];
+            if (model.uci.coin.wby_isPureInt) {//整型
+                self.price.text=[NSString stringWithFormat:@"%.1f",model.uci.coin.floatValue];
+            }else{//整形
+                self.price.text=[NSString stringWithFormat:@"%@",model.uci.coin];
+            }
+            if (model.uci.rmb.wby_isPureInt) {//整型
+                self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.uci.rmb.floatValue];
+            }else{
+                self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%@",model.uci.rmb];
+            }
             self.label1.text=[NSString stringWithFormat:@"%@简介",model.partner.code];
             self.label2.text=[NSString stringWithFormat:@"项目名称:%@",model.partner.projectName];
             self.label3.text=[NSString stringWithFormat:@"标语:%@",model.partner.slogan];
             self.label4.text=[NSString stringWithFormat:@"项目介绍:%@",model.partner.brief];
             [self.xiaQingBtn setTitle:@"详情" forState:UIControlStateNormal];
-            //        _xiaQingBtn.titleLabel.textColor=color2B73EE;
-            //        [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
+
             [self setlABLE];
             [self.contentView layoutIfNeeded];
             [self.bigView gradientFreme:CGRectMake(0, 0, SCREENWIDTH, self.bigView.xmg_height) startColor:color5E4FC9 endColor:colorC483FB];

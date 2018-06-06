@@ -586,10 +586,10 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
             candycainDict[@"token"] = loginToken;
             candycainDict[@"candyId"] = candyListModel.candyId;
             LFLog(@"%@ %@",CANDY_GAIN,candycainDict);
-            [YWRequestData candycainDict:candycainDict success:^(id responseObj) {
-                candyListModel.canGain = @"0";
-                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-            }];
+//            [YWRequestData candycainDict:candycainDict success:^(id responseObj) {
+//                candyListModel.canGain = @"0";
+//                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//            }];
             
         };
         cell.candyListModel = candyListModel;

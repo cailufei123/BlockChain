@@ -19,6 +19,8 @@
 
 //弹出实名认证view
 @interface BCMeRealNameAlertView : UIView
+/** 官网*/
+@property (nonatomic, strong)UILabel *message;
 
 @property (nonatomic, weak) id <BCMeRealNameAlertViewDelegate> delegate;
 

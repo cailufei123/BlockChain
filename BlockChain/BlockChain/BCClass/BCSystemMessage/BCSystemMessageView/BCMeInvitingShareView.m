@@ -137,7 +137,7 @@
 }
 -(UILabel *)message1{
     if (!_message1) {
-        _message1 =[UILabel LabelWithTextColor:color5E5858 textFont:FONT(@"PingFangSC-Regular", SXRealValue(11)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
+        _message1 =[UILabel LabelWithTextColor:color5E5858 textFont:FONT(@"PingFangSC-Regular", SXRealValue(11)) textAlignment:NSTextAlignmentLeft numberOfLines:2];
         //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_message1];
     }
     return _message1;

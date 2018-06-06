@@ -114,7 +114,7 @@
 }
 -(UILabel *)message{
     if (!_message) {
-        _message =[UILabel LabelWithTextColor:color919191 textFont:FONT(@"PingFangSC-Regular", SXRealValue(11)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
+        _message =[UILabel LabelWithTextColor:color919191 textFont:FONT(@"PingFangSC-Regular", SXRealValue(11)) textAlignment:NSTextAlignmentCenter numberOfLines:2];
 //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_message];
     }
     return _message;
@@ -241,7 +241,7 @@
     self.number2.text= [NSString stringWithFormat:@"%@次",model.taskInfo.max];
     self.number3.text= [NSString stringWithFormat:@"%@次",model.taskInfo.doneCount];
     [self.fenXiangBtn setTitle:@"分享" forState:UIControlStateNormal];
-    self.message.text= @"好友使用任务邀请码注册成功即可获得奖励,成功分享3次即可完成1次任务";
+    self.message.text= @"好友使用任务邀请码注册成功即可获得奖励\n成功分享3次即可完成1次任务";
     }
 }
 

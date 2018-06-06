@@ -83,6 +83,7 @@
     if (!_realNameAlertView) {
         _realNameAlertView = [[BCMeRealNameAlertView alloc] initWithFrame:CGRectMake(0, 0, realWidth, realHeigth)];
         [Util roundBorderView:SXRealValue(3) border:0 color:[UIColor blackColor] view:_realNameAlertView];
+        _realNameAlertView.message.text =@"请先完成实名认证并设置支付密码才可进行转账操作";
         [_realNameAlertView setUpMessage];//设置数据
         _realNameAlertView.delegate =self;
     }
@@ -458,7 +459,8 @@
     } noYuEr:^(NSString *yuer) {//额度不够
         [weakSelf.passView  clearUpPassword];//清空密码
         [weakSelf hiddenTwoView];
-        NSString *message =[NSString stringWithFormat:@"%@%@",self.moneyModel.code,@"余额不足"];
+        //NSString *message =[NSString stringWithFormat:@"%@%@",self.moneyModel.code,@"余额不足"];
+        NSString *message =[NSString stringWithFormat:@"eth%@",@"余额不够"];
         [MBManager showBriefAlert:message];
     } erorr:^(id error) {//网络错误，或者服务器错误
         

@@ -10,19 +10,25 @@
 #import "BCHomeDetailModel.h"
 #import "BCHomeDetailUpCell.h"
 #import "BCHomeDetailDownCell.h"
+#import "BCMeRealNameAlertView.h"
+#import "BCSetViewController.h"
 
 //糖果详情页面
-@interface BCHomeDetailViewController ()<UITableViewDataSource,UITableViewDelegate,BCHomeDetailDownCellDelegate>
+@interface BCHomeDetailViewController ()<UITableViewDataSource,UITableViewDelegate,BCHomeDetailDownCellDelegate,BCMeRealNameAlertViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)BCHomeDetailModel *detailModel;
  @property(nonatomic,strong)UIButton * statusBt;
 @property(nonatomic,strong)UIView * bottomView;
+
+@property(nonatomic,strong)BCMeRealNameAlertView *realNameAlertView;//去认证
 @end
 
 @implementation BCHomeDetailViewController
 
 #define HeaderViewHeight   (SYRealValue(310))  //顶部view高度
 
+#define realWidth         (SCREEN_WIDTH-2*(SXRealValue(16)))
+#define realHeigth        ((SCREEN_WIDTH-(SXRealValue(32)))*211/343)
 
 /**表格**/
 -(UITableView *)tableView{
@@ -46,6 +52,28 @@
     return _tableView;
 }
 
+-(BCMeRealNameAlertView *)realNameAlertView{
+    if (!_realNameAlertView) {
+        _realNameAlertView = [[BCMeRealNameAlertView alloc] initWithFrame:CGRectMake(0, 0, realWidth, realHeigth)];
+        [Util roundBorderView:SXRealValue(3) border:0 color:[UIColor blackColor] view:_realNameAlertView];
+        _realNameAlertView.message.text =@"您已领取过该项目糖果，需要实名认证才可重复领取";
+        [_realNameAlertView setUpMessage];//设置数据
+        _realNameAlertView.delegate =self;
+    }
+    return _realNameAlertView;
+}
+//去认证
+-(void)goBtnClick{
+    [GKCover hide];
+    BCSetViewController *setVc =[[BCSetViewController alloc] init];
+    [self.navigationController pushViewController:setVc animated:YES];
+}
+
+//取消
+-(void)cancelBtnClick{
+    [GKCover hide];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //设置导航栏
@@ -59,7 +87,10 @@
     //设置底部导航按钮
     [self setUpBottomView];
   
-    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self lingquBtClick];
+//
+//    });
 }
 -(void)setUpBottomView{
     UIView * bottomView =  [[UIView alloc] initWithFrame:CGRectMake(0, LFscreenH-56-kTopHeight, LFscreenW, 56)];
@@ -154,13 +185,14 @@
     LFLog(@"%@ %@",CANDY_GAIN,candycainDict);
     [YWRequestData candycainDict:candycainDict success:^(id responseObj) {
         self.detailModel.candyProcess.canGain = @"0";
-          [self lingquStatus];
+        [self lingquStatus];
         [MBManager showBriefAlert:@"领取成功"];
         if (  self.refreshCandyLists ) {
-              self.refreshCandyLists(self.indexpath1);
+            self.refreshCandyLists(self.indexpath1);
         }
-      
-//        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        //        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    } yiLingQu:^(id message) {//已领取糖果，弹出
+        [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.realNameAlertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
     }];
 }
 -(void)setNaviTitle{

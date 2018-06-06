@@ -307,8 +307,8 @@
     _model =model;
 //    [self layoutIfNeeded];
     [self.backBtn setImage:[UIImage imageNamed:@"alertview_close"] forState:UIControlStateNormal];
-    self.sureLable.text=@"确认付款";
-    self.dizhiLable.text=@"收款地址";
+    self.sureLable.text=@"确认信息";
+    self.dizhiLable.text=@"收款人钱包地址";
     self.dizhi.text=[NSString stringWithFormat:@"%@",model.dizhi];
     self.zhuanZhangPrice.text=@"转账金额";
     self.zhuanZhang.text=[NSString stringWithFormat:@"%@ %@",model.zhuanZhangPrice,model.code];

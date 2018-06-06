@@ -10,8 +10,7 @@
 
 //实名认证弹框
 @interface BCMeRealNameAlertView()
-/** 官网*/
-@property (nonatomic, strong)UILabel *message;
+
 /** 去认证*/
 @property (nonatomic, strong)UIButton *goBtn;
 /** 取消认证*/
@@ -78,7 +77,6 @@
 }
 
 -(void)setUpMessage{
-    self.message.text=[NSString stringWithFormat:@"%@",@"请先完成实名认证并设置支付密码才可进行转账操作"];
     [self.goBtn setTitle:@"去认证" forState:UIControlStateNormal];
     [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
 }
