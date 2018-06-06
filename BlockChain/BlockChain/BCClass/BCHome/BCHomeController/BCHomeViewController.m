@@ -50,7 +50,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     LFLog(@"%@",candyDict);
     [YWRequestData homePageDict:candyDict success:^(id responseObj) {
         self.candyLists = [HomeCandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"][@"drillGrantInfos"]];
-        [self.homeTopView.purpleStoneBt setTitle:[NSString stringWithFormat:@"紫钻：%@",responseObj[@"data"][@"coin"]]forState:UIControlStateNormal];
+        [self.homeTopView.purpleStoneBt setTitle:[NSString stringWithFormat:@"财富币：%@",responseObj[@"data"][@"coin"]]forState:UIControlStateNormal];
         [self.homeTopView.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
         
     }];

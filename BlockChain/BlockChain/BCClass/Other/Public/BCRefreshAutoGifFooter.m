@@ -46,7 +46,7 @@
     //    [self setImages:refreshingImages forState:MJRefreshStateRefreshing];
     self.refreshingTitleHidden = YES;
     self.automaticallyHidden = YES;
-    [self setTitle:@"我是有底线的~" forState:MJRefreshStateNoMoreData];
+    [self setTitle:@"我已经到底啦" forState:MJRefreshStateNoMoreData];
 }
 
 @end

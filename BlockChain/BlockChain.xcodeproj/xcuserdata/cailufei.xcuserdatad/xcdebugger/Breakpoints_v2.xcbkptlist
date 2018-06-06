@@ -170,7 +170,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Tools/WBAudioPlayerHelper/WBAudioPlayerHelper.m"
-                  timestampString = "549544796.108338"
+                  timestampString = "549944456.049142"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "275"
@@ -185,7 +185,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Tools/WBAudioPlayerHelper/WBAudioPlayerHelper.m"
-                  timestampString = "549544796.110278"
+                  timestampString = "549944456.070372"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "275"
@@ -200,7 +200,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Tools/WBAudioPlayerHelper/WBAudioPlayerHelper.m"
-                  timestampString = "549544796.112167"
+                  timestampString = "549944456.0735739"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "275"
@@ -255,6 +255,22 @@
             startingLineNumber = "105"
             endingLineNumber = "105"
             landmarkName = "-managerAudioWithLocalPath:playOrPause:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeView/BCHomeTableViewCell.m"
+            timestampString = "549945447.8393281"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-setCandyListModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -41,11 +41,13 @@
             self.statusBt.userInteractionEnabled = NO;
             
             self.atatusLb.text = @"已结束";
+             [self.statusBt setTitle:@"已结束" forState:UIControlStateNormal];
         }
+        
     }else if ([candyListModel.canGain isEqualToString:@"1"]){
         [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#C8AACC"]];
         self.statusBt.userInteractionEnabled = YES;
-        [self.statusBt setTitle:@"领取" forState:UIControlStateNormal];
+        [self.statusBt setTitle:@"可领取" forState:UIControlStateNormal];
         if ([candyListModel.status isEqualToString:@"0"]) {
            [self.statusBt setBackgroundColor:[SVGloble colorWithHexString:@"#C8AACC"]];
             self.statusBt.userInteractionEnabled = YES;
@@ -56,7 +58,9 @@
             self.statusBt.userInteractionEnabled = NO;
             
             self.atatusLb.text = @"已结束";
+             [self.statusBt setTitle:@"已结束" forState:UIControlStateNormal];
         }
+        
     }
     
    
