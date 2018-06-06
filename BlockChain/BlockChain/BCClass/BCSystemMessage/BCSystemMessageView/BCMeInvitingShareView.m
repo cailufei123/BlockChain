@@ -252,7 +252,7 @@
             make.left.mas_equalTo(self.huoDongLable.mas_left);
             make.top.mas_equalTo(self.huoDongLable.mas_bottom).with.offset((SYRealValue(1)));
             make.right.mas_equalTo(self.downView.mas_right).with.offset(SXRealValue(-40));
-            make.height.mas_equalTo((SYRealValue(18)));
+            make.height.mas_equalTo((SYRealValue(36)));
         }];
         [self.message2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.downView.mas_left).with.offset(SXRealValue(40));
@@ -288,6 +288,7 @@
         self.huoDongLable.text =@"活动规则:";
         self.message1.text =@"1.新用户使用你的邀请码注册成功后双方均可获得10紫砖奖励";
         self.message2.text =@"2.每个邀请码最多使用10次";
+        
     }
     
 }

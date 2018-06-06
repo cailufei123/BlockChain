@@ -162,7 +162,8 @@
             [self.QRCodeBtn1 setTitle:@"复制收款地址" forState:UIControlStateNormal];
             [self.QRCodeBtn2 setTitle:@"保存二维码到手机" forState:UIControlStateNormal];
         }
-        [self addAttributeWithBtn:self.QRCodeBtn2 Title:self.QRCodeBtn2.currentTitle];
+        //给按钮添加底线
+        [Util setUnderlineFromButton:self.QRCodeBtn2 textColor:color484848 underlineColor:color484848];
         self.message.text =@"温馨提示:改地址仅用于接收ETH和ERC20 Token,请不要向该地址发送不符合ERC20标准的Token";
         //生成二维码
         self.QRImage.image =model.Qimage;
@@ -182,16 +183,7 @@
     //        [self.delegate moreTangGuoBtnClick];
     //    }
 }
--(void)addAttributeWithBtn:(UIButton *)button Title:(NSString *)message{
-    //给button添加下划线
-    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:message];
-    NSRange titleRange = {0,[title length]};
-    [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
-    [button setAttributedTitle:title
-                               forState:UIControlStateNormal];
-}
-//[colorFilter setValue:[CIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1] forKey:@"inputColor0"];
-//[colorFilter setValue:[CIColor colorWithRed:129/255.0 green:0/255.0 blue:224/255.0 alpha:1] forKey:@"inputColor1"];
+
 
 
 

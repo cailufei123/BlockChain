@@ -25,12 +25,28 @@
         pView.layer.borderColor = [borderColor CGColor];
 }
 
+/**
+ *textColor 按钮颜色
+ *underlineColor 按钮底线的颜色
+ */
+//设置button的地步下划线的方法
 +(void)setUnderlineFromButton:(UIButton *)button textColor:(UIColor *)textColor underlineColor:(UIColor *)underlineColor{
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:@"邀请码观看"];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:button.currentTitle];
     NSRange strRange = {0,[str length]};
+    //设置下划线...
+    /*
+     NSUnderlineStyleNone                                    = 0x00, 无下划线
+     NSUnderlineStyleSingle                                  = 0x01, 单行下划线
+     NSUnderlineStyleThick NS_ENUM_AVAILABLE(10_0, 7_0)      = 0x02, 粗的下划线
+     NSUnderlineStyleDouble NS_ENUM_AVAILABLE(10_0, 7_0)     = 0x09, 双下划线
+     */
     [str addAttributes:@{NSUnderlineStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle],NSUnderlineColorAttributeName:underlineColor,NSForegroundColorAttributeName:textColor} range:strRange];
     [button setAttributedTitle:str forState:UIControlStateNormal];
 }
+
+
+
+
 
 //封装cell背景色
 +(void)selectCellBackgroundColor:(UITableViewCell *)cell{
@@ -382,5 +398,36 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     return bar;
 }
 
+
+
++(NSMutableAttributedString *)wby_setBuFenLableTextColorWithAllText:(NSString *)allText startRangeMessage:(NSString *)startRangeMessage colorMessage:(NSString *)colorMessage isSetNSUnderline:(BOOL)isSetNSUnderline   colorMessageColor:(UIColor *)colorMessageColor   allTextFont:(UIFont*)allTextFont colorMessageFont:(UIFont *)colorMessageFont underlineColor:(UIColor *)underlineColor{
+    //需要点击的字符相同
+    NSString *text = allText;
+    NSMutableAttributedString *attributedString1 = [[NSMutableAttributedString alloc]initWithString:text];
+    [attributedString1 addAttribute:NSFontAttributeName value:allTextFont range:NSMakeRange(0, text.length)];
+    [attributedString1 addAttribute:NSFontAttributeName value:colorMessageFont range:NSMakeRange(startRangeMessage.length, colorMessage.length)];
+    [attributedString1 addAttribute:NSForegroundColorAttributeName value:colorMessageColor range:NSMakeRange(startRangeMessage.length, colorMessage.length)];
+
+    if (isSetNSUnderline) {
+        NSRange strRange = {startRangeMessage.length,colorMessage.length};
+        //设置下划线...
+        /*
+         NSUnderlineStyleNone                                    = 0x00, 无下划线
+         NSUnderlineStyleSingle                                  = 0x01, 单行下划线
+         NSUnderlineStyleThick NS_ENUM_AVAILABLE(10_0, 7_0)      = 0x02, 粗的下划线
+         NSUnderlineStyleDouble NS_ENUM_AVAILABLE(10_0, 7_0)     = 0x09, 双下划线
+         */
+        [attributedString1 addAttributes:@{NSUnderlineStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle],NSUnderlineColorAttributeName:colorMessageColor,NSForegroundColorAttributeName:underlineColor} range:strRange];
+    }
+    return attributedString1;
+}
+
+//设置lable的高度
++(void)wby_setLableLineSpacing:(CGFloat)lineSpacing  withAlignment:(NSTextAlignment)alignment with:(NSMutableAttributedString*)attr withRange:(NSRange)range{
+            NSMutableParagraphStyle *sty = [[NSMutableParagraphStyle alloc] init];
+            sty.alignment = alignment;
+            sty.lineSpacing = lineSpacing;
+            [attr addAttribute:NSParagraphStyleAttributeName value:sty range:range];
+}
 
 @end

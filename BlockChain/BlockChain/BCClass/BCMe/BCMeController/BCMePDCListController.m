@@ -95,10 +95,7 @@
     }
     return _alertView;
 }
--(void)abc{
-    
-    
-}
+
 
 
 #pragma mark -BCMePDCListAlertViewDelegate 加载官网按钮
@@ -134,14 +131,7 @@
 -(void)setNaviImage{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
 }
- 
-                                                                            
--(void)abcd{
-    //去掉背景图片
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
-    //去掉底部线条
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-}
+                                                                 
                                                                             
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -197,7 +187,6 @@
     
 }
 -(void)loadData{
-    WS(weakSelf);
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id

@@ -116,22 +116,6 @@
 }
 
 
-//-(UIButton *)guanWangBtn{
-//    if (!_guanWangBtn) {
-//        _guanWangBtn = [UIButton getButtonTitleColor:color506CCD titleFont:FONT(@"PingFangSC-Medium", SXRealValue(12)) backGroundColor:nil target:self action:@selector(guanWangBtnClick:)];
-//        _guanWangBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-//        [_guanWangBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
-//        //给button添加下划线
-//        NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"www.tangguoxiangqing.com"];
-//        NSRange titleRange = {0,[title length]};
-//        [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
-//        [_guanWangBtn setAttributedTitle:title
-//                               forState:UIControlStateNormal];
-//        [Util roundBorderView:SXRealValue(2) border:1 color:color2B73EE view:_guanWangBtn];
-//    }
-//    return _guanWangBtn;
-//}
-
 
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //初始化
@@ -263,15 +247,7 @@
         _line2.backgroundColor =colorE5E7E9;
         _line3.backgroundColor =colorE5E7E9;
         _line4.backgroundColor =colorE5E7E9;
-    }
-//    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",model.partnerInfo.site]];
-//    NSRange titleRange = {0,[title length]};
-//    [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
-    
-    //[self.guanWangBtn setAttributedTitle:title
-//                            forState:UIControlStateNormal];
-    //LFLog(@"%@",model.partnerInfo.site);
-    
+    }    
 }
 #pragma mark- 去官网
 -(void)guanWangBtnClick{

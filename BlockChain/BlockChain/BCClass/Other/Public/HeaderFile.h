@@ -69,4 +69,5 @@
 #import "Util.h"
 #import "UIView+XMGExtension.h"
 #import "DES3Util.h"
+#import "UILabel+YBAttributeTextTapAction.h"
 #endif /* HeaderFile_h */
