@@ -63,7 +63,7 @@
 		04D3EA3F20BEB09B00F9A96D /* BCMePassWordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA3E20BEB09B00F9A96D /* BCMePassWordController.m */; };
 		04D88D8B20BA954B008570FE /* BCInvitingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8A20BA954B008570FE /* BCInvitingBtn.m */; };
 		04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */; };
-		04F5364820C9088700F94933 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5364720C9088700F94933 /* UILabel+YBAttributeTextTapAction.m */; };
+		04F5364B20C909A500F94933 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5364920C909A500F94933 /* UILabel+YBAttributeTextTapAction.m */; };
 		0652472520B3BFC100F65C2A /* UIView+WBY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472420B3BFC100F65C2A /* UIView+WBY.m */; };
 		0652472920B3C02900F65C2A /* Util.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0652472820B3C02900F65C2A /* Util.mm */; };
 		0652472F20B3C04900F65C2A /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652472C20B3C04900F65C2A /* UIButton+Extensions.m */; };
@@ -449,8 +449,8 @@
 		04D88D8A20BA954B008570FE /* BCInvitingBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCInvitingBtn.m; sourceTree = "<group>"; };
 		04D88D8C20BAA5C0008570FE /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
 		04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMGExtension.m"; sourceTree = "<group>"; };
-		04F5364620C9088700F94933 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
-		04F5364720C9088700F94933 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
+		04F5364920C909A500F94933 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+YBAttributeTextTapAction.m"; path = "BlockChain/BCClass/Other/Category/UILabel+YBAttributeTextTapAction.m"; sourceTree = SOURCE_ROOT; };
+		04F5364A20C909A500F94933 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+YBAttributeTextTapAction.h"; path = "BlockChain/BCClass/Other/Category/UILabel+YBAttributeTextTapAction.h"; sourceTree = SOURCE_ROOT; };
 		0652472320B3BFC100F65C2A /* UIView+WBY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WBY.h"; sourceTree = "<group>"; };
 		0652472420B3BFC100F65C2A /* UIView+WBY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WBY.m"; sourceTree = "<group>"; };
 		0652472720B3C02900F65C2A /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
@@ -1136,18 +1136,11 @@
 			path = BCMeModel;
 			sourceTree = "<group>";
 		};
-		04F5364520C9088700F94933 /* YBAttributeTextTapAction */ = {
-			isa = PBXGroup;
-			children = (
-				04F5364620C9088700F94933 /* UILabel+YBAttributeTextTapAction.h */,
-				04F5364720C9088700F94933 /* UILabel+YBAttributeTextTapAction.m */,
-			);
-			path = YBAttributeTextTapAction;
-			sourceTree = "<group>";
-		};
 		0652472220B3BFC100F65C2A /* UIView_Extension */ = {
 			isa = PBXGroup;
 			children = (
+				04F5364A20C909A500F94933 /* UILabel+YBAttributeTextTapAction.h */,
+				04F5364920C909A500F94933 /* UILabel+YBAttributeTextTapAction.m */,
 				04D88D8C20BAA5C0008570FE /* UIView+XMGExtension.h */,
 				04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */,
 				0652472320B3BFC100F65C2A /* UIView+WBY.h */,
@@ -2218,7 +2211,6 @@
 		ADE1269220B2EB4F00F6E172 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				04F5364520C9088700F94933 /* YBAttributeTextTapAction */,
 				047736BE20C7894500077447 /* NSString_Extension */,
 				042D1A2220C53FC100663054 /* UITextField_Extension */,
 				04B631D120B54B6500D063B8 /* UIBarButtonItem_ZZExtension */,
@@ -2710,7 +2702,7 @@
 				AD6EA46520B43ED200F61B33 /* MJRefreshBackFooter.m in Sources */,
 				ADE125C320B2E84F00F6E172 /* UIButton+WebCache.m in Sources */,
 				04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */,
-				04F5364820C9088700F94933 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				04F5364B20C909A500F94933 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				AD23F6D420B556AB0057E662 /* BCTaskTopView.m in Sources */,
 				04D3EA2D20BCEE0100F9A96D /* BCMePDCUpMode.m in Sources */,
 				047736C120C789A900077447 /* NSString+WBStringExtension.m in Sources */,
