@@ -20,8 +20,9 @@
 #import "SAVourcherHeartView.h"
 #import "BCNotMessageCell.h"
 #import "BCGamePlayController.h"
+#import "TXScrollLabelView.h"
+@interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate,SDCycleScrollViewDelegate,TXScrollLabelViewDelegate>
 
-@interface BCHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate,SDCycleScrollViewDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)BCHomeTopView * homeTopView;
 @property(nonatomic,strong)UILabel * lampLable;
@@ -36,6 +37,8 @@
 @property (nonatomic, strong) NSMutableDictionary *heightAtIndexPath;//缓存高度
 @property (nonatomic, strong) BCLevelBtton * button;
 @property (nonatomic, assign) BOOL  isHaveData;
+@property (strong, nonatomic) TXScrollLabelView *scrollLabelView;
+@property (nonatomic, strong)UIView * lampbgView;
 @end
 static NSString * const cellidenfder = @"BCHomeTableViewCell";
 static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
@@ -102,10 +105,11 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
      [self homePage];
     [self loadNewData];
      [self winPeople];
-    self.timer = [NSTimer wh_scheduledTimerWithTimeInterval:4 repeats:YES callback:^(NSTimer *timer) {
-       
+    self.timer = [NSTimer wh_scheduledTimerWithTimeInterval:60 repeats:YES callback:^(NSTimer *timer) {
+
         [self winPeople];
     }];
+   
 //    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     [self updataVison];
     // 配置参数
@@ -218,14 +222,37 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 }
 -(void)winPeople{
      [self.titles removeAllObjects];
+  
     [YWRequestData winPeopleDict:nil success:^(id responseObj) {
         self.wins = [WinPeopleModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
         for (WinPeopleModel * winPeopleModel in self.wins) {
             
             [self.titles addObject:winPeopleModel.content];
         }
+     
+          [self.scrollLabelView removeFromSuperview];
         self. cycleScrollView4.titlesGroup = self.titles;
-        self.timer.fireDate = [NSDate dateWithTimeInterval:self.wins.count*2 sinceDate:[NSDate date]];
+         self.scrollLabelView = [TXScrollLabelView scrollWithTextArray: self.titles type:TXScrollLabelViewTypeLeftRight velocity:1 options:UIViewAnimationOptionCurveEaseInOut inset:UIEdgeInsetsZero];
+        [self.lampbgView addSubview:self.scrollLabelView];
+        /** Step3: 设置代理进行回调 */
+         self.scrollLabelView.scrollLabelViewDelegate = self;
+        /** Step4: 布局(Required) */
+         self.scrollLabelView.frame = CGRectMake(35,0 ,LFscreenW- 40, self.lampbgView.clf_height);
+        
+     
+        
+        //偏好(Optional), Preference,if you want.
+//         self.scrollLabelView.tx_centerX  = [UIScreen mainScreen].bounds.size.width * 0.5;
+//         self.scrollLabelView.scrollInset = UIEdgeInsetsMake(0, 10 , 0, 10);
+         self.scrollLabelView.scrollSpace = 5;
+         self.scrollLabelView.font = [UIFont systemFontOfSize:13];
+         self.scrollLabelView.textAlignment = NSTextAlignmentCenter;
+         self.scrollLabelView.backgroundColor = [UIColor clearColor];
+         self.scrollLabelView.layer.cornerRadius = 5;
+        
+        /** Step5: 开始滚动(Start scrolling!) */
+        [ self.scrollLabelView beginScrolling];
+//        self.timer.fireDate = [NSDate dateWithTimeInterval:self.wins.count*2 sinceDate:[NSDate date]];
     }];
 }
 -(void)homePage{
@@ -265,6 +292,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 -(void)createHorseLampbgView{
     UIView * lampbgView = [[UIView alloc] initWithFrame:CGRectMake(12, kStatusBarHeight, LFscreenW-24, 24)];
     [lampbgView layercornerRadius:12];
+    self.lampbgView = lampbgView;
     lampbgView.backgroundColor = [SVGloble colorWithHexString:@"#242424"];
     UIImageView * iconimg = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 14, 14)];
     iconimg.image= [UIImage imageNamed:@"广播"];
@@ -278,23 +306,29 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     lampLable.frame = CGRectMake(iconimg.clf_right+5, 0, LFscreenW-40, 24);
     lampLable.clf_centerY = 12;
     [lampbgView addSubview:lampLable];
+  
+  
+//    SDCycleScrollView *cycleScrollView4 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(iconimg.clf_right,0 ,LFscreenW- 40, lampbgView.clf_height) delegate:self placeholderImage:nil];
+//    cycleScrollView4.backgroundColor = [UIColor clearColor];
+//    cycleScrollView4.titleLabelBackgroundColor =  [UIColor clearColor];
+//    self. cycleScrollView4 = cycleScrollView4;
+//    cycleScrollView4.scrollDirection = UICollectionViewScrollDirectionVertical;
+//    cycleScrollView4.onlyDisplayText = YES;
+    
  
-  
-    SDCycleScrollView *cycleScrollView4 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(iconimg.clf_right,0 ,LFscreenW- 40, lampbgView.clf_height) delegate:self placeholderImage:nil];
-    cycleScrollView4.backgroundColor = [UIColor clearColor];
-    cycleScrollView4.titleLabelBackgroundColor =  [UIColor clearColor];
-    self. cycleScrollView4 = cycleScrollView4;
-    cycleScrollView4.scrollDirection = UICollectionViewScrollDirectionVertical;
-    cycleScrollView4.onlyDisplayText = YES;
-    
-   
-  
-    [cycleScrollView4 disableScrollGesture];
-    cycleScrollView4.autoScrollTimeInterval = 2;// 自定义轮播时间间隔
-    [lampbgView addSubview:cycleScrollView4];
-    
-
 }
+
+//- (void)verticalMarqueeTapGes:(UITapGestureRecognizer *)ges {
+//    NSLog(@"点击第 %ld 条数据啦啊！！！", _verticalMarquee.currentIndex);
+//
+//
+//}
+
+
+
+
+
+
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
     

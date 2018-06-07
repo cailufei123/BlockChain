@@ -36,7 +36,7 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"任务版";
+    self.navigationItem.title = @"任务板";
     [self setTable];
     [self createTopView];
     [self createRefresh];

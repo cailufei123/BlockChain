@@ -170,7 +170,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Tools/WBAudioPlayerHelper/WBAudioPlayerHelper.m"
-                  timestampString = "549944456.049142"
+                  timestampString = "550036981.1323971"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "275"
@@ -185,7 +185,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Tools/WBAudioPlayerHelper/WBAudioPlayerHelper.m"
-                  timestampString = "549944456.070372"
+                  timestampString = "550036981.134322"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "275"
@@ -200,7 +200,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Tools/WBAudioPlayerHelper/WBAudioPlayerHelper.m"
-                  timestampString = "549944456.0735739"
+                  timestampString = "550036981.136197"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "275"
@@ -265,12 +265,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCHome/BCHomeView/BCHomeTableViewCell.m"
-            timestampString = "549945447.8393281"
+            timestampString = "550037053.639437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
             landmarkName = "-setCandyListModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCHomeViewController.m"
+            timestampString = "550037053.639573"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
+            landmarkName = "-createHorseLampbgView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCHomeViewController.m"
+            timestampString = "550037053.640292"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
+            landmarkName = "-createHorseLampbgView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCHomeViewController.m"
+            timestampString = "550037053.6411361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
+            landmarkName = "-createHorseLampbgView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCHomeViewController.m"
+            timestampString = "550037053.6426769"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
+            landmarkName = "-createHorseLampbgView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCHomeViewController.m"
+            timestampString = "550037053.643368"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
