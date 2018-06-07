@@ -8,11 +8,12 @@
 
 #import "BCMePDCListUpCell.h"
 #import "BCMePDCMode.h"
+#import "NSString+WBStringExtension.h"
 
 
-@interface BCMePDCListUpCell()
-//@property (nonatomic, strong)UIView *upview1;
-//@property (nonatomic, strong)UIButton *backBtn;
+@interface BCMePDCListUpCell()<YBAttributeTapActionDelegate>
+
+
 @property (nonatomic, strong)UIView *bigView;
 @property (nonatomic, strong)UIView *upBigView;
 /** PDC总数*/
@@ -31,8 +32,8 @@
 @property(nonatomic,strong)UIView *line;
 
 @property (nonatomic, strong)UIButton *xiaQingBtn;
-
 @property(nonatomic,strong)CAGradientLayer *gradientLayer;
+@property (nonatomic, strong)UIView *line1;
 
 @end
 
@@ -59,6 +60,15 @@
     }
     return _upBigView;
 }
+-(UIView *)line1{
+    if (!_line1) {
+        _line1 = [[UIView alloc] init];
+        _line1.backgroundColor =[UIColor clearColor];
+//                  [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_upBigView];
+    }
+    return _line1;
+}
+
 
 -(UILabel *)price{
     if (!_price) {
@@ -93,7 +103,7 @@
     if (!_downView) {
         _downView = [[UIView alloc] init];
     
-        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downView];
+//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_downView];
     }
     return _downView;
 }
@@ -123,7 +133,7 @@
 -(UILabel *)label4{
     if (!_label4) {
         _label4 =[UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentLeft numberOfLines:0];
-        //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label4];
+//                [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_label4];
     }
     return _label4;
 }
@@ -137,6 +147,9 @@
         [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
         //[_xiaQingBtn setBackgroundColor:color9164D6];
         [_xiaQingBtn  setHitEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];//热区域
+        [_xiaQingBtn addTarget:self action:@selector(xiaQingBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_xiaQingBtn];
+        
 //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_xiaQingBtn];
     }
     return _xiaQingBtn;
@@ -173,7 +186,7 @@
         [self.downView addSubview:self.label2];
         [self.downView addSubview:self.label3];
         [self.downView addSubview:self.label4];
-        [self.downView addSubview:self.xiaQingBtn];
+        [self.downView addSubview:self.line1];
         
         
         [self.bigView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -240,14 +253,14 @@
             make.right.mas_equalTo(self.downView.mas_right).with.offset(SXRealValue(-18));
             make.top.mas_equalTo(self.label3.mas_bottom).with.offset((SYRealValue(15)));
         }];
-        [self.xiaQingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.downView.mas_left).with.offset(SXRealValue(12));
+        //lable中不能居上又距下
+        [self.line1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.downView.mas_left).with.offset(SXRealValue(0));
             make.top.mas_equalTo(self.label4.mas_bottom).with.offset((SYRealValue(5)));
+            make.right.mas_equalTo(self.downView.mas_right).with.offset(SXRealValue(0));
             make.bottom.mas_equalTo(self.downView.mas_bottom).with.offset((SYRealValue(-2)));
-            make.width.mas_equalTo((SYRealValue(40)));
-            make.height.mas_equalTo((SYRealValue(20)));
+            make.height.mas_equalTo((SYRealValue(0.6)));
         }];
-         //初始化CAGradientlayer对象，使它的大小为UIView的大小
     }
     return self;
 }
@@ -256,17 +269,29 @@
     _model =model;
     if (model!=nil) {
         if (model.partner!=nil) {
-            self.price.text=[NSString stringWithFormat:@"%.1f",[model.uci.coin floatValue]];
-            self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.uci.rmb.floatValue];
+            if (model.uci.coin.wby_isPureInt) {//整型
+                self.price.text=[NSString stringWithFormat:@"%.1f",model.uci.coin.floatValue];
+            }else{//整形
+                self.price.text=[NSString stringWithFormat:@"%@",model.uci.coin];
+            }
+            if (model.uci.rmb.wby_isPureInt) {//整型
+                self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.uci.rmb.floatValue];
+            }else{
+                self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%@",model.uci.rmb];
+            }
             self.label1.text=[NSString stringWithFormat:@"%@简介",model.partner.code];
             self.label2.text=[NSString stringWithFormat:@"项目名称:%@",model.partner.projectName];
             self.label3.text=[NSString stringWithFormat:@"标语:%@",model.partner.slogan];
-            self.label4.text=[NSString stringWithFormat:@"项目介绍:%@",model.partner.brief];
-            [self.xiaQingBtn setTitle:@"详情" forState:UIControlStateNormal];
-            //        _xiaQingBtn.titleLabel.textColor=color2B73EE;
-            //        [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
-            [self setlABLE];
+            
+            NSString *foreMessage =[NSString stringWithFormat:@"%@  ",model.partner.brief];//前面的数据
+            NSString *colorMessage =@"详情 ";//后添加变色数据
+            self.label4.text = [NSString stringWithFormat:@"%@%@",foreMessage,colorMessage];
+          //设置lable中部分文字变色，并可点击
+            [self addFuWenBenDidselectWithforeMessage:foreMessage colorMessage:colorMessage];
             [self.contentView layoutIfNeeded];
+            [self.contentView setNeedsLayout];
+            self.label4.preferredMaxLayoutWidth =SCREEN_WIDTH-(SXRealValue(36));
+            [self.label4 setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
             [self.bigView gradientFreme:CGRectMake(0, 0, SCREENWIDTH, self.bigView.xmg_height) startColor:color5E4FC9 endColor:colorC483FB];
             self.smallBgView.backgroundColor = [colorB0ADFC colorWithAlphaComponent:0.5];
             self.line.backgroundColor = colorE5E7E9;
@@ -275,25 +300,26 @@
     }
 }
 
--(void)setlABLE{
-    //给button添加下划线
-    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"详情"];
-    NSRange titleRange = {0,[title length]};
-    [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
-    [_xiaQingBtn setAttributedTitle:title
-                           forState:UIControlStateNormal];
-    [_xiaQingBtn setTitleColor:color2B73EE forState:UIControlStateNormal];
-    [_xiaQingBtn addTarget:self action:@selector(xiaQingBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [Util roundBorderView:SXRealValue(2) border:0 color:color2B73EE view:_xiaQingBtn];
+
+-(void)addFuWenBenDidselectWithforeMessage:(NSString *)foreMessage colorMessage:(NSString *)colorMessage{
+    NSMutableAttributedString *attStr =  [Util wby_setBuFenLableTextColorWithAllText:self.label4.text startRangeMessage:foreMessage colorMessage:colorMessage isSetNSUnderline:YES  colorMessageColor:color2B73EE allTextFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) colorMessageFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) underlineColor:color2B73EE];
+    //设置行间距
+    //[Util wby_setLableLineSpacing:10 withAlignment:NSTextAlignmentLeft with:attStr withRange:NSMakeRange(0, self.label4.text.length)];
+    self.label4.attributedText = attStr;
+    
+    [self.label4 yb_addAttributeTapActionWithStrings:@[colorMessage] delegate:self];
 }
-#pragma 点击项目介绍详情
--(void)xiaQingBtnClick{
+
+
+//变色lable点击事件
+- (void)yb_attributeTapReturnString:(NSString *)string range:(NSRange)range index:(NSInteger)index
+{
     if (self.delegate && [self.delegate respondsToSelector:@selector(xiaQingBtnClickWithModel:)]) {
         [self.delegate xiaQingBtnClickWithModel:self.model];
     }
+    //    NSString *message = [NSString stringWithFormat:@"点击了“%@”字符\nrange: %@\nindex: %ld",string,NSStringFromRange(range),index];
+    //    YBAlertShow(message, @"取消");
 }
-
-
 
 //顶部总体高度
 - (void)awakeFromNib {
@@ -303,8 +329,15 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    
 }
+
+//-(void)setUp:(NSString *)title{
+//第二种监听方法
+//            [self.label4 yb_addAttributeTapActionWithStrings:@[@"www.yb.com",@"9527"] tapClicked:^(NSString *string, NSRange range, NSInteger index) {
+//            }];
+//设置是否有点击效果，默认是YES
+//self.label4.enabledTapEffect = NO;
+//}
 
 @end

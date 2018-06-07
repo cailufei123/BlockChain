@@ -85,17 +85,18 @@
     }];
 }
 // - 领取糖果-----
-+ (void)candycainDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
++ (void)candycainDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess yiLingQu:(void (^) (id message))yiLingQu{
     [LFHttpTool post:CANDY_GAIN params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         LFLog(@"%@",responseObj);
         [MBManager hideAlert];
-        if ([responseObj[@"status"] isEqual:@(0)]) {
+        if ([responseObj[@"status"] isEqual:@(1)]) {
             sucess(responseObj);
-            
-          
+        }else if([responseObj[@"status"] isEqual:@(101)]){
+            yiLingQu(responseObj[@"message"]);//已领取过糖果
         }else{
-            [MBManager showBriefAlert:responseObj[@"message"]];}
+            [MBManager showBriefAlert:responseObj[@"message"]];
+        }
     } failure:^(NSError *error) {
         [MBManager showBriefAlert:@"网络错误"];
         [MBManager hideAlert];

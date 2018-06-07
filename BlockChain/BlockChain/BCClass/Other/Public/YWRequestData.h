@@ -19,7 +19,7 @@
 + (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess erorr:(void(^)(id error))erorr;
 
 // - 领取糖果-----
-+ (void)candycainDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
++ (void)candycainDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess yiLingQu:(void (^) (id message))yiLingQu;
 // - 实名认证-----
 + (void)realNameIDDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess;
 // -首页bamner -----

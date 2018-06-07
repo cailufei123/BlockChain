@@ -124,7 +124,7 @@
         _liLuCaiFuIcon.image = [UIImage imageNamed:@"雷鹿财富logoc-2"];
         self.backgroundColor = naverTextColor;
         _lable1.text =@"什么是财富币？";
-        _lable2.text = @"财富币（LLMC(LeiLook Money Coin)）是基于用户活动产生的奖励，可以用于雷鹿财富的消费与兑换等，可以在即将开放的糖果店兑换各种您喜爱的糖果。48小时不收取的财富币将停止产生。";
+        _lable2.text = @"财富币LLMC(LeiLook Money Coin)是基于用户活动产生的奖励，可以用于雷鹿财富的消费与兑换等，可以在即将开放的糖果店兑换各种您喜爱的糖果。48小时不收取的财富币将停止产生。";
         _lable3.text =@"财富币总量有限，产量逐年减少，随着时间的推移获取难度越来越大，早起参与的用户更有优势。";
         
     }

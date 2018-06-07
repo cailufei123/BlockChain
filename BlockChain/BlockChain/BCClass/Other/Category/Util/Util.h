@@ -13,7 +13,8 @@
 
 //切圆角
 +(void)roundBorderView:(int)radix border:(float)width color:(UIColor*)borderColor view:(UIView*)pView;
-//设置按钮底部线
+
+//设置button的地步下划线的方法
 +(void)setUnderlineFromButton:(UIButton *)button textColor:(UIColor *)textColor underlineColor:(UIColor *)underlineColor;
 
 /**设置cell中的选中颜色*/
@@ -55,4 +56,28 @@
 
 //隐藏系统完成按钮
 +(UIToolbar *)getNoWanChengBtn;
+
+//设置lable中部分文字颜色 有颜色的部分可以点击
+/**
+ *allText               富文本中所有文字
+ *startRangeMessage     从这个字符串开始截取的字符
+ *colorMessage          这个是渲染当前的字符
+ *isSetNSUnderline      是否设置变色字体的下划线 默认一条线
+ *allTextColor          富文本中所有文字的颜色
+ *colorMessageColor     需要渲染文字的颜色
+ *allTextFont           所有文字的大小
+ *colorMessageFont      变色文字的大小
+ *underlineColor        下划线文字的颜色
+ */
+
++(NSMutableAttributedString *)wby_setBuFenLableTextColorWithAllText:(NSString *)allText startRangeMessage:(NSString *)startRangeMessage colorMessage:(NSString *)colorMessage isSetNSUnderline:(BOOL)isSetNSUnderline   colorMessageColor:(UIColor *)colorMessageColor allTextFont:(UIFont*)allTextFont colorMessageFont:(UIFont *)colorMessageFont underlineColor:(UIColor *)underlineColor;
+
+//设置lable的文字上下间距
+/**
+ *lineSpacing                        lable的行间距
+ *withAlignment                      对齐方式
+ *NSMutableAttributedString          attr 富文本
+ *range                              设置行高度的字符串范围
+ */
++(void)wby_setLableLineSpacing:(CGFloat)lineSpacing  withAlignment:(NSTextAlignment)alignment with:(NSMutableAttributedString*)attr withRange:(NSRange)range;
 @end

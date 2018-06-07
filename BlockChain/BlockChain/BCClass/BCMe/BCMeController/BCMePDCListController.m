@@ -33,6 +33,9 @@
 @property(nonatomic,strong)NSMutableArray *zonglistArray;
 
 @property(nonatomic,strong)BCMePDCMode *PDCmodel;
+@property(nonatomic,strong)UIView *bottomView;
+
+@property(nonatomic,assign)BOOL isFirstRefresh;//第一次加载
 @end
 
 @implementation BCMePDCListController
@@ -68,6 +71,7 @@
             _tableView.estimatedSectionHeaderHeight = 0;
             _tableView.estimatedSectionFooterHeight = 0;
         }
+        _isFirstRefresh=YES;
     }
     return _tableView;
 }
@@ -94,10 +98,7 @@
     }
     return _alertView;
 }
--(void)abc{
-    
-    
-}
+
 
 
 #pragma mark -BCMePDCListAlertViewDelegate 加载官网按钮
@@ -133,14 +134,7 @@
 -(void)setNaviImage{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
 }
- 
-                                                                            
--(void)abcd{
-    //去掉背景图片
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
-    //去掉底部线条
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-}
+                                                                 
                                                                             
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -154,6 +148,8 @@
     //初始化转账与收款
     //[self setPayOrGetMoneyBtn];
     [self addGainRefresh];
+    //初始化转账与收款
+    [self setPayOrGetMoneyBtn];
     
 }
                                                                             
@@ -194,7 +190,6 @@
     
 }
 -(void)loadData{
-    WS(weakSelf);
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id
@@ -210,8 +205,7 @@
             [self setNaviBarHidden:YES setTouMingImage:NO];
             //判断是否有网络
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
-            //初始化转账与收款
-            [weakSelf setPayOrGetMoneyBtn];
+            self.bottomView.hidden= NO;
             [self.tableView reloadData];
             [self.footer endRefreshing];
             [self.header endRefreshing];
@@ -220,6 +214,7 @@
         }else{ //无数据
             //改变导航栏的颜色
             [self setNaviImage];
+            self.bottomView.hidden= YES;
              self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
             [self.tableView reloadData];
             [self.footer endRefreshing];
@@ -229,12 +224,21 @@
             [self.zonglistArray addObjectsFromArray:listArray];
             [self.footer endRefreshing];
             [self.header endRefreshing];
+            
+            if(self.isFirstRefresh){//只执行一次
+                //第一次加载
+                if(listArray.count<20){
+                    [self.footer endRefreshingWithNoMoreData];
+                }
+                self.isFirstRefresh=NO;
+            }
             [self.tableView reloadData];
         }
         if(listArray.count==0){
             [self.footer endRefreshingWithNoMoreData];
         }
     } erorr:^(id error) {//无网络
+        self.bottomView.hidden =YES;
         [self.header endRefreshing];
         [self.footer endRefreshing];
         [self setNaviTitle:@"TBC"];
@@ -268,12 +272,17 @@
     //self.alertView.clf_size = CGSizeMake(SXRealValue(343), SYRealValue(467));
     [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:self.alertView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleCenter notClick:NO];
 }
+-(UIView *)bottomView{
+    if (!_bottomView) {
+        _bottomView = [[UIView alloc] init];
+    }
+    return _bottomView;
+}
                                                                             
 #pragma 底部转账与收款
 -(void)setPayOrGetMoneyBtn{
-    
-    UIView *view = [[UIView alloc] init];
-    view.backgroundColor =naverTextColor;
+    self.bottomView.hidden=YES;
+    self.bottomView.backgroundColor =naverTextColor;
     UIButton *payBtn = [UIButton getButtonTitleColor:blackBColor titleFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) backGroundColor:naverTextColor target:self action:@selector(payBtnClick)];
     payBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [payBtn setTitle:@"转账  " forState:UIControlStateNormal];
@@ -289,40 +298,40 @@
    //中线
     UIView *line = [[UIView alloc] init];
     line.backgroundColor = colorE5E7E9;
-    [self.view addSubview:view];
+    [self.view addSubview:self.bottomView];
     UIView *line1 = [[UIView alloc] init];
     line1.backgroundColor = colorE5E7E9;
     [self.view addSubview:line1];
     
-    [view addSubview:payBtn];
-    [view addSubview:line];
-    [view addSubview:getBtn];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.bottomView addSubview:payBtn];
+    [self.bottomView addSubview:line];
+    [self.bottomView addSubview:getBtn];
+    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).with.offset(0);
         make.right.mas_equalTo(self.view.mas_right).with.offset(0);
         make.bottom.mas_equalTo(self.view.mas_bottom).with.offset(0);
         make.height.mas_equalTo(49);
     }];
     [payBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(view.mas_left).with.offset(0);
-        make.top.mas_equalTo(view.mas_top).with.offset(0);
+        make.left.mas_equalTo(self.bottomView.mas_left).with.offset(0);
+        make.top.mas_equalTo(self.bottomView.mas_top).with.offset(0);
         make.width.mas_equalTo(SCREENWIDTH/2-1);
-        make.bottom.mas_equalTo(view.mas_bottom).with.offset(0);
+        make.bottom.mas_equalTo(self.bottomView.mas_bottom).with.offset(0);
     }];
     [getBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(view.mas_right).with.offset(0);
-        make.top.mas_equalTo(view.mas_top).with.offset(0);
+        make.right.mas_equalTo(self.bottomView.mas_right).with.offset(0);
+        make.top.mas_equalTo(self.bottomView.mas_top).with.offset(0);
         make.width.mas_equalTo(SCREENWIDTH/2-1);
-        make.bottom.mas_equalTo(view.mas_bottom).with.offset(0);
+        make.bottom.mas_equalTo(self.bottomView.mas_bottom).with.offset(0);
     }];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(view.mas_top).with.offset((SYRealValue(5)));
-        make.bottom.mas_equalTo(view.mas_bottom).with.offset((SYRealValue(-5)));
-        make.centerX.mas_equalTo(view.mas_centerX);
+        make.top.mas_equalTo(self.bottomView.mas_top).with.offset((SYRealValue(5)));
+        make.bottom.mas_equalTo(self.bottomView.mas_bottom).with.offset((SYRealValue(-5)));
+        make.centerX.mas_equalTo(self.bottomView.mas_centerX);
         make.width.mas_equalTo((SYRealValue(1)));
     }];
     [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(view.mas_top).with.offset((SYRealValue(0)));
+        make.top.mas_equalTo(self.bottomView.mas_top).with.offset((SYRealValue(0)));
         make.left.mas_equalTo(self.view.mas_left).with.offset(0);
         make.right.mas_equalTo(self.view.mas_right).with.offset((SYRealValue(-0.6)));
         make.height.mas_equalTo((SYRealValue(0.6)));
