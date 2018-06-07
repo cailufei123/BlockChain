@@ -91,10 +91,7 @@
 -(void)setupChildViewControllers{
     [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCHomeViewController alloc] init]]  title:@"糖果屋" image:@"糖豆" selectedImage:@"糖豆－点击"];
       [self setupOneChildViewController:[[SANavigationController alloc] initWithRootViewController:[[BCMeViewController alloc] init]]  title:@"我的糖果包" image:@"我的" selectedImage:@"我的-点击"];
-
-   
-
-    }
+}
 -(void)setupOneChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString*)image selectedImage:(NSString *)selectedImage{
     
     vc.tabBarItem.title = title;
