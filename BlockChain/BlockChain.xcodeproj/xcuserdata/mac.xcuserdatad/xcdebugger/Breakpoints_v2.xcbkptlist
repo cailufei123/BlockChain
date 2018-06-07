@@ -94,7 +94,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/BlockChain/BlockChain/BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-                  timestampString = "549974513.151238"
+                  timestampString = "549975868.059163"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
@@ -109,7 +109,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/BlockChain/BlockChain/BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-                  timestampString = "549974513.1546611"
+                  timestampString = "549975868.0903389"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
@@ -124,7 +124,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/BlockChain/BlockChain/BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-                  timestampString = "549974513.158612"
+                  timestampString = "549975868.1004699"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
@@ -157,7 +157,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/Other/Public/YWRequestData.m"
-            timestampString = "549974512.9032249"
+            timestampString = "549975867.4942"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
@@ -173,7 +173,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/Other/Public/YWRequestData.m"
-            timestampString = "549974512.903327"
+            timestampString = "549975867.494421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -189,12 +189,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/Other/Public/YWRequestData.m"
-            timestampString = "549974512.903392"
+            timestampString = "549975867.494508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "+candycainDict:success:yiLingQu:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCHomeViewController.m"
+            timestampString = "549974969.446318"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "564"
+            endingLineNumber = "564"
+            landmarkName = "-tableView:willDisplayCell:forRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

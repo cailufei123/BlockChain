@@ -164,7 +164,7 @@
         }
         //给按钮添加底线
         [Util setUnderlineFromButton:self.QRCodeBtn2 textColor:color484848 underlineColor:color484848];
-        self.message.text =@"温馨提示:改地址仅用于接收ETH和ERC20 Token,请不要向该地址发送不符合ERC20标准的Token";
+        self.message.text =@"温馨提示:该地址仅用于接收ETH和ERC20 Token,请不要向该地址发送不符合ERC20标准的Token";
         //生成二维码
         self.QRImage.image =model.Qimage;
     }
