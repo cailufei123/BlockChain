@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0400764920C15AC200EF21DC /* WBAudioPlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400764720C15AC200EF21DC /* WBAudioPlayerHelper.m */; };
+		0402F9AE20C8E793003EACF0 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402F9AD20C8E793003EACF0 /* UILabel+YBAttributeTextTapAction.m */; };
 		042D1A1220C4D05800663054 /* BCGamePlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1120C4D05800663054 /* BCGamePlayController.m */; };
 		042D1A1820C4D22E00663054 /* BCGamePlayUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1720C4D22E00663054 /* BCGamePlayUpCell.m */; };
 		042D1A1B20C4D24100663054 /* BCGamePlayDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D1A1A20C4D24100663054 /* BCGamePlayDownCell.m */; };
@@ -23,7 +24,6 @@
 		0468FB8B20B6D55A00C83299 /* BCTaskDetailDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8A20B6D55A00C83299 /* BCTaskDetailDownCell.m */; };
 		0468FB8F20B6D5E200C83299 /* BCTaskDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */; };
 		047736C120C789A900077447 /* NSString+WBStringExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 047736C020C789A900077447 /* NSString+WBStringExtension.m */; };
-		047736C520C7CAD700077447 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 047736C420C7CAD600077447 /* UILabel+YBAttributeTextTapAction.m */; };
 		0487042820B7E821005C77DA /* BCHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487042720B7E821005C77DA /* BCHomeDetailViewController.m */; };
 		0487042B20B7E8A5005C77DA /* BCHomeDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487042A20B7E8A5005C77DA /* BCHomeDetailModel.m */; };
 		0487043120B7E940005C77DA /* BCHomeDetailDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487043020B7E940005C77DA /* BCHomeDetailDownCell.m */; };
@@ -339,6 +339,8 @@
 /* Begin PBXFileReference section */
 		0400764720C15AC200EF21DC /* WBAudioPlayerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAudioPlayerHelper.m; sourceTree = "<group>"; };
 		0400764820C15AC200EF21DC /* WBAudioPlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAudioPlayerHelper.h; sourceTree = "<group>"; };
+		0402F9AC20C8E793003EACF0 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
+		0402F9AD20C8E793003EACF0 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
 		042D1A1020C4D05800663054 /* BCGamePlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCGamePlayController.h; sourceTree = "<group>"; };
 		042D1A1120C4D05800663054 /* BCGamePlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCGamePlayController.m; sourceTree = "<group>"; };
 		042D1A1620C4D22E00663054 /* BCGamePlayUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCGamePlayUpCell.h; sourceTree = "<group>"; };
@@ -369,8 +371,6 @@
 		0468FB8E20B6D5E200C83299 /* BCTaskDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCTaskDetailModel.m; sourceTree = "<group>"; };
 		047736BF20C789A900077447 /* NSString+WBStringExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WBStringExtension.h"; sourceTree = "<group>"; };
 		047736C020C789A900077447 /* NSString+WBStringExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WBStringExtension.m"; sourceTree = "<group>"; };
-		047736C320C7CAD600077447 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
-		047736C420C7CAD600077447 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
 		0487042620B7E821005C77DA /* BCHomeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeDetailViewController.h; sourceTree = "<group>"; };
 		0487042720B7E821005C77DA /* BCHomeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHomeDetailViewController.m; sourceTree = "<group>"; };
 		0487042920B7E8A5005C77DA /* BCHomeDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHomeDetailModel.h; sourceTree = "<group>"; };
@@ -993,6 +993,15 @@
 			path = WBAudioPlayerHelper;
 			sourceTree = "<group>";
 		};
+		0402F9AB20C8E793003EACF0 /* YBAttributeTextTapAction */ = {
+			isa = PBXGroup;
+			children = (
+				0402F9AC20C8E793003EACF0 /* UILabel+YBAttributeTextTapAction.h */,
+				0402F9AD20C8E793003EACF0 /* UILabel+YBAttributeTextTapAction.m */,
+			);
+			path = YBAttributeTextTapAction;
+			sourceTree = "<group>";
+		};
 		042D1A2220C53FC100663054 /* UITextField_Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1028,15 +1037,6 @@
 				047736C020C789A900077447 /* NSString+WBStringExtension.m */,
 			);
 			path = NSString_Extension;
-			sourceTree = "<group>";
-		};
-		047736C220C7CAD600077447 /* YBAttributeTextTapAction */ = {
-			isa = PBXGroup;
-			children = (
-				047736C320C7CAD600077447 /* UILabel+YBAttributeTextTapAction.h */,
-				047736C420C7CAD600077447 /* UILabel+YBAttributeTextTapAction.m */,
-			);
-			path = YBAttributeTextTapAction;
 			sourceTree = "<group>";
 		};
 		04B631D120B54B6500D063B8 /* UIBarButtonItem_ZZExtension */ = {
@@ -2218,7 +2218,7 @@
 		ADE1269220B2EB4F00F6E172 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				047736C220C7CAD600077447 /* YBAttributeTextTapAction */,
+				0402F9AB20C8E793003EACF0 /* YBAttributeTextTapAction */,
 				047736BE20C7894500077447 /* NSString_Extension */,
 				042D1A2220C53FC100663054 /* UITextField_Extension */,
 				04B631D120B54B6500D063B8 /* UIBarButtonItem_ZZExtension */,
@@ -2577,7 +2577,6 @@
 				ADE1267820B2E91000F6E172 /* GKCover.m in Sources */,
 				AD6EA45F20B43ED200F61B33 /* MJRefreshAutoNormalFooter.m in Sources */,
 				ADE1266A20B2E87D00F6E172 /* SANavigationController.m in Sources */,
-				047736C520C7CAD700077447 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				AD23F73E20B6A2490057E662 /* SAMessageViewController.m in Sources */,
 				ADE1271320B2F00B00F6E172 /* MBProgressHUD.m in Sources */,
 				ADE1265520B2E84F00F6E172 /* IQTitleBarButtonItem.m in Sources */,
@@ -2711,6 +2710,7 @@
 				AD6EA46520B43ED200F61B33 /* MJRefreshBackFooter.m in Sources */,
 				ADE125C320B2E84F00F6E172 /* UIButton+WebCache.m in Sources */,
 				04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */,
+				0402F9AE20C8E793003EACF0 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				AD23F6D420B556AB0057E662 /* BCTaskTopView.m in Sources */,
 				04D3EA2D20BCEE0100F9A96D /* BCMePDCUpMode.m in Sources */,
 				047736C120C789A900077447 /* NSString+WBStringExtension.m in Sources */,
