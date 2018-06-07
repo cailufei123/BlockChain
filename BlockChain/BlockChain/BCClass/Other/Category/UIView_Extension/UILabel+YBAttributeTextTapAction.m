@@ -242,7 +242,7 @@
         if (CGRectContainsPoint(rect, point)) {
             
             CGPoint relativePoint = CGPointMake(point.x - CGRectGetMinX(rect), point.y - CGRectGetMinY(rect));
-
+            
             CFIndex index = CTLineGetStringIndexForPosition(line, relativePoint);
             
             CGFloat offset;
@@ -290,7 +290,7 @@
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (self.isTapEffect) {
-
+        
         [self performSelectorOnMainThread:@selector(yb_tapEffectWithStatus:) withObject:nil waitUntilDone:NO];
         
     }
@@ -350,7 +350,7 @@
         self.isTapAction = NO;
         return;
     }
- 
+    
     self.isTapAction = YES;
     
     self.isTapEffect = YES;
