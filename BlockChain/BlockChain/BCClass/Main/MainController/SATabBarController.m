@@ -113,7 +113,7 @@
 //    if (!loginTokenlength) {
 //        [ATSKIPTOOl loginAction:self];return;
 //    }
-////    self.selectedIndex = index;
+////   self.selectedIndex = index;
 //    YMCreateRoomController * registLoinViewController = [[YMCreateRoomController alloc] init];
 //    SALoginRegistNavController * loginRegistNavController = [[SALoginRegistNavController alloc] initWithRootViewController:registLoinViewController];
 //

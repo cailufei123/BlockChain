@@ -81,6 +81,9 @@
 		06ED21A420B436EC008F44FE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219620B436EC008F44FE /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		06ED21A520B436EC008F44FE /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219820B436EC008F44FE /* View+MASAdditions.m */; };
 		06ED21A620B436EC008F44FE /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */; };
+		AD1150A120C8D1550074B454 /* JhtMarqueeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD11509F20C8D1550074B454 /* JhtMarqueeSDK.a */; };
+		AD1150AA20C8DE4B0074B454 /* TXScrollLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1150A820C8DE4B0074B454 /* TXScrollLabelView.m */; };
+		AD1150AB20C8DE4B0074B454 /* UIView+TXFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1150A920C8DE4B0074B454 /* UIView+TXFrame.m */; };
 		AD116F5620C1591B0000975C /* diamond.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AD116F5520C1591B0000975C /* diamond.mp3 */; };
 		AD23F6CE20B5126B0057E662 /* ATSkipTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6CD20B5126B0057E662 /* ATSkipTool.m */; };
 		AD23F6D120B5562B0057E662 /* BCTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD23F6D020B5562B0057E662 /* BCTaskViewController.m */; };
@@ -486,6 +489,14 @@
 		06ED219920B436EC008F44FE /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		06ED219A20B436EC008F44FE /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		AD11509D20C8D1550074B454 /* JhtHorizontalMarquee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhtHorizontalMarquee.h; sourceTree = "<group>"; };
+		AD11509E20C8D1550074B454 /* JhtVerticalMarquee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhtVerticalMarquee.h; sourceTree = "<group>"; };
+		AD11509F20C8D1550074B454 /* JhtMarqueeSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = JhtMarqueeSDK.a; sourceTree = "<group>"; };
+		AD1150A020C8D1550074B454 /* JhtMarqueeSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhtMarqueeSDK.h; sourceTree = "<group>"; };
+		AD1150A620C8DE4B0074B454 /* TXScrollLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXScrollLabelView.h; sourceTree = "<group>"; };
+		AD1150A720C8DE4B0074B454 /* UIView+TXFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TXFrame.h"; sourceTree = "<group>"; };
+		AD1150A820C8DE4B0074B454 /* TXScrollLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXScrollLabelView.m; sourceTree = "<group>"; };
+		AD1150A920C8DE4B0074B454 /* UIView+TXFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TXFrame.m"; sourceTree = "<group>"; };
 		AD116F5520C1591B0000975C /* diamond.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = diamond.mp3; sourceTree = "<group>"; };
 		AD23F6CC20B5126A0057E662 /* ATSkipTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSkipTool.h; sourceTree = "<group>"; };
 		AD23F6CD20B5126B0057E662 /* ATSkipTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSkipTool.m; sourceTree = "<group>"; };
@@ -939,6 +950,7 @@
 				AD23F76020B6AF7A0057E662 /* CoreTelephony.framework in Frameworks */,
 				AD23F76220B6AF860057E662 /* SystemConfiguration.framework in Frameworks */,
 				AD23F75E20B6AF670057E662 /* libsqlite3.tbd in Frameworks */,
+				AD1150A120C8D1550074B454 /* JhtMarqueeSDK.a in Frameworks */,
 				AD23F75C20B6AF490057E662 /* libz.tbd in Frameworks */,
 				AD23F75A20B6ADE40057E662 /* UserNotifications.framework in Frameworks */,
 				ADE1264620B2E84F00F6E172 /* libSocialWeChat.a in Frameworks */,
@@ -1213,6 +1225,36 @@
 				06ED219B20B436EC008F44FE /* ViewController+MASAdditions.m */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		AD11509B20C8D1550074B454 /* 跑马灯 */ = {
+			isa = PBXGroup;
+			children = (
+				AD11509C20C8D1550074B454 /* JhtMarqueeSDK */,
+			);
+			path = "跑马灯";
+			sourceTree = "<group>";
+		};
+		AD11509C20C8D1550074B454 /* JhtMarqueeSDK */ = {
+			isa = PBXGroup;
+			children = (
+				AD11509D20C8D1550074B454 /* JhtHorizontalMarquee.h */,
+				AD11509E20C8D1550074B454 /* JhtVerticalMarquee.h */,
+				AD11509F20C8D1550074B454 /* JhtMarqueeSDK.a */,
+				AD1150A020C8D1550074B454 /* JhtMarqueeSDK.h */,
+			);
+			path = JhtMarqueeSDK;
+			sourceTree = "<group>";
+		};
+		AD1150A520C8DE4B0074B454 /* TXScrollLabelView */ = {
+			isa = PBXGroup;
+			children = (
+				AD1150A620C8DE4B0074B454 /* TXScrollLabelView.h */,
+				AD1150A720C8DE4B0074B454 /* UIView+TXFrame.h */,
+				AD1150A820C8DE4B0074B454 /* TXScrollLabelView.m */,
+				AD1150A920C8DE4B0074B454 /* UIView+TXFrame.m */,
+			);
+			path = TXScrollLabelView;
 			sourceTree = "<group>";
 		};
 		AD23F6DC20B569290057E662 /* SDCycleScrollView */ = {
@@ -2107,6 +2149,8 @@
 		ADE1266F20B2E8D400F6E172 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				AD1150A520C8DE4B0074B454 /* TXScrollLabelView */,
+				AD11509B20C8D1550074B454 /* 跑马灯 */,
 				0400764620C15A5100EF21DC /* WBAudioPlayerHelper */,
 				ADACD0A720BFEC7C00EE21F6 /* YYLrefresh */,
 				ADACD09B20BFE59200EE21F6 /* GzwScrollViewExtension */,
@@ -2606,6 +2650,7 @@
 				04D3EA3620BD61A100F9A96D /* KMQRCode.m in Sources */,
 				ADE126D020B2EB4F00F6E172 /* NSNumber+WHNumber.m in Sources */,
 				ADE125B120B2E84F00F6E172 /* UIImage+MultiFormat.m in Sources */,
+				AD1150AB20C8DE4B0074B454 /* UIView+TXFrame.m in Sources */,
 				ADE125B920B2E84F00F6E172 /* SDWebImageDownloaderOperation.m in Sources */,
 				ADE126E020B2EB4F00F6E172 /* UITableView+WHTableView.m in Sources */,
 				AD23F6EC20B569290057E662 /* SDCycleScrollView.m in Sources */,
@@ -2722,6 +2767,7 @@
 				AD6EA3CD20B43B7100F61B33 /* BCVerticalBttton.m in Sources */,
 				04D3EA3F20BEB09B00F9A96D /* BCMePassWordController.m in Sources */,
 				04B6320520B54E7700D063B8 /* BCMeTangGuoJiLuMode.m in Sources */,
+				AD1150AA20C8DE4B0074B454 /* TXScrollLabelView.m in Sources */,
 				ADE125AA20B2E84F00F6E172 /* UIImage+ForceDecode.m in Sources */,
 				0487043120B7E940005C77DA /* BCHomeDetailDownCell.m in Sources */,
 				ADE1270320B2ED4D00F6E172 /* AFHTTPSessionManager.m in Sources */,
@@ -2921,6 +2967,7 @@
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/WeChat",
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/Sina",
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/BlockChain/BCClass/Tools/跑马灯/JhtMarqueeSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain;
@@ -2961,6 +3008,7 @@
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/WeChat",
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/Sina",
 					"$(PROJECT_DIR)/BlockChain/BCClass/Libs/iOS/share/share_ios_6.9.2/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/BlockChain/BCClass/Tools/跑马灯/JhtMarqueeSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lg.blockchain;
