@@ -108,7 +108,7 @@ static NSString * const atmessageID = @"ATMessageCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"清除消息" color:[UIColor whiteColor] highlightColor:[UIColor whiteColor] target:self action: @selector(cleanBtClick) ];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"全部已读" color:[UIColor whiteColor] highlightColor:[UIColor whiteColor] target:self action: @selector(cleanBtClick) ];
     self.navigationItem.title = @"消息";
     [self setTable];
     [self getmessageBageVlue];
@@ -126,7 +126,7 @@ static NSString * const atmessageID = @"ATMessageCell";
     [cleanBt setTitleColor:bkColor forState:UIControlStateNormal];
     [cleanBt setTitle:@"清除消息" forState:UIControlStateNormal];
     cleanBt.titleLabel.font = [UIFont systemFontOfSize:16];
-    [cleanBt addTarget:self action:@selector(cleanBtClick) forControlEvents:UIControlEventTouchUpInside];
+    [cleanBt addTarget:self action:@selector(cleanBtClick1) forControlEvents:UIControlEventTouchUpInside];
     [bootomTabar addSubview:cleanBt];
     
     UIButton * readBt = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -138,12 +138,29 @@ static NSString * const atmessageID = @"ATMessageCell";
     [bootomTabar addSubview:readBt];
     [readBt addTarget:self action:@selector(readBtClick) forControlEvents:UIControlEventTouchUpInside];
 }
+-(void)cleanBtClick1{
+    
+        [[DataBase sharedDataBase] deleteAllMessage];
+        [self getmessageBageVlue];
+}
 -(void)cleanBtClick{
-
+   
+    for (int i= 0; i<self.datas.count; i++) {
+          SAMessageModel * messageModel  = self.datas[i];
+           messageModel.bageVlue = @"1";
+         [[DataBase sharedDataBase] updateMessage:messageModel];
+        
+    }
+    
+    [self.tableView reloadData];
+     [self getmessageBageVlue];
+//    BCMessageDetailsViewController * detailsV = [[BCMessageDetailsViewController alloc] init];
+//    detailsV.messageModel = messageModel;
+//    [self.navigationController pushViewController:detailsV animated:YES];
   
 
-    [[DataBase sharedDataBase] deleteAllMessage];
-    [self getmessageBageVlue];
+//    [[DataBase sharedDataBase] deleteAllMessage];
+//    [self getmessageBageVlue];
 }
 -(void)readBtClick{
 //[[DataBase sharedDataBase] readMessage];

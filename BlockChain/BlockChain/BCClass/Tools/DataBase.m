@@ -187,11 +187,11 @@ static DataBase *_DBCtl = nil;
           messageModel.bageVlue = [res stringForColumn:@"bageVlue"];
         
         [dataArray addObject:messageModel];
-        NSArray* reversedArray = [[dataArray reverseObjectEnumerator] allObjects];
-        [dataArray removeAllObjects];
-        [dataArray addObjectsFromArray:reversedArray];
+       
     }
-    
+    NSArray* reversedArray = [[dataArray reverseObjectEnumerator] allObjects];
+    [dataArray removeAllObjects];
+    [dataArray addObjectsFromArray:reversedArray];
     [_db close];
     
     
