@@ -239,7 +239,7 @@
     self.lable3.text =@"已完成";
     self.number1.text= [NSString stringWithFormat:@"%@",model.userInfo.compute];
     self.number2.text= [NSString stringWithFormat:@"%@次",model.taskInfo.max];
-    self.number3.text= [NSString stringWithFormat:@"%@次",model.taskInfo.doneCount];
+    self.number3.text= [NSString stringWithFormat:@"%@次",model.finish];
     [self.fenXiangBtn setTitle:@"分享" forState:UIControlStateNormal];
     self.message.text= @"好友使用任务邀请码注册成功即可获得奖励\n成功分享3次即可完成1次任务";
     }

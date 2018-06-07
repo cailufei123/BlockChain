@@ -80,6 +80,7 @@
                 [self.invitationStrenthBt setImage:[UIImage imageNamed:@"完成"] forState:UIControlStateNormal];
 //                [self.invitationStrenthBt layercornerRadius:11];
                   self.invitationStrenthBt.selected = YES;
+                  [self.invitationStrenthBt setTitle:@"已完成" forState:UIControlStateNormal];
             }
            
         }else if([platTaskLogModel.taskId isEqualToString:@"1012"]) {//每日登录,
@@ -94,6 +95,7 @@
             }else if([platTaskLogModel.status isEqualToString:@"1"]){
                 [self.dayLoginStrengthBt setBackgroundColor:[UIColor whiteColor]];
                 [self.dayLoginStrengthBt setImage:[UIImage imageNamed:@"完成"] forState:UIControlStateNormal];
+                 [self.dayLoginStrengthBt setTitle:@"已完成" forState:UIControlStateNormal];
                 //                [self.invitationStrenthBt layercornerRadius:11];
                   self.dayLoginStrengthBt.selected = YES;
             }
@@ -112,6 +114,7 @@
                 [self.tbcStrengthBt setImage:[UIImage imageNamed:@"完成"] forState:UIControlStateNormal];
                 //                [self.invitationStrenthBt layercornerRadius:11];
                   self.tbcStrengthBt.selected = YES;
+                  [self.tbcStrengthBt setTitle:@"已完成" forState:UIControlStateNormal];
             }
            
         }

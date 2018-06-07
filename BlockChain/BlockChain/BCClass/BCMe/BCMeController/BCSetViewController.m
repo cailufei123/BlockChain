@@ -52,9 +52,17 @@
     [self statusl];
 
 
-    
+    self.acountLb.text =[self numberSuitScanf: loginMe.mobile];
   
 }
+-(NSString *)numberSuitScanf:(NSString*)number{
+    
+    NSString *numberString = [number stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    
+    return numberString;
+}
+
+
 -(void)statusl{
     NSString * agreementStr = @"去认证";
     if ([self.model.authStatus isEqualToString:@"1"]) {
