@@ -476,8 +476,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     };
     self.homeTopView.purpleStone  = ^{
         BCMePDCListController *pdcV = [[BCMePDCListController alloc] init];
-        pdcV.code = @"TBC";
-        
+        pdcV.code = @"LLMC";
         [weakSelf.navigationController pushViewController:pdcV animated:YES];
     };
 //    self.tableView.tableHeaderView =  self.homeTopView;

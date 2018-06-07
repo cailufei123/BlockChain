@@ -28,7 +28,7 @@
 
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
-@property(nonatomic,assign)NSInteger page;
+@property(nonatomic,assign)NSUInteger page;
 
 @property(nonatomic,strong)NSMutableArray *zonglistArray;
 
@@ -194,7 +194,7 @@
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id
     candyDict[@"size"] = @20;//糖果id
-    candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
+    candyDict[@"page"] = [NSString stringWithFormat:@"%zd",self.page];//糖果id
     
     [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];

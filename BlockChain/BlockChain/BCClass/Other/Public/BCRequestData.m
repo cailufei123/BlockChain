@@ -36,6 +36,7 @@
     
     [LFHttpTool post:MY_TOKEN_LIST params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
+        NSLog(@"%@",MY_TOKEN_LIST);
         
         //[responseObj writeToFile:@"/Users/mac/Desktop/plist/abc.plist" atomically:YES];
         LFLog(@"==%@",responseObj);
@@ -54,11 +55,10 @@
     }];
 }
 +(void)get_token_Detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
-    
+    NSLog(@"%@",TOKEN_DETAIL);
     [LFHttpTool post:TOKEN_DETAIL params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        
-        [responseObj writeToFile:@"/Users/mac/Desktop/plist/aaa.plist" atomically:YES];
+        //[responseObj writeToFile:@"/Users/mac/Desktop/plist/aaa.plist" atomically:YES];
         LFLog(@"==%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {

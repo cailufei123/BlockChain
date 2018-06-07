@@ -63,6 +63,7 @@
 -(void)getmessageBageVlu{
 //    [self computeReddot];
 }
+
 //-(void)computeReddot{
 //    NSMutableArray * datas1 = [[DataBase sharedDataBase] lookUpWith:@"0"];
 //
