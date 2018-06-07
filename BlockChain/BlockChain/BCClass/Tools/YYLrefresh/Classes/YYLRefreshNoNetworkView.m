@@ -31,7 +31,7 @@
 
 - (UIImageView *)tipImageView {
     if (!_tipImageView) {
-        _tipImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RefreshTableView.bundle/refreshtableview_nonetwork.png" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil]];
+        _tipImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"无信号" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil]];
     }
     return _tipImageView;
 }
@@ -63,6 +63,7 @@
     }
     return _tipButton;
 }
+
 
 - (void)tipButtonClick:(UIButton *)button {
 //    [RCAlertView showLoadingWithTitle:kLoading inView:self.superview.superview];
