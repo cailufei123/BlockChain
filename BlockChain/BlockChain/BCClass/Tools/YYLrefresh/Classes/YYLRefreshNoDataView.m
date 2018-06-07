@@ -30,7 +30,7 @@
 - (UIImageView *)tipImageView {
     if (!_tipImageView) {
         
-        _tipImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RefreshTableView.bundle/refreshtableview_defaultnodata" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil]];
+        _tipImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"无消息" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil]];
     }
     return _tipImageView;
 }
