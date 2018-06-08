@@ -57,7 +57,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
         [self.homeTopView.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
         
     }];
-     [self loadHomeCandyLis];
+//     [self loadHomeCandyLis];
 }
 
     
