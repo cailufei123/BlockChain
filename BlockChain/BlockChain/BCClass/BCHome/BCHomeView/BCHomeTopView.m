@@ -397,7 +397,7 @@
         self.pleStone = [pleStoneStr doubleValue];
         [self.purpleStoneBt setTitle:[NSString stringWithFormat:@"紫钻：%@",responseObj[@"data"][@"coin"]]forState:UIControlStateNormal];
         [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
-        
+    
     }];
     
 }

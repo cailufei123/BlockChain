@@ -47,6 +47,10 @@
 @property(nonatomic,strong)NSString * huanId;
 @property(nonatomic,strong)NSString * sUid;
 @property(nonatomic,strong)NSString * taskStatusVo;
-@property(nonatomic,strong)NSString * isRegister;
+@property(nonatomic,strong)NSString * isRegister;//0 注册 1 登录
+
+
+
+
 
 @end
