@@ -34,7 +34,7 @@
 + (void)registUserDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:USER_REGISTER params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+          LFLog(@"%@",responseObj);
           [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
