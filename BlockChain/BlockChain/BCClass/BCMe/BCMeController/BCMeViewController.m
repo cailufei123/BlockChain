@@ -188,7 +188,10 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
       
         //判断网络
+        noDataHeight =HeaderViewHeight;
         self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
+        noDataHeight =0;
+        
         if (self.listArray.count>0) {
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
         }

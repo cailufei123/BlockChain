@@ -91,6 +91,8 @@ UIKIT_EXTERN NSString  *const downUrl;
 
 UIKIT_EXTERN CGFloat    noDataHeight;
 
+UIKIT_EXTERN CGFloat    PDCHeaderHeight;
+
 //请求
 /** 返回的code码 */
 #define REQUEST_CODE responseObject[@"code"]
