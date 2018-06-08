@@ -181,7 +181,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 }
 
 -(void)setNaviTitle{
-    self.navigationItem.title=@"糖果派";
+    self.navigationItem.title=@"雷鹿财富";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(17)),
        NSForegroundColorAttributeName:naverTextColor}];

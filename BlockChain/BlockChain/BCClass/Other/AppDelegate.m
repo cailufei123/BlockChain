@@ -14,6 +14,8 @@
 #import <UMPush/UMessage.h>
 #import <UMAnalytics/MobClickGameAnalytics.h>
 #import "BCLoginController.h"
+#import <UMCommon/UMCommon.h>//统计用框架
+
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
@@ -22,7 +24,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   
+    
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     self.window.backgroundColor = [UIColor whiteColor];
@@ -30,13 +32,28 @@
    [self.window makeKeyAndVisible];
     [LKControllerTool chooseRootViewController];
     
+
     [self configUSharePlatforms];//分享登陆
     [self uMessageNotificatiodidFinishLaunchingWithOptions:launchOptions];//友盟推送
     [self taskeEveryDay];
- 
-    
+    //新增友盟统计
+    [self addConfigUMCommon];
     return YES;
 }
+-(void)addConfigUMCommon{
+    //输出可供调试参考的log信息.显示打印的日志，发布产品时必须设置为NO
+    [UMConfigure setLogEnabled:YES];//设置打开日志
+    //增加统计方法
+    [UMConfigure initWithAppkey:@"5b0780deb27b0a78c6000016" channel:nil];
+    NSString* deviceID =  [UMConfigure deviceIDForIntegration];
+    if ([deviceID isKindOfClass:[NSString class]]) {
+        NSLog(@"服务器端成功返回deviceID");
+    }
+    else{
+        NSLog(@"服务器端还没有返回deviceID");
+    }
+}
+
 -(void)taskeEveryDay{
     NSMutableDictionary * taskeEveryDayDict = diction;
     taskeEveryDayDict[@"token"] = loginToken;
@@ -162,7 +179,7 @@
         NSString *dateStr = [fmt stringFromDate:data];
         messageModel.timeStr = dateStr;
         [[DataBase sharedDataBase] addMessage:messageModel];
-        //        [[NSNotificationCenter defaultCenter] postNotificationName:pushRefresh object:nil];
+        // [[NSNotificationCenter defaultCenter] postNotificationName:pushRefresh object:nil];
     }else{
         
         //应用处于前台时的本地推送接受
@@ -176,6 +193,7 @@
     NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
     return timeString;
 }
+
 //iOS10新增：处理后台点击通知的代理方法
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler{
     NSDictionary * userInfo = response.notification.request.content.userInfo;
