@@ -22,7 +22,7 @@
 #import "BCTangGuoListMode.h"
 #import "KMQRCode.h"
 #import "BCGamePlayController.h"
-#import "BCMeNoShuJuView.h"
+
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -37,7 +37,7 @@
 @property(nonatomic,assign)BOOL isRresh;
 
 
-@property(nonatomic,strong)BCMeNoShuJuView *noView;
+//@property(nonatomic,strong)BCMeNoShuJuView *noView;
 @end
 
 @implementation BCMeViewController
@@ -105,15 +105,15 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 }
 
 /**无数据view**/
--(BCMeNoShuJuView *)noView{
-    if (!_noView) {
-        _noView = [[BCMeNoShuJuView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellNoShuJuHeight)];
-        _noView.centerIcon.image =[UIImage imageNamed:@"无消息"];
-        _noView.message.text = @"暂无数据";
-        _noView.backgroundColor =[UIColor whiteColor];
-    }
-    return _noView;
-}
+//-(BCMeNoShuJuView *)noView{
+//    if (!_noView) {
+//        _noView = [[BCMeNoShuJuView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellNoShuJuHeight)];
+//        _noView.centerIcon.image =[UIImage imageNamed:@"无消息"];
+//        _noView.message.text = @"暂无数据";
+//        _noView.backgroundColor =[UIColor whiteColor];
+//    }
+//    return _noView;
+//}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -161,11 +161,6 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
         //[MBManager hideAlert];
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
-//        //判断是否有网络
-//        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
-//        if (model!=nil) {
-//            self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
-//        }
         self.meModel=model;
         [self loadListData];//请求list数据
          [LFAccountTool saveMe:model];
@@ -186,9 +181,12 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         self.meModel.coin = model.coin;
         self.meHeaderView.model =self.meModel;//传递数据
         self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
-      
+        [self.listArray removeAllObjects];
         //判断网络
+        noDataHeight =HeaderViewHeight;
         self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
+        noDataHeight =0;
+        
         if (self.listArray.count>0) {
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
         }

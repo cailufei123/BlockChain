@@ -17,6 +17,8 @@
 
 -(void)xiaQingBtnClickWithModel:(BCMePDCMode *)model;
 
+-(void)getHeight:(CGFloat)height;
+
 @end
 
 @interface BCMePDCListUpCell : UITableViewCell

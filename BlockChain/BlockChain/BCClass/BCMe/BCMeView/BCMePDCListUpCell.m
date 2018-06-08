@@ -296,6 +296,9 @@
             self.smallBgView.backgroundColor = [colorB0ADFC colorWithAlphaComponent:0.5];
             self.line.backgroundColor = colorE5E7E9;
             self.downView.backgroundColor =naverTextColor;
+//            [self layoutIfNeeded];
+//            [self setNeedsLayout];
+//           PDCHeaderHeight=  self.line1.xmg_bottom;
         }
     }
 }
