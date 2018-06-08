@@ -22,6 +22,7 @@
 #import "BCTangGuoListMode.h"
 #import "KMQRCode.h"
 #import "BCGamePlayController.h"
+#import "BCMeNoShuJuView.h"
 
 @interface BCMeViewController ()<UITableViewDataSource,UITableViewDelegate,BCMeHeaderViewDelegate,BCMeTableViewCellDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -33,9 +34,10 @@
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
 @property(nonatomic,strong)UIImage *Qiamge;
+@property(nonatomic,assign)BOOL isRresh;
 
 
-
+@property(nonatomic,strong)BCMeNoShuJuView *noView;
 @end
 
 @implementation BCMeViewController
@@ -43,9 +45,13 @@
 static NSString * const cellidenfder = @"BCMeTableViewCell";
 
 #define HeaderViewHeight   (SYRealValue(230))  //顶部view高度
+
+#define cellNoShuJuHeight  (SCREEN_HEIGHT-(SYRealValue(230))-kTabBarHeight-kTabBarHeight)  //无网络数据的view高度
+
 /***数据源***/
 -(NSMutableArray *)headerArray{
     if (!_headerArray) {
+        
         _headerArray= [NSMutableArray array];
     }
     return _headerArray;
@@ -86,26 +92,42 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     return _tableView;
 }
 
+
 /**顶部view**/
 -(BCMeHeaderView *)meHeaderView{
     if (!_meHeaderView) {
         _meHeaderView = [[BCMeHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, HeaderViewHeight)];
         _meHeaderView.delegate=self;
 //        _meHeaderView.model =self.meModel;
-        _meHeaderView.backgroundColor =[UIColor redColor];
+        //_meHeaderView.backgroundColor =[UIColor redColor];
     }
     return _meHeaderView;
 }
 
+/**无数据view**/
+-(BCMeNoShuJuView *)noView{
+    if (!_noView) {
+        _noView = [[BCMeNoShuJuView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellNoShuJuHeight)];
+        _noView.centerIcon.image =[UIImage imageNamed:@"无消息"];
+        _noView.message.text = @"暂无数据";
+        _noView.backgroundColor =[UIColor whiteColor];
+    }
+    return _noView;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //加载数据
+    [self loadNewData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
     //设置导航栏
     [self setNaviTitle];
     //增加下拉刷新
     //[self createRefresh];
-    //加载数据
-    [self loadNewData];
+   
     //设置导航按钮
     [self setupUIBarButtonItem];
     //初始化tableivew
@@ -129,7 +151,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 
 //下拉加载
 -(void)loadNewData{
-    [MBManager showWaitingWithTitle:@"加载.."];
+    //[MBManager showWaitingWithTitle:@"加载.."];
     [self loadUpData];
 }
 
@@ -137,13 +159,13 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
-        [MBManager hideAlert];
+        //[MBManager hideAlert];
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
-        //判断是否有网络
-        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
-        if (model!=nil) {
-            self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
-        }
+//        //判断是否有网络
+//        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
+//        if (model!=nil) {
+//            self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
+//        }
         self.meModel=model;
         [self loadListData];//请求list数据
          [LFAccountTool saveMe:model];
@@ -159,16 +181,18 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     candyDict[@"token"] = loginToken;
     [self.listArray removeAllObjects];
     [BCRequestData get_Token_List_Dict:candyDict success:^(id responseObject) {
-        [MBManager hideAlert];
+        //[MBManager hideAlert];
         BCMeDownModel *model = [BCMeDownModel mj_objectWithKeyValues:responseObject[@"data"]];
         self.meModel.coin = model.coin;
         self.meHeaderView.model =self.meModel;//传递数据
         self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
+      
         //判断网络
-        self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
+        self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
         if (self.listArray.count>0) {
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
         }
+        //self.isRresh =YES;//刷新
         [self.tableView reloadData];
     } erorr:^(id error) {
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
@@ -186,6 +210,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
      @{NSFontAttributeName:FONT(@"PingFangSC-Regular", SXRealValue(17)),
        NSForegroundColorAttributeName:naverTextColor}];
 }
+
 //右边边导航控制器右边item
 - (void)setupUIBarButtonItem {
     UIBarButtonItem *rightItemButton =[UIBarButtonItem itemWithImage:@"me_set_icon" hightImage:nil target:self action:@selector(onNavButtonTapped:event:)];
@@ -242,10 +267,20 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 {
         return  (SYRealValue(13)) ;
 }
+
+////新增加
 //-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 //{
-//    return 50;
+//    return (self.listArray.count<1 && self.isRresh==YES) ? cellNoShuJuHeight : 0.01;
 //}
+//
+////返回高度
+//-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//
+//    return (self.listArray.count<1 && self.isRresh==YES) ? self.noView : nil;
+//}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
