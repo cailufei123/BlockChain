@@ -102,6 +102,7 @@ static char isFirstLoadingKey;
 
 - (UIView *)refreshNoDataView {
     UIView *rNoDataView = objc_getAssociatedObject(self, &refreshNoDataViewKey);
+  
     if (!rNoDataView) {
         CGRect frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         rNoDataView = [[YYLRefreshNoDataView alloc] initWithFrame:frame];
@@ -166,6 +167,7 @@ static char isFirstLoadingKey;
 }
 
 - (void)setLoadErrorType:(YYLLoadErrorType)loadErrorType {
+
     if (self.refreshNoNetworkView.superview) [self.refreshNoNetworkView removeFromSuperview];
     if (self.refreshRequestErrorView.superview) [self.refreshRequestErrorView removeFromSuperview];
     if (self.refreshNoDataView.superview) [self.refreshNoDataView removeFromSuperview];
@@ -194,8 +196,8 @@ static char isFirstLoadingKey;
         [self.refreshNoDataView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.width.mas_equalTo(self.mas_width);
-            make.top.mas_equalTo(0);
-            make.height.mas_equalTo(self.mas_height);
+            make.top.mas_equalTo(noDataHeight);
+            make.height.mas_equalTo(LFscreenH-noDataHeight);
         }];
     }
     objc_setAssociatedObject(self, &loadErrorTypeKey, @(loadErrorType), OBJC_ASSOCIATION_ASSIGN);

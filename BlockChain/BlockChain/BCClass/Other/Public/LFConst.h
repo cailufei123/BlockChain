@@ -89,6 +89,7 @@ UIKIT_EXTERN NSString  *const skipHomeNotice;
 /**下载地址*/
 UIKIT_EXTERN NSString  *const downUrl;
 
+UIKIT_EXTERN CGFloat    noDataHeight;
 
 //请求
 /** 返回的code码 */

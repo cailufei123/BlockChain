@@ -83,3 +83,5 @@ NSString * const paySucess = @"paySucess";
 NSString * const cheackVourcherLastTime = @"cheackVourcherLastTime";
 /**跳转到首页通知*/
 NSString * const skipHomeNotice = @"skipHomeNotice";
+CGFloat    noDataHeight = 0;
+
