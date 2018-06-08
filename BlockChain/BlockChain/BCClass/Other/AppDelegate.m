@@ -161,14 +161,14 @@
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
     NSDictionary * userInfo = notification.request.content.userInfo;
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-//        {"msg_title":"糖果任务","msg_content":"糖果邀请码由为用户邀请码 AD7VPP+糖果ID 001组成，可以多次分享但糖果邀请码的使用次数和奖励领取次数（即每个任务的完成次数）与用户算力有关，详见《算力收益参数表》","msg_type":"0","msg_tag":"0","skip_type":"0","skip_id":"0"}
+
         //应用处于前台时的远程推送接受
         [UMessage setAutoAlert:NO];
         //必须加这句代码
         [UMessage didReceiveRemoteNotification:userInfo];
         LFLog(@"%@",userInfo);
         LFLog(@"%@",[userInfo[@"custom"] mj_JSONObject ]);
-   NSString * msg_id = [self currentTimeStr];
+        NSString * msg_id = [self currentTimeStr];
         SAMessageModel * messageModel = [SAMessageModel mj_objectWithKeyValues:[userInfo[@"aps"][@"custom"] mj_JSONObject ]];
         messageModel.bageVlue = @"0";
            messageModel.msg_id = msg_id;
@@ -178,7 +178,6 @@
         fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
         NSString *dateStr = [fmt stringFromDate:data];
         messageModel.timeStr = dateStr;
-       
         [[DataBase sharedDataBase] addMessage:messageModel];
         // [[NSNotificationCenter defaultCenter] postNotificationName:pushRefresh object:nil];
     }else{
@@ -205,29 +204,33 @@
         //        [nvc pushViewController:orderListCtrl animated:YES];
         if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {//应用处于前台
             
-            SATabBarController * tabar =  (SATabBarController * )self.window.rootViewController;
-            tabar.selectedIndex = 0;
+//            SATabBarController * tabar =  (SATabBarController * )self.window.rootViewController;
+//            tabar.selectedIndex = 0;
         }else{
             LFLog(@"%@",userInfo);
-            SAMessageModel * messageModel = [SAMessageModel mj_objectWithKeyValues:[userInfo[@"custom"] mj_JSONObject ]];
+               NSString * msg_id = [self currentTimeStr];
+            SAMessageModel * messageModel = [SAMessageModel mj_objectWithKeyValues:[userInfo[@"aps"][@"custom"] mj_JSONObject ]];
             
             NSArray * allarray = [[DataBase sharedDataBase] getAllMessage];
             for ( SAMessageModel * messageMode  in allarray) {
-                if ([messageMode. skip_id isEqualToString:messageModel.skip_id]) {
+                if ([messageMode. msg_id isEqualToString:messageModel.msg_id]) {
                     return;
                 }
             }
+           
+            messageModel.bageVlue = @"0";
+            messageModel.msg_id = msg_id;
             NSDate * data  =[NSDate date];
             NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
             fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
             fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
             NSString *dateStr = [fmt stringFromDate:data];
             messageModel.timeStr = dateStr;
-          
             [[DataBase sharedDataBase] addMessage:messageModel];
-            //            [[NSNotificationCenter defaultCenter] postNotificationName:pushRefresh object:nil];
-            SATabBarController * tabar =  (SATabBarController * )self.window.rootViewController;
-            tabar.selectedIndex = 0;
+ 
+            
+            
+         
         }
         
         
