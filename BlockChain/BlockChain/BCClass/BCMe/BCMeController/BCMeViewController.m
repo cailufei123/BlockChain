@@ -181,7 +181,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         self.meModel.coin = model.coin;
         self.meHeaderView.model =self.meModel;//传递数据
         self.listArray = [BCTangGuoListMode mj_objectArrayWithKeyValuesArray:model.list];
-        [self.listArray removeAllObjects];
+        
         //判断网络
         noDataHeight =HeaderViewHeight;
         self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
