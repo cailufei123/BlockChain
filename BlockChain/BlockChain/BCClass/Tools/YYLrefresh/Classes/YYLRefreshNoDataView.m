@@ -23,7 +23,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.tipImageView.frame = CGRectMake((self.bounds.size.width - 150)/2, 130, 150, 150);
+    self.tipImageView.frame = CGRectMake((self.bounds.size.width - 150)/2, self.tipImageView.frame.size.height/2-30, 150, 150);
     self.tipLabel.frame = CGRectMake(0, self.tipImageView.frame.origin.y + self.tipImageView.frame.size.height + 20, self.frame.size.width, 20);
 }
 
