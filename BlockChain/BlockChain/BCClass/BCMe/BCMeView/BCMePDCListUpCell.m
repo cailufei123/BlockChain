@@ -269,6 +269,7 @@
     _model =model;
     if (model!=nil) {
         if (model.partner!=nil) {
+           
             if (model.uci.coin.wby_isPureInt) {//整型
                 self.price.text=[NSString stringWithFormat:@"%.1f",model.uci.coin.floatValue];
             }else{//整形
