@@ -115,7 +115,11 @@
         self.name.text = [NSString stringWithFormat:@"领取%@",model.name];
         self.time.text= model.createTime;
         self.type.text =model.code;
-        self.price.text=[NSString stringWithFormat:@"+%.1f",[model.price floatValue]];
+        if ([model.price integerValue]<0) {
+            self.price.text=[NSString stringWithFormat:@"%.1f",[model.price floatValue]];
+        }else{
+            self.price.text=[NSString stringWithFormat:@"+%.1f",[model.price floatValue]];
+        }
         self.line.backgroundColor = colorE5E7E9;
         self.backgroundColor =naverTextColor;
     }

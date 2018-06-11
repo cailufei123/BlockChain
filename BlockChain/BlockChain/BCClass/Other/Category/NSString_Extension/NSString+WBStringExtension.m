@@ -29,6 +29,76 @@
 }
 
 
+/**获取无空格字符串*/
++(NSString *)wby_getNoSpaceText:(NSString *)text {
+    if (text.length == 0) text = @"0";
+    text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    text = [text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    return text;
+}
+
+
+-(NSString *)wby_getNoBeforeAndAfterSpaceText {
+    //    if (text.length == 0) text = @"游客";
+   NSString *text =  [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return text;
+}
+
+
+//iOS 开发中判断字符串是否为空字符串的方法,包括@“ ”
+//仅限于NSString
+-(BOOL)wby_isBlankString{
+    if (![self isKindOfClass:[NSString class]]) {
+        return YES;
+    }else if (self == nil){
+        return YES;
+    }
+    if ([self isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    if ([self isEqualToString:@"(null)"]) {
+        return YES;
+    }
+    if ([self isEqualToString:@"<null>"]) {
+        return YES;
+    }
+    if ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
+        return YES;
+    }
+    return NO;
+}
+
+///**前后无空格字符串*/
+//+(NSString *)getNoBeforeAndAfterSpaceText:(NSString *)text {
+//    //    if (text.length == 0) text = @"游客";
+//    text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//    NSLog(@"text=====%@",text);
+//    return text;
+//}
+
+//+(BOOL)isBlankString:(id)string{
+//    if (![string isKindOfClass:[NSString class]]) {
+//        return YES;
+//    }else if (string == nil){
+//        return YES;
+//    }
+//    if ([string isKindOfClass:[NSNull class]]) {
+//        return YES;
+//    }
+//    if ([string isEqualToString:@"(null)"]) {
+//        return YES;
+//    }
+//    if ([string isEqualToString:@"<null>"]) {
+//        return YES;
+//    }
+//    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
+//        return YES;
+//    }
+//    return NO;
+//}
+
+
 
 
 

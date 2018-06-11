@@ -104,6 +104,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     return _meHeaderView;
 }
 
+
 /**无数据view**/
 //-(BCMeNoShuJuView *)noView{
 //    if (!_noView) {
