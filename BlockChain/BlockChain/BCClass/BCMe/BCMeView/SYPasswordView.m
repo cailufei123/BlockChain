@@ -160,7 +160,7 @@
  */
 - (void)clearUpPassword
 {
-    self.textField.text = @""; 
+    self.textField.text = @"";
     [self textFieldDidChange:self.textField];
 }
 
