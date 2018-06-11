@@ -243,7 +243,7 @@
         [self.footer endRefreshing];
         [self setNaviTitle:@"TBC"];
         [self setNaviImage];
-
+[self.tableView reloadData];
         //设置导航栏颜色
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
@@ -444,7 +444,7 @@
         //添加事件
         BCMePDCListUpCell *cell = [BCMePDCListUpCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
         cell.delegate =self;
-        cell.model =self.PDCmodel;
+        cell.model = self.PDCmodel;
         return cell;
         
     }else{
