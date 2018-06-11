@@ -66,6 +66,8 @@
         CGFloat  showHeight;
         if (IS_IPhoneX) {
             showHeight =SCREENHEIGHT/2+(SYRealValue(63));//让出tabbar
+        }else if (IS_IPHONE5){
+            showHeight=SCREENHEIGHT/2+(SYRealValue(60));
         }else{
             showHeight=SCREENHEIGHT/2+(SYRealValue(84));
         }

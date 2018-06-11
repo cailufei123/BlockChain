@@ -16,4 +16,15 @@
 - (BOOL)wby_isPureFloat;
 
 
+/**获取无空格字符串*/
++(NSString *)wby_getNoSpaceText:(NSString *)text;
+/**前后无空格字符串*/
+//+(NSString *)getNoBeforeAndAfterSpaceText:(NSString *)text;
+
+-(NSString *)wby_getNoBeforeAndAfterSpaceText;
+//iOS 开发中判断字符串是否为空字符串的方法
+//仅限于NSString
+-(BOOL)wby_isBlankString:(id)string;
+
+
 @end

@@ -108,9 +108,13 @@
     if (!_passView) {
         CGFloat  showHeight;
         if (IS_IPhoneX) {
-            showHeight =(SYRealValue(240));
+            showHeight =(SYRealValue(230));
+        }else if(IS_IPHONE5){
+            showHeight=(SYRealValue(180));
+        }else if (IS_IPHONE_6){
+            showHeight=(SYRealValue(180));
         }else{
-            showHeight=(SYRealValue(220));
+            showHeight=(SYRealValue(210));
         }
         _passView = [[SYPasswordView alloc] initWithFrame:CGRectMake(0, showHeight, SCREENWIDTH, SCREEN_HEIGHT-showHeight)];
         _passView.delegate=self;
@@ -360,20 +364,21 @@
         return cell;
     }
 }
+
 //收款钱包
 -(void)changeValue1:(NSString *)chageValue1{
-    self.text1 =chageValue1;
-    self.moneyModel.dizhi =chageValue1;
+    self.text1 =chageValue1.wby_getNoBeforeAndAfterSpaceText;
+    self.moneyModel.dizhi =self.text1;
 }
 //转账金额
 -(void)changeValue2:(NSString *)chageValue2{
     self.text2 =chageValue2;
-    self.moneyModel.zhuanZhangPrice = chageValue2;
+    self.moneyModel.zhuanZhangPrice = self.text2;
 }
 //备注
 -(void)changeValue3:(NSString *)chageValue3{
-    self.text3 =chageValue3;
-    self.moneyModel.beiZhu=chageValue3;
+    self.text3 =chageValue3.wby_getNoBeforeAndAfterSpaceText;
+    self.moneyModel.beiZhu=self.text3;
 }
 
 //体现费用
@@ -388,6 +393,8 @@
         [MBManager showBriefAlert:@"钱包地址不能为空"];
     }else if (kStringIsEmpty(self.text2)){
         [MBManager showBriefAlert:@"请输入转账金额"];
+    }else if (kStringIsEmpty(self.text3)){
+        [MBManager showBriefAlert:@"请输入备注"];
     }else{
         //发送请求接口
         [self requestPay];
@@ -466,6 +473,7 @@
         
     }];
 }
+
 
 //隐藏支付界面和密码界面
 -(void)hiddenTwoView{
