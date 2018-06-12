@@ -113,12 +113,17 @@
     if (model!=nil) {
         //假数据
         self.name.text = [NSString stringWithFormat:@"领取%@",model.name];
-        self.time.text= model.createTime;
-        self.type.text =model.code;
-        if ([model.price integerValue]<0) {
-            self.price.text=[NSString stringWithFormat:@"%.1f",[model.price floatValue]];
+        NSArray *array = [model.createTime componentsSeparatedByString:@"."]; //从字符A中分隔成2个元素的数组
+        if (array.count==2) {
+            self.time.text= array[0];
         }else{
-            self.price.text=[NSString stringWithFormat:@"+%.1f",[model.price floatValue]];
+            self.time.text = model.createTime;
+        }
+        self.type.text =model.code;
+        if ([model.price floatValue]<0) {
+            self.price.text=model.price;
+        }else{
+            self.price.text=[NSString stringWithFormat:@"+%@",model.price];
         }
         self.line.backgroundColor = colorE5E7E9;
         self.backgroundColor =naverTextColor;

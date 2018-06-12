@@ -159,6 +159,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 -(void)loadUpData{
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
+    NSLog(@"%@",USER_INFO);
+    
     [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
         //[MBManager hideAlert];
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
@@ -176,6 +178,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     [self.listArray removeAllObjects];
+    NSLog(@"%@",MY_TOKEN_LIST);
     [BCRequestData get_Token_List_Dict:candyDict success:^(id responseObject) {
         //[MBManager hideAlert];
         BCMeDownModel *model = [BCMeDownModel mj_objectWithKeyValues:responseObject[@"data"]];

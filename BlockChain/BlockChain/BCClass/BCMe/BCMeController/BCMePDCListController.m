@@ -197,13 +197,15 @@
   [self loadData];
     
 }
+                                                                            
 -(void)loadData{
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id
     candyDict[@"size"] = @20;//糖果id
     candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
-    
+    NSLog(@"%@",TOKEN_DETAIL);
+
     [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
     NSMutableArray* listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
