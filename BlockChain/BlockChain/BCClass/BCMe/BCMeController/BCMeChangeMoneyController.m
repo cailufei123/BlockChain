@@ -228,7 +228,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.moneyModel.code =self.code;
-    self.moneyModel.tiXianPrice =@"0.005000";//默认
+    self.moneyModel.tiXianPrice =@"0.001000";//默认
     //添加上下拉刷新
     [self createRefresh];
     //设置导航栏
@@ -451,7 +451,7 @@
     candyDict[@"price"]    = self.moneyModel.zhuanZhangPrice;
     candyDict[@"account"]  = self.moneyModel.dizhi;
     candyDict[@"code"]     = self.moneyModel.code;
-    candyDict[@"ethPrice"] = self.moneyModel.tiXianPrice;
+    candyDict[@"ethPrice"] = self.moneyModel.tiXianPrice;//默认0.001000
     candyDict[@"password"] = [DES3Util encryptUseDES: self.moneyModel.passWord key:@"llcfbcap"];
 //    candyDict[@"password"] = @"kPN5VW7gYww=";
     candyDict[@"remark"]   = self.moneyModel.beiZhu;

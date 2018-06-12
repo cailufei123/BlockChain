@@ -63,7 +63,7 @@
 -(UIImageView *)caiFuIcon{
     if (!_caiFuIcon) {
         _caiFuIcon = [[UIImageView alloc] init];
-        //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
+        _caiFuIcon.contentMode = UIViewContentModeScaleAspectFit;
         //[Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_ziChanIcon];
 //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_caiFuIcon];
     }

@@ -43,7 +43,7 @@
     if (!_invitingView) {
         _invitingView = [[BCMeInvitingFriendsView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
         self.model.token = loginMe.shareCode;//码
-        NSLog(@"lastInviteCount===%@",loginMe.shareCode);
+        //NSLog(@"lastInviteCount===%@",loginMe.shareCode);
         NSString *path = [USER_DEFAULT valueForKey:@"downUrl"];
         // 获取对应颜色的二维码
         UIImage*Qimage=[Util getColorQimageWithPath:path withImageView:nil WithSize:500 withCenterIcon:[UIImage imageNamed:@"lg"] centerIconWidth:SXRealValue(80) withRed:129.0f andGreen:0.0f andBlue:224.0f];
@@ -69,12 +69,12 @@
         }else if (IS_IPHONE5){
             showHeight=SCREENHEIGHT/2+(SYRealValue(60));
         }else{
-            showHeight=SCREENHEIGHT/2+(SYRealValue(84));
+            showHeight=SCREENHEIGHT/2+(SYRealValue(70));
         }
         _shareView = [[BCMeInvitingShareView alloc] initWithFrame:CGRectMake(0, showHeight, SCREENWIDTH, SCREENHEIGHT)];
         self.model.lastInviteCount =loginMe.lastInviteCount;
-        NSLog(@"分享次数==%@",loginMe.lastInviteCount
-              );
+        //NSLog(@"分享次数==%@",loginMe.lastInviteCount
+//              );
         _shareView.model =self.model;
         _shareView.weiXinBtnBlock = ^{//微信分享
             NSLog(@"微信");
@@ -146,7 +146,6 @@
         //[self.voiceView shiFangCeiChun];
         [self.shareView removeFromSuperview];
         [self.BGView1 removeFromSuperview];
-        self.shareView=nil;
         self.BGView1=nil;
         self.shareView=nil;
         weakSelf.isShow=NO;

@@ -24,7 +24,7 @@
 -(UIImageView *)liLuCaiFuIcon{
     if (!_liLuCaiFuIcon) {
         _liLuCaiFuIcon = [[UIImageView alloc] init];
-        //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
+        _liLuCaiFuIcon.contentMode = UIViewContentModeScaleAspectFit;
         //[Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_myIcon];
 //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_liLuCaiFuIcon];
     }

@@ -136,4 +136,7 @@ typedef void (^UIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
 + (UIImage *)imageWithColor:(UIColor *)color;
 
 - (UIImage *)circleImage;
+
+//根据图片drawrect画出想要的图片
++(UIImage *)wby_originImage:(UIImage *)image scaleToSize:(CGSize)size;
 @end
