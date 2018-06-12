@@ -73,7 +73,9 @@
 
 
 
-
+-(void)dealloc{
+    NSLog(@"销毁");
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

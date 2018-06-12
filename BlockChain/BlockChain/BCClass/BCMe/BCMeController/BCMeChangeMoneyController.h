@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+
 @interface BCMeChangeMoneyController : UIViewController
 @property(nonatomic,strong)NSString *code;
+
+@property(nonatomic,strong)NSString *coin;//最大金额
+
+
+
+//是否返回刷新block
+@property(nonatomic,copy)void (^refreshAllData)(BOOL isRefresh);
+
+
 @end

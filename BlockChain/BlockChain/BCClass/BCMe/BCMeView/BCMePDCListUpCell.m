@@ -275,7 +275,6 @@
             }else{//整形
                 self.price.text=[NSString stringWithFormat:@"%@",model.uci.coin];
             }
-             self.price.text=[NSString stringWithFormat:@"%.1f",model.uci.coin.floatValue];
             if (model.uci.rmb.wby_isPureInt) {//整型
                 self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.uci.rmb.floatValue];
             }else{

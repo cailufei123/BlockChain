@@ -41,6 +41,7 @@
 @property(nonatomic,copy)NSString *text3;
 @property(nonatomic,assign)CGFloat value;
 
+@property(nonatomic,strong)BCMeChangeMoneyDownCell *downCell;
 @end
 
 @implementation BCMeChangeMoneyController
@@ -359,6 +360,7 @@
         return cell;
     }else{
         BCMeChangeMoneyDownCell *cell = [BCMeChangeMoneyDownCell getCellWithTableView:tableView cellForRowAtIndexPath:indexPath];
+        self.downCell =cell;
         cell.model =model;
         cell.delegate=self;
         return cell;
@@ -374,6 +376,8 @@
 -(void)changeValue2:(NSString *)chageValue2{
     self.text2 =chageValue2;
     self.moneyModel.zhuanZhangPrice = self.text2;
+    //传递转账金额
+    self.downCell.zhuanZhangPrice = self.text2;
 }
 //备注
 -(void)changeValue3:(NSString *)chageValue3{
@@ -387,6 +391,12 @@
     self.moneyModel.tiXianPrice = sliderValue;
     //NSLog(@"slider==%.6f",self.value);
 }
+
+
+
+//1            100
+//
+//0.001000    0.01000
 //下一步
 -(void)nextBtnClick{
     if (kStringIsEmpty(self.text1)) {//收款钱包为空
@@ -396,8 +406,37 @@
     }else if (kStringIsEmpty(self.text3)){
         [MBManager showBriefAlert:@"请输入备注"];
     }else{
-        //发送请求接口
-        [self requestPay];
+        NSInteger  value =[self.text2 integerValue];
+        if (value == 0) {
+            [MBManager showBriefAlert:@"请重新输入转账金额"];
+            return;
+        }
+        //再次校验,如果是以太币的情况下
+        
+        if ([_moneyModel.code isEqualToString:@"ETH"]) {//如果是以太币
+            CGFloat  textPrice = [self.text2 floatValue];//输入金额
+            CGFloat  shouXuPrice =[_moneyModel.tiXianPrice floatValue];//手续费   1
+            CGFloat  coin =[self.coin floatValue]; //以太币可转账的总金额
+            CGFloat  resultPrice =coin-shouXuPrice;  //可转账总金额-手续费 == 最终可转出的金额
+            
+            if (textPrice>resultPrice) {//输入金额 >最终可转出的金额 提示输入有误
+                [MBManager showBriefAlert:[NSString stringWithFormat:@"最多能转出%.6f %@",resultPrice,_moneyModel.code]];
+            }else{
+                //发送请求接口
+                [self requestPay];
+            }
+        }else{//不是以太币
+            NSLog(@"text2===%f",[self.text2 floatValue]);
+            NSLog(@"coin===%f",[self.coin floatValue]);
+
+            if ([self.text2 floatValue]>[self.coin floatValue]) {
+                [MBManager showBriefAlert:[NSString stringWithFormat:@"最多能转出%.6f %@",self.coin.floatValue,_moneyModel.code]];
+            }else{
+                //发送请求接口
+                [self requestPay];
+            }
+        }
+
     }
 }
 
@@ -460,10 +499,17 @@
     
     [BCRequestData get_yuEr_Dict:candyDict success:^(id responseObject) {//成功
         [weakSelf hiddenTwoView];
+        //刷新数据
+        if(self.refreshAllData){
+            self.refreshAllData(YES);
+        }
     } passwordError:^(NSString *message) {//密码错误
         [weakSelf.passView  clearUpPassword];//清空密码
         NSLog(@"服务器===%@",message);
     } noYuEr:^(NSString *yuer) {//额度不够
+        if(self.refreshAllData){
+            self.refreshAllData(YES);
+        }
         [weakSelf.passView  clearUpPassword];//清空密码
         [weakSelf hiddenTwoView];
         //NSString *message =[NSString stringWithFormat:@"%@%@",self.moneyModel.code,@"余额不足"];
@@ -508,6 +554,9 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)dealloc{
+    NSLog(@"销毁");
+}
 
 
 @end

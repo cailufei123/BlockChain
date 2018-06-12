@@ -36,6 +36,9 @@
 @property(nonatomic,strong)UIView *bottomView;
 
 @property(nonatomic,assign)BOOL isFirstRefresh;//第一次加载
+@property(nonatomic,assign)BOOL isRefresh;//是否刷新
+
+@property(nonatomic,copy)NSString *coin;
 @end
 
 @implementation BCMePDCListController
@@ -116,6 +119,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setNaviImageHidden];
+    //是否刷新
+    if(_isRefresh==YES){
+        [self loadNewData];
+        _isRefresh =NO;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -194,7 +202,7 @@
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id
     candyDict[@"size"] = @20;//糖果id
-    candyDict[@"page"] = [NSString stringWithFormat:@"%zd",self.page];//糖果id
+    candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
     
     [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
@@ -202,6 +210,7 @@
        
         if(self.PDCmodel.partner!=nil){
             [self setNaviTitle:self.PDCmodel.partner.code];
+            self.coin =self.PDCmodel.uci.coin;
             [self setNaviBarHidden:YES setTouMingImage:NO];
             //判断是否有网络
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
@@ -243,7 +252,7 @@
         [self.footer endRefreshing];
         [self setNaviTitle:@"TBC"];
         [self setNaviImage];
-[self.tableView reloadData];
+        [self.tableView reloadData];
         //设置导航栏颜色
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
@@ -341,11 +350,23 @@
 
 #pragma mark - 转账按钮
 -(void)payBtnClick{
+    WS(weakSelf);
     //已进行实名认证
     BCMeChangeMoneyController *moneyVc = [[BCMeChangeMoneyController alloc] init];
+    moneyVc.coin = self.coin;
+    //转账成功回调
+    moneyVc.refreshAllData = ^(BOOL isRefresh) {
+        weakSelf.isRefresh = isRefresh;
+    };
     moneyVc.code =self.code;
     [self.navigationController pushViewController:moneyVc animated:YES];
 }
+#pragma mark -BCMeChangeMoneyControllerDelegate
+-(void)refreshAllData:(BOOL)isRefresh{//刷新数据
+    _isRefresh = isRefresh;
+}
+                                                                            
+                                                                            
 #pragma mark -收款按钮
 -(void)getBtnClick{
     BCMeQRCodeController *QRVc= [[BCMeQRCodeController alloc] init];
@@ -457,7 +478,9 @@
 }
 
 
-
+-(void)dealloc{
+    NSLog(@"销毁");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 

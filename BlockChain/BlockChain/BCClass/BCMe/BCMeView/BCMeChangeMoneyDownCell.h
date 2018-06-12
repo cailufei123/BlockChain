@@ -20,6 +20,9 @@
 @end
 @interface BCMeChangeMoneyDownCell : UITableViewCell
 
+
+@property(nonatomic,copy)NSString *zhuanZhangPrice;
+
 @property(nonatomic,strong)BCMeChangeMoneyMode *model;
 @property (nonatomic, weak) id <BCMeChangeMoneyDownCellDelegate> delegate;
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;

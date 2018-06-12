@@ -48,7 +48,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCMe/BCMeView/BCMeChangeMoneyUpCell.m"
-            timestampString = "550479798.171814"
+            timestampString = "550490129.713051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
@@ -94,12 +94,12 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/BlockChain/BlockChain/BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-                  timestampString = "550479798.399"
+                  timestampString = "550489412.993817"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
                   endingLineNumber = "143"
-                  offsetFromSymbolStart = "403">
+                  offsetFromSymbolStart = "428">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -109,12 +109,12 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/BlockChain/BlockChain/BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-                  timestampString = "550479798.401858"
+                  timestampString = "550489412.99686"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
                   endingLineNumber = "143"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "28">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -124,12 +124,12 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/BlockChain/BlockChain/BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-                  timestampString = "550479798.404451"
+                  timestampString = "550489412.999269"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
                   endingLineNumber = "143"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -211,6 +211,38 @@
             startingLineNumber = "163"
             endingLineNumber = "163"
             landmarkName = "-userNotificationCenter:willPresentNotification:withCompletionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCMe/BCMeController/BCMeChangeMoneyController.m"
+            timestampString = "550490129.713273"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "557"
+            endingLineNumber = "557"
+            landmarkName = "BCMeChangeMoneyController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCMe/BCMeController/BCMeQRCodeController.m"
+            timestampString = "550490129.71334"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

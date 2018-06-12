@@ -29,9 +29,9 @@
 -(UISlider *)slider{
     if (!_slider) {
         _slider =[[UISlider alloc] init];
-        _slider.minimumValue = 1;
-        _slider.maximumValue = 10;
-        _slider.value = 1;
+        _slider.minimumValue = 0.001;
+        _slider.maximumValue = 0.01;
+        _slider.value = 0.001;
         //slider.value = (slider.minimumValue + slider.maximumValue) / 2;// 设置初始值
         //滑块条最小值处设置的图片，默认为nil
         _slider.minimumValueImage = [UIImage imageNamed:@"001.jpeg"];
@@ -222,21 +222,24 @@
 
 -(void)sliderValueChanged:(UISlider *)slider{
   
-     NSString *str = [NSString stringWithFormat:@"%.0f",slider.value];
-    NSInteger value1 = [str integerValue];
+//     NSString *str = [NSString stringWithFormat:@"%.0f",slider.value];
+//    NSInteger value1 = [str integerValue];
     //NSLog(@"value1===%zd",value1);
-    CGFloat floatValue =0.00100;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *value = [NSString stringWithFormat:@"%.6f",floatValue*value1];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.hongLable.text =[NSString stringWithFormat:@"%@ %@",value,@"Ether"];
-                //获取slider数据
-                if (self.delegate && [self.delegate respondsToSelector:@selector(getSliderValue:)]) {
-                    [self.delegate getSliderValue:value];
-                }
-            });
-    });
+//    CGFloat floatValue =0.00100;
+    NSString *value = [NSString stringWithFormat:@"%.6f",slider.value];
+
+    self.hongLable.text =[NSString stringWithFormat:@"%@ %@",value,@"Ether"];
+    //获取slider数据
+    if (self.delegate && [self.delegate respondsToSelector:@selector(getSliderValue:)]) {
+        [self.delegate getSliderValue:value];
+    }
 }
+////获取转账price
+//-(void)setZhuanZhangPrice:(NSString *)zhuanZhangPrice{
+//    _zhuanZhangPrice = zhuanZhangPrice;
+//    //判断
+//    
+//}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
