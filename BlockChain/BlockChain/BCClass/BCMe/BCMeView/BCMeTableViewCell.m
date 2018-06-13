@@ -123,7 +123,11 @@
         [self.moneyImage sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:[UIImage imageNamed:@"金币-2"]];
         self.moneyName.text =model.code;
         self.upPrice.text=[NSString stringWithFormat:@"%@",model.coin];
-        self.downPrice.text = [NSString stringWithFormat:@"≈¥%.1f",[model.rmb floatValue]];
+        if (model.rmb.wby_isPureInt) {//整型
+            self.downPrice.text = [NSString stringWithFormat:@"≈¥%.1f",[model.rmb floatValue]];
+        }else{
+            self.downPrice.text = [NSString stringWithFormat:@"≈¥%@",model.rmb];
+        }
     }
 }
 

@@ -146,8 +146,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     self.tableView.headerRefreshingBlock = ^{
         [weakSelf loadNewData];
     };
-    self.tableView.footerRefreshingBlock = ^{
-    };
+//    self.tableView.footerRefreshingBlock = ^{
+//    };
 }
 
 //下拉加载
@@ -168,6 +168,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         [self loadListData];//请求list数据
          [LFAccountTool saveMe:model];
         [self.header endRefreshing];
+        self.footer.hidden =YES;
     } erorr:^(id error) {//请求失败
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
@@ -190,6 +191,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         noDataHeight =HeaderViewHeight;
         self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
         noDataHeight =0;
+        
         
         if (self.listArray.count>0) {
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
@@ -263,10 +265,11 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     NSLog(@"二维码");
 }
 
+-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section{
+        return  0.01 ;
+}
 
-
--(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
-{
+-(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section{
         return  (SYRealValue(13)) ;
 }
 
