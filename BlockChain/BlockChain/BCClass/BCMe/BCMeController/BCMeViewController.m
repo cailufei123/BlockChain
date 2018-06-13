@@ -146,8 +146,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     self.tableView.headerRefreshingBlock = ^{
         [weakSelf loadNewData];
     };
-    self.tableView.footerRefreshingBlock = ^{
-    };
+//    self.tableView.footerRefreshingBlock = ^{
+//    };
 }
 
 //下拉加载
@@ -159,6 +159,8 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 -(void)loadUpData{
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
+    NSLog(@"%@",USER_INFO);
+    
     [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
         //[MBManager hideAlert];
         BCMeModel *model = [BCMeModel mj_objectWithKeyValues:REQUEST_DATA];
@@ -176,6 +178,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     [self.listArray removeAllObjects];
+    NSLog(@"%@",MY_TOKEN_LIST);
     [BCRequestData get_Token_List_Dict:candyDict success:^(id responseObject) {
         //[MBManager hideAlert];
         BCMeDownModel *model = [BCMeDownModel mj_objectWithKeyValues:responseObject[@"data"]];
@@ -187,6 +190,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         noDataHeight =HeaderViewHeight;
         self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
         noDataHeight =0;
+        
         
         if (self.listArray.count>0) {
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
@@ -260,10 +264,11 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     NSLog(@"二维码");
 }
 
+-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section{
+        return  0.01 ;
+}
 
-
--(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
-{
+-(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section{
         return  (SYRealValue(13)) ;
 }
 

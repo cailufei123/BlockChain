@@ -122,10 +122,10 @@
         _textField2 = [[UITextField alloc] init];
         _textField2.font = FONT(@"PingFangSC-Regular", SXRealValue(13));
         _textField2.textColor = colorD35353;
-        _textField2.placeholder = @"5 HOC";
+        //_textField2.placeholder = @"5 HOC";
         _textField2.tag=2;
 //        _textField2.keyboardType = UIKeyboardTypeDefault;
-        _textField2.keyboardType = UIKeyboardTypeNumberPad;
+        _textField2.keyboardType = UIKeyboardTypeDecimalPad;
         [_textField2 addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextViewTextDidChangeNotification object:nil];
@@ -377,11 +377,11 @@
             }
         }
     }else if (textField==self.textField2){//转账金额
-        if (kStringIsEmpty(textField.text)) {
-            self.textField2.placeholder = @"5 HOC";
-        }else{
-            self.textField2.placeholder = @"";
-        }
+//        if (kStringIsEmpty(textField.text)) {
+//            self.textField2.placeholder = @"5 HOC";
+//        }else{
+//            self.textField2.placeholder = @"";
+//        }
         if (self.delegate && [self.delegate respondsToSelector:@selector(changeValue2:)]) {
             [self.delegate changeValue2:textField.text];
         }

@@ -55,11 +55,11 @@
     }];
 }
 +(void)get_token_Detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
-    NSLog(@"%@",TOKEN_DETAIL);
+    //NSLog(@"%@",TOKEN_DETAIL);
     [LFHttpTool post:TOKEN_DETAIL params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         //[responseObj writeToFile:@"/Users/mac/Desktop/plist/aaa.plist" atomically:YES];
-        LFLog(@"==%@",responseObj);
+        //LFLog(@"==%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -109,7 +109,7 @@
             if ([responseObj[@"message"] containsString:@"密码错误"]) {
                 [MBManager showBriefAlert:@"密码错误,请重新输入"];
                 message(responseObj[@"message"]);
-            }else if(([responseObj[@"message"] containsString:@"eth余额不够"])){
+            }else if(([responseObj[@"message"] containsString:@"余额不够"])){
                 noYuEr(responseObj[@"message"]);
             }else{//成功
                 sucess(responseObj);//成功

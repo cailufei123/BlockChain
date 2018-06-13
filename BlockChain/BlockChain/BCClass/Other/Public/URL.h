@@ -12,15 +12,21 @@
 //#define PUBLIC_URL @"http://101.200.74.83"
 //#define  PAY_SERVER_ADDR @"http://182.92.205.236"
 
-//
+
+//线上还是测试 1-测试 0-线上
+#define Mode_Value 1
+
+/**  API*/
+#if Mode_Value
+
 #define SERVER_ADDR @"http://101.200.74.83:8080"
 #define USER_SERVER_ADDR @"http://182.92.205.236"
 #define PAY_SERVER_ADDR  @"http://182.92.205.236"
-
-
-//#define SERVER_ADDR @"http://esp.im-come.com"
-//#define USER_SERVER_ADDR @"http://esp.im-come.com"
-//#define PAY_SERVER_ADDR  @"http://im-come.com"
+#else
+#define SERVER_ADDR @"http://esp.im-come.com"
+#define USER_SERVER_ADDR @"http://esp.im-come.com"
+#define PAY_SERVER_ADDR  @"http://im-come.com"
+#endif
 
 
 
@@ -34,14 +40,11 @@
 #define HTML_URL @"/html/"
 #define TOKEN_URL @"/blockcoin/api/token/"
 
-    #define USER_SERVICE [NSString stringWithFormat:@"%@%@",SERVER_ADDR,USER_URL]
-    #define HTML_SERVICE  [NSString stringWithFormat:@"%@%@",SERVER_ADDR,HTML_URL]
-    #define INFO_SERVICE   [NSString stringWithFormat:@"%@%@",SERVER_ADDR,INFO_URL]
-    #define TOKEN_SERVICE  [NSString stringWithFormat:@"%@%@",SERVER_ADDR,TOKEN_URL]
-    #define COIN_SERVICE   [NSString stringWithFormat:@"%@%@",SERVER_ADDR,COIN_URL]
-
-
-
+#define USER_SERVICE [NSString stringWithFormat:@"%@%@",SERVER_ADDR,USER_URL]
+#define HTML_SERVICE  [NSString stringWithFormat:@"%@%@",SERVER_ADDR,HTML_URL]
+#define INFO_SERVICE   [NSString stringWithFormat:@"%@%@",SERVER_ADDR,INFO_URL]
+#define TOKEN_SERVICE  [NSString stringWithFormat:@"%@%@",SERVER_ADDR,TOKEN_URL]
+#define COIN_SERVICE   [NSString stringWithFormat:@"%@%@",SERVER_ADDR,COIN_URL]
 
 
 

@@ -1176,5 +1176,20 @@ static CGRect swapWidthAndHeight(CGRect rect)
     
     return image;
 }
+/*
+ 对原来的图片的大小进行处理
+ @param image 要处理的图片
+ @param size  处理过图片的大小
+ */
++(UIImage *)wby_originImage:(UIImage *)image scaleToSize:(CGSize)size
+{
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0,0, size.width, size.height)];
+    UIImage *scaleImage=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaleImage;
+}
+
+
 
 @end

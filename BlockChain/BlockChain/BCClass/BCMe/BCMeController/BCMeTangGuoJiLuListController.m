@@ -40,7 +40,7 @@
 -(UITableView *)tableView{
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
-        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTopHeight) style:UITableViewStyleGrouped];
+        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTopHeight) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor  =bagColor;
@@ -126,8 +126,12 @@
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
             [self.allListArray addObjectsFromArray:listArray];
             [self.headerView setUpImage:[UIImage imageNamed:@"雷鹿财富logoc-2"]];
+          
             [self.header endRefreshing];
             [self.footer endRefreshing];
+            if (listArray.count<10) {
+                [self.footer endRefreshingWithNoMoreData];
+            }
         }
         if (self.allListArray.count<1) {//有网无数据
             self.tableView.loadErrorType = YYLLoadErrorTypeNoData;

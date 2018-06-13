@@ -11,10 +11,13 @@
 #import "BCHomeSuanLiUpCell.h"
 #import "BCHomeSuanLiDownCell.h"
 #import "BCTaskViewController.h"
+#import "BCMeNoDataFooterView.h"
 
 
 @interface BCSuanLiJiLuController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)BCMeNoDataFooterView *noView;//无数据view
+
 @property(nonatomic,strong)BCSuanLiJiLuModel *model;
 @property(nonatomic,strong)BCSuanLiJiLuListModel *listMode;
 
@@ -24,12 +27,20 @@
 @property(nonatomic,strong)NSMutableArray *allListArray;
 @property(nonatomic,strong)UIView *jiaSuView;
 
-
+@property(nonatomic,assign)BOOL isUpLoad;//是否是上拉加载
+@property(nonatomic,assign)BOOL isNoNetWork;//当前是否有网络
+@property(nonatomic,assign)BOOL isRresh;//是否刷新
+@property(nonatomic,assign)BOOL isAnBtn;
 @end
 
 @implementation BCSuanLiJiLuController
 
 #define JiaSuBtnViewHeight  (SYRealValue(95)) //底部加速算力view高度
+//顶部总体高度
+#define upBigViewHeight   ((SYRealValue(197)))
+#define cellNoShuJuHeight  (300)  //无网络数据的view高度
+
+
 -(NSMutableArray *)allListArray{
     if (!_allListArray) {
         _allListArray = [NSMutableArray array];
@@ -58,13 +69,27 @@
     }
     return _tableView;
 }
+/**无数据view**/
+-(BCMeNoDataFooterView *)noView{
+    if (!_noView) {
+        _noView = [[BCMeNoDataFooterView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellNoShuJuHeight)];
+        _noView.centerIcon.image =[UIImage imageNamed:@"无消息"];
+        _noView.message.text = @"暂无数据";
+        _noView.backgroundColor =[UIColor whiteColor];
+    }
+    return _noView;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.isAnBtn =NO;
     //设置透明图片
     [self setNaviTouMingImage];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.isAnBtn =YES;
     //设置图片
     [self setNaviImage];
 }
@@ -121,6 +146,7 @@
 }
 //下拉加载
 -(void)loadNewData{
+    self.isUpLoad=NO;
     self.start=0;
     if (self.allListArray.count>0) {
         [self.allListArray removeAllObjects];
@@ -130,6 +156,7 @@
 }
 //上拉加载
 -(void)loadMoreData{
+    self.isUpLoad=YES;
     [self loadData];
 }
 -(void)loadData{
@@ -143,8 +170,12 @@
     [BCRequestData get_suanLiJiLu_Dict:candyDict success:^(id responseObject) {
         self.model = [BCSuanLiJiLuModel mj_objectWithKeyValues:responseObject[@"data"]];
         NSArray* listArray = [BCSuanLiJiLuListModel mj_objectArrayWithKeyValuesArray:self.model.computeLogs];
+        self.isNoNetWork =NO;//有网络
+        self.isRresh =YES;
         if (listArray.count>0) {//有数据
-            [self setNaviBarHidden:YES setTouMingImage:NO];
+            if (self.isUpLoad==NO) {
+                [self setNaviBarHidden:YES setTouMingImage:NO];
+            }
             self.jiaSuView.hidden =NO;
             //判断是否有网络
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
@@ -153,22 +184,30 @@
             [self.header endRefreshing];
             [self.footer endRefreshing];
             [self.tableView reloadData];
-            [self setNaviBarHidden:NO setTouMingImage:YES];
+            if (self.isUpLoad==NO) {
+                [self setNaviBarHidden:NO setTouMingImage:YES];
+            }
         }
         if(self.allListArray.count<1){//无数据
-                self.jiaSuView.hidden =YES;
+                //self.jiaSuView.hidden =YES;
                 //改变导航栏的颜色
-                [self setNaviImage];
-                self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
+                //[self setNaviImage];
+                //self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
                 [self.footer endRefreshing];
                 [self.header endRefreshing];
                 [self.tableView reloadData];
         }
         if (listArray.count==0) {
+            if(self.allListArray.count>0){
+                self.footer.hidden =NO;
+            }else{
+                self.footer.hidden =YES;
+            }
              [self.footer endRefreshingWithNoMoreData];
         }
-        
     } erorr:^(id error) {
+        self.isRresh =NO;
+        self.isNoNetWork =YES;//无网络
         [self.allListArray removeAllObjects];
         [self.tableView reloadData];
         [self.header endRefreshing];
@@ -192,12 +231,28 @@
         [self.navigationController setNavigationBarHidden:NO animated:NO];
         //在设置导航栏的图片
         if(isTouMing==YES){
+            if (self.isAnBtn) return;
             [self setNaviTouMingImage];//设置透明图片
         }else{
             //[self setNaviImage];//设置图片
         }
     }
 }
+
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (self.isAnBtn) return;//判断离开控制，停止调用设置导航栏
+    if (self.isNoNetWork) return;//没有网络不执行
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY> upBigViewHeight) {
+        //设置导航图片
+        [self setNaviImage];
+    }else{
+        //设置透明导航
+        [self setNaviTouMingImage];
+    }
+}
+
 
 -(UIView *)jiaSuView{
     if (!_jiaSuView) {
@@ -252,7 +307,8 @@
 //返回高度
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section==1) {
-        if (self.allListArray.count<1) return nil;
+        if (self.isRresh==NO) return nil;
+//        if (self.allListArray.count<1) return nil;
             UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
             view.backgroundColor = naverTextColor;
             UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
@@ -278,12 +334,34 @@
     }
 }
 
+//返回高度
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    if(section==0){
+        return nil;
+    }else{
+        return (self.allListArray.count<1 && self.isRresh==YES) ? self.noView : nil;
+    }
+}
+
+-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section==0) {
+        return 0.01;
+    }else{
+        return (self.allListArray.count<1 && self.isRresh==YES) ? cellNoShuJuHeight : 0.01;;
+    }
+}
+
+
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section==1) {
-        return (SYRealValue(54));
-    }else{
+    if (section==0) {
         return 0.01;
+    }else{
+        //return 0.01;
+        return (self.isRresh==YES) ? (SYRealValue(54)) : 0.01 ;
+
     }
 }
 

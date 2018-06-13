@@ -56,7 +56,7 @@
         _upBigView = [[UIView alloc] init];
         
         //_upBigView.backgroundColor =[UIColor redColor];
-        //          [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_upBigView];
+//                  [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_upBigView];
     }
     return _upBigView;
 }
@@ -269,12 +269,12 @@
     _model =model;
     if (model!=nil) {
         if (model.partner!=nil) {
+           
             if (model.uci.coin.wby_isPureInt) {//整型
                 self.price.text=[NSString stringWithFormat:@"%.1f",model.uci.coin.floatValue];
             }else{//整形
                 self.price.text=[NSString stringWithFormat:@"%@",model.uci.coin];
             }
-             self.price.text=[NSString stringWithFormat:@"%.1f",model.uci.coin.floatValue];
             if (model.uci.rmb.wby_isPureInt) {//整型
                 self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%.1f",model.uci.rmb.floatValue];
             }else{
@@ -297,6 +297,11 @@
             self.smallBgView.backgroundColor = [colorB0ADFC colorWithAlphaComponent:0.5];
             self.line.backgroundColor = colorE5E7E9;
             self.downView.backgroundColor =naverTextColor;
+            
+//            [self layoutIfNeeded];
+//            [self setNeedsLayout];
+            
+            //model.upViewHeight = self.upBigView.xmg_height;
 //            [self layoutIfNeeded];
 //            [self setNeedsLayout];
 //           PDCHeaderHeight=  self.line1.xmg_bottom;

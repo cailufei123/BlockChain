@@ -29,10 +29,10 @@
 -(UISlider *)slider{
     if (!_slider) {
         _slider =[[UISlider alloc] init];
-        _slider.minimumValue = 1;
-        _slider.maximumValue = 100;
-        _slider.value = 50;
-        [_slider setContinuous:YES];
+        _slider.minimumValue = 0.001;
+        _slider.maximumValue = 0.01;
+        _slider.value = 0.001;
+        //slider.value = (slider.minimumValue + slider.maximumValue) / 2;// 设置初始值
         //滑块条最小值处设置的图片，默认为nil
         _slider.minimumValueImage = [UIImage imageNamed:@"001.jpeg"];
         //滑块条最大值处设置的图片，默认为nil
@@ -43,27 +43,18 @@
         _slider.maximumTrackTintColor = colorF0F0F0;
         //09.thumbTintColor : 当前滑块的颜色，默认为白色
         //_slider.thumbTintColor = [UIColor yellowColor];
-        UIImage *imagea=[self OriginImage:[UIImage imageNamed:@"椭圆形"] scaleToSize:CGSizeMake(SXRealValue(23), SXRealValue(23))];
-        [_slider setThumbImage:imagea forState:UIControlStateNormal];
+        [_slider setThumbImage:[UIImage wby_originImage:[UIImage imageNamed:@"椭圆形"] scaleToSize:CGSizeMake(SXRealValue(25), SXRealValue(25))] forState:UIControlStateNormal];
+        [_slider setContinuous:YES];
+//        [_slider setMaximumTrackImage:[UIImage imageNamed:@"001.jpeg"] forState:UIControlStateNormal];
+//        [_slider setMinimumTrackImage:[UIImage imageNamed:@"001.jpeg"] forState:UIControlStateNormal];
+//        [_slider setMinimumTrackImage:<#(nullable UIImage *)#> forState:<#(UIControlState)#>]
         [_slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
        // [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_tiXianLable];
     }
     return _slider;
 }
 
- /*
-  对原来的图片的大小进行处理
-  @param image 要处理的图片
-  @param size  处理过图片的大小
-  */
- -(UIImage *)OriginImage:(UIImage *)image scaleToSize:(CGSize)size
- {
-     UIGraphicsBeginImageContext(size);
-     [image drawInRect:CGRectMake(0,0, size.width, size.height)];
-     UIImage *scaleImage=UIGraphicsGetImageFromCurrentImageContext();
-     UIGraphicsEndImageContext();
-     return scaleImage;
- }
+
 
 -(UILabel *)tiXianLable{
     if (!_tiXianLable) {
@@ -173,11 +164,14 @@
             make.width.mas_equalTo((SXRealValue(20)));
             make.height.mas_equalTo((SYRealValue(20)));
         }];
+    
         [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.leftLable.mas_right).with.offset(SXRealValue(33));
             make.right.mas_equalTo(self.rightLable.mas_left).with.offset(SXRealValue(-33));
             make.centerY.mas_equalTo(self.leftLable.mas_centerY);
         }];
+        [self layoutIfNeeded];
+        [self setNeedsLayout];
         [self.hongLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(SXRealValue(0));
             make.right.mas_equalTo(self.contentView.mas_right).with.offset(SXRealValue(0));
@@ -211,7 +205,7 @@
         self.tiXianLable.text = @"提现费用";
         self.leftLable.text= @"慢";
         self.rightLable.text =@"快";
-        self.hongLable.text=[NSString stringWithFormat:@"%.6f Ether",0.005000];
+        self.hongLable.text=[NSString stringWithFormat:@"%.6f Ether",0.001000];
         [self.nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
 //    }
 }
@@ -228,21 +222,24 @@
 
 -(void)sliderValueChanged:(UISlider *)slider{
   
-     NSString *str = [NSString stringWithFormat:@"%.0f",slider.value];
-    NSInteger value1 = [str integerValue];
-    CGFloat floatValue =0.000100;
-//    NSLog(@"value1====%ld",value1);
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *value = [NSString stringWithFormat:@"%.6f",floatValue*value1];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.hongLable.text =[NSString stringWithFormat:@"%@%@",value,@"Ether"];
-                //获取slider数据
-                if (self.delegate && [self.delegate respondsToSelector:@selector(getSliderValue:)]) {
-                    [self.delegate getSliderValue:value];
-                }
-            });
-    });
+//     NSString *str = [NSString stringWithFormat:@"%.0f",slider.value];
+//    NSInteger value1 = [str integerValue];
+    //NSLog(@"value1===%zd",value1);
+//    CGFloat floatValue =0.00100;
+    NSString *value = [NSString stringWithFormat:@"%.6f",slider.value];
+
+    self.hongLable.text =[NSString stringWithFormat:@"%@ %@",value,@"Ether"];
+    //获取slider数据
+    if (self.delegate && [self.delegate respondsToSelector:@selector(getSliderValue:)]) {
+        [self.delegate getSliderValue:value];
+    }
 }
+////获取转账price
+//-(void)setZhuanZhangPrice:(NSString *)zhuanZhangPrice{
+//    _zhuanZhangPrice = zhuanZhangPrice;
+//    //判断
+//    
+//}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

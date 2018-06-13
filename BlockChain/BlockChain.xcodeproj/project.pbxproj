@@ -63,7 +63,7 @@
 		04D3EA3F20BEB09B00F9A96D /* BCMePassWordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EA3E20BEB09B00F9A96D /* BCMePassWordController.m */; };
 		04D88D8B20BA954B008570FE /* BCInvitingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8A20BA954B008570FE /* BCInvitingBtn.m */; };
 		04D88D8E20BAA5C0008570FE /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */; };
-		04F0806720CA9AB50046D088 /* BCMeNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0806620CA9AB50046D088 /* BCMeNoDataView.m */; };
+		04F0806720CA9AB50046D088 /* BCMeNoDataFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0806620CA9AB50046D088 /* BCMeNoDataFooterView.m */; };
 		04F5364E20C90AA500F94933 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5364D20C90AA500F94933 /* UILabel+YBAttributeTextTapAction.m */; };
 		04F5365020C94BDD00F94933 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F5364F20C94BDC00F94933 /* libsqlite3.0.tbd */; };
 		04F5365220C94C6A00F94933 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F5365120C94C6A00F94933 /* libc++abi.tbd */; };
@@ -452,8 +452,8 @@
 		04D88D8A20BA954B008570FE /* BCInvitingBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCInvitingBtn.m; sourceTree = "<group>"; };
 		04D88D8C20BAA5C0008570FE /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
 		04D88D8D20BAA5C0008570FE /* UIView+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMGExtension.m"; sourceTree = "<group>"; };
-		04F0806520CA9AB50046D088 /* BCMeNoDataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeNoDataView.h; sourceTree = "<group>"; };
-		04F0806620CA9AB50046D088 /* BCMeNoDataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeNoDataView.m; sourceTree = "<group>"; };
+		04F0806520CA9AB50046D088 /* BCMeNoDataFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeNoDataFooterView.h; sourceTree = "<group>"; };
+		04F0806620CA9AB50046D088 /* BCMeNoDataFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCMeNoDataFooterView.m; sourceTree = "<group>"; };
 		04F5364C20C90AA500F94933 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
 		04F5364D20C90AA500F94933 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
 		04F5364F20C94BDC00F94933 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -1063,8 +1063,8 @@
 			children = (
 				04B631DD20B54E7600D063B8 /* BCMeHeaderView.h */,
 				04B631E320B54E7600D063B8 /* BCMeHeaderView.m */,
-				04F0806520CA9AB50046D088 /* BCMeNoDataView.h */,
-				04F0806620CA9AB50046D088 /* BCMeNoDataView.m */,
+				04F0806520CA9AB50046D088 /* BCMeNoDataFooterView.h */,
+				04F0806620CA9AB50046D088 /* BCMeNoDataFooterView.m */,
 				04B631DE20B54E7600D063B8 /* BCMeTableViewCell.h */,
 				04B631D820B54E7600D063B8 /* BCMeTableViewCell.m */,
 				04B631D720B54E7600D063B8 /* BCMeTangGuoJiLuHeaderView.h */,
@@ -2704,7 +2704,7 @@
 				ADE126E320B2EB4F00F6E172 /* NSDateFormatter+Category.m in Sources */,
 				ADE126E420B2EB4F00F6E172 /* UIBarButtonItem+Item.m in Sources */,
 				04B6320220B54E7700D063B8 /* BCQRCodeMode.m in Sources */,
-				04F0806720CA9AB50046D088 /* BCMeNoDataView.m in Sources */,
+				04F0806720CA9AB50046D088 /* BCMeNoDataFooterView.m in Sources */,
 				ADACD0A520BFE59400EE21F6 /* UITableView+Gzw.m in Sources */,
 				ADE125A120B2E84F00F6E172 /* FMDatabaseAdditions.m in Sources */,
 				ADE126D420B2EB4F00F6E172 /* NSDictionary+WHDictionary.m in Sources */,

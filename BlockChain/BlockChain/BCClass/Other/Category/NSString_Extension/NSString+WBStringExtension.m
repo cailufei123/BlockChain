@@ -10,6 +10,17 @@
 
 @implementation NSString (WBStringExtension)
 
+/*
+ *  时间戳对应的NSDate
+ */
+//-(NSDate *)date{
+//    
+//    NSTimeInterval timeInterval=self.floatValue;
+//
+//    return [NSDate dateWithTimeIntervalSince1970:timeInterval];
+//}
+
+
 //判断是否为整形：
 
 - (BOOL)wby_isPureInt{
@@ -68,6 +79,26 @@
     }
     return NO;
 }
+
+- (NSString*)wby_Str_filter{
+        NSString * str = self;
+    if ([self isEqualToString:@"<null>"] || [self isEqualToString:@"(null)"]) {
+            str = @"";
+        }
+        return str;
+}
+
+
+//重写
+//- (NSString*)description {
+//    NSString * str = self;
+//    NSLog(@"-----------%@",str);
+//    if ([self isEqualToString:@"<null>"] || [self isEqualToString:@"(null)"]) {
+//        str = @"";
+//    }
+//    return str;
+//}
+
 
 ///**前后无空格字符串*/
 //+(NSString *)getNoBeforeAndAfterSpaceText:(NSString *)text {

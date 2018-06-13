@@ -28,8 +28,9 @@
 
 @property (nonatomic, strong)UILabel *changAnLable;//长按识别码
 @property (nonatomic, strong)UIButton *loadingBtn;//下载唐人
-//@property(nonatomic,strong)UILongPressGestureRecognizer *longPressGestureRecognizer;
-
+@property(nonatomic,strong)UILongPressGestureRecognizer *longRecognizer;
+@property(nonatomic,strong)NSTimer * timer;
+@property(nonatomic,assign)BOOL isReapt;
 @end
 
 @implementation BCMeInvitingFriendsView
@@ -63,7 +64,7 @@
 -(UIImageView *)caiFuIcon{
     if (!_caiFuIcon) {
         _caiFuIcon = [[UIImageView alloc] init];
-        //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
+        _caiFuIcon.contentMode = UIViewContentModeScaleAspectFit;
         //[Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_ziChanIcon];
 //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_caiFuIcon];
     }
@@ -104,26 +105,35 @@
         _QcodeIcon = [[UIImageView alloc] init];
         _QcodeIcon.userInteractionEnabled=YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture)];
-        /*第一次创建手势识别器*/
-       UILongPressGestureRecognizer* longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]
-                                      
-                                      initWithTarget:self
-                                      
-                                      action:@selector(handleLongPressGestures:)];
-        /* numberOfTouchesRequired这个属性保存了有多少个手指点击了屏幕,因此你要确保你每次的点击手指数目是一样的,默认值是为 0. */
-        longPressGestureRecognizer.numberOfTouchesRequired = 1;
-        /*最大100像素的运动是手势识别所允许的*/
-        longPressGestureRecognizer.allowableMovement = 100.0f;
-        /*这个参数表示,两次点击之间间隔的时间长度。*/
-        longPressGestureRecognizer.minimumPressDuration = 1.0;
-        [_QcodeIcon addGestureRecognizer:longPressGestureRecognizer];
         [_QcodeIcon addGestureRecognizer:tap];
+        [self addLongTap];
         //_myIcon.contentMode = UIViewContentModeScaleAspectFill;
         //[Util roundBorderView:SXRealValue(60/2) border:0 color:nil view:_ziChanIcon];
 //        [Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_QcodeIcon];
     }
     return _QcodeIcon;
 }
+-(void)addLongTap{
+    /*第一次创建手势识别器*/
+    UILongPressGestureRecognizer* longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]
+                                                                
+                                                                initWithTarget:self
+                                                                
+                                                                action:@selector(handleLongPressGestures:)];
+    /* numberOfTouchesRequired这个属性保存了有多少个手指点击了屏幕,因此你要确保你每次的点击手指数目是一样的,默认值是为 0. */
+    longPressGestureRecognizer.numberOfTouchesRequired = 1;
+    /*最大100像素的运动是手势识别所允许的*/
+    longPressGestureRecognizer.allowableMovement = 100.0f;
+    /*这个参数表示,两次点击之间间隔的时间长度。*/
+    longPressGestureRecognizer.minimumPressDuration = 1.0;
+    [_QcodeIcon addGestureRecognizer:longPressGestureRecognizer];
+    self.longRecognizer =longPressGestureRecognizer;
+
+}
+-(void)removeLongTap{
+    [_QcodeIcon removeGestureRecognizer:self.longRecognizer];
+}
+
 -(UILabel *)changAnLable{
     if (!_changAnLable) {
         _changAnLable =[UILabel LabelWithTextColor:color484848 textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
@@ -257,17 +267,25 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(loadingBtnClick)]) {
         [self.delegate loadingBtnClick];
     }
+    
 }
 #pragma mark-长按识别二维码
 - (void) handleLongPressGestures:(UILongPressGestureRecognizer *)paramSender{
     if (self.delegate && [self.delegate respondsToSelector:@selector(showShareView)]) {
+        if (self.isReapt==YES) return;
         [self.delegate showShareView];
+        self.isReapt =YES;
+        WS(weakSelf);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            weakSelf.isReapt =NO;
+        });
     }
 }
 //点击显示分享
 -(void)tapGesture{
         if (self.delegate && [self.delegate respondsToSelector:@selector(showShareView)]) {
             [self.delegate showShareView];
+            self.isReapt =NO;
         }
 }
 

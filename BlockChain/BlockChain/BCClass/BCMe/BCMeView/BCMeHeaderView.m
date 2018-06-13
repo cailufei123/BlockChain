@@ -299,7 +299,7 @@
         self.ziChanIcon.image =[UIImage imageNamed:@"wallet-iocn"];
         [self.QRCode setImage:[UIImage imageNamed:@"二维码"] forState:UIControlStateNormal];
         self.zongLable1.text =@"总资产≈";
-        self.zongLable2.text = [NSString stringWithFormat:@"%@%.2f",@"¥",[model.coin floatValue]];
+        self.zongLable2.text = [NSString stringWithFormat:@"%@%@",@"¥",model.coin];
 //        [self.tangGuoBtn setTitle:@"糖果记录" forState:UIControlStateNormal];
 //        [self.moreTangGuoBtn setTitle:@"更多糖果" forState:UIControlStateNormal];
     }

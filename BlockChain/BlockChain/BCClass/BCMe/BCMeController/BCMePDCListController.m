@@ -19,10 +19,12 @@
 #import "BCMeQRCodeController.h"
 #import "BCMePDCListUpCell.h"
 #import "BCMePDCListDownCell.h"
+#import "BCMeNoDataFooterView.h"
 
 @interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListUpCellDelegate,BCMePDCListAlertViewDelegate>
 @property(nonatomic,strong)BCMePDCListHeaderView *headerView;
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)BCMeNoDataFooterView *noView;//无数据view
 @property(nonatomic,strong)BCMePDCListMode *model;
 @property(nonatomic,strong)BCMePDCListAlertView *alertView;//弹框
 
@@ -36,6 +38,18 @@
 @property(nonatomic,strong)UIView *bottomView;
 
 @property(nonatomic,assign)BOOL isFirstRefresh;//第一次加载
+@property(nonatomic,assign)BOOL isRefresh;//是否刷新
+
+@property(nonatomic,copy)NSString *coin;
+
+@property(nonatomic,assign)BOOL isUpLoad;//是否是上拉加载
+
+@property(nonatomic,assign)BOOL isNoNetWork;//当前是否有网络
+
+@property(nonatomic,assign)BOOL isRresh;//是否刷新
+
+@property(nonatomic,assign)BOOL isAnBtn;//是否按按钮
+
 @end
 
 @implementation BCMePDCListController
@@ -45,6 +59,11 @@
 //弹框
 #define alertViewWidth    SCREENWIDTH-2*(SXRealValue(16))
 #define alertViewHeight   (SCREENWIDTH-2*(SXRealValue(16)))*467/343)
+
+#define upBigViewHeight   ((SYRealValue(67+33+23)))
+
+#define cellNoShuJuHeight  (300)  //无网络数据的view高度
+
 
 
 -(NSMutableArray *)zonglistArray{
@@ -77,6 +96,17 @@
 }
 
 
+/**无数据view**/
+-(BCMeNoDataFooterView *)noView{
+    if (!_noView) {
+        _noView = [[BCMeNoDataFooterView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellNoShuJuHeight)];
+        _noView.centerIcon.image =[UIImage imageNamed:@"无消息"];
+        _noView.message.text = @"暂无数据";
+        _noView.backgroundColor =[UIColor whiteColor];
+    }
+    return _noView;
+}
+
 /**顶部view**/
 //-(BCMePDCListHeaderView *)headerView{
 //    if (!_headerView) {
@@ -108,18 +138,25 @@
 }
 #pragma mark -BCMePDCListAlertViewDelegate 知道了按钮点击
 -(void)sureBtnClick:(BCMePDCListMode *)model{
-    NSLog(@"点击了确定按钮");
+    //NSLog(@"点击了确定按钮");
     [GKCover hide];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.isAnBtn =NO;
     [self setNaviImageHidden];
+    //是否刷新
+    if(_isRefresh==YES){
+        [self loadNewData];
+        _isRefresh =NO;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    self.isAnBtn =YES;
     [self setNaviImage];
 }
 
@@ -138,6 +175,7 @@
                                                                             
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isAnBtn =NO;
     _page =0;
     //设置导航栏
     [self setNaviTitle:self.code];
@@ -170,39 +208,47 @@
     [header beginRefreshing];
     self.tableView.mj_header = header;
     self.tableView.mj_footer = footer;
+    self.tableView.mj_footer.hidden =YES;
     self.header =header;
     self.footer =footer;
     
 }
 //下拉加载
 -(void)loadNewData{
+    self.isUpLoad =NO;
     self.page=1;
     if(self.zonglistArray.count>0){
         [self.zonglistArray removeAllObjects];
     }
     [self loadData];
-
 }
+                                                                            
 //上拉加载
 -(void)loadMoreData{
+    self.isUpLoad =YES;
     self.page+=1;
   [self loadData];
     
 }
+                                                                            
 -(void)loadData{
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id
     candyDict[@"size"] = @20;//糖果id
-    candyDict[@"page"] = [NSString stringWithFormat:@"%zd",self.page];//糖果id
-    
+    candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
+    //NSLog(@"%@",TOKEN_DETAIL);
+
     [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
     NSMutableArray* listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
-       
+        self.isRresh =YES;
         if(self.PDCmodel.partner!=nil){
             [self setNaviTitle:self.PDCmodel.partner.code];
-            [self setNaviBarHidden:YES setTouMingImage:NO];
+            self.coin =self.PDCmodel.uci.coin;
+            if(self.isUpLoad==NO){
+                [self setNaviBarHidden:YES setTouMingImage:NO];
+            }
             //判断是否有网络
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
             self.bottomView.hidden= NO;
@@ -210,7 +256,9 @@
             [self.footer endRefreshing];
             [self.header endRefreshing];
             //显示导航栏
-            [self setNaviBarHidden:NO setTouMingImage:YES];
+            if(self.isUpLoad==NO){
+                [self setNaviBarHidden:NO setTouMingImage:YES];
+            }
         }else{ //无数据
             //改变导航栏的颜色
             [self setNaviImage];
@@ -227,28 +275,55 @@
             
             if(self.isFirstRefresh){//只执行一次
                 //第一次加载
-                if(listArray.count<20){
+                if(listArray.count<10){
                     [self.footer endRefreshingWithNoMoreData];
+                    
                 }
                 self.isFirstRefresh=NO;
             }
             [self.tableView reloadData];
         }
         if(listArray.count==0){
+            if(self.zonglistArray.count>0){
+                self.footer.hidden =NO;
+            }else{
+                self.footer.hidden =YES;
+            }
+            //判断是否是第一次加载
             [self.footer endRefreshingWithNoMoreData];
         }
-    } erorr:^(id error) {//无网络
+        self.isNoNetWork =NO;//有网络
+    } erorr:^(id error) {
+        self.isRresh =NO;
+        self.isNoNetWork =YES;//无网络
         self.bottomView.hidden =YES;
         [self.header endRefreshing];
         [self.footer endRefreshing];
         [self setNaviTitle:@"TBC"];
         [self setNaviImage];
-[self.tableView reloadData];
+        [self.tableView reloadData];
         //设置导航栏颜色
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(self.isAnBtn)return;
+    if(self.isNoNetWork==YES) return;//无网络
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY> upBigViewHeight) {
+        //设置导航图片
+        [self setNaviImage];
+        NSLog(@"00000000000000");
+    }else{
+         //设置透明导航
+        [self setNaviImageHidden];
+        NSLog(@"11111111111111");
+
+    }
+}
+                                                                            
+                                                                            
 //无网络有网络切换，显示或者异常导航栏，适合进入无导航栏切换网络问题
 -(void)setNaviBarHidden:(BOOL)isHidden setTouMingImage:(BOOL)isTouMing{
     if(isHidden==YES){
@@ -258,6 +333,7 @@
         [self.navigationController setNavigationBarHidden:NO animated:NO];
         //在设置导航栏的图片
         if(isTouMing==YES){
+            if(self.isAnBtn) return;
             [self setNaviImageHidden];//设置透明图片
         }else{
             //[self setNaviImage];//设置图片
@@ -341,13 +417,27 @@
 
 #pragma mark - 转账按钮
 -(void)payBtnClick{
+    
+    WS(weakSelf);
     //已进行实名认证
     BCMeChangeMoneyController *moneyVc = [[BCMeChangeMoneyController alloc] init];
+    moneyVc.coin = self.coin;
+    //转账成功回调
+    moneyVc.refreshAllData = ^(BOOL isRefresh) {
+        weakSelf.isRefresh = isRefresh;
+    };
     moneyVc.code =self.code;
     [self.navigationController pushViewController:moneyVc animated:YES];
 }
+#pragma mark -BCMeChangeMoneyControllerDelegate
+-(void)refreshAllData:(BOOL)isRefresh{//刷新数据
+    _isRefresh = isRefresh;
+}
+                                                                            
+                                                                            
 #pragma mark -收款按钮
 -(void)getBtnClick{
+    
     BCMeQRCodeController *QRVc= [[BCMeQRCodeController alloc] init];
     QRVc.isShouKuan =YES;
     [self.navigationController pushViewController:QRVc animated:YES];
@@ -361,12 +451,23 @@
 }
 
 
+//返回高度
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+
+    if(section==0){
+        return nil;
+    }else{
+        return (self.zonglistArray.count<1 && self.isRresh==YES) ? self.noView : nil;
+    }
+}
+
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section==0) {
         return 0.01;
     }else{
-        return  (SYRealValue(54)) ;
+       // CGFloat resultHeight =self.zonglistArray.count<1 ? 0.01  : (SYRealValue(54));
+        return (self.isRresh==NO)? 0.01  : (SYRealValue(54));
     }
 }
                                                                             
@@ -375,15 +476,17 @@
     if (section==0) {
              return 0.01;
     }else{
-             return  0.01 ;
+        return (self.zonglistArray.count<1 && self.isRresh==YES) ? cellNoShuJuHeight : 0.01;;
     }
 }
+                                                                            
 //返回高度
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section==0) {
         return nil;
     }else{
-        if (self.zonglistArray.count<1) return nil;
+        if(self.isRresh==NO) return nil;
+//        if (self.zonglistArray.count<1) return nil;
     UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
     view.backgroundColor = naverTextColor;
     UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
@@ -406,11 +509,6 @@
     return view;
     }
 }
-//-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return 50;
-//}
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
@@ -457,7 +555,9 @@
 }
 
 
-
+-(void)dealloc{
+    NSLog(@"销毁");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 

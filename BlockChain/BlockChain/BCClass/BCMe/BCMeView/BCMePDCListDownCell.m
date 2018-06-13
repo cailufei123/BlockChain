@@ -113,12 +113,26 @@
     if (model!=nil) {
         //假数据
         self.name.text = [NSString stringWithFormat:@"领取%@",model.name];
-        self.time.text= model.createTime;
-        self.type.text =model.code;
-        if ([model.price integerValue]<0) {
-            self.price.text=[NSString stringWithFormat:@"%.1f",[model.price floatValue]];
+        NSArray *array = [model.createTime componentsSeparatedByString:@"."]; //从字符A中分隔成2个元素的数组
+        if (array.count==2) {
+            self.time.text= array[0];
         }else{
-            self.price.text=[NSString stringWithFormat:@"+%.1f",[model.price floatValue]];
+            self.time.text = model.createTime;
+        }
+        self.type.text =model.code;
+        if ([model.price floatValue]<0) {//直接显示负数，服务器自动反 - 号
+            if(model.price.wby_isPureInt){
+                self.price.text=[NSString stringWithFormat:@"%.1f",model.price.floatValue];
+            }else{
+                self.price.text=model.price;
+            }
+        }else{//证书
+            //整形还是浮点型
+            if (model.price.wby_isPureInt) {//整形
+                self.price.text=[NSString stringWithFormat:@"+%.1f",model.price.floatValue];
+            }else{
+                self.price.text=[NSString stringWithFormat:@"+%@",model.price];
+            }
         }
         self.line.backgroundColor = colorE5E7E9;
         self.backgroundColor =naverTextColor;

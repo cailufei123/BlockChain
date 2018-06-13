@@ -286,7 +286,7 @@
         self.pengYouLable.text =@"朋友圈";
         self.QQLable.text =@"QQ";
         self.huoDongLable.text =@"活动规则:";
-        self.message1.text =@"1.新用户使用你的邀请码注册成功后双方均可获得10紫砖奖励";
+        self.message1.text =@"1.新用户使用你的邀请码注册成功后双方均可获得10财富币奖励";
         self.message2.text =@"2.每个邀请码最多使用10次";
         
     }
