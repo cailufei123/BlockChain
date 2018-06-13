@@ -24,12 +24,16 @@
 @property(nonatomic,strong)NSMutableArray *allListArray;
 @property(nonatomic,strong)UIView *jiaSuView;
 
+@property(nonatomic,assign)BOOL isUpLoad;//是否是上拉加载
 
 @end
 
 @implementation BCSuanLiJiLuController
 
 #define JiaSuBtnViewHeight  (SYRealValue(95)) //底部加速算力view高度
+//顶部总体高度
+#define upBigViewHeight   ((SYRealValue(197)))
+
 -(NSMutableArray *)allListArray{
     if (!_allListArray) {
         _allListArray = [NSMutableArray array];
@@ -121,6 +125,7 @@
 }
 //下拉加载
 -(void)loadNewData{
+    self.isUpLoad=NO;
     self.start=0;
     if (self.allListArray.count>0) {
         [self.allListArray removeAllObjects];
@@ -130,6 +135,7 @@
 }
 //上拉加载
 -(void)loadMoreData{
+    self.isUpLoad=YES;
     [self loadData];
 }
 -(void)loadData{
@@ -144,7 +150,9 @@
         self.model = [BCSuanLiJiLuModel mj_objectWithKeyValues:responseObject[@"data"]];
         NSArray* listArray = [BCSuanLiJiLuListModel mj_objectArrayWithKeyValuesArray:self.model.computeLogs];
         if (listArray.count>0) {//有数据
-            [self setNaviBarHidden:YES setTouMingImage:NO];
+            if (self.isUpLoad==NO) {
+                [self setNaviBarHidden:YES setTouMingImage:NO];
+            }
             self.jiaSuView.hidden =NO;
             //判断是否有网络
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
@@ -153,7 +161,9 @@
             [self.header endRefreshing];
             [self.footer endRefreshing];
             [self.tableView reloadData];
-            [self setNaviBarHidden:NO setTouMingImage:YES];
+            if (self.isUpLoad==NO) {
+                [self setNaviBarHidden:NO setTouMingImage:YES];
+            }
         }
         if(self.allListArray.count<1){//无数据
                 self.jiaSuView.hidden =YES;
@@ -198,6 +208,18 @@
         }
     }
 }
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY> upBigViewHeight) {
+        //设置导航图片
+        [self setNaviImage];
+    }else{
+        //设置透明导航
+        [self setNaviTouMingImage];
+    }
+}
+
 
 -(UIView *)jiaSuView{
     if (!_jiaSuView) {

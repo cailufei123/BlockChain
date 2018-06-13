@@ -168,7 +168,6 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         [self loadListData];//请求list数据
          [LFAccountTool saveMe:model];
         [self.header endRefreshing];
-        self.footer.hidden =YES;
     } erorr:^(id error) {//请求失败
         self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
     }];

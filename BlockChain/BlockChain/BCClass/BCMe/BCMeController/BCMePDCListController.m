@@ -39,6 +39,9 @@
 @property(nonatomic,assign)BOOL isRefresh;//是否刷新
 
 @property(nonatomic,copy)NSString *coin;
+
+@property(nonatomic,assign)BOOL isUpLoad;//是否是上拉加载
+
 @end
 
 @implementation BCMePDCListController
@@ -48,6 +51,9 @@
 //弹框
 #define alertViewWidth    SCREENWIDTH-2*(SXRealValue(16))
 #define alertViewHeight   (SCREENWIDTH-2*(SXRealValue(16)))*467/343)
+
+#define upBigViewHeight   ((SYRealValue(67+33+23)))
+
 
 
 -(NSMutableArray *)zonglistArray{
@@ -184,6 +190,7 @@
 }
 //下拉加载
 -(void)loadNewData{
+    self.isUpLoad =NO;
     self.page=1;
     if(self.zonglistArray.count>0){
         [self.zonglistArray removeAllObjects];
@@ -193,6 +200,7 @@
 }
 //上拉加载
 -(void)loadMoreData{
+    self.isUpLoad =YES;
     self.page+=1;
   [self loadData];
     
@@ -213,7 +221,9 @@
         if(self.PDCmodel.partner!=nil){
             [self setNaviTitle:self.PDCmodel.partner.code];
             self.coin =self.PDCmodel.uci.coin;
-            [self setNaviBarHidden:YES setTouMingImage:NO];
+            if(self.isUpLoad==NO){
+                [self setNaviBarHidden:YES setTouMingImage:NO];
+            }
             //判断是否有网络
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
             self.bottomView.hidden= NO;
@@ -221,7 +231,9 @@
             [self.footer endRefreshing];
             [self.header endRefreshing];
             //显示导航栏
-            [self setNaviBarHidden:NO setTouMingImage:YES];
+            if(self.isUpLoad==NO){
+                [self setNaviBarHidden:NO setTouMingImage:YES];
+            }
         }else{ //无数据
             //改变导航栏的颜色
             [self setNaviImage];
@@ -238,7 +250,7 @@
             
             if(self.isFirstRefresh){//只执行一次
                 //第一次加载
-                if(listArray.count<20){
+                if(listArray.count<10){
                     [self.footer endRefreshingWithNoMoreData];
                 }
                 self.isFirstRefresh=NO;
@@ -260,6 +272,19 @@
     }];
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY> upBigViewHeight) {
+        //设置导航图片
+        [self setNaviImage];
+    }else{
+         //设置透明导航
+        [self setNaviImageHidden];
+    }
+}
+                                                                            
+                                                                            
 //无网络有网络切换，显示或者异常导航栏，适合进入无导航栏切换网络问题
 -(void)setNaviBarHidden:(BOOL)isHidden setTouMingImage:(BOOL)isTouMing{
     if(isHidden==YES){

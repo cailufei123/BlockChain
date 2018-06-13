@@ -65,6 +65,6 @@
 @property(nonatomic,strong)NSArray * ucl;
 @property(nonatomic,strong)BCMePDCUpMode * uci;
 
-
+@property(nonatomic,assign)CGFloat upViewHeight;
 
 @end
