@@ -406,8 +406,9 @@
     }else if (kStringIsEmpty(self.text3)){
         [MBManager showBriefAlert:@"请输入备注"];
     }else{
-        NSInteger  value =[self.text2 integerValue];
-        if (value == 0) {
+        
+        CGFloat  value = [self.text2 floatValue];
+        if (value <= 0) {
             [MBManager showBriefAlert:@"请重新输入转账金额"];
             return;
         }

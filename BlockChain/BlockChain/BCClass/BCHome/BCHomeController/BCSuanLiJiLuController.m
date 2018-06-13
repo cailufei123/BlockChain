@@ -25,6 +25,7 @@
 @property(nonatomic,strong)UIView *jiaSuView;
 
 @property(nonatomic,assign)BOOL isUpLoad;//是否是上拉加载
+@property(nonatomic,assign)BOOL isNoNetWork;//当前是否有网络
 
 @end
 
@@ -177,8 +178,9 @@
         if (listArray.count==0) {
              [self.footer endRefreshingWithNoMoreData];
         }
-        
+        self.isNoNetWork =NO;//有网络
     } erorr:^(id error) {
+        self.isNoNetWork =YES;//无网络
         [self.allListArray removeAllObjects];
         [self.tableView reloadData];
         [self.header endRefreshing];
@@ -210,6 +212,7 @@
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (self.isNoNetWork) return;
     CGFloat offsetY = scrollView.contentOffset.y;
     if (offsetY> upBigViewHeight) {
         //设置导航图片

@@ -42,6 +42,9 @@
 
 @property(nonatomic,assign)BOOL isUpLoad;//是否是上拉加载
 
+@property(nonatomic,assign)BOOL isNoNetWork;//当前是否有网络
+
+
 @end
 
 @implementation BCMePDCListController
@@ -152,8 +155,6 @@
                                                                             
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.footer.hidden =YES;
-
     _page =0;
     //设置导航栏
     [self setNaviTitle:self.code];
@@ -186,6 +187,7 @@
     [header beginRefreshing];
     self.tableView.mj_header = header;
     self.tableView.mj_footer = footer;
+    self.tableView.mj_footer.hidden =YES;
     self.header =header;
     self.footer =footer;
     
@@ -198,8 +200,8 @@
         [self.zonglistArray removeAllObjects];
     }
     [self loadData];
-
 }
+                                                                            
 //上拉加载
 -(void)loadMoreData{
     self.isUpLoad =YES;
@@ -268,7 +270,9 @@
             //判断是否是第一次加载
             [self.footer endRefreshingWithNoMoreData];
         }
-    } erorr:^(id error) {//无网络
+        self.isNoNetWork =NO;//有网络
+    } erorr:^(id error) {
+        self.isNoNetWork =YES;//无网络
         self.bottomView.hidden =YES;
         [self.header endRefreshing];
         [self.footer endRefreshing];
@@ -281,7 +285,7 @@
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
+    if(self.isNoNetWork==YES) return;//无网络
     CGFloat offsetY = scrollView.contentOffset.y;
     if (offsetY> upBigViewHeight) {
         //设置导航图片
