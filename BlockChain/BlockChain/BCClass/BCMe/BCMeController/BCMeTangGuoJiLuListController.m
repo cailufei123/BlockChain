@@ -126,8 +126,12 @@
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
             [self.allListArray addObjectsFromArray:listArray];
             [self.headerView setUpImage:[UIImage imageNamed:@"雷鹿财富logoc-2"]];
+          
             [self.header endRefreshing];
             [self.footer endRefreshing];
+            if (listArray.count<10) {
+                [self.footer endRefreshingWithNoMoreData];
+            }
         }
         if (self.allListArray.count<1) {//有网无数据
             self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
