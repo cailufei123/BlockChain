@@ -48,7 +48,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCMe/BCMeView/BCMeChangeMoneyUpCell.m"
-            timestampString = "550493028.042148"
+            timestampString = "550562874.406513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
@@ -157,40 +157,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BlockChain/BCClass/BCMe/BCMeController/BCMePDCListController.m"
-            timestampString = "550555115.243608"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
-            landmarkName = "-alertView"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BlockChain/BCClass/BCMe/BCMeController/BCMePDCListController.m"
-            timestampString = "550555115.244841"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "-alertView"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-            timestampString = "550555115.245257"
+            timestampString = "550562874.406648"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
@@ -206,7 +174,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-            timestampString = "550555115.24532"
+            timestampString = "550562874.4067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
@@ -222,7 +190,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-            timestampString = "550555115.245369"
+            timestampString = "550562874.406746"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "138"
@@ -238,7 +206,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCSuanLiJiLuController.m"
-            timestampString = "550555115.245415"
+            timestampString = "550562874.4067889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -254,11 +222,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain/BCClass/BCMe/BCMeController/BCMePDCListController.m"
-            timestampString = "550555115.245508"
+            timestampString = "550562874.406834"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-alertView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCMe/BCMeController/BCMeTangGuoJiLuListController.m"
+            timestampString = "550562874.407141"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-loadData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCMe/BCMeController/BCMePDCListController.m"
+            timestampString = "550562874.40719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "-alertView"
             landmarkType = "7">
          </BreakpointContent>

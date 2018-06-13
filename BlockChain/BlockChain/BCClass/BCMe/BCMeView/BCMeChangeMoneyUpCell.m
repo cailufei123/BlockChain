@@ -125,7 +125,7 @@
         //_textField2.placeholder = @"5 HOC";
         _textField2.tag=2;
 //        _textField2.keyboardType = UIKeyboardTypeDefault;
-        _textField2.keyboardType = UIKeyboardTypeNumberPad;
+        _textField2.keyboardType = UIKeyboardTypeDecimalPad;
         [_textField2 addTarget:self action:@selector(textValueChanged:) forControlEvents:UIControlEventEditingChanged];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextViewTextDidChangeNotification object:nil];

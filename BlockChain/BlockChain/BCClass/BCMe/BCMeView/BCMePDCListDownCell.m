@@ -121,7 +121,11 @@
         }
         self.type.text =model.code;
         if ([model.price floatValue]<0) {//直接显示负数，服务器自动反 - 号
-            self.price.text=model.price;
+            if(model.price.wby_isPureInt){
+                self.price.text=[NSString stringWithFormat:@"%.1f",model.price.floatValue];
+            }else{
+                self.price.text=model.price;
+            }
         }else{//证书
             //整形还是浮点型
             if (model.price.wby_isPureInt) {//整形

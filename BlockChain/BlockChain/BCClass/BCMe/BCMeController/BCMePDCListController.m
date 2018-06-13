@@ -152,6 +152,8 @@
                                                                             
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.footer.hidden =YES;
+
     _page =0;
     //设置导航栏
     [self setNaviTitle:self.code];
@@ -258,6 +260,12 @@
             [self.tableView reloadData];
         }
         if(listArray.count==0){
+            if(self.zonglistArray.count>0){
+                self.footer.hidden =NO;
+            }else{
+                self.footer.hidden =YES;
+            }
+            //判断是否是第一次加载
             [self.footer endRefreshingWithNoMoreData];
         }
     } erorr:^(id error) {//无网络
