@@ -6,13 +6,13 @@
 //  Copyright © 2018年 蔡路飞. All rights reserved.
 //
 
-#import "BCMeNoDataView.h"
+#import "BCMeNoDataFooterView.h"
 
-@interface BCMeNoDataView()
+@interface BCMeNoDataFooterView()
 
 
 @end
-@implementation BCMeNoDataView
+@implementation BCMeNoDataFooterView
 
 -(UIImageView *)centerIcon{
     if (!_centerIcon) {
@@ -25,7 +25,7 @@
 
 -(UILabel *)message{
     if (!_message) {
-        _message =[UILabel LabelWithTextColor:bkColor textFont:SYSTEMFONT(SXRealValue(15)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
+        _message =[UILabel LabelWithTextColor:bkColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(13)) textAlignment:NSTextAlignmentCenter numberOfLines:1];
         //[Util roundBorderView:0 border:1 color:[UIColor blackColor] view:_myName];
     }
     return _message;
@@ -41,8 +41,8 @@
         
         
         [self.centerIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.mas_top).with.offset(0);
             make.centerX.mas_equalTo(self.mas_centerX);
-            make.bottom.mas_equalTo(self.mas_centerY).with.offset(0);
             make.width.mas_equalTo((SXRealValue(150)));
             make.height.mas_equalTo((SXRealValue(150)));
         }];

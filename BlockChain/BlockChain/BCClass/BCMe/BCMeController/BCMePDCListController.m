@@ -19,10 +19,12 @@
 #import "BCMeQRCodeController.h"
 #import "BCMePDCListUpCell.h"
 #import "BCMePDCListDownCell.h"
+#import "BCMeNoDataFooterView.h"
 
 @interface BCMePDCListController ()<UITableViewDataSource,UITableViewDelegate,BCMePDCListUpCellDelegate,BCMePDCListAlertViewDelegate>
 @property(nonatomic,strong)BCMePDCListHeaderView *headerView;
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)BCMeNoDataFooterView *noView;//无数据view
 @property(nonatomic,strong)BCMePDCListMode *model;
 @property(nonatomic,strong)BCMePDCListAlertView *alertView;//弹框
 
@@ -44,6 +46,9 @@
 
 @property(nonatomic,assign)BOOL isNoNetWork;//当前是否有网络
 
+@property(nonatomic,assign)BOOL isRresh;//是否刷新
+
+@property(nonatomic,assign)BOOL isAnBtn;//是否按按钮
 
 @end
 
@@ -56,6 +61,8 @@
 #define alertViewHeight   (SCREENWIDTH-2*(SXRealValue(16)))*467/343)
 
 #define upBigViewHeight   ((SYRealValue(67+33+23)))
+
+#define cellNoShuJuHeight  (300)  //无网络数据的view高度
 
 
 
@@ -89,6 +96,17 @@
 }
 
 
+/**无数据view**/
+-(BCMeNoDataFooterView *)noView{
+    if (!_noView) {
+        _noView = [[BCMeNoDataFooterView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellNoShuJuHeight)];
+        _noView.centerIcon.image =[UIImage imageNamed:@"无消息"];
+        _noView.message.text = @"暂无数据";
+        _noView.backgroundColor =[UIColor whiteColor];
+    }
+    return _noView;
+}
+
 /**顶部view**/
 //-(BCMePDCListHeaderView *)headerView{
 //    if (!_headerView) {
@@ -120,13 +138,14 @@
 }
 #pragma mark -BCMePDCListAlertViewDelegate 知道了按钮点击
 -(void)sureBtnClick:(BCMePDCListMode *)model{
-    NSLog(@"点击了确定按钮");
+    //NSLog(@"点击了确定按钮");
     [GKCover hide];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.isAnBtn =NO;
     [self setNaviImageHidden];
     //是否刷新
     if(_isRefresh==YES){
@@ -137,6 +156,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    self.isAnBtn =YES;
     [self setNaviImage];
 }
 
@@ -155,6 +175,7 @@
                                                                             
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isAnBtn =NO;
     _page =0;
     //设置导航栏
     [self setNaviTitle:self.code];
@@ -216,12 +237,12 @@
     candyDict[@"code"] = self.code;//糖果id
     candyDict[@"size"] = @20;//糖果id
     candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
-    NSLog(@"%@",TOKEN_DETAIL);
+    //NSLog(@"%@",TOKEN_DETAIL);
 
     [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
     NSMutableArray* listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
-       
+        self.isRresh =YES;
         if(self.PDCmodel.partner!=nil){
             [self setNaviTitle:self.PDCmodel.partner.code];
             self.coin =self.PDCmodel.uci.coin;
@@ -256,6 +277,7 @@
                 //第一次加载
                 if(listArray.count<10){
                     [self.footer endRefreshingWithNoMoreData];
+                    
                 }
                 self.isFirstRefresh=NO;
             }
@@ -272,6 +294,7 @@
         }
         self.isNoNetWork =NO;//有网络
     } erorr:^(id error) {
+        self.isRresh =NO;
         self.isNoNetWork =YES;//无网络
         self.bottomView.hidden =YES;
         [self.header endRefreshing];
@@ -285,14 +308,18 @@
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(self.isAnBtn)return;
     if(self.isNoNetWork==YES) return;//无网络
     CGFloat offsetY = scrollView.contentOffset.y;
     if (offsetY> upBigViewHeight) {
         //设置导航图片
         [self setNaviImage];
+        NSLog(@"00000000000000");
     }else{
          //设置透明导航
         [self setNaviImageHidden];
+        NSLog(@"11111111111111");
+
     }
 }
                                                                             
@@ -306,6 +333,7 @@
         [self.navigationController setNavigationBarHidden:NO animated:NO];
         //在设置导航栏的图片
         if(isTouMing==YES){
+            if(self.isAnBtn) return;
             [self setNaviImageHidden];//设置透明图片
         }else{
             //[self setNaviImage];//设置图片
@@ -389,6 +417,7 @@
 
 #pragma mark - 转账按钮
 -(void)payBtnClick{
+    
     WS(weakSelf);
     //已进行实名认证
     BCMeChangeMoneyController *moneyVc = [[BCMeChangeMoneyController alloc] init];
@@ -408,6 +437,7 @@
                                                                             
 #pragma mark -收款按钮
 -(void)getBtnClick{
+    
     BCMeQRCodeController *QRVc= [[BCMeQRCodeController alloc] init];
     QRVc.isShouKuan =YES;
     [self.navigationController pushViewController:QRVc animated:YES];
@@ -421,12 +451,23 @@
 }
 
 
+//返回高度
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+
+    if(section==0){
+        return nil;
+    }else{
+        return (self.zonglistArray.count<1 && self.isRresh==YES) ? self.noView : nil;
+    }
+}
+
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section==0) {
         return 0.01;
     }else{
-        return  (SYRealValue(54)) ;
+       // CGFloat resultHeight =self.zonglistArray.count<1 ? 0.01  : (SYRealValue(54));
+        return (self.isRresh==NO)? 0.01  : (SYRealValue(54));
     }
 }
                                                                             
@@ -435,15 +476,17 @@
     if (section==0) {
              return 0.01;
     }else{
-             return  0.01 ;
+        return (self.zonglistArray.count<1 && self.isRresh==YES) ? cellNoShuJuHeight : 0.01;;
     }
 }
+                                                                            
 //返回高度
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section==0) {
         return nil;
     }else{
-        if (self.zonglistArray.count<1) return nil;
+        if(self.isRresh==NO) return nil;
+//        if (self.zonglistArray.count<1) return nil;
     UIView *view= [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, (SYRealValue(54)))];
     view.backgroundColor = naverTextColor;
     UILabel *tangGuoJiLulable = [UILabel LabelWithTextColor:blackBColor textFont:FONT(@"PingFangSC-Regular", SXRealValue(15)) textAlignment:NSTextAlignmentLeft numberOfLines:1];
@@ -466,11 +509,6 @@
     return view;
     }
 }
-//-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return 50;
-//}
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;

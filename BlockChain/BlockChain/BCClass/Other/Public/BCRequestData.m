@@ -55,11 +55,11 @@
     }];
 }
 +(void)get_token_Detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
-    NSLog(@"%@",TOKEN_DETAIL);
+    //NSLog(@"%@",TOKEN_DETAIL);
     [LFHttpTool post:TOKEN_DETAIL params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         //[responseObj writeToFile:@"/Users/mac/Desktop/plist/aaa.plist" atomically:YES];
-        LFLog(@"==%@",responseObj);
+        //LFLog(@"==%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);

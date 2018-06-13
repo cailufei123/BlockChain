@@ -10,7 +10,7 @@
 
 //@class  BCMeModel;
 //协议
-@protocol BCMeNoDataViewDelegate <NSObject>
+@protocol BCMeNoDataFooterViewDelegate <NSObject>
 
 
 @optional
@@ -23,12 +23,12 @@
 
 @end
 
-@interface BCMeNoDataView : UIView
+@interface BCMeNoDataFooterView : UIView
 
 /** 无网络中间图片*/
 @property (nonatomic, strong)UIImageView *centerIcon;
 /** 无网络中间文字*/
 @property (nonatomic, strong)UILabel *message;
 
-@property (nonatomic, weak) id <BCMeNoDataViewDelegate> delegate;
+@property (nonatomic, weak) id <BCMeNoDataFooterViewDelegate> delegate;
 @end

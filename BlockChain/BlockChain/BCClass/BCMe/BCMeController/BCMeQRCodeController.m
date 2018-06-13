@@ -40,7 +40,15 @@
     }
     return _qRcodeView;
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setNaviImage];
+}
 
+//设置导航图片
+-(void)setNaviImage{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
