@@ -396,7 +396,13 @@
         NSString * pleStoneStr = [NSString stringWithFormat:@"%@",responseObj[@"data"][@"coin"] ] ;
         self.pleStone = [pleStoneStr doubleValue];
         [self.purpleStoneBt setTitle:[NSString stringWithFormat:@"紫钻：%@",responseObj[@"data"][@"coin"]]forState:UIControlStateNormal];
-        [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
+        NSString * tellow = [NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]];
+        if ([responseObj[@"data"][@"compute"] isEqual:nil]||tellow.length<=0) {
+              [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",@"0"]forState:UIControlStateNormal];
+        }else{
+              [self.tellowStoneBt setTitle:[NSString stringWithFormat:@"算力：%@",responseObj[@"data"][@"compute"]]forState:UIControlStateNormal];
+        }
+      
     
     }];
     
