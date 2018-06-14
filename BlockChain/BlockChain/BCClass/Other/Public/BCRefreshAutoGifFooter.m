@@ -44,8 +44,9 @@
     //        [refreshingImages addObject:image];
     //    }
     //    [self setImages:refreshingImages forState:MJRefreshStateRefreshing];
-    self.refreshingTitleHidden = YES;
+
     self.automaticallyHidden = YES;
+        self.refreshingTitleHidden = YES;
     [self setTitle:@"我已经到底啦" forState:MJRefreshStateNoMoreData];
 }
 
