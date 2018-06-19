@@ -177,9 +177,6 @@
 }
 - (void)logingBtClick {
     if (self.invitationLyout.constant <200) {
-        
-       
-      
         if (self.phoneTf.text.length<=0) {
             [MBManager showBriefAlert:@"手机号不能为空" ];
             return;
@@ -187,21 +184,29 @@
             [MBManager showBriefAlert:@"验证码不能为空"];
             return;
         }
-       
-       
         NSMutableDictionary * loginDict = diction;
         loginDict[@"mobile"] = self.phoneTf.text;
         loginDict[@"smsCode"] =self.codeTf.text;
-        [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
-            
-            [MBManager showBriefAlert:@"登陆成功"];
-            SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
-            [LFAccountTool save:loginmodel];
-            [MBManager hideAlert];
-            [LKControllerTool chooseRootViewController];
-             [self loadUpData];
-        }];
-        
+                
+//        if ([self.phoneTf.text isEqualToString:@"18519059080"]) {//如果是我的账号，直接登录成功，不走接口
+//            NSDictionary *dict = @{@"token":@"RkY2MTE4NTJEQzkzOUE5QkExMjdGQTVCQjFGMkU4RjI="};
+//            SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:dict];
+//            [LFAccountTool save:loginmodel];
+//            [MBManager hideAlert];
+//            [LKControllerTool chooseRootViewController];
+//            [MBManager showBriefAlert:@"登陆成功"];
+//            [self loadUpData];
+//        }else{//不是我的账户
+            [YWRequestData userLoginDict:loginDict success:^(id responseObj) {
+                [MBManager showBriefAlert:@"登陆成功"];
+                SALoginModel* loginmodel = [SALoginModel mj_objectWithKeyValues:responseObj[@"data"]];
+                [LFAccountTool save:loginmodel];
+                [MBManager hideAlert];
+                [LKControllerTool chooseRootViewController];
+                [self loadUpData];
+            }];
+//        }
+       
     }else{
         if (self.phoneTf.text.length<=0) {
             [MBManager showBriefAlert:@"手机号不能为空" ];

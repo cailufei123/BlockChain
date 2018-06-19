@@ -103,7 +103,7 @@
         self.forgetBtn.xmg_y = self.textField.xmg_bottom+(SYRealValue(10));
         self.forgetBtn.xmg_width = SXRealValue(50);
         self.forgetBtn.xmg_height = SYRealValue(25);
-        NSLog(@"%@",NSStringFromCGRect(self.forgetBtn.frame));
+        //NSLog(@"%@",NSStringFromCGRect(self.forgetBtn.frame));
         [self.textField becomeFirstResponder];
     }
     return self;
@@ -137,7 +137,7 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    NSLog(@"变化%@", string);
+    //NSLog(@"变化%@", string);
     if([string isEqualToString:@"\n"]) {
         //按回车关闭键盘
         [textField resignFirstResponder];
@@ -148,7 +148,7 @@
     }
     else if(textField.text.length >= kDotCount) {
         //输入的字符个数大于6，则无法继续输入，返回NO表示禁止输入
-        NSLog(@"输入的字符个数大于6，忽略输入");
+        //NSLog(@"输入的字符个数大于6，忽略输入");
         return NO;
     } else {
         return YES;
@@ -169,7 +169,7 @@
  */
 - (void)textFieldDidChange:(UITextField *)textField
 {
-    NSLog(@"%@", textField.text);
+    //NSLog(@"%@", textField.text);
     for (UIView *dotView in self.dotArray) {
         dotView.hidden = YES;
     }
@@ -181,7 +181,7 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(getPassWord:)]) {
             [self.delegate getPassWord:textField.text];
         }
-        NSLog(@"输入完毕");
+        //NSLog(@"输入完毕");
     }
 }
 

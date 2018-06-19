@@ -63,8 +63,6 @@
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
         _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-49) style:UITableViewStyleGrouped];
-        
-        NSLog(@"%f",kTopHeight);
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor  =bagColor;
@@ -228,9 +226,17 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setNaviImage];
+//    [self setNaviImage];
 }
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self getBack];
+}
+-(void)getBack{
+    if (self.backBlock) {
+        self.backBlock(YES);
+    }
+}
 //设置导航图片
 -(void)setNaviImage{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
@@ -438,9 +444,8 @@
                 [self requestPay];
             }
         }else{//不是以太币
-            NSLog(@"text2===%f",[self.text2 floatValue]);
-            NSLog(@"coin===%f",[self.coin floatValue]);
-
+//            NSLog(@"text2===%f",[self.text2 floatValue]);
+//            NSLog(@"coin===%f",[self.coin floatValue]);
             if ([self.text2 floatValue]>[self.coin floatValue]) {
                 [MBManager showBriefAlert:[NSString stringWithFormat:@"最多能转出%.6f %@",self.coin.floatValue,_moneyModel.code]];
             }else{
@@ -455,8 +460,8 @@
 #pragma mark - 立刻支付
 -(void)requestPay{
     //判断是否已经认证身份
-    LFLog(@"==%@",CASH_COIN);
-    NSLog(@"%@",loginMe.authStatus);
+    //LFLog(@"==%@",CASH_COIN);
+    //NSLog(@"%@",loginMe.authStatus);
     if ([loginMe.authStatus isEqualToString:@"2"]) {//弹出支付界面
         [self showSurePayView];
     }else{
@@ -492,7 +497,7 @@
 #pragma mark -PCMePassWordDelegate 输入密码完成，请求支付接口
 -(void)getPassWord:(NSString *)passWord{
     self.moneyModel.passWord =passWord;
-    NSLog(@"password===%@",passWord);
+    //NSLog(@"password===%@",passWord);
     [self loadData];
 }
 
@@ -517,7 +522,7 @@
         }
     } passwordError:^(NSString *message) {//密码错误
         [weakSelf.passView  clearUpPassword];//清空密码
-        NSLog(@"服务器===%@",message);
+        //NSLog(@"服务器===%@",message);
     } noYuEr:^(NSString *yuer) {//额度不够
         if(self.refreshAllData){
             self.refreshAllData(YES);
@@ -566,9 +571,7 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)dealloc{
-    NSLog(@"销毁");
-}
+
 
 
 @end

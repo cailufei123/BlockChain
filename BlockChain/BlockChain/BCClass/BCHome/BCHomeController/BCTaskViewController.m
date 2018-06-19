@@ -12,6 +12,7 @@
 #import "BCTaskDetailViewController.h"
 #import "BCHomeModel.h"
 #import "BCMeInvitingFriendsController.h"
+#import "BCMeNoDataFooterView.h"
 
 @interface BCTaskViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)UITableView * tableView;
@@ -19,16 +20,31 @@
 @property(nonatomic,strong)NSMutableArray * platTaskLogModels;
 @property(nonatomic,strong)NSMutableArray * imgs;
 @property(nonatomic,strong)NSMutableArray * taskInfoModels;
-
+@property(nonatomic,assign)BOOL isRresh;//是否有数据
+@property(nonatomic,strong)BCMeNoDataFooterView *noView;//无数据底部展示图片
 @end
 static NSString * const cellidenfder = @"BCTaskTableViewCell";
 @implementation BCTaskViewController
+#define cellNoShuJuHeight  (300)  //无网络数据的view高度
+
+
 -(NSMutableArray *)imgs{
     
     if (!_imgs) {
         _imgs = [NSMutableArray array];
     }
     return _imgs;
+}
+
+/**无数据view**/
+-(BCMeNoDataFooterView *)noView{
+    if (!_noView) {
+        _noView = [[BCMeNoDataFooterView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellNoShuJuHeight)];
+        _noView.centerIcon.image =[UIImage imageNamed:@"无消息"];
+        _noView.message.text = @"这里是空的喲~";
+        _noView.backgroundColor =[UIColor whiteColor];
+    }
+    return _noView;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -40,6 +56,19 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
     [self setTable];
     [self createTopView];
     [self createRefresh];
+    //提前请求下载地址
+    [self loadDownURl];
+}
+
+-(void)loadDownURl{
+    NSMutableDictionary * candyDict = diction;
+    candyDict[@"token"] = loginToken;
+    [BCRequestData get_DownUrl_Dict:candyDict success:^(id responseObject) {
+        NSString *downLoadUrl  = responseObject[@"data"][@"downloadUrl"];
+        [USER_DEFAULT setObject:downLoadUrl forKey:@"downUrlPath"];
+    } erorr:^(id error) {
+    }];
+    
 }
 - (void)createRefresh
 {
@@ -50,6 +79,7 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
     [self.tableView.mj_header beginRefreshing];
 }
 -(void)loadMoreData{
+    
     TaskInfoModel *  taskInfoModel =   [self.taskInfoModels lastObject];
     NSMutableDictionary * computePowerDict = diction;
     computePowerDict[@"token"] =loginToken;
@@ -75,6 +105,7 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
     computePowerDict[@"token"] =loginToken;
     [self.imgs removeAllObjects];
     [YWRequestData userTaskListDict:computePowerDict success:^(id responseObj) {
+        self.isRresh =YES;//证明有数据
         self.platTaskLogModels = [PlatTaskLogModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"][@"platTaskLogs"]];
         [self.imgs addObject:responseObj[@"data"][@"bannerPic"]];
         self.taskTopView.platTaskLogModels =  self.platTaskLogModels;
@@ -135,22 +166,33 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
     
 }
 
--(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section==0) {
-        return  0 ;
-    }else{
-        return 0.01f;
-    }
-    
+//返回高度
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+        return (self.taskInfoModels.count<1 && self.isRresh==YES) ? self.noView : nil;
 }
 
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 0.01f;
-    
-    
+        return (self.taskInfoModels.count<1 && self.isRresh==YES) ? cellNoShuJuHeight : 0.01;
 }
+
+
+//-(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    if (section==0) {
+//        return  0 ;
+//    }else{
+//        return 0.01f;
+//    }
+//
+//}
+
+//-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 0.01f;
+//
+//
+//}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

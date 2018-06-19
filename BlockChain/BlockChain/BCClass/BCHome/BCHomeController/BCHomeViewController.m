@@ -107,7 +107,6 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     [self loadNewData];
      [self winPeople];
     self.timer = [NSTimer wh_scheduledTimerWithTimeInterval:60 repeats:YES callback:^(NSTimer *timer) {
-
         [self winPeople];
     }];
    
@@ -126,14 +125,15 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     NSString *oldVersion = [self getAppVersion];
     NSString * oldVersionNmb = [oldVersion stringByReplacingOccurrencesOfString:@"." withString:@""];
     NSMutableDictionary * dictCont = [NSMutableDictionary dictionary];
-    dictCont[@"appVer"] =@([oldVersionNmb doubleValue]);
     
+    dictCont[@"appVer"] =@([oldVersionNmb doubleValue]);
     dictCont[@"channel"] =@"0";
     dictCont[@"type"] =@"1";
     
-     LFLog(@"%@",dictCont);
+    LFLog(@"%@",dictCont);
+    LFLog(@"%@",GET_LEPLAY);
     [YWRequestData getplayDict:dictCont success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         if ([responseObj[@"status"] isEqual:@(0)]) {
             CMVersion * version = [CMVersion mj_objectWithKeyValues:responseObj[@"data"]];
             NSUserDefaults *prosionDate =  [NSUserDefaults standardUserDefaults];
@@ -351,6 +351,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 }
 
 -(void)hideSquare:(UIButton * )bt{
+  
     if (bt.selected) {
         bt.selected = NO;
            [self.tableView setContentOffset:CGPointMake(0,0) animated:YES];
@@ -378,11 +379,12 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     // 只需一行代码，我来解放你的代码
     [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
         self.userCandyLists =  [CandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+        [self setButtonisHidden];//根据数据判断，磁场按钮是否显示
         [MBManager hideAlert];
         if (self.userCandyLists.count<10) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
-           self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
+           //self.tableView.loadErrorType = YYLLoadErrorTypeNoNetwork;
         if (self.userCandyLists.count>0) {
               self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;
         }
@@ -410,6 +412,13 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     }];
     
     
+}
+-(void)setButtonisHidden{
+    if (self.userCandyLists.count<1) {
+        self.button.hidden=YES;
+    }else{
+        self.button.hidden=NO;
+    }
 }
 -(void)loadMoreData{
      CandyListModel * candyListModel = [self.userCandyLists lastObject];
@@ -630,6 +639,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
           return cell;
     }else{
            BCNotMessageCell * cell = [tableView dequeueReusableCellWithIdentifier:notMessageCellidenfder];
+        cell.userInteractionEnabled= NO;//展示不可以点击
         return cell;
     }
   

@@ -17,7 +17,7 @@
     [LFHttpTool post:USER_INFO params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         
-        LFLog(@"====%@",responseObj);
+        //LFLog(@"====%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -36,10 +36,10 @@
     
     [LFHttpTool post:MY_TOKEN_LIST params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        NSLog(@"%@",MY_TOKEN_LIST);
+        //NSLog(@"%@",MY_TOKEN_LIST);
         
         //[responseObj writeToFile:@"/Users/mac/Desktop/plist/abc.plist" atomically:YES];
-        LFLog(@"==%@",responseObj);
+        //LFLog(@"==%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -103,7 +103,6 @@
     [LFHttpTool post:CASH_COIN params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         //[responseObj writeToFile:@"/Users/mac/Desktop/plist/kkk.plist" atomically:YES];
-        LFLog(@"==%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             if ([responseObj[@"message"] containsString:@"密码错误"]) {
@@ -132,7 +131,6 @@
     } success:^(id responseObj) {
         
         //[responseObj writeToFile:@"/Users/mac/Desktop/plist/kkk.plist" atomically:YES];
-        LFLog(@"==%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -147,6 +145,28 @@
         [MBManager hideAlert];
     }];
 }
+//等到分享页下载地址
++(void)get_DownUrl_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
+    
+    [LFHttpTool post:INVITE_PARAMS params:dict progress:^(id downloadProgress) {
+    } success:^(id responseObj) {
+        
+        [MBManager hideAlert];
+        if ([responseObj[@"status"] isEqual:@(0)]) {
+            sucess(responseObj);
+            //[MBManager showBriefAlert:@"请求成功"];
+        }else{
+            erorr(responseObj);
+            [MBManager showBriefAlert:responseObj[@"message"]];
+        }
+    } failure:^(NSError *error) {
+        erorr(error);
+        [MBManager showBriefAlert:@"网络错误"];
+        [MBManager hideAlert];
+    }];
+}
+
+
 
 
 

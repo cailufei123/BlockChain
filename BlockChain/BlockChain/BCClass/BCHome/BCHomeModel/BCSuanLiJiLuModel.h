@@ -34,6 +34,8 @@
 @property(nonatomic,copy)NSString *compute;
 @property(nonatomic,copy)NSArray *computeLogs;
 
+@property(nonatomic,assign)CGFloat UpBigHeight;//高度
+
 @end
 
 @interface BCSuanLiJiLuListModel : NSObject
@@ -46,5 +48,6 @@
 @property(nonatomic,copy)NSString *compute;
 @property(nonatomic,copy)NSString *type;
 @property(nonatomic,copy)NSString *createTime;
+
 
 @end

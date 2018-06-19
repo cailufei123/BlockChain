@@ -42,7 +42,7 @@
 }
 -(void)addConfigUMCommon{
     //输出可供调试参考的log信息.显示打印的日志，发布产品时必须设置为NO
-    [UMConfigure setLogEnabled:YES];//设置打开日志
+    [UMConfigure setLogEnabled:NO];//设置打开日志
     //增加统计方法
     [UMConfigure initWithAppkey:@"5b0780deb27b0a78c6000016" channel:nil];
     NSString* deviceID =  [UMConfigure deviceIDForIntegration];

@@ -249,7 +249,11 @@
 -(void)setModel:(BCMePDCMode *)model{
     _model =model;
     [self layoutIfNeeded];
-    self.xiangQingLable.text=[NSString stringWithFormat:@"%@详情",model.uci.code];
+    if (model.uci!=nil) {
+        self.xiangQingLable.text=[NSString stringWithFormat:@"%@详情",model.uci.code];
+    }else{
+        self.xiangQingLable.text=[NSString stringWithFormat:@"%@详情",@"LLMC"];
+    }
     self.mingChengLable.text=[NSString stringWithFormat:@"项目名称: %@",model.partner.projectName];
     self.biaoYuLable.text=[NSString stringWithFormat:@"标语: %@",model.partner.slogan];
     self.jieShaoLable.text=[NSString stringWithFormat:@"项目介绍: %@",model.partner.brief];

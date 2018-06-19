@@ -194,7 +194,7 @@
         }];
         [self.upBigView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.contentView.mas_top).with.offset(kTopHeight);
-            NSLog(@"kTopHeight===%f",kTopHeight);
+            //NSLog(@"kTopHeight===%f",kTopHeight);
             make.left.mas_equalTo(self.contentView.mas_left).with.offset(0);
             make.right.mas_equalTo(self.contentView.mas_right).with.offset(0);
             make.height.mas_equalTo(upBigViewHeight);
@@ -270,6 +270,7 @@
     if (model!=nil) {
         if (model.partner!=nil) {
            
+            if(model.uci!=nil){
             if (model.uci.coin.wby_isPureInt) {//整型
                 self.price.text=[NSString stringWithFormat:@"%.1f",model.uci.coin.floatValue];
             }else{//整形
@@ -280,6 +281,11 @@
             }else{
                 self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%@",model.uci.rmb];
             }
+            }else{
+                self.price.text=@"0";
+                self.yuePrice.text=[NSString stringWithFormat:@"≈ ¥%@",@"0"];
+            }
+            
             self.label1.text=[NSString stringWithFormat:@"%@简介",model.partner.code];
             self.label2.text=[NSString stringWithFormat:@"项目名称:%@",model.partner.projectName];
             self.label3.text=[NSString stringWithFormat:@"标语:%@",model.partner.slogan];

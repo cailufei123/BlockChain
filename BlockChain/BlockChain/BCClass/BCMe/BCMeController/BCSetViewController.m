@@ -157,12 +157,13 @@
     } success:^(id responseObj) {
         
         [MBManager hideAlert];
-        
         if ([responseObj[@"status"]isEqual:@(0)]) {
             [MBManager showBriefAlert:@"退出成功"];
             
             NSString* filename = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.data"];
             
+//            NSString* filename = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"accountMe.data"];
+
             NSFileManager *defaultManager = [NSFileManager defaultManager];
             if ([defaultManager isDeletableFileAtPath:filename]) {
                 [defaultManager removeItemAtPath:filename error:nil];

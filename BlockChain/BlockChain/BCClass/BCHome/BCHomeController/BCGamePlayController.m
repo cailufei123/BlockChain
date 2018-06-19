@@ -46,7 +46,6 @@
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
         _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-JiaSuBtnViewHeight-kTopHeight) style:UITableViewStylePlain];
-        NSLog(@"%f",kTopHeight);
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor  =bagColor;
@@ -109,7 +108,7 @@
             mode.text2 =@"登录、收取财富币、邀请好友、完成任务等活动均可增加算力，未来随着生态体系的扩张，将支持更多获取算力的方式。";
         }
         [self.listArr addObject:mode];
-        NSLog(@"%zd",self.listArr.count);
+        //NSLog(@"%zd",self.listArr.count);
 
     }
 }

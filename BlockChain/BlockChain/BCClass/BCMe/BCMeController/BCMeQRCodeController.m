@@ -33,6 +33,7 @@
         _qRcodeView = [[BCMeQRCodeView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT-kTopHeight)];
         [_qRcodeView.QRCodeBtn1 addTarget:self action:@selector(QRCodeBtn1Click) forControlEvents:UIControlEventTouchUpInside];
         [_qRcodeView.QRCodeBtn2 addTarget:self action:@selector(QRCodeBtn2Click) forControlEvents:UIControlEventTouchUpInside];
+        //NSLog(@"%@",login.token);
         //生成一张二维码的图片
          UIImage*Qimage=[Util getColorQimageWithPath:loginMe.token withImageView:nil WithSize:500 withCenterIcon:[UIImage imageNamed:@"lg"] centerIconWidth:SXRealValue(80) withRed:129.0f andGreen:0.0f andBlue:224.0f];
         self.meModel.Qimage=Qimage;
@@ -43,8 +44,14 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setNaviImage];
+    [self getBack];
 }
 
+-(void)getBack{
+    if (self.backBlock) {
+        self.backBlock(YES);
+    }
+}
 //设置导航图片
 -(void)setNaviImage{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];

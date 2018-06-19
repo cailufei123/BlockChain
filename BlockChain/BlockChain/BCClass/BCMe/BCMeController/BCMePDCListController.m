@@ -30,38 +30,31 @@
 
 @property(nonatomic,strong)SARefreshGifHeader *header;
 @property(nonatomic,strong)BCRefreshAutoGifFooter *footer;
-@property(nonatomic,assign)NSUInteger page;
-
+@property(nonatomic,assign)NSInteger page;
 @property(nonatomic,strong)NSMutableArray *zonglistArray;
-
 @property(nonatomic,strong)BCMePDCMode *PDCmodel;
 @property(nonatomic,strong)UIView *bottomView;
 
 @property(nonatomic,assign)BOOL isFirstRefresh;//第一次加载
 @property(nonatomic,assign)BOOL isRefresh;//是否刷新
-
 @property(nonatomic,copy)NSString *coin;
-
 @property(nonatomic,assign)BOOL isUpLoad;//是否是上拉加载
-
 @property(nonatomic,assign)BOOL isNoNetWork;//当前是否有网络
-
 @property(nonatomic,assign)BOOL isRresh;//是否刷新
-
 @property(nonatomic,assign)BOOL isAnBtn;//是否按按钮
+@property(nonatomic,assign)BOOL back;//是否是上一页返回
 
+@property(nonatomic,assign)BOOL yuanNav;
+@property(nonatomic,strong)NSMutableDictionary *heightAtIndexPath;
 @end
 
 @implementation BCMePDCListController
 //#define HeaderViewHeight   ((SYRealValue(190))-kTopHeight)  //顶部view高度
 
 #define HeaderViewHeight   ((SYRealValue(67+33+23))+kTopHeight+(SYRealValue(235)))  //顶部view高度
-//弹框
-#define alertViewWidth    SCREENWIDTH-2*(SXRealValue(16))
+#define alertViewWidth    SCREENWIDTH-2*(SXRealValue(16))//弹框
 #define alertViewHeight   (SCREENWIDTH-2*(SXRealValue(16)))*467/343)
-
 #define upBigViewHeight   ((SYRealValue(67+33+23)))
-
 #define cellNoShuJuHeight  (300)  //无网络数据的view高度
 
 
@@ -77,7 +70,6 @@
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
         _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-49) style:UITableViewStyleGrouped];
-        NSLog(@"%f",kTopHeight);
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor  =bagColor;
@@ -90,18 +82,24 @@
             _tableView.estimatedSectionHeaderHeight = 0;
             _tableView.estimatedSectionFooterHeight = 0;
         }
-        _isFirstRefresh=YES;
     }
     return _tableView;
 }
-
+#pragma mark - Getters
+- (NSMutableDictionary *)heightAtIndexPath
+{
+    if (!_heightAtIndexPath) {
+        _heightAtIndexPath = [NSMutableDictionary dictionary];
+    }
+    return _heightAtIndexPath;
+}
 
 /**无数据view**/
 -(BCMeNoDataFooterView *)noView{
     if (!_noView) {
         _noView = [[BCMeNoDataFooterView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellNoShuJuHeight)];
         _noView.centerIcon.image =[UIImage imageNamed:@"无消息"];
-        _noView.message.text = @"暂无数据";
+        _noView.message.text = @"这里是空的喲~";
         _noView.backgroundColor =[UIColor whiteColor];
     }
     return _noView;
@@ -121,12 +119,13 @@
     if (!_alertView) {
         _alertView = [[BCMePDCListAlertView alloc] initWithFrame:CGRectMake(SXRealValue(16), (SYRealValue(110)), alertViewWidth, alertViewHeight];
         [Util roundBorderView:SXRealValue(3) border:0 color:[UIColor blackColor] view:_alertView];
-    
+
         //_alertView.backgroundColor =[UIColor greenColor];
 //[_alertView.guanWangBtn addTarget:self action:@selector(abc) forControlEvents:UIControlEventTouchUpInside];
         _alertView.delegate =self;
     }
     return _alertView;
+                                                                        
 }
 
 
@@ -140,24 +139,39 @@
 -(void)sureBtnClick:(BCMePDCListMode *)model{
     //NSLog(@"点击了确定按钮");
     [GKCover hide];
+
+
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     self.isAnBtn =NO;
-    [self setNaviImageHidden];
+        [self setNaviImageHidden];
     //是否刷新
-    if(_isRefresh==YES){
+//    if(_isRefresh==YES){
         [self loadNewData];
-        _isRefresh =NO;
-    }
+//        _isRefresh =NO;
+//    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.isAnBtn =YES;
     [self setNaviImage];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if(self.back){
+        if(self.yuanNav){
+            //设置导航图片
+            [self setNaviImage];
+        }else{
+            //设置透明导航
+            [self setNaviImageHidden];
+        }
+    }
 }
 
 //设置导航图片为透明
@@ -169,13 +183,14 @@
 }
 //设置导航图片
 -(void)setNaviImage{
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"millcolorGrad"] forBarMetrics:UIBarMetricsDefault]; 
 }
                                                                  
                                                                             
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isAnBtn =NO;
+    _isFirstRefresh=YES;
     _page =0;
     //设置导航栏
     [self setNaviTitle:self.code];
@@ -236,9 +251,8 @@
     candyDict[@"token"] = loginToken;
     candyDict[@"code"] = self.code;//糖果id
     candyDict[@"size"] = @20;//糖果id
-    candyDict[@"page"] = [NSString stringWithFormat:@"%ld",self.page];//糖果id
+    candyDict[@"page"] = [NSString stringWithFormat:@"%@",@(self.page)];//糖果id
     //NSLog(@"%@",TOKEN_DETAIL);
-
     [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
     NSMutableArray* listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
@@ -275,9 +289,8 @@
             
             if(self.isFirstRefresh){//只执行一次
                 //第一次加载
-                if(listArray.count<10){
+                if(listArray.count<20){
                     [self.footer endRefreshingWithNoMoreData];
-                    
                 }
                 self.isFirstRefresh=NO;
             }
@@ -312,14 +325,13 @@
     if(self.isNoNetWork==YES) return;//无网络
     CGFloat offsetY = scrollView.contentOffset.y;
     if (offsetY> upBigViewHeight) {
+        _yuanNav =YES;
         //设置导航图片
         [self setNaviImage];
-        NSLog(@"00000000000000");
     }else{
+        _yuanNav =NO;
          //设置透明导航
         [self setNaviImageHidden];
-        NSLog(@"11111111111111");
-
     }
 }
                                                                             
@@ -426,6 +438,9 @@
     moneyVc.refreshAllData = ^(BOOL isRefresh) {
         weakSelf.isRefresh = isRefresh;
     };
+    moneyVc.backBlock = ^(BOOL back) {//从上一页返回
+        weakSelf.back = back;
+    };
     moneyVc.code =self.code;
     [self.navigationController pushViewController:moneyVc animated:YES];
 }
@@ -437,11 +452,13 @@
                                                                             
 #pragma mark -收款按钮
 -(void)getBtnClick{
-    
+    WS(weakSelf);
     BCMeQRCodeController *QRVc= [[BCMeQRCodeController alloc] init];
     QRVc.isShouKuan =YES;
+    QRVc.backBlock = ^(BOOL back) {//从上一页返回
+        weakSelf.back =back;
+    };
     [self.navigationController pushViewController:QRVc animated:YES];
-    NSLog(@"二维码");
 }
 -(void)setNaviTitle:(NSString *)naviTitle{
     self.navigationItem.title=[NSString stringWithFormat:@"%@总数",naviTitle];
@@ -523,11 +540,21 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSNumber *height = [self.heightAtIndexPath objectForKey:indexPath];
     if (indexPath.section==0) {
-        return 300;
+        //return 300;
+        return height?height.floatValue:400;
     }else{
        return (SYRealValue(54));
     }
+}
+       
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+    NSNumber *height = @(cell.frame.size.height);
+    [self.heightAtIndexPath setObject:height forKey:indexPath];
+}
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
@@ -554,10 +581,8 @@
     }
 }
 
-
--(void)dealloc{
-    NSLog(@"销毁");
-}
+                                                                            
+                                                                    
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 

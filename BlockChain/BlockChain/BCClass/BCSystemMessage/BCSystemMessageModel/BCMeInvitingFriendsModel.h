@@ -16,4 +16,5 @@
 @property(nonatomic,copy)NSString *lastInviteCount;//分享次数
 
 
+
 @end

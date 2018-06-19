@@ -31,6 +31,8 @@
 @property(nonatomic,assign)BOOL isNoNetWork;//当前是否有网络
 @property(nonatomic,assign)BOOL isRresh;//是否刷新
 @property(nonatomic,assign)BOOL isAnBtn;
+@property(nonatomic,assign)BOOL isFirstRefresh;//第一次加载
+@property(nonatomic,strong)NSMutableDictionary *heightAtIndexPath;
 @end
 
 @implementation BCSuanLiJiLuController
@@ -47,13 +49,20 @@
     }
     return _allListArray;
 }
+#pragma mark - Getters
+- (NSMutableDictionary *)heightAtIndexPath
+{
+    if (!_heightAtIndexPath) {
+        _heightAtIndexPath = [NSMutableDictionary dictionary];
+    }
+    return _heightAtIndexPath;
+}
 
 /**表格**/
 -(UITableView *)tableView{
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
         _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-JiaSuBtnViewHeight) style:UITableViewStylePlain];
-        NSLog(@"%f",kTopHeight);
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor  =bagColor;
@@ -74,7 +83,7 @@
     if (!_noView) {
         _noView = [[BCMeNoDataFooterView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellNoShuJuHeight)];
         _noView.centerIcon.image =[UIImage imageNamed:@"无消息"];
-        _noView.message.text = @"暂无数据";
+        _noView.message.text = @"这里是空的喲~";
         _noView.backgroundColor =[UIColor whiteColor];
     }
     return _noView;
@@ -85,6 +94,7 @@
     self.isAnBtn =NO;
     //设置透明图片
     [self setNaviTouMingImage];
+    [self loadNewData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -142,6 +152,7 @@
     self.tableView.mj_footer = footer;
     self.header =header;
     self.footer =footer;
+    _isFirstRefresh=YES;//第一次加载
     
 }
 //下拉加载
@@ -183,10 +194,17 @@
             self.start += listArray.count;
             [self.header endRefreshing];
             [self.footer endRefreshing];
-            [self.tableView reloadData];
             if (self.isUpLoad==NO) {
                 [self setNaviBarHidden:NO setTouMingImage:YES];
             }
+//            if(self.isFirstRefresh){//只执行一次
+                //第一次加载
+                if(listArray.count<10){
+                    [self.footer endRefreshingWithNoMoreData];
+                }
+//                self.isFirstRefresh=NO;
+//            }
+            [self.tableView reloadData];
         }
         if(self.allListArray.count<1){//无数据
                 //self.jiaSuView.hidden =YES;
@@ -366,7 +384,12 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 300;
+    NSNumber *height = [self.heightAtIndexPath objectForKey:indexPath];
+    if (indexPath.section==0) {
+        return height?height.floatValue:300;
+    }else{
+        return (SYRealValue(44));
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -382,10 +405,22 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    BCSuanLiJiLuModel
+
     if (indexPath.section==0) {
+//        NSNumber *height = [self.heightAtIndexPath objectForKey:indexPath];
+//        return height ? height.floatValue : UITableViewAutomaticDimension;
         return UITableViewAutomaticDimension;
     }else{
         return (SYRealValue(44));
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        NSNumber *height = @(cell.frame.size.height);
+        [self.heightAtIndexPath setObject:height forKey:indexPath];
     }
 }
 
