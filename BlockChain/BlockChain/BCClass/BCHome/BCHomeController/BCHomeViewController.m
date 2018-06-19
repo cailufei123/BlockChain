@@ -464,6 +464,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
         [MBManager showWaitingWithTitle:@"加载.."];
         [weakSelf loadNewData ];
     };
+    
     self.homeTopView.refreshCandyList = ^{
          [weakSelf loadHomeCandyLis];
         

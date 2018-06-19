@@ -122,7 +122,23 @@
     if (model!=nil) {
         self.dengLuLable.text = model.remark;
         self.timeLable.text= model.createTime;
-        self.numberLable.text= [NSString stringWithFormat:@"+%.1f",model.compute.floatValue];
+        
+        if ([model.compute floatValue]<0) {//直接显示负数，服务器自动反 - 号
+            if(model.compute.wby_isPureInt){
+                self.numberLable.text=[NSString stringWithFormat:@"%.1f",model.compute.floatValue];
+            }else{
+                self.numberLable.text=model.compute;
+            }
+        }else{//证书
+            //整形还是浮点型
+            if (model.compute.wby_isPureInt) {//整形
+                self.numberLable.text=[NSString stringWithFormat:@"+%.1f",model.compute.floatValue];
+            }else{
+                self.numberLable.text=[NSString stringWithFormat:@"+%@",model.compute];
+            }
+        }
+        
+        //self.numberLable.text= [NSString stringWithFormat:@"+%.1f",model.compute.floatValue];
     }
 }
 #pragma mark- 去官网

@@ -132,7 +132,7 @@
 
 #pragma mark -BCMePDCListAlertViewDelegate 加载官网按钮
 -(void)guanWangBtnClick:(BCMePDCMode *)model{
-    NSString *path = [NSString stringWithFormat:@"http://%@",model.partner.site];
+    NSString *path = [NSString stringWithFormat:@"%@",model.partner.site];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path]];
 }
 #pragma mark -BCMePDCListAlertViewDelegate 知道了按钮点击
