@@ -102,15 +102,18 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     [self createRefresh];
     [self createHideBt];
     [self createHorseLampbgView];
-     [self loadHomeCandyLis];
-     [self homePage];
+    [self loadHomeCandyLis];
+    [self homePage];
     [self loadNewData];
-     [self winPeople];
+    [self winPeople];
     self.timer = [NSTimer wh_scheduledTimerWithTimeInterval:60 repeats:YES callback:^(NSTimer *timer) {
-
         [self winPeople];
     }];
-   
+    // app退到后台
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground) name:UIApplicationWillResignActiveNotification object:nil];
+    // app进入前台
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterPlayground) name:UIApplicationDidBecomeActiveNotification object:nil];
+ 
 //    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     [self updataVison];
     // 配置参数
@@ -120,6 +123,10 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     self.tableView.loadedImageName = @"网络异常";
     self.tableView.descriptionText = @"破网络，你还是再请求一次吧";
     self.tableView.dataVerticalOffset = 200;
+    
+}
+-(void)appDidEnterPlayground{
+    [self loadHomeCandyLis];
     
 }
 -(void)updataVison{

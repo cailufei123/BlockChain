@@ -159,7 +159,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
 -(void)loadUpData{
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
-    NSLog(@"%@",USER_INFO);
+    NSLog(@"%@",loginToken);
     
     [BCRequestData getUser_InfoDict:candyDict success:^(id responseObject) {
         //[MBManager hideAlert];

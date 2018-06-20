@@ -14,18 +14,18 @@
 
 
 //线上还是测试 1-测试 0-线上
-#define Mode_Value 1
+#define Mode_Value 0
 
 /**  API*/
 #if Mode_Value
 
 #define SERVER_ADDR @"http://101.200.74.83:8080"
-#define USER_SERVER_ADDR @"http://182.92.205.236"
-#define PAY_SERVER_ADDR  @"http://182.92.205.236"
+//#define USER_SERVER_ADDR @"http://182.92.205.236"
+//#define PAY_SERVER_ADDR  @"http://182.92.205.236"
 #else
-#define SERVER_ADDR @"http://esp.im-come.com"
-#define USER_SERVER_ADDR @"http://esp.im-come.com"
-#define PAY_SERVER_ADDR  @"http://im-come.com"
+#define SERVER_ADDR @"https://leilu.meibaizou.com"
+//#define USER_SERVER_ADDR @"https://leilu.meibaizou.com"
+//#define PAY_SERVER_ADDR  @"https://leilu.meibaizou.com"
 #endif
 
 
