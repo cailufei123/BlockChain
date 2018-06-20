@@ -21,5 +21,6 @@
 //是否返回刷新block
 @property(nonatomic,copy)void (^refreshAllData)(BOOL isRefresh);
 
+@property(nonatomic,copy)void (^backBlock)(BOOL back);
 
 @end

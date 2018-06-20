@@ -22,6 +22,8 @@
 +(void)get_yuEr_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess passwordError:(void (^) (NSString * message))message noYuEr:(void (^) (NSString * yuer))noYuEr erorr:(void(^)(id error))erorr;
 //算力记录
 +(void)get_suanLiJiLu_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr;
+//等到分享页面的下载接口
++(void)get_DownUrl_Dict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr;
 
 
 @end

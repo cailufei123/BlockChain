@@ -35,7 +35,6 @@
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
         _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTopHeight-56) style:UITableViewStyleGrouped];
-        NSLog(@"%f",kTopHeight);
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor  =bagColor;

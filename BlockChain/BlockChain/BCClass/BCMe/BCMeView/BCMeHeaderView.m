@@ -300,64 +300,10 @@
         [self.QRCode setImage:[UIImage imageNamed:@"二维码"] forState:UIControlStateNormal];
         self.zongLable1.text =@"总资产≈";
         self.zongLable2.text = [NSString stringWithFormat:@"%@%@",@"¥",model.coin];
-//        [self.tangGuoBtn setTitle:@"糖果记录" forState:UIControlStateNormal];
-//        [self.moreTangGuoBtn setTitle:@"更多糖果" forState:UIControlStateNormal];
     }
 }
 
 
-
-
-//-(void)setMode:(ExpertHomeDetailMode *)mode{
-//    _mode =mode;
-//    if (mode!=nil) {
-//        _bigView.backgroundColor =[UIColor whiteColor];
-//        _downView.backgroundColor =[UIColor whiteColor];
-//        _downOneView.backgroundColor =[UIColor whiteColor];
-//        _downTwoView.backgroundColor =[UIColor whiteColor];
-//        _webView.backgroundColor =[UIColor whiteColor];
-//        _jianjieLine.backgroundColor =kNaviColor;
-//        _upSeparatorLine.backgroundColor =BGCOLOR_TABLEVIEW;
-//        _downSeparatorLine.backgroundColor =BGCOLOR_TABLEVIEW;
-//        //强制布局
-//        [self.bigExpertIcon sd_setImageFromURLPath:ZZPingString(URL_ImagePrefixPath, mode.photo)];
-//        self.avaterBorderImg.image=[UIImage imageNamed:@"touxiang"];
-//        [self.smallExpertIcon sd_setExpertHeadIconImageFromURLPath:ZZPingString(URL_ImagePrefixPath, mode.photo)];
-//        self.expertName.text = mode.name;//姓名
-//        CGSize expertNameSize = [mode.name sizeWithAttributes:@{NSFontAttributeName : SYSTEMFONT(WidthScale(20))}];
-//
-//        self.jianjieLable.text=@"简介";
-//        self.expertTitle.text = mode.title;//咨询师
-//        CGSize expertTitleSize = [mode.title sizeWithAttributes:@{NSFontAttributeName : TEXTFONT_XiTi(WidthScale(12))}];
-//
-//        self.zizhiTitle.text = @"从业资质";//发表内容
-//        CGSize zizhiTitleSize = [@"从业资质" sizeWithAttributes:@{NSFontAttributeName : SYSTEMFONT(WidthScale(16))}];
-//        self.zhengjianTitle.text = mode.qualification;//认证
-//        CGSize zhengjianTitleSize = [mode.qualification sizeWithAttributes:@{NSFontAttributeName : SYSTEMFONT(WidthScale(14))}];
-//
-//        self.zizhiIcon.image=[UIImage imageNamed:@"renzheng"];
-//        self.zhiziHuaTitle.text=@"知子花认证";
-//        self.webView.hidden=NO;
-//        [self layoutIfNeeded];
-//        [self layoutIfNeeded];
-//
-//        self.bigViewHeight =self.upBigView.zz_height+WidthScale(61/2)+WidthScale(10) +expertNameSize.height +WidthScale(10)+expertTitleSize.height+WidthScale(15)+WidthScale(10);
-//        self.downTwoHeight = WidthScale(20)+zizhiTitleSize.height +WidthScale(20)+zhengjianTitleSize.height+WidthScale(20);
-//
-//        self.middleViewHeight = self.bigViewHeight+self.downOneView.zz_height+self.downTwoHeight;
-//
-//        NSLog(@"bigView.zz_bottom===%f",self.bigView.zz_height);
-//        NSLog(@"self.downOneView.zz_y===%f",self.downOneView.zz_height);
-//        NSLog(@"self.downTwoView.zz_height===%f",self.downTwoView.zz_height);
-//        NSLog(@"self.middleViewHeight===%f",self.middleViewHeight);
-//        //        bigView.zz_bottom===256.000000
-//        //        self.downOneView.zz_y===34.000000
-//        //        self.downTwoView.zz_height===94.000000
-//        //        self.middleViewHeight===392.533333
-//
-//
-//    }
-//}
 #pragma 糖果记录跳转
 -(void)tangGuoBtnClick:(UIButton *)button{
    if (self.delegate && [self.delegate respondsToSelector:@selector(tangGuoBtnClick)]) {
@@ -377,13 +323,6 @@
         [self.delegate QRCodeBtnClick];
     }
 }
-
-
-
-
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(sendHeartWithCellModel:CellDidClickFrom:)]) {
-//        [self.delegate sendHeartWithCellModel:_mode CellDidClickFrom:self];
-//    }
 
 
 

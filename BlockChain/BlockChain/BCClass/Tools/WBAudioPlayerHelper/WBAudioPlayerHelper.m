@@ -280,7 +280,7 @@
                 player.delegate = self;
                 [player prepareToPlay];
                 if(error){
-                    NSLog(@"file error %@",error.description);
+                    //NSLog(@"file error %@",error.description);
                 }
                 self.audioPlayer = player;
                 [self playAudio];

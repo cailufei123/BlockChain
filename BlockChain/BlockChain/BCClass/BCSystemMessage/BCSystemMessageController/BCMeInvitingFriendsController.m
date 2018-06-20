@@ -32,6 +32,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     //去掉底部线条
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -44,7 +45,7 @@
         _invitingView = [[BCMeInvitingFriendsView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
         self.model.token = loginMe.shareCode;//码
         //NSLog(@"lastInviteCount===%@",loginMe.shareCode);
-        NSString *path = [USER_DEFAULT valueForKey:@"downUrl"];
+        NSString *path = [USER_DEFAULT valueForKey:@"downUrlPath"];
         // 获取对应颜色的二维码
         UIImage*Qimage=[Util getColorQimageWithPath:path withImageView:nil WithSize:500 withCenterIcon:[UIImage imageNamed:@"lg"] centerIconWidth:SXRealValue(80) withRed:129.0f andGreen:0.0f andBlue:224.0f];
         self.model.QImage =Qimage;
@@ -160,7 +161,11 @@
     [self.view addSubview:self.invitingView];
     //显示分享二维码
     [self showShareView];
+
 }
+
+
+
 
 -(void)setNaviTitle{
     self.navigationItem.title=@"邀请好友";

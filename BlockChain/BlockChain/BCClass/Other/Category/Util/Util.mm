@@ -142,7 +142,7 @@
                 [[PHImageManager defaultManager] requestImageDataForAsset:imageAsset
                                                                   options:nil
                                                             resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-                                                                NSLog(@"imageData = %@", imageData);
+                                                                //NSLog(@"imageData = %@", imageData);
                                                             }];
             }
         }
@@ -186,7 +186,7 @@
     //设置默认值
     [colorFilter setDefaults];
     //同样打印这样的 输入属性  inputKeys
-    NSLog(@"%@",colorFilter.inputKeys);
+    //NSLog(@"%@",colorFilter.inputKeys);
     //KVC 给私有属性赋值
     [colorFilter setValue:qrImage forKey:@"inputImage"];
 

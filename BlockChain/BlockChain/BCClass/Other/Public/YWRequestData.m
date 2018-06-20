@@ -15,7 +15,7 @@
 
     [LFHttpTool post:GET_VCODE params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
 
           [MBManager hideAlert];
          sucess(responseObj);
@@ -34,7 +34,7 @@
 + (void)registUserDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:USER_REGISTER params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-          LFLog(@"%@",responseObj);
+          //LFLog(@"%@",responseObj);
           [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -51,7 +51,7 @@
 
     [LFHttpTool post:USER_LOGIN params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
           [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -67,15 +67,14 @@
 
 // - 首页糖果记录-----
 + (void)homeCandyListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess erorr:(void(^)(id error))erorr{
-    
+
+    NSLog(@"%@",CANDY_LIST);
     [LFHttpTool post:CANDY_LIST params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
-            
-           
         }else{
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {
@@ -84,11 +83,12 @@
         [MBManager hideAlert];
     }];
 }
+
 // - 领取糖果-----
 + (void)candycainDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess yiLingQu:(void (^) (id message))yiLingQu{
     [LFHttpTool post:CANDY_GAIN params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(1)]) {
             sucess(responseObj);
@@ -106,7 +106,7 @@
 + (void)realNameIDDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:AUTH_CARDID params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -124,7 +124,7 @@
 + (void)homePageDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:HOME_PAGE params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -158,7 +158,7 @@
 + (void)gainPurpleStoneDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:GAIN_DIAMOND params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -175,7 +175,7 @@
 + (void)computePowerDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:COMPUTE_POWER params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -192,7 +192,7 @@
 + (void)userTaskListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:USER_TASK_LIST params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -209,7 +209,7 @@
 + (void)taskListDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:TASK_LIST params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -227,7 +227,7 @@
 + (void)getpswdVcodeDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:GET_PWD_VCODE params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -246,7 +246,7 @@
 + (void)forgetResetDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:FORGET_RESET params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -264,7 +264,7 @@
 + (void)taskeEveryDayDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:USER_TASK_REPORT_EVERYDAY params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -283,7 +283,7 @@
 + (void)taskeDetailDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:TASK_DETAIL params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -300,7 +300,7 @@
 + (void)taskeDoonceDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:TASK_DO_ONCE params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -317,7 +317,7 @@
 + (void)candy_detail_Dict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess erorr:(void(^)(id error))erorr{
     [LFHttpTool post:CANDY_DETAIL params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
@@ -334,12 +334,10 @@
 + (void)getplayDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
     [LFHttpTool post:GET_LEPLAY params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
-        LFLog(@"%@",responseObj);
+        //LFLog(@"%@",responseObj);
         [MBManager hideAlert];
         if ([responseObj[@"status"] isEqual:@(0)]) {
             sucess(responseObj);
-            
-            
         }else{
             [MBManager showBriefAlert:responseObj[@"message"]];}
     } failure:^(NSError *error) {

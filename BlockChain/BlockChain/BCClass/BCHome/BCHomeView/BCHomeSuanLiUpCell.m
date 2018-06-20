@@ -205,6 +205,16 @@
         self.suLiMessage.text= @"算力是用户获取财富币的影响因子，同一时间内算力越高，获得的财富币越多，后续的版本中算力也将关系到用户等级以及相应的用户权限";
         //顶部
         [self.bigView gradientFreme:CGRectMake(0, 0, SCREENWIDTH, upBigViewHeight+kTopHeight) startColor:color5E4FC9 endColor:colorC483FB];
+        [self layoutIfNeeded];
+        [self setNeedsLayout];
+//        NSLog(@"bigView===%@",NSStringFromCGRect(self.bigView.frame));
+//        NSLog(@"suLiLable==%@",NSStringFromCGRect(self.suLiLable.frame));
+//        NSLog(@"suLiNumber==%@",NSStringFromCGRect(self.suLiNumber.frame));
+//        NSLog(@"1111==%f",self.bigView.xmg_bottom);
+//        NSLog(@"2222==%f",self.suLiNumber.xmg_bottom);
+//        NSLog(@"3333==%f",self.bigView.xmg_bottom+self.suLiNumber.xmg_bottom+(SYRealValue(17)));
+        //计算出高度
+        //model.UpBigHeight = self.bigView.xmg_bottom+self.suLiNumber.xmg_bottom+(SYRealValue(17));
     }
 }
 

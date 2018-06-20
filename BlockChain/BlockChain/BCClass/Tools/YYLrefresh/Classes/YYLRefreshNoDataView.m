@@ -38,8 +38,8 @@
 - (UILabel *)tipLabel {
     if (!_tipLabel) {
         _tipLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _tipLabel.text = @"暂无数据";
-        _tipLabel.font = [UIFont systemFontOfSize:17];
+        _tipLabel.text = @"这里是空的喲~";
+        _tipLabel.font = [UIFont systemFontOfSize:16];
         _tipLabel.textColor = [UIColor grayColor];
         _tipLabel.textAlignment = NSTextAlignmentCenter;
         _tipLabel.backgroundColor = [UIColor clearColor];

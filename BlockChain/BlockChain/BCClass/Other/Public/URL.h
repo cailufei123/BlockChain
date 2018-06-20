@@ -23,9 +23,13 @@
 //#define USER_SERVER_ADDR @"http://182.92.205.236"
 //#define PAY_SERVER_ADDR  @"http://182.92.205.236"
 #else
-#define SERVER_ADDR @"https://leilu.meibaizou.com"
-//#define USER_SERVER_ADDR @"https://leilu.meibaizou.com"
-//#define PAY_SERVER_ADDR  @"https://leilu.meibaizou.com"
+
+
+#define SERVER_ADDR @"http://welth.leilook.com" //新线上域名
+//#define SERVER_ADDR @"http://esp.im-come.com"
+//#define USER_SERVER_ADDR @"http://esp.im-come.com"
+//#define PAY_SERVER_ADDR  @"http://im-come.com"
+
 #endif
 
 
@@ -107,7 +111,9 @@
 //糖果详情
  #define CANDY_DETAIL [NSString stringWithFormat:@"%@%@",INFO_SERVICE, @"candy/detail"]
 //算力 和记录
- #define COMPUTE_POWER [NSString stringWithFormat:@"%@%@",USER_SERVICE, @"compute/getComputeLogs"]  
+ #define COMPUTE_POWER [NSString stringWithFormat:@"%@%@",USER_SERVICE, @"compute/getComputeLogs"]
+//邀请页分享码
+#define INVITE_PARAMS [NSString stringWithFormat:@"%@%@",USER_SERVICE, @"inviteParams"]
 //TOKEN 详情页
  #define TOKEN_DETAIL [NSString stringWithFormat:@"%@%@",TOKEN_SERVICE, @"getTokenInfo"]  
 

@@ -97,8 +97,8 @@
     
     NSString *sumStr = [sums componentsJoinedByString:@""];
     NSString *chinese = [sumStr substringToIndex:sumStr.length-1];
-    NSLog(@"%@",str);
-    NSLog(@"%@",chinese);
+    //NSLog(@"%@",str);
+    //NSLog(@"%@",chinese);
     return chinese;
 }
 
