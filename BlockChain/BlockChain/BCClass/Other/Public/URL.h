@@ -24,10 +24,12 @@
 //#define PAY_SERVER_ADDR  @"http://182.92.205.236"
 #else
 
+
 #define SERVER_ADDR @"http://welth.leilook.com" //新线上域名
 //#define SERVER_ADDR @"http://esp.im-come.com"
 //#define USER_SERVER_ADDR @"http://esp.im-come.com"
 //#define PAY_SERVER_ADDR  @"http://im-come.com"
+
 #endif
 
 

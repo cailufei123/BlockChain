@@ -13,7 +13,7 @@
 #pragma mark - 糖果包详情-----
 
 +(void)getUser_InfoDict:(NSDictionary *)dict success:(void (^) (id responseObject))sucess erorr:(void(^)(id error))erorr {
-    
+       LFLog(@"====%@",USER_INFO);
     [LFHttpTool post:USER_INFO params:dict progress:^(id downloadProgress) {
     } success:^(id responseObj) {
         
