@@ -67,6 +67,8 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.timer hyb_invalidate];
+    [self loadNewData];
+    
 }
 
 
@@ -95,6 +97,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.type = @"0";
     self.isHaveData = YES;
     [self setTable];
@@ -359,14 +362,14 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 }
 
 -(void)hideSquare:(UIButton * )bt{
-  
+//    self.tableView.tableHeaderView.clf_height = 350;
     if (bt.selected) {
-        bt.selected = NO;
+//        bt.selected = NO;
            [self.tableView setContentOffset:CGPointMake(0,0) animated:YES];
         
     }else{
-         bt.selected = YES;
-       [self.tableView setContentOffset:CGPointMake(0,350) animated:YES];
+//         bt.selected = YES;
+       [self.tableView setContentOffset:CGPointMake(0,394-kTopHeight-20-33) animated:YES];
     }
  
 }
@@ -387,7 +390,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     // 只需一行代码，我来解放你的代码
     [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
         self.userCandyLists =  [CandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
-        [self setButtonisHidden];//根据数据判断，磁场按钮是否显示
+//        [self setButtonisHidden];//根据数据判断，磁场按钮是否显示
         [MBManager hideAlert];
         if (self.userCandyLists.count<10) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
@@ -510,9 +513,10 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-kTabBarHeight) style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
+   
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.backgroundColor  =[UIColor blackColor];
+//    self.tableView.backgroundColor  =[UIColor blackColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //       self.tableView.contentInset = UIEdgeInsetsMake(490, 0, 0, 0);
     [self.tableView registerNib:[UINib nibWithNibName:cellidenfder bundle:nil] forCellReuseIdentifier:cellidenfder];
@@ -539,16 +543,18 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-   
+    self.tableView.backgroundColor  =bagColor;
         CGFloat offsetY = scrollView.contentOffset.y;
     LFLog(@"%lf",offsetY);
-  //增加无法下拉
-    [Util cantXiaLaScrollView:scrollView];
-//    if (offsetY<0) {
+
+    if (offsetY<0) {
 //        self.tableView.backgroundColor  =[UIColor blackColor];
-//    }else{
-//         self.tableView.backgroundColor  =bagColor;
-//    }
+    }else{
+        self.tableView.backgroundColor  =bagColor;
+    }
+
+    [Util cantXiaLaScrollView:scrollView];
+
     if (offsetY>394-kTopHeight-20-34) {
         self.homeTopView .clf_y =offsetY-(394-kTopHeight-20-34);
           self.button.selected = YES;
