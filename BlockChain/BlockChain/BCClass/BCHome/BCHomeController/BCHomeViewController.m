@@ -553,12 +553,7 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
         self.tableView.backgroundColor  =bagColor;
     }
 
-  
-//    if (offsetY<0) {
-//        self.tableView.backgroundColor  =[UIColor blackColor];
-//    }else{
-//         self.tableView.backgroundColor  =bagColor;
-//    }
+    [Util cantXiaLaScrollView:scrollView];
 
     if (offsetY>394-kTopHeight-20-34) {
         self.homeTopView .clf_y =offsetY-(394-kTopHeight-20-34);
