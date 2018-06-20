@@ -386,7 +386,8 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     candyDict[@"token"] = loginToken;
     candyDict[@"type"] =self.type;
     candyDict[@"size"] = @"10";
-   
+    NSLog(@"%@",CANDY_LIST);
+
     // 只需一行代码，我来解放你的代码
     [YWRequestData homeCandyListDict:candyDict success:^(id responseObj) {
         self.userCandyLists =  [CandyListModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];

@@ -232,7 +232,6 @@
     [header beginRefreshing];
     self.tableView.mj_header = header;
     self.tableView.mj_footer = footer;
-    self.tableView.mj_footer.hidden =YES;
     self.header =header;
     self.footer =footer;
 }

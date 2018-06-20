@@ -28,7 +28,6 @@
         [MBManager showBriefAlert:@"网络错误"];
          [MBManager hideAlert];
     }];
-//
 }
 #pragma mark - 注册用户-----
 + (void)registUserDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
@@ -46,6 +45,7 @@
          [MBManager hideAlert];
     }];
 }
+
 #pragma mark - 用户登录-----
 + (void)userLoginDict:(NSDictionary *)dict success:(void (^) (id responseObj))sucess{
 
