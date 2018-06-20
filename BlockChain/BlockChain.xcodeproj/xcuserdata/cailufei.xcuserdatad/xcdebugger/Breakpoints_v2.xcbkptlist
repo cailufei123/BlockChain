@@ -33,53 +33,6 @@
             endingLineNumber = "163"
             landmarkName = "-loadUpData"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[BCMeViewController loadUpData]"
-                  moduleName = "BlockChain"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/BCMe/BCMeController/BCMeViewController.m"
-                  timestampString = "551155010.358241"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "164"
-                  endingLineNumber = "164"
-                  offsetFromSymbolStart = "383">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__32-[BCMeViewController loadUpData]_block_invoke"
-                  moduleName = "BlockChain"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/BCMe/BCMeController/BCMeViewController.m"
-                  timestampString = "551155010.376466"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "164"
-                  endingLineNumber = "164"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.106"
-                  moduleName = "BlockChain"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/BCMe/BCMeController/BCMeViewController.m"
-                  timestampString = "551155010.382898"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "164"
-                  endingLineNumber = "164"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -121,7 +74,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Other/Public/BCRequestData.m"
-                  timestampString = "551155010.406085"
+                  timestampString = "551164473.303993"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "17"
@@ -136,7 +89,7 @@
                   moduleName = "BlockChain"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cailufei/Desktop/IOS%E5%8C%BA%E5%9D%97/BlockChain/BlockChain/BCClass/Other/Public/BCRequestData.m"
-                  timestampString = "551155010.410588"
+                  timestampString = "551164473.30899"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -144,6 +97,22 @@
                   offsetFromSymbolStart = "52">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain/BCClass/BCHome/BCHomeController/BCHomeViewController.m"
+            timestampString = "551165073.080779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "557"
+            endingLineNumber = "557"
+            landmarkName = "-scrollViewDidScroll:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
