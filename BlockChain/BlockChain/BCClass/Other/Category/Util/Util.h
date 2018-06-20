@@ -80,4 +80,6 @@
  *range                              设置行高度的字符串范围
  */
 +(void)wby_setLableLineSpacing:(CGFloat)lineSpacing  withAlignment:(NSTextAlignment)alignment with:(NSMutableAttributedString*)attr withRange:(NSRange)range;
+//不可以下拉 只能上拉
++(void)cantXiaLaScrollView:(UIScrollView *)scrollView;
 @end

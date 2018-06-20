@@ -251,7 +251,13 @@
 }
 #pragma mark- 去官网
 -(void)guanWangBtnClick{
-    NSString *path = [NSString stringWithFormat:@"%@",_model.partnerInfo.site];
+    NSString *path = _model.partnerInfo.site;
+    
+    if([path hasPrefix:@"http://"]){//有链接
+        path = [NSString stringWithFormat:@"%@",path];
+    }else{
+        path = [NSString stringWithFormat:@"http://%@",path];
+    }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path] options:@{UIApplicationOpenURLOptionUniversalLinksOnly: @NO} completionHandler:^(BOOL success) {
         
     }];

@@ -259,6 +259,8 @@
 
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //增加无法下拉
+    [Util cantXiaLaScrollView:scrollView];
     if (self.isAnBtn) return;//判断离开控制，停止调用设置导航栏
     if (self.isNoNetWork) return;//没有网络不执行
     CGFloat offsetY = scrollView.contentOffset.y;
