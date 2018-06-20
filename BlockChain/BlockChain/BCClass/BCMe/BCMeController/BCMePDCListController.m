@@ -232,10 +232,8 @@
     [header beginRefreshing];
     self.tableView.mj_header = header;
     self.tableView.mj_footer = footer;
-    self.tableView.mj_footer.hidden =YES;
     self.header =header;
     self.footer =footer;
-    
 }
 //下拉加载
 -(void)loadNewData{
@@ -296,13 +294,13 @@
             [self.footer endRefreshing];
             [self.header endRefreshing];
             
-            if(self.isFirstRefresh){//只执行一次
+//            if(self.isFirstRefresh){//只执行一次
                 //第一次加载
-                if(listArray.count<20){
+                if(listArray.count<15){
                     [self.footer endRefreshingWithNoMoreData];
                 }
                 self.isFirstRefresh=NO;
-            }
+//            }
             [self.tableView reloadData];
         }
         if(listArray.count==0){
