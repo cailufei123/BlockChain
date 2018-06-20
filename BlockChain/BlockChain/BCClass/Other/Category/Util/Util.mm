@@ -430,4 +430,12 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
             [attr addAttribute:NSParagraphStyleAttributeName value:sty range:range];
 }
 
++(void)cantXiaLaScrollView:(UIScrollView *)scrollView{
+    CGPoint offset = scrollView.contentOffset;
+    if (offset.y <= 0) {
+        offset.y = 0;
+    }
+    scrollView.contentOffset = offset;
+}
+
 @end

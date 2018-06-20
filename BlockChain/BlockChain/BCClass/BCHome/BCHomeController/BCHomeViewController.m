@@ -533,7 +533,6 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
      self.tableView.headerRefreshingBlock = ^{
          [weakSelf loadHomeCandyLis];
            [weakSelf loadNewData];
-         
     };
      self.tableView.footerRefreshingBlock = ^{
         //请求数据
@@ -542,15 +541,25 @@ static NSString * const notMessageCellidenfder = @"BCNotMessageCell";
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LFscreenW, 490)];
     self.tableView.tableHeaderView.clf_height = 490;
 }
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     self.tableView.backgroundColor  =bagColor;
         CGFloat offsetY = scrollView.contentOffset.y;
     LFLog(@"%lf",offsetY);
+
     if (offsetY<0) {
 //        self.tableView.backgroundColor  =[UIColor blackColor];
     }else{
         self.tableView.backgroundColor  =bagColor;
     }
+
+  
+//    if (offsetY<0) {
+//        self.tableView.backgroundColor  =[UIColor blackColor];
+//    }else{
+//         self.tableView.backgroundColor  =bagColor;
+//    }
+
     if (offsetY>394-kTopHeight-20-34) {
         self.homeTopView .clf_y =offsetY-(394-kTopHeight-20-34);
           self.button.selected = YES;

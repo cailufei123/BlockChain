@@ -166,7 +166,7 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
     NSMutableDictionary * candyDict = diction;
     candyDict[@"token"] = loginToken;
     [self.listArray removeAllObjects];
-    //NSLog(@"%@",MY_TOKEN_LIST);
+    NSLog(@"%@",MY_TOKEN_LIST);
     [BCRequestData get_Token_List_Dict:candyDict success:^(id responseObject) {
         //[MBManager hideAlert];
         BCMeDownModel *model = [BCMeDownModel mj_objectWithKeyValues:responseObject[@"data"]];
@@ -178,7 +178,6 @@ static NSString * const cellidenfder = @"BCMeTableViewCell";
         noDataHeight =HeaderViewHeight;
         self.tableView.loadErrorType = YYLLoadErrorTypeNoData;
         noDataHeight =0;
-        
         
         if (self.listArray.count>0) {
             self.tableView.loadErrorType = YYLLoadErrorTypeDefalt;

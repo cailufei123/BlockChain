@@ -132,8 +132,17 @@
 
 #pragma mark -BCMePDCListAlertViewDelegate 加载官网按钮
 -(void)guanWangBtnClick:(BCMePDCMode *)model{
-    NSString *path = [NSString stringWithFormat:@"%@",model.partner.site];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path]];
+    NSString *path;
+    if([model.partner.site hasPrefix:@"http://"]){//有链接
+        path = [NSString stringWithFormat:@"%@",model.partner.site];
+    }else{
+        path = [NSString stringWithFormat:@"http://%@",model.partner.site];
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path] options:@{UIApplicationOpenURLOptionUniversalLinksOnly: @NO} completionHandler:^(BOOL success) {
+        
+    }];
+    
+    
 }
 #pragma mark -BCMePDCListAlertViewDelegate 知道了按钮点击
 -(void)sureBtnClick:(BCMePDCListMode *)model{
@@ -252,7 +261,7 @@
     candyDict[@"code"] = self.code;//糖果id
     candyDict[@"size"] = @20;//糖果id
     candyDict[@"page"] = [NSString stringWithFormat:@"%@",@(self.page)];//糖果id
-    //NSLog(@"%@",TOKEN_DETAIL);
+    NSLog(@"%@",TOKEN_DETAIL);
     [BCRequestData get_token_Detail_Dict:candyDict success:^(id responseObject) {
     self.PDCmodel = [BCMePDCMode mj_objectWithKeyValues:responseObject[@"data"]];
     NSMutableArray* listArray = [BCMePDCListMode mj_objectArrayWithKeyValuesArray:self.PDCmodel.ucl];
@@ -321,6 +330,8 @@
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //增加无法下拉
+    [Util cantXiaLaScrollView:scrollView];
     if(self.isAnBtn)return;
     if(self.isNoNetWork==YES) return;//无网络
     CGFloat offsetY = scrollView.contentOffset.y;
