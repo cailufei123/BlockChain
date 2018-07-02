@@ -19,6 +19,8 @@
 @end
 @interface BCMePDCListDownCell : UITableViewCell
 
+//@property(nonatomic,copy)void (^refreshCandyList)(void);
+//@property(nonatomic,copy)void (^screen)(NSString * );
 @property(nonatomic,strong)BCMePDCListMode *model;
 
 +(instancetype)getCellWithTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;

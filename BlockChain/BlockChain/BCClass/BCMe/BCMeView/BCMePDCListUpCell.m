@@ -321,7 +321,7 @@
     //设置行间距
     //[Util wby_setLableLineSpacing:10 withAlignment:NSTextAlignmentLeft with:attStr withRange:NSMakeRange(0, self.label4.text.length)];
     self.label4.attributedText = attStr;
-    
+
     [self.label4 yb_addAttributeTapActionWithStrings:@[colorMessage] delegate:self];
 }
 
