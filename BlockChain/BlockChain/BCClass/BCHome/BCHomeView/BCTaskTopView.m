@@ -62,6 +62,12 @@
 }
 -(void)setImgs:(NSMutableArray *)imgs{
       self.cycleScrollView.imageURLStringsGroup = imgs;
+//    if (imgs.count==1) {
+//        self.cycleScrollView.showPageControl =NO;
+//    }else{
+//        self.cycleScrollView.s howPageControl =YES;
+//    }
+
 }
 -(void)setPlatTaskLogModels:(NSMutableArray *)platTaskLogModels{
     LFLog(@"%@",platTaskLogModels);

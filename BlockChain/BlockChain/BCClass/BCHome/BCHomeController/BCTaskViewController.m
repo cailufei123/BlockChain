@@ -104,10 +104,18 @@ static NSString * const cellidenfder = @"BCTaskTableViewCell";
     NSMutableDictionary * computePowerDict = diction;
     computePowerDict[@"token"] =loginToken;
     [self.imgs removeAllObjects];
+//    NSLog(@"%@",computePowerDict);
+//    NSLog(@"%@",USER_TASK_LIST);
+    
+    NSLog(@"11==%@",self.imgs);
+    
     [YWRequestData userTaskListDict:computePowerDict success:^(id responseObj) {
         self.isRresh =YES;//证明有数据
         self.platTaskLogModels = [PlatTaskLogModel mj_objectArrayWithKeyValuesArray:responseObj[@"data"][@"platTaskLogs"]];
+        NSLog(@"22==%@",self.imgs);
         [self.imgs addObject:responseObj[@"data"][@"bannerPic"]];
+        NSLog(@"33==%@",self.imgs);
+
         self.taskTopView.platTaskLogModels =  self.platTaskLogModels;
         self.taskTopView.imgs =  self.imgs;
         [self.tableView.mj_header endRefreshing];

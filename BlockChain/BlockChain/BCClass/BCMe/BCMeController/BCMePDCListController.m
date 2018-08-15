@@ -69,7 +69,7 @@
 -(UITableView *)tableView{
     if (!_tableView) {
         self.automaticallyAdjustsScrollViewInsets = NO;
-        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-49) style:UITableViewStyleGrouped];
+        _tableView= [[UITableView alloc]initWithFrame:CGRectMake(0, 0, LFscreenW, LFscreenH-64) style:UITableViewStyleGrouped];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor  =bagColor;
